@@ -1,0 +1,51 @@
+@import "assets/scss/helper.scss";
+
+.ui-button {
+  @include fontInter17SemiBold;
+
+  float: left;
+  box-sizing: border-box;
+  padding: 18px 27px;
+  line-height: 20px;
+  text-align: center;
+  border: none;
+  border-radius: 7px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.5s ease;
+
+  &--expanded {
+    width: 100%;
+  }
+
+  &--size {
+    &-lg {
+      @include fontInter19SemiBold;
+
+      padding: 17px 31px;
+      line-height: 23px;
+    }
+  }
+
+  &--theme {
+    &-default {
+      color: $black;
+      background-color: $white;
+      box-shadow: 0 2px 4px rgb(179 179 179 / 22%);
+    }
+
+    &-purple {
+      color: $white;
+      background-color: #6e41e2;
+      box-shadow: 0 2px 4px rgba(110, 65, 226, 0.22);
+
+      &:hover {
+        background-color: #4926a1;
+      }
+
+      &:focus {
+        background-color: #321e66;
+      }
+    }
+  }
+}

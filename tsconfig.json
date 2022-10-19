@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ES2020",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "importsNotUsedAsValues": "preserve",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "pretty": true,
+    "outDir": "./tmp",
+    "lib": [
+      "ESNext",
+      "ESNext.AsyncIterable",
+      "DOM",
+      "DOM.ITERABLE"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "./*"
+      ]
+    }
+  },
+  "types": [
+    "@types/node",
+    "@nuxt/types"
+  ],
+  "include": [
+    "./definitions.d.ts",
+    "./shim.d.ts",
+    "*.js",
+    "*.ts",
+    "*.d.ts",
+    ".eslintrc.js",
+    "nuxt.config.js",
+    "postcss.config.js",
+    "./**/*.d.ts",
+    "./**/*.ts",
+    "./**/*.js",
+    "./**/*.vue"
+  ],
+  "exclude": [
+    "./node_modules"
+  ]
+}

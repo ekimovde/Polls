@@ -1,0 +1,58 @@
+@import "assets/scss/helper.scss";
+
+.progress-block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: $white;
+  border: 1px solid #ebebeb;
+  border-radius: 8px;
+  box-shadow: 0 0 14px rgb(0 0 0 / 5%);
+
+  &__item {
+    border-right: solid 1px #ececec;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 25px;
+    background-color: transparent;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__title {
+    @include fontInter14Medium;
+
+    color: $black;
+    line-height: 18px;
+  }
+
+  &__text {
+    @include fontInter12SemiBold;
+
+    color: #999;
+    line-height: 18px;
+
+    &--small {
+      @include fontInter12Medium;
+
+      color: #9a9dab;
+      line-height: 14px;
+    }
+  }
+}

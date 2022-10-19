@@ -1,0 +1,39 @@
+# phpstorm project files
+/.idea/
+
+# vscode project folder
+.vscode/
+.history/
+
+# Nuxt build
+.nuxt
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer itself is not needed
+composer.phar
+
+# Mac DS_Store Files
+.DS_Store
+
+**/dist/*
+yarn-error.log
+.env.local
+storybook-static/
+
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# dependencies
+node_modules
+cypress/screenshots

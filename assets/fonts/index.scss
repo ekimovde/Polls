@@ -1,0 +1,290 @@
+$font-family-inter-regular: "Inter-Regular", sans-serif;
+$font-family-inter-semi-bold: "Inter-SemiBold", sans-serif;
+$font-family-inter-medium: "Inter-Medium", sans-serif;
+$font-family-inter-bold: "Inter-Bold", sans-serif;
+
+@font-face {
+  font-family: "Inter-Regular";
+  src:
+    url("~@assets/fonts/Inter/Inter-Regular.woff2") format("woff2"),
+    url("~@assets/fonts/Inter/Inter-Regular.woff") format("woff"),
+    url("~@assets/fonts/Inter/Inter-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter-SemiBold";
+  src:
+    url("~@assets/fonts/Inter/Inter-SemiBold.woff2") format("woff2"),
+    url("~@assets/fonts/Inter/Inter-SemiBold.woff") format("woff"),
+    url("~@assets/fonts/Inter/Inter-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter-Medium";
+  src:
+    url("~@assets/fonts/Inter/Inter-Medium.woff2") format("woff2"),
+    url("~@assets/fonts/Inter/Inter-Medium.woff") format("woff"),
+    url("~@assets/fonts/Inter/Inter-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter-Bold";
+  src:
+    url("~@assets/fonts/Inter/Inter-Bold.woff2") format("woff2"),
+    url("~@assets/fonts/Inter/Inter-Bold.woff") format("woff"),
+    url("~@assets/fonts/Inter/Inter-Bold.ttf") format("truetype");
+}
+
+@mixin font-base {
+  font-style: normal;
+  line-height: 21px;
+  -webkit-font-smoothing: antialiased;
+}
+
+// fontInterRegular
+
+@mixin fontInter24Regular {
+  font-size: 24px;
+  font-family: $font-family-inter-regular;
+  line-height: 120%;
+
+  @include font-base;
+}
+
+@mixin fontInter20Regular {
+  font-size: 20px;
+  font-family: $font-family-inter-regular;
+  line-height: 120%;
+
+  @include font-base;
+}
+
+@mixin fontInter18Regular {
+  font-size: 18px;
+  font-family: $font-family-inter-regular;
+  line-height: 120%;
+
+  @include font-base;
+}
+
+@mixin fontInter16Regular {
+  font-size: 16px;
+  font-family: $font-family-inter-regular;
+
+  @include font-base;
+}
+
+@mixin fontInter14Regular {
+  font-size: 14px;
+  font-family: $font-family-inter-regular;
+
+  @include font-base;
+}
+
+@mixin fontInter13Regular {
+  font-size: 13px;
+  font-family: $font-family-inter-regular;
+
+  @include font-base;
+}
+
+@mixin fontInter12Regular {
+  font-size: 12px;
+  font-family: $font-family-inter-regular;
+
+  @include font-base;
+}
+
+@mixin fontInter10Regular {
+  font-size: 10px;
+  font-family: $font-family-inter-regular;
+
+  @include font-base;
+}
+
+@mixin fontInter8Regular {
+  font-size: 8px;
+  font-family: $font-family-inter-regular;
+
+  @include font-base;
+}
+
+// fontInterSemiBold
+
+@mixin fontInter32SemiBold {
+  font-size: 32px;
+  font-family: $font-family-inter-semi-bold;
+  line-height: 120%;
+
+  @include font-base;
+}
+
+@mixin fontInter28SemiBold {
+  font-size: 28px;
+  font-family: $font-family-inter-semi-bold;
+  line-height: 120%;
+
+  @include font-base;
+}
+
+@mixin fontInter26SemiBold {
+  font-size: 26px;
+  font-family: $font-family-inter-semi-bold;
+  line-height: 120%;
+
+  @include font-base;
+}
+
+@mixin fontInter20SemiBold {
+  font-size: 20px;
+  font-family: $font-family-inter-semi-bold;
+  line-height: 120%;
+
+  @include font-base;
+}
+
+@mixin fontInter19SemiBold {
+  font-size: 19px;
+  font-family: $font-family-inter-semi-bold;
+  line-height: 120%;
+
+  @include font-base;
+}
+
+@mixin fontInter18SemiBold {
+  font-size: 18px;
+  font-family: $font-family-inter-semi-bold;
+  line-height: 120%;
+
+  @include font-base;
+}
+
+@mixin fontInter17SemiBold {
+  font-size: 17px;
+  font-family: $font-family-inter-semi-bold;
+
+  @include font-base;
+}
+
+@mixin fontInter16SemiBold {
+  font-size: 16px;
+  font-family: $font-family-inter-semi-bold;
+
+  @include font-base;
+}
+
+@mixin fontInter14SemiBold {
+  font-size: 14px;
+  font-family: $font-family-inter-semi-bold;
+
+  @include font-base;
+}
+
+@mixin fontInter12SemiBold {
+  font-size: 12px;
+  font-family: $font-family-inter-semi-bold;
+
+  @include font-base;
+}
+
+@mixin fontInter10SemiBold {
+  font-size: 10px;
+  font-family: $font-family-inter-semi-bold;
+
+  @include font-base;
+}
+
+// fontInterBold
+
+@mixin fontInter20Bold {
+  font-size: 20px;
+  font-family: $font-family-inter-bold;
+
+  @include font-base;
+}
+
+@mixin fontInter18Bold {
+  font-size: 18px;
+  font-family: $font-family-inter-bold;
+
+  @include font-base;
+}
+
+@mixin fontInter16Bold {
+  font-size: 16px;
+  font-family: $font-family-inter-bold;
+
+  @include font-base;
+}
+
+@mixin fontInter14Bold {
+  font-size: 14px;
+  font-family: $font-family-inter-bold;
+
+  @include font-base;
+}
+
+@mixin fontInter12Bold {
+  font-size: 12px;
+  font-family: $font-family-inter-bold;
+
+  @include font-base;
+}
+
+@mixin fontInter10Bold {
+  font-size: 10px;
+  font-family: $font-family-inter-bold;
+
+  @include font-base;
+}
+
+// fontInterMedium
+
+@mixin fontInter20Medium {
+  font-size: 20px;
+  font-family: $font-family-inter-medium;
+
+  @include font-base;
+}
+
+@mixin fontInter18Medium {
+  font-size: 18px;
+  font-family: $font-family-inter-medium;
+
+  @include font-base;
+}
+
+@mixin fontInter17Medium {
+  font-size: 17px;
+  font-family: $font-family-inter-medium;
+
+  @include font-base;
+}
+
+@mixin fontInter16Medium {
+  font-size: 16px;
+  font-family: $font-family-inter-medium;
+
+  @include font-base;
+}
+
+@mixin fontInter14Medium {
+  font-size: 14px;
+  font-family: $font-family-inter-medium;
+
+  @include font-base;
+}
+
+@mixin fontInter12Medium {
+  font-size: 12px;
+  font-family: $font-family-inter-medium;
+
+  @include font-base;
+}
+
+@mixin fontInter10Medium {
+  font-size: 10px;
+  font-family: $font-family-inter-medium;
+
+  @include font-base;
+}

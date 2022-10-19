@@ -1,0 +1,36 @@
+@import "assets/scss/helper.scss";
+
+.ui-input {
+  @include fontInter17Medium;
+
+  float: left;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 320px;
+  font-style: normal;
+  outline: none;
+  transition: border 0.5s ease, color 0.5s ease;
+  -webkit-appearance: none;
+
+  &--expanded {
+    max-width: initial;
+  }
+
+  &--view {
+    &-default {
+      padding: 16px 17px 15px 17px;
+      color: #19385d;
+      background-color: #f6f6fa;
+      border: solid 2px #f6f6fa;
+      border-radius: 7px;
+
+      &:focus {
+        color: #6e41e2;
+        background-color: $white;
+        border: 2px solid #6e41e2;
+        box-shadow: 0 2px 4px rgba(110, 65, 226, 0.3);
+        transition: border 0.5s ease, color 0.5s ease;
+      }
+    }
+  }
+}

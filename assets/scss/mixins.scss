@@ -1,0 +1,61 @@
+@import "variables.scss";
+
+@mixin mobile-max {
+  @media (max-width: #{$mobile-max}) {
+    @content;
+  }
+}
+
+@mixin between-mobile-min-max {
+  @media (min-width: #{$mobile-min}) and (max-width: #{$mobile-max}) {
+    @content;
+  }
+}
+
+@mixin mobile-min {
+  @media (max-width: #{$mobile-min}) {
+    @content;
+  }
+}
+
+@mixin min-width-mobile-max {
+  @media (min-width: #{$mobile-max}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin flex-centered-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin accordion-block {
+  width: 100%;
+}
+
+//noinspection ALL
+@mixin scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: $grey-basic05 transparent;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 3.5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $grey-basic50;
+    border-radius: 3.5px;
+  }
+}
