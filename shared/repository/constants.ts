@@ -13,3 +13,42 @@ export interface RouteItemBase {
   title: string
   routeName: RoutesName
 }
+
+export interface LinkItemBase {
+  href: string
+  target: string
+  src?: string
+}
+
+export interface BaseSelectOption {
+  label: string,
+  value: string | number
+}
+
+export enum PollCategory {
+  animals = 'Animals',
+  art = 'Art',
+  books = 'Books',
+  colour = 'Colour',
+  crypto = 'Crypto',
+  days = 'Days',
+  drink = 'Drink',
+  food = 'Food',
+  gaming = 'Gaming',
+  healthcare = 'Healthcare',
+  history = 'History',
+  investment = 'Investment',
+  mobileDevelopment = 'Mobile Development',
+  movies = 'Movies',
+  music = 'Music',
+  news = 'News',
+  politics = 'Politics',
+  random = 'Random',
+  science = 'Science',
+  social = 'Social',
+  startup = 'Startup',
+  tv = 'Tv',
+  webDesign = 'Web Design',
+  webDevelopment = 'Web Development',
+  week = 'Week',
+}

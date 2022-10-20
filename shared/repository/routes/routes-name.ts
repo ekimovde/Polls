@@ -8,5 +8,6 @@ export enum RoutesName {
   myVotes = 'my-votes',
   pollMy = 'poll-my',
   pollNew = 'poll-new',
-  pollResult = 'poll-result'
+  pollResult = 'poll-result',
+  pollSettings = 'poll-settings'
 };

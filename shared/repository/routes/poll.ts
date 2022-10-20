@@ -4,7 +4,8 @@ import { Routes } from '../constants';
 type PollRoutes = Pick<Routes,
   RoutesName.pollMy |
   RoutesName.pollNew |
-  RoutesName.pollResult
+  RoutesName.pollResult |
+  RoutesName.pollSettings
 >
 
 enum UserRoutesTitle {
@@ -26,6 +27,12 @@ export const pollRoutes: PollRoutes = {
   },
   [RoutesName.pollResult]: {
     name: RoutesName.pollResult,
+    meta: {
+      title: UserRoutesTitle.poll
+    }
+  },
+  [RoutesName.pollSettings]: {
+    name: RoutesName.pollSettings,
     meta: {
       title: UserRoutesTitle.poll
     }

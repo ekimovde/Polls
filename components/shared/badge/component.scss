@@ -1,0 +1,48 @@
+@import "assets/scss/helper.scss";
+
+.shared-badge {
+  @include fontInter14Medium;
+
+  padding: 0 6px;
+  color: #fff;
+  line-height: 24px;
+  background-color: #000;
+  border-radius: 6px;
+
+  &--theme {
+    &-purple {
+      color: #763aeb;
+      background-color: #f0e8ff;
+    }
+
+    &-orange {
+      color: #ff7204;
+      background-color: #fff0e8;
+    }
+
+    &-green {
+      color: #1d9f00;
+      background-color: #e7fbe0;
+    }
+
+    &-red {
+      color: #ff3642;
+      background-color: #ffeded;
+    }
+
+    &-pink {
+      color: #ff007d;
+      background-color: #ffebf5;
+    }
+
+    &-blue {
+      color: #0068ff;
+      background-color: #edf3ff;
+    }
+
+    &-grey {
+      color: #787890;
+      background-color: #f4f4f8;
+    }
+  }
+}
