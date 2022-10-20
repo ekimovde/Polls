@@ -18,13 +18,14 @@
           </div>
 
           <div :class="b('text')">
-            {{ item.value }}
+            {{ displayedProgress(item.value) }}
           </div>
         </div>
 
-        <div>
-          Progress
-        </div>
+        <ui-progress
+          :progress="item.value"
+          :theme="item.theme"
+        />
 
         <div :class="b('text', { small: true })">
           {{ item.description }}

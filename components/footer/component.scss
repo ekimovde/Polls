@@ -1,5 +1,74 @@
 @import "assets/scss/helper.scss";
 
 .footer-block {
-  //
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 940px;
+  margin: 0 auto;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    margin: 50px 0 30px 0;
+    padding: 0;
+    column-gap: 12px;
+    list-style: none;
+  }
+
+  &__social-link {
+    display: block;
+    width: 28px;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  &__copyright {
+    @include fontInter13Regular;
+
+    width: 100%;
+    color: #c9c9c9;
+    line-height: 13px;
+    letter-spacing: -0.2145px;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 10px;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    row-gap: 10px;
+  }
+
+  &__link {
+    @include fontInter15Medium;
+
+    clear: both;
+    color: #888;
+    letter-spacing: -0.25575px;
+    text-decoration: none;
+    outline: none;
+    transition: background 0.5s ease, color 0.5s ease;
+
+    &:hover {
+      color: #6e41e2;
+    }
+  }
 }

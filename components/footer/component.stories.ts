@@ -30,6 +30,6 @@ function create(): Component {
 
 Default.parameters = {
   viewport: {
-    defaultViewport: 'ipad'
+    defaultViewport: 'ipadMax'
   }
 };

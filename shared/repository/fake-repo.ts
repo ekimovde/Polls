@@ -1,10 +1,11 @@
 import { respondMockResult } from '../utils/respond-mock-result';
 import { consoleLogMethodCalls } from '../utils/unit-test/console-log-method-calls';
-import { AccessTokens, AuthorizationRequest, ProjectRepository, UpdateAccessTokenRequest, TranslationRequest, UserProgressResponse } from './repo';
+import { AccessTokens, AuthorizationRequest, ProjectRepository, UpdateAccessTokenRequest, TranslationRequest, UserProgressResponse, UserPopularPollsResponse } from './repo';
 import { translationResponse } from './fixtures/translation';
 import { translationsResponse } from './fixtures/translations';
 import { Translation } from '../services/translator';
 import { fakeUserProgress } from './fixtures/fake-user-progress';
+import { fakeUserPopularPolls } from './fixtures/fake-user-popular-polls';
 
 export class FakeRepo implements ProjectRepository {
   static create(): ProjectRepository {
@@ -29,5 +30,9 @@ export class FakeRepo implements ProjectRepository {
 
   async getUserProgress(): Promise<UserProgressResponse[]> {
     return respondMockResult(fakeUserProgress());
+  }
+
+  async getUserPopularPolls(): Promise<UserPopularPollsResponse[]> {
+    return respondMockResult(fakeUserPopularPolls());
   }
 };

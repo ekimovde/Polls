@@ -4,6 +4,9 @@ import NotificationModuleState from '~/store/modules/notification';
 import { Translation, TranslatorType } from '../services/translator';
 import { TranslationsUpdater } from '../services/translations-updater';
 import { NotificationMethods } from '~/components/shared/notification/component';
+import { PollCategory } from './constants';
+import { SharedColorTheme } from '~/components/shared/color/component';
+import { UiProgressTheme } from '~/components/ui/progress/component';
 
 export interface ProjectRepository {
   getTranslation(params: TranslationRequest): Promise<string>
@@ -11,12 +14,13 @@ export interface ProjectRepository {
   auth(params?: AuthorizationRequest): Promise<AccessTokens>
   updateAccessToken(params?: UpdateAccessTokenRequest): Promise<AccessTokens>
   getUserProgress(): Promise<UserProgressResponse[]>
+  getUserPopularPolls(): Promise<UserPopularPollsResponse[]>
 }
 
 export interface ProjectUrlGenerator {
   getTranslation(): string
   getTranslationList(): string
-  auth(): string,
+  auth(): string
   updateAccessToken(): string
 }
 
@@ -62,4 +66,14 @@ export interface UserProgressResponse {
   title: string
   value: number
   description: string
+  theme: UiProgressTheme
+}
+
+export interface UserPopularPollsResponse {
+  name: string
+  color: SharedColorTheme
+  category: PollCategory
+  isPublic: boolean
+  created: string
+  updated: string
 }

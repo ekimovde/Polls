@@ -28,4 +28,8 @@ export class UrlGenerator implements ProjectUrlGenerator {
   getUserProgress(): string {
     return `${ApiRoutes.user}/progress/`;
   }
+
+  getUserPopularPolls(): string {
+    return `${ApiRoutes.user}/popular-polls`;
+  }
 }

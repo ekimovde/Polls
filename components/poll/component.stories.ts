@@ -1,10 +1,10 @@
 import { withDesign } from 'storybook-addon-designs';
 import { Component } from 'vue';
-import { ProgressBlock } from './index';
-import { fakeUserProgress } from '~/shared/repository/fixtures/fake-user-progress';
+import { PollBlock } from './index';
+import { fakeUserPopularPoll } from '~/shared/repository/fixtures/fake-user-popular-polls';
 
 export default {
-  title: 'Components / Progress',
+  title: 'Components / Poll',
   decorators: [withDesign],
   parameters: {
     design: {
@@ -19,23 +19,17 @@ export const Default = (): Component => create();
 function create(): Component {
   return {
     components: {
-      ProgressBlock
+      PollBlock
     },
     data() {
       return {
-        progress: fakeUserProgress()
+        poll: fakeUserPopularPoll()
       };
     },
     template: `
       <div style="padding: 20px;">
-        <progress-block :progress="progress" />
+        <poll-block :poll="poll" />
       </div>
     `
   };
 }
-
-Default.parameters = {
-  viewport: {
-    defaultViewport: 'ipadMax'
-  }
-};

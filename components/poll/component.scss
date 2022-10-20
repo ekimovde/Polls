@@ -1,0 +1,37 @@
+@import "assets/scss/helper.scss";
+
+.poll-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 17px 16px 15px 16px;
+  color: #2e2e2e;
+  text-decoration: none;
+  background-color: $white;
+  border: 1px solid #ebebeb;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: 0 0 14px rgb(0 0 0 / 5%);
+  transition: box-shadow 0.5s ease;
+
+  &:hover {
+    position: relative;
+    z-index: 50;
+    box-shadow: 0 10px 13px rgb(120 81 195 / 7%);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  &__inner-wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+  }
+
+  &__title {
+    @include fontInter19SemiBold;
+
+    color: $black;
+  }
+}

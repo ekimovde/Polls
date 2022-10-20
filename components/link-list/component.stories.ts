@@ -1,10 +1,9 @@
 import { withDesign } from 'storybook-addon-designs';
 import { Component } from 'vue';
-import { ProgressBlock } from './index';
-import { fakeUserProgress } from '~/shared/repository/fixtures/fake-user-progress';
+import { LinkList } from './index';
 
 export default {
-  title: 'Components / Progress',
+  title: 'Components / LinkList',
   decorators: [withDesign],
   parameters: {
     design: {
@@ -19,23 +18,12 @@ export const Default = (): Component => create();
 function create(): Component {
   return {
     components: {
-      ProgressBlock
-    },
-    data() {
-      return {
-        progress: fakeUserProgress()
-      };
+      LinkList
     },
     template: `
       <div style="padding: 20px;">
-        <progress-block :progress="progress" />
+        <link-list />
       </div>
     `
   };
 }
-
-Default.parameters = {
-  viewport: {
-    defaultViewport: 'ipadMax'
-  }
-};
