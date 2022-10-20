@@ -1,5 +1,45 @@
 @import "assets/scss/helper.scss";
 
 .dashboard-page {
-  //
+  box-sizing: border-box;
+  width: 100%;
+  padding: 60px 0 80px 0;
+  background-color: #f9f9f9;
+
+  &__inner-wrapper {
+    width: 940px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    @include fontInter40Bold;
+
+    width: 100%;
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 0;
+    color: $black;
+    line-height: 48px;
+    letter-spacing: -0.264px;
+
+    &--small {
+      @include fontInter22SemiBold;
+
+      line-height: 27px;
+    }
+  }
+
+  &__poll-list-wrapper {
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    row-gap: 15px;
+  }
 }
