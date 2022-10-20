@@ -1,5 +1,5 @@
 <script lang="ts" src="./component.ts"></script>
-<style lang="scss" scoped src="./component.scss"></style>
+<style lang="scss" src="./component.scss"></style>
 
 <template>
   <component

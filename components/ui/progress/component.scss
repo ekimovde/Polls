@@ -1,0 +1,67 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+@import "assets/scss/helper";
+
+$root-name: 'ui-progress';
+
+@mixin progress-bar-common($color) {
+  /* stylelint-disable selector-pseudo-element-no-unknown */
+  &::v-deep {
+    @include b(progress-bar) {
+      @include e(inner) {
+        background-color: $color;
+      }
+    }
+  }
+}
+
+.#{$root-name} {
+  width: 100%;
+  box-sizing: border-box;
+
+  @include b(progress) {
+    width: 100%;
+    height: 8px;
+    border-radius: 20px;
+
+    &.#{$root-name}--completed {
+      /* stylelint-disable selector-pseudo-element-no-unknown */
+      &::v-deep {
+        @include b(progress-bar) {
+          @include e(inner) {
+            border-radius: 20px;
+          }
+        }
+      }
+    }
+
+    &.#{$root-name}--theme {
+      &-green {
+        background-color: #e6fbf0;
+
+        @include progress-bar-common(#00cf66);
+      }
+
+      &-purple {
+        background-color: #f2ecfd;
+
+        @include progress-bar-common(#763aeb);
+      }
+
+      &-red {
+        background-color: #ffeaf2;
+
+        @include progress-bar-common(#ff3c49);
+      }
+    }
+
+    /* stylelint-disable selector-pseudo-element-no-unknown */
+    &::v-deep {
+      @include b(progress-bar) {
+        @include e(inner) {
+          height: 8px;
+          border-radius: 20px;
+        }
+      }
+    }
+  }
+}

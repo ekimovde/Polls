@@ -82,6 +82,14 @@ addParameters({
         },
         type: 'ipad'
       },
+      ipadMax: {
+        name: 'desktop 992',
+        styles: {
+          height: '480px',
+          width: '992px'
+        },
+        type: 'ipad'
+      },
       desktop: {
         name: 'desktop 1440',
         styles: {

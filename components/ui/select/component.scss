@@ -1,0 +1,118 @@
+@import "assets/scss/helper";
+
+.ui-select {
+  box-sizing: border-box;
+  width: 100%;
+
+  &__label {
+    @include fontInter14Medium;
+
+    display: block;
+    margin-bottom: 6px;
+    color: #757575;
+    line-height: 17px;
+  }
+
+  &__wrapper {
+    @include fontInter16Medium;
+
+    position: relative;
+    display: block;
+    clear: both;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 14px 17px 13px 17px;
+    color: #19385d;
+    line-height: 20px;
+    white-space: nowrap;
+    text-align: left;
+    background-color: #f6f6fa;
+    border: solid 2px #f6f6fa;
+    border-radius: 7px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    user-select: none;
+
+    &--open {
+      color: #19385d;
+      background-color: $white;
+      border: 2px solid #6e41e2;
+      box-shadow: 0 2px 4px rgb(110 65 226 / 30%);
+      transition: border 0.5s ease, color 0.5s ease;
+    }
+  }
+
+  &__block {
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    @include fontInter16Medium;
+
+    width: 94%;
+    overflow: hidden;
+    color: #19385d;
+    line-height: 20px;
+    white-space: nowrap;
+    text-align: left;
+    text-overflow: ellipsis;
+  }
+
+  &__icon {
+    @include fontInter20Medium;
+
+    color: #19385d;
+  }
+
+  &__list {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 9;
+    box-sizing: border-box;
+    width: 100%;
+    max-height: 270px;
+    margin-top: 0;
+    padding: 0;
+    overflow: scroll;
+    background-color: #fff;
+    border: solid 1px #e4e4e4;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 8%);
+    transform: none;
+    transform-origin: top;
+    opacity: 0;
+    transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
+    pointer-events: none;
+
+    &--open {
+      -webkit-transform: scale(1) translateY(0);
+      -ms-transform: scale(1) translateY(0);
+      transform: scale(1) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &__item {
+    @include fontInter15Medium;
+
+    padding: 12px 17px 12px 17px;
+    color: #19385d;
+    font-size: 15.5px;
+    font-style: normal;
+    line-height: inherit;
+    text-align: left;
+    list-style: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: #f6f6f6;
+    }
+  }
+}

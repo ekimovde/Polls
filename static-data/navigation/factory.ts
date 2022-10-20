@@ -4,7 +4,7 @@ import { RoutesName } from '~/shared/repository/routes/routes-name';
 export const navigationItem = (params: Partial<RouteItemBase> = {}): RouteItemBase => {
   return {
     title: 'Dashboard',
-    routeName: RoutesName.index,
+    routeName: RoutesName.dashboard,
     ...params
   };
 };

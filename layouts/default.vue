@@ -2,11 +2,13 @@
   <div :class="b()">
     <header-block />
 
-    <div :class="b('body')">
+    <main :class="b('body')">
       <nuxt />
-    </div>
+    </main>
 
-    <footer-block />
+    <footer :class="b('footer')">
+      <footer-block />
+    </footer>
   </div>
 </template>
 
@@ -42,7 +44,13 @@
   &__body {
     width: 100%;
     background-color: #f9f9f9;
-    padding: 60px 0px 80px 0px;
+  }
+
+  &__footer {
+    width: 100%;
+    background-color: $white;
+    border-top: solid 1px #F4F4F4;
+    padding: 50px 0px 60px 0px;
   }
 }
 

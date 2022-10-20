@@ -1,50 +1,125 @@
 @import "assets/scss/helper.scss";
 
-.ui-button {
+$root-name: "ui-button";
+
+.#{$root-name} {
   @include fontInter17SemiBold;
 
-  float: left;
   box-sizing: border-box;
-  padding: 18px 27px;
-  line-height: 20px;
   text-align: center;
   border: none;
-  border-radius: 7px;
   outline: none;
   cursor: pointer;
-  transition: background 0.5s ease;
+  transition: all 0.5s ease;
 
   &--expanded {
     width: 100%;
   }
 
-  &--size {
-    &-lg {
-      @include fontInter19SemiBold;
-
-      padding: 17px 31px;
-      line-height: 23px;
-    }
-  }
-
-  &--theme {
+  &--view {
     &-default {
-      color: $black;
-      background-color: $white;
-      box-shadow: 0 2px 4px rgb(179 179 179 / 22%);
-    }
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    &-purple {
-      color: $white;
-      background-color: #6e41e2;
-      box-shadow: 0 2px 4px rgba(110, 65, 226, 0.22);
+      &.#{$root-name}--size {
+        &-xl {
+          @include fontInter22SemiBold;
 
-      &:hover {
-        background-color: #4926a1;
+          width: 32px;
+          height: 32px;
+          border-radius: 5px;
+        }
       }
 
-      &:focus {
-        background-color: #321e66;
+      &.#{$root-name}--theme {
+        &-grey {
+          color: #9fa1ad;
+          background-color: #f5f5f5;
+
+          &:hover {
+            color: #763aeb;
+            background-color: #f2ebff;
+          }
+        }
+      }
+    }
+
+    &-action {
+      &.#{$root-name}--size {
+        &-xl {
+          @include fontInter19SemiBold;
+
+          padding: 17px 31px;
+          line-height: 23px;
+          border-radius: 7px;
+        }
+      }
+
+      &.#{$root-name}--theme {
+        &-purple {
+          color: $white;
+          background-color: #6e41e2;
+          box-shadow: 0 2px 4px rgba(110, 65, 226, 0.22);
+
+          &:hover {
+            background-color: #4926a1;
+          }
+
+          &:focus {
+            background-color: #321e66;
+          }
+        }
+      }
+    }
+
+    &-extra {
+      &.#{$root-name}--size {
+        &-xl {
+          @include fontInter14SemiBold;
+
+          padding: 13px 18px;
+          line-height: 20px;
+          border-radius: 7px;
+        }
+      }
+
+      &.#{$root-name}--theme {
+        &-grey {
+          color: #4f586d;
+          background-color: #f6f6fa;
+
+          &:hover {
+            color: #6e7b9b;
+          }
+
+          &:focus {
+            color: $black;
+          }
+        }
+      }
+    }
+
+    &-simple {
+      &.#{$root-name}--size {
+        &-xl {
+          @include fontInter16SemiBold;
+
+          line-height: 19px;
+        }
+      }
+
+      &.#{$root-name}--theme {
+        &-purple {
+          color: #6e41e2;
+          text-decoration: none;
+          outline: none;
+          transition: opacity 0.5s ease;
+
+          &:hover {
+            opacity: 0.5;
+          }
+        }
       }
     }
   }

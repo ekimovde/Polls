@@ -7,12 +7,14 @@ import { Translatable } from '~/components/shared/translatable';
 export enum UiButtonView {
   action = 'action',
   simple = 'simple',
-  extra = 'extra'
+  extra = 'extra',
+  default = 'default'
 }
 
 export enum UiButtonTheme {
   default = 'default',
-  purple = 'purple'
+  purple = 'purple',
+  grey = 'grey'
 }
 
 export enum UiButtonSize {
