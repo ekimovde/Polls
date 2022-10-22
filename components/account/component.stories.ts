@@ -1,10 +1,9 @@
 import { withDesign } from 'storybook-addon-designs';
 import { Component } from 'vue';
-import { BrandBlock } from './index';
-import { BrandBlockSize } from './component';
+import { AccountBlock } from './index';
 
 export default {
-  title: 'Components / Brand',
+  title: 'Components / Account',
   decorators: [withDesign],
   parameters: {
     design: {
@@ -14,19 +13,12 @@ export default {
   }
 };
 
-export const DefaultSize = (): Component => create();
-export const XlSize = (): Component => create({ size: BrandBlockSize.xl });
+export const Default = (): Component => create();
 
-function create(props = {}): Component {
+function create(): Component {
   return {
     components: {
-      BrandBlock
-    },
-    data() {
-      return {
-        size: BrandBlockSize.default,
-        ...props
-      };
+      AccountBlock
     },
     template: `
       <div style="
@@ -35,7 +27,7 @@ function create(props = {}): Component {
         justify-content: center;
         align-items: center;
       ">
-        <brand-block :size="size" />
+        <account-block />
       </div>
     `
   };

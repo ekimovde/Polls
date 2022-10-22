@@ -2,14 +2,11 @@
 <style lang="scss" scoped src="./component.scss"></style>
 
 <template>
-  <div
+  <img
     :class="b()"
     :data-test="tid()"
-  >
-    <brand-block />
-
-    <navigation-block />
-
-    <account-block />
-  </div>
+    :src="src"
+    alt=""
+    @error="replaceByDefault"
+  />
 </template>

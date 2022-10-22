@@ -1,5 +1,45 @@
 @import "assets/scss/helper.scss";
 
 .links-list {
-  //
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: $white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 5%);
+
+  &__item {
+    border-bottom: 1px solid #f1f1f1;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__link {
+    @include fontInter15Medium;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px 27px;
+    color: #555;
+    line-height: 20px;
+    text-decoration: none;
+    background-position: center right 17px;
+    outline: none;
+    transition: opacity 0.5s ease;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__icon {
+    @include fontInter24Medium;
+  }
 }

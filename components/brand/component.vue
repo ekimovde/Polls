@@ -3,7 +3,7 @@
 
 <template>
   <nuxt-link
-    :class="b()"
+    :class="b({ size })"
     :data-test="tid()"
     :to="{ name: routesName.index }"
   >

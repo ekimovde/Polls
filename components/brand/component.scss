@@ -2,12 +2,21 @@
 
 .brand-block {
   display: block;
-  width: 26px;
   margin: 0;
   padding: 0;
   font-size: 100%;
   background-color: transparent;
   transition: opacity 0.5s ease;
+
+  &--size {
+    &-default {
+      width: 26px;
+    }
+
+    &-xl {
+      width: 60px;
+    }
+  }
 
   &:visited {
     color: #2e2e2e;
