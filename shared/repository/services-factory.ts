@@ -1,12 +1,14 @@
 import { Context } from '@nuxt/types';
 import { getModule } from 'vuex-module-decorators';
-import UserModuleState from '~/store/modules/user';
 import { FakeRepo } from './fake-repo';
 import { HttpRepo } from './http-repo';
 import { ProjectServices } from './repo';
 import { UrlGenerator } from './url-generator';
+import UserModuleState from '~/store/modules/user';
 import LoaderModuleStore from '~/store/modules/loader';
 import NotificationModuleState from '~/store/modules/notification';
+import HeaderModuleState from '~/store/modules/header';
+import FooterModuleState from '~/store/modules/footer';
 import { FakeTranslator } from '../services/translator/fake-translator';
 import { Translator } from '../services/translator';
 import { TranslationsUpdater } from '../services/translations-updater';
@@ -25,6 +27,8 @@ export default function createProjectServices(context: Context): ProjectServices
   const userRepo = getModule(UserModuleState, store);
   const loaderRepo = getModule(LoaderModuleStore, store);
   const notificationRepo = getModule(NotificationModuleState, store);
+  const headerRepo = getModule(HeaderModuleState, store);
+  const footerRepo = getModule(FooterModuleState, store);
 
   const notification = new GlobalNotification(notificationRepo);
 
@@ -36,6 +40,8 @@ export default function createProjectServices(context: Context): ProjectServices
     userRepo,
     loaderRepo,
     notificationRepo,
-    notification
+    notification,
+    headerRepo,
+    footerRepo
   };
 }

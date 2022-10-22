@@ -9,5 +9,8 @@ export enum RoutesName {
   pollMy = 'poll-my',
   pollNew = 'poll-new',
   pollResult = 'poll-result',
-  pollSettings = 'poll-settings'
+  pollSettings = 'poll-settings',
+  pollInvite = 'poll-invite',
+  accountProfile = 'account-profile',
+  accountProfilePassword = 'account-profile-password'
 };

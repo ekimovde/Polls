@@ -23,7 +23,7 @@ module.exports = {
     timing: false
   },
   ...config,
-  middleware: ['auth.ts'],
+  middleware: ['auth.ts', 'header.ts', 'footer.ts'],
   target: 'static',
   ssr: false,
   head: {

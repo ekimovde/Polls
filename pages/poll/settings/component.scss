@@ -1,5 +1,99 @@
 @import "assets/scss/helper.scss";
 
 .poll-settings-page {
-  //
+  width: 100%;
+  padding: 60px 0 80px 0;
+  background-color: #f9f9f9;
+
+  &__inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+    margin: 0 auto;
+    row-gap: 15px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+  }
+
+  &__title {
+    @include fontInter30Bold;
+
+    margin: 0;
+    padding: 0;
+    color: $black;
+    line-height: 38px;
+    letter-spacing: -0.264px;
+
+    &--small {
+      @include fontInter16Regular;
+
+      line-height: 19px;
+      letter-spacing: -0.264px;
+    }
+  }
+
+  &__text {
+    @include fontInter16Medium;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #999;
+    line-height: 24px;
+
+    &--grey {
+      @include fontInter16Medium;
+
+      color: #757575;
+      line-height: 17px;
+      letter-spacing: -0.264px;
+    }
+  }
+
+  &__button-text {
+    @include fontInter16Medium;
+  }
+
+  &__form-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background: $white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 5%);
+    row-gap: 25px;
+  }
+
+  &__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+  }
+
+  &__label {
+    @include fontInter14Medium;
+
+    color: #757575;
+    line-height: 17px;
+  }
+
+  &__notifications {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 40px 0;
+    border-top: solid 2px #f6f6fa;
+    border-bottom: solid 2px #f6f6fa;
+    row-gap: 8px;
+  }
+
+  &__block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

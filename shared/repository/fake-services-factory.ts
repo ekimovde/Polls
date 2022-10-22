@@ -9,6 +9,8 @@ import { FakeTranslator } from '../services/translator/fake-translator';
 import { TranslationsUpdater } from '../services/translations-updater';
 import { GlobalNotification } from '../services/notification';
 import NotificationModuleState from '~/store/modules/notification';
+import HeaderModuleState from '~/store/modules/header';
+import FooterModuleState from '~/store/modules/footer';
 
 export const fakeStore = store();
 
@@ -25,6 +27,8 @@ export default function createFakeServices(params: Partial<ProjectServices> = {}
   const userRepo = getModule(UserModuleState, fakeStore);
   const loaderRepo = getModule(LoaderModuleStore, fakeStore);
   const notificationRepo = getModule(NotificationModuleState, fakeStore);
+  const headerRepo = getModule(HeaderModuleState, fakeStore);
+  const footerRepo = getModule(FooterModuleState, fakeStore);
 
   const notification = new GlobalNotification(notificationRepo);
 
@@ -37,6 +41,8 @@ export default function createFakeServices(params: Partial<ProjectServices> = {}
     loaderRepo,
     notificationRepo,
     notification,
+    headerRepo,
+    footerRepo,
     ...params
   };
 }

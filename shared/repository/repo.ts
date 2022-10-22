@@ -7,6 +7,8 @@ import { NotificationMethods } from '~/components/shared/notification/component'
 import { PollCategory } from './constants';
 import { SharedColorTheme } from '~/components/shared/color/component';
 import { UiProgressTheme } from '~/components/ui/progress/component';
+import HeaderModuleStore from '~/store/modules/header';
+import FooterModuleStore from '~/store/modules/footer';
 
 export interface ProjectRepository {
   getTranslation(params: TranslationRequest): Promise<string>
@@ -33,6 +35,8 @@ export interface ProjectServices {
   loaderRepo?: LoaderModuleStore
   notificationRepo?: NotificationModuleState
   notification: NotificationMethods
+  headerRepo?: HeaderModuleStore
+  footerRepo?: FooterModuleStore
 }
 
 export interface ApiWrapper<T> {

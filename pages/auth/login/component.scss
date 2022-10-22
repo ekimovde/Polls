@@ -1,5 +1,95 @@
 @import "assets/scss/helper.scss";
 
 .auth-login-page {
-  //
+  box-sizing: border-box;
+  width: 100%;
+
+  &__session-top-link {
+    @include fontInter15Medium;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 40px;
+    color: #939fad;
+    line-height: 18px;
+    letter-spacing: -0.2145px;
+    text-align: right;
+    column-gap: 5px;
+  }
+
+  &__button-text {
+    @include fontInter15Bold;
+
+    line-height: 18px;
+    letter-spacing: -0.2145px;
+
+    &--small {
+      @include fontInter14Medium;
+    }
+  }
+
+  &__inner-wrapper {
+    width: 380px;
+    margin: 0 auto;
+  }
+
+  &__wrapper {
+    width: 100%;
+    padding: 100px 0;
+    text-align: center;
+  }
+
+  &__brand {
+    margin: 0 auto;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin: 18px 0 35px 0;
+  }
+
+  &__title {
+    @include fontInter40Bold;
+
+    margin: 0;
+    padding: 0;
+    color: $black;
+    line-height: 48px;
+    letter-spacing: -0.264px;
+  }
+
+  &__text {
+    @include fontInter15Medium;
+
+    margin: 0;
+    padding: 0;
+    color: #9a9dab;
+    line-height: 18px;
+    letter-spacing: -0.264px;
+
+    &--small {
+      @include fontInter12Medium;
+
+      color: #c9c9c9;
+      line-height: 13px;
+    }
+  }
+
+  &__form-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+  }
+
+  &__footer-links {
+    @include fontInter14Medium;
+
+    margin: 40px 0;
+    color: #939fad;
+    letter-spacing: -0.2145px;
+    text-align: center;
+  }
 }

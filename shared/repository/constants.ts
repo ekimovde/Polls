@@ -20,9 +20,20 @@ export interface LinkItemBase {
   src?: string
 }
 
-export interface BaseSelectOption {
+export interface SelectOptionBase {
   label: string,
   value: string | number
+}
+
+export interface DropdownItemBase {
+  title: string
+  routeName: RoutesName
+  type: DropdownItemTypeBase
+}
+
+export enum DropdownItemTypeBase {
+  default = 'default',
+  logout = 'logout'
 }
 
 export enum PollCategory {

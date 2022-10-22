@@ -3,6 +3,7 @@ import { Routes } from '../constants';
 import { userRoutes } from './user';
 import { authRoutes } from './auth';
 import { pollRoutes } from './poll';
+import { accountRoutes } from './account';
 
 export const routes: Routes = {
   [RoutesName.index]: {
@@ -16,5 +17,6 @@ export const routes: Routes = {
   },
   ...userRoutes,
   ...authRoutes,
-  ...pollRoutes
+  ...pollRoutes,
+  ...accountRoutes
 };

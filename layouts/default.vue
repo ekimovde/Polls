@@ -1,12 +1,15 @@
 <template>
   <div :class="b()">
-    <header-block />
+    <header-block v-if="isHeaderVisible" />
 
     <main :class="b('body')">
       <nuxt />
     </main>
 
-    <footer :class="b('footer')">
+    <footer
+      v-if="isFooterVisible"
+      :class="b('footer')"
+    >
       <footer-block />
     </footer>
   </div>
@@ -19,16 +22,23 @@
 
   @Component({
     name: 'default-layout',
-    middleware: ['auth'],
+    middleware: ['auth', 'header', 'footer'],
     components: {
       HeaderBlock,
       FooterBlock
     }
   })
   export default class DefaultLayout extends Vue {
-    readonly userRepo = this.$projectServices.userRepo;
+    readonly headerRepo = this.$projectServices.headerRepo;
+    readonly footerRepo = this.$projectServices.footerRepo;
 
-    isLoading = false;
+    get isHeaderVisible(): boolean {
+      return this.headerRepo.isVisible;
+    }
+
+    get isFooterVisible(): boolean {
+      return this.footerRepo.isVisible;
+    }
   }
 </script>
 
@@ -43,7 +53,7 @@
 
   &__body {
     width: 100%;
-    background-color: #f9f9f9;
+    background-color: #fff;
   }
 
   &__footer {
@@ -70,5 +80,6 @@ a {
 
 * {
   -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
 }
 </style>

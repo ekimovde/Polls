@@ -1,0 +1,58 @@
+@import "assets/scss/helper.scss";
+
+.account-profile-page {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 60px 0 80px 0;
+  background-color: #f9f9f9;
+
+  &__inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+    margin: 0 auto;
+    row-gap: 15px;
+  }
+
+  &__title {
+    @include fontInter30Bold;
+
+    margin: 0;
+    padding: 0;
+    color: #000;
+    line-height: 38px;
+    letter-spacing: -0.264px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 30px;
+    background: $white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 5%);
+    row-gap: 25px;
+  }
+
+  &__split-fields {
+    display: flex;
+    width: 100%;
+    column-gap: 20px;
+  }
+
+  &__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+    width: 100%;
+  }
+
+  &__label {
+    @include fontInter14Medium;
+
+    color: #757575;
+    line-height: 17px;
+  }
+}

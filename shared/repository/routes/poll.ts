@@ -5,7 +5,8 @@ type PollRoutes = Pick<Routes,
   RoutesName.pollMy |
   RoutesName.pollNew |
   RoutesName.pollResult |
-  RoutesName.pollSettings
+  RoutesName.pollSettings |
+  RoutesName.pollInvite
 >
 
 enum UserRoutesTitle {
@@ -33,6 +34,12 @@ export const pollRoutes: PollRoutes = {
   },
   [RoutesName.pollSettings]: {
     name: RoutesName.pollSettings,
+    meta: {
+      title: UserRoutesTitle.poll
+    }
+  },
+  [RoutesName.pollInvite]: {
+    name: RoutesName.pollInvite,
     meta: {
       title: UserRoutesTitle.poll
     }
