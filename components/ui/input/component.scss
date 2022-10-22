@@ -1,36 +1,76 @@
 @import "assets/scss/helper.scss";
 
 .ui-input {
-  @include fontInter17Medium;
-
-  float: left;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
   box-sizing: border-box;
-  width: 100%;
-  max-width: 320px;
-  font-style: normal;
-  outline: none;
-  transition: border 0.5s ease, color 0.5s ease;
-  -webkit-appearance: none;
+  width: fit-content;
 
   &--expanded {
-    max-width: initial;
+    width: 100%;
   }
 
-  &--view {
-    &-default {
-      padding: 16px 17px 15px 17px;
-      color: #19385d;
-      background-color: #f6f6fa;
-      border: solid 2px #f6f6fa;
-      border-radius: 7px;
+  &__input {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 320px;
+    outline: none;
+    transition: border 0.5s ease, color 0.5s ease;
+    -webkit-appearance: none;
 
-      &:focus {
-        color: #6e41e2;
-        background-color: $white;
-        border: 2px solid #6e41e2;
-        box-shadow: 0 2px 4px rgba(110, 65, 226, 0.3);
-        transition: border 0.5s ease, color 0.5s ease;
+    &--expanded {
+      max-width: initial;
+    }
+
+    &--view {
+      &-default {
+        color: #19385d;
+        background-color: #f6f6fa;
+
+        &:focus {
+          color: #6e41e2;
+          background-color: $white;
+          transition: border 0.5s ease, color 0.5s ease;
+        }
       }
     }
+
+    &--size {
+      &-xl {
+        @include fontInter17Medium;
+
+        padding: 16px 17px 15px 17px;
+        border: solid 2px #f6f6fa;
+        border-radius: 7px;
+
+        &:focus {
+          border: 2px solid #6e41e2;
+          box-shadow: 0 2px 4px rgba(110, 65, 226, 0.3);
+        }
+      }
+
+      &-xs {
+        @include fontInter16Medium;
+
+        padding: 14px 17px 13px 17px;
+        line-height: 20px;
+        border: solid 2px #f6f6fa;
+        border-radius: 7px;
+
+        &:focus {
+          border: 2px solid #6e41e2;
+          box-shadow: 0 2px 4px rgba(110, 65, 226, 0.3);
+        }
+      }
+    }
+  }
+
+  &__error {
+    @include fontInter16Medium;
+
+    color: #ff5252;
+    line-height: 17px;
+    letter-spacing: -0.264px;
   }
 }

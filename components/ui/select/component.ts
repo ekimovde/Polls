@@ -2,7 +2,7 @@ import { Component, mixins, Prop } from 'nuxt-property-decorator';
 import ClickOutside from 'vue-click-outside';
 import { COMPONENT_NAME, UiSelectTextAttribute, UiSelectTestLocator } from './attributes';
 import TestId from '~/shared/utils/unit-test/test-id';
-import { BaseSelectOption } from '~/shared/repository/constants';
+import { SelectOptionBase } from '~/shared/repository/constants';
 import { Translatable } from '~/components/shared/translatable';
 
 export enum UiSelectEvent {
@@ -26,7 +26,7 @@ export default class extends mixins(TestId, Translatable) {
   @Prop({
     type: Array,
     default: () => ([])
-  }) readonly options: BaseSelectOption[];
+  }) readonly options: SelectOptionBase[];
 
   @Prop({
     type: Boolean,
@@ -105,7 +105,7 @@ export default class extends mixins(TestId, Translatable) {
     this.isActivated ? this.deactivate() : this.activate();
   }
 
-  select(option: BaseSelectOption): void {
+  select(option: SelectOptionBase): void {
     this.$emit(UiSelectEvent.input, option.value);
     this.close();
   }

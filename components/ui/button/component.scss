@@ -3,9 +3,8 @@
 $root-name: "ui-button";
 
 .#{$root-name} {
-  @include fontInter17SemiBold;
-
   box-sizing: border-box;
+  width: fit-content;
   text-align: center;
   border: none;
   outline: none;
@@ -52,6 +51,14 @@ $root-name: "ui-button";
 
           padding: 17px 31px;
           line-height: 23px;
+          border-radius: 7px;
+        }
+
+        &-xs {
+          @include fontInter15SemiBold;
+
+          padding: 15px 19px;
+          line-height: 18px;
           border-radius: 7px;
         }
       }
@@ -102,22 +109,40 @@ $root-name: "ui-button";
 
     &-simple {
       &.#{$root-name}--size {
-        &-xl {
-          @include fontInter16SemiBold;
-
-          line-height: 19px;
+        &-by-content {
+          padding: 0;
         }
       }
 
       &.#{$root-name}--theme {
+        &-default {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          background-color: transparent;
+          outline: none;
+          transition: opacity 0.5s ease;
+        }
+
         &-purple {
           color: #6e41e2;
           text-decoration: none;
-          outline: none;
-          transition: opacity 0.5s ease;
+          background-color: transparent;
+          transition: background 0.5s ease, color 0.5s ease;
 
           &:hover {
-            opacity: 0.5;
+            color: #4926a1;
+          }
+        }
+
+        &-grey {
+          color: #4f586d;
+          text-decoration: none;
+          background-color: transparent;
+          transition: background 0.5s ease, color 0.5s ease;
+
+          &:hover {
+            color: #6e41e2;
           }
         }
       }

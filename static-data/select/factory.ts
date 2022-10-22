@@ -1,6 +1,6 @@
-import { BaseSelectOption } from '~/shared/repository/constants';
+import { SelectOptionBase } from '~/shared/repository/constants';
 
-export const selectOption = (params: Partial<BaseSelectOption> = {}): BaseSelectOption => {
+export const selectOption = (params: Partial<SelectOptionBase> = {}): SelectOptionBase => {
   return {
     label: 'All',
     value: 'all',
@@ -8,7 +8,7 @@ export const selectOption = (params: Partial<BaseSelectOption> = {}): BaseSelect
   };
 };
 
-export const selectOptions = (): BaseSelectOption[] => {
+export const selectOptions = (): SelectOptionBase[] => {
   return [
     selectOption(),
     selectOption({

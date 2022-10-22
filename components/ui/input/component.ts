@@ -7,6 +7,11 @@ export enum UiInputView {
   default = 'default'
 }
 
+export enum UiInputSize {
+  xl = 'xl',
+  xs = 'xs'
+}
+
 export enum UiInputType {
   default = 'text',
   password = 'password',
@@ -30,6 +35,10 @@ export default class extends mixins(TestId, Translatable) {
   }) readonly placeholder: string;
 
   @Prop({
+    type: String
+  }) readonly errorMessage: string;
+
+  @Prop({
     type: Boolean,
     default: false
   }) readonly isExpanded: boolean;
@@ -40,10 +49,21 @@ export default class extends mixins(TestId, Translatable) {
   }) readonly isDisabled: boolean;
 
   @Prop({
+    type: Boolean,
+    default: false
+  }) readonly isError: boolean;
+
+  @Prop({
     type: String,
     default: UiInputView.default,
     validator: val => Object.values(UiInputView).includes(val)
   }) readonly view: UiInputView;
+
+  @Prop({
+    type: String,
+    default: UiInputSize.xl,
+    validator: val => Object.values(UiInputSize).includes(val)
+  }) readonly size: UiInputSize;
 
   @Prop({
     type: String,

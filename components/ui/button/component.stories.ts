@@ -61,15 +61,29 @@ export const View = (): Component => ({
             NULL
           </td>
 
-          <td>
+          <td class="center">
             <ui-button view="default" theme="grey" size="xl">x</ui-button>
+          </td>
+        </tr>
+
+        <tr>
+          <th>
+            simple
+          </th>
+
+          <td>
+            <ui-button view="simple" theme="purple" size="by-content">click</ui-button>
+          </td>
+
+          <td>
+            <ui-button view="simple" theme="grey" size="by-content">click</ui-button>
           </td>
         </tr>
       </table>
 
       <table class="storybook-table">
         <tr>
-          <th colspan="2">
+          <th colspan="3">
             View состояния, Size xl
           </th>
         </tr>
@@ -79,6 +93,10 @@ export const View = (): Component => ({
 
           <th>
             xl
+          </th>
+
+          <th>
+            xs
           </th>
         </tr>
 
@@ -90,6 +108,10 @@ export const View = (): Component => ({
           <td>
             <ui-button view="action" theme="purple" size="xl">кнопка</ui-button>
           </td>
+
+          <td>
+            <ui-button view="action" theme="purple" size="xs">кнопка</ui-button>
+          </td>
         </tr>
 
         <tr>
@@ -97,8 +119,12 @@ export const View = (): Component => ({
             default
           </th>
 
-          <td>
+          <td class="center">
             <ui-button view="default" theme="grey" size="xl">x</ui-button>
+          </td>
+
+          <td>
+            NULL
           </td>
         </tr>
       </table>

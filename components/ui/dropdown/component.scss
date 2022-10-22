@@ -1,0 +1,21 @@
+@import "assets/scss/helper";
+
+$root-name: "el-popover";
+
+.ui-dropdown {
+  .#{$root-name}__reference-wrapper {
+    display: block;
+  }
+
+  &__wrapper {
+    top: 70px !important;
+    min-width: 220px;
+    max-width: fit-content;
+    height: fit-content;
+    max-height: 480px;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.05);
+  }
+}
