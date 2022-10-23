@@ -4,20 +4,23 @@ import { COMPONENT_NAME, DashboardPageTextAttribute } from './attributes';
 import TestId from '~/shared/utils/unit-test/test-id';
 import { Translatable } from '~/components/shared/translatable';
 import { ProgressBlock } from '~/components/progress';
-import { UserProgressResponse, PollResponse } from '~/shared/repository/repo';
+import { UserProgressResponse, PollResponse, ReactionResponse } from '~/shared/repository/repo';
 import { PollBlock } from '~/components/poll';
 import { PollBlockView } from '~/components/poll/component';
 import { uiButton } from '~/components/ui';
 import { UiButtonView, UiButtonSize, UiButtonTheme } from '~/components/ui/button/component';
 import { routes } from '~/shared/repository/routes';
 import { RoutesName } from '~/shared/repository/routes/routes-name';
+import { ReactionsBlock } from '~/components/reactions';
+import { ReactionsBlockView } from '~/components/reactions/component';
 
 @Component({
   name: COMPONENT_NAME,
   components: {
     ProgressBlock,
     PollBlock,
-    uiButton
+    uiButton,
+    ReactionsBlock
   }
 })
 export default class extends mixins(TestId, Translatable) {
@@ -32,8 +35,11 @@ export default class extends mixins(TestId, Translatable) {
   readonly uiButtonSize = UiButtonSize;
   readonly uiButtonTheme = UiButtonTheme;
 
+  readonly reactionsBlockView = ReactionsBlockView;
+
   userProgress: UserProgressResponse[] = [];
   userPopularPolls: PollResponse[] = [];
+  reactions: ReactionResponse[] = [];
 
   isLoading = false;
 
@@ -47,7 +53,8 @@ export default class extends mixins(TestId, Translatable) {
 
       await Promise.allSettled([
         await this.getUserProgress(),
-        await this.getUserPopularPolls()
+        await this.getUserPopularPolls(),
+        await this.getReactions()
       ]);
     } catch (error) {
       this.notifier.showError();
@@ -62,5 +69,9 @@ export default class extends mixins(TestId, Translatable) {
 
   async getUserPopularPolls(): Promise<void> {
     this.userPopularPolls = await this.projectRepository.getUserPopularPolls();
+  }
+
+  async getReactions(): Promise<void> {
+    this.reactions = await this.projectRepository.getReactions();
   }
 }

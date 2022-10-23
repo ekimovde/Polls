@@ -8,7 +8,12 @@ const header: Middleware = async (context) => {
   const routesToHideHeader = [
     RoutesName.index,
     RoutesName.authLogin,
-    RoutesName.authRegistration
+    RoutesName.authRegistration,
+    RoutesName.pollNew,
+    RoutesName.pollNewInviteId,
+    RoutesName.pollNewJoinLinkId,
+    RoutesName.pollNewShareId,
+    RoutesName.pollNewSummaryId
   ];
 
   const isHeaderHidden = routesToHideHeader.some(item => item === route.name);

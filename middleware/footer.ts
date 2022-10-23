@@ -8,7 +8,12 @@ const footer: Middleware = async (context) => {
   const routesToHideFooter = [
     RoutesName.index,
     RoutesName.authLogin,
-    RoutesName.authRegistration
+    RoutesName.authRegistration,
+    RoutesName.pollNew,
+    RoutesName.pollNewInviteId,
+    RoutesName.pollNewJoinLinkId,
+    RoutesName.pollNewShareId,
+    RoutesName.pollNewSummaryId
   ];
 
   const isFooterHidden = routesToHideFooter.some(item => item === route.name);

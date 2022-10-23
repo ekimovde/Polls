@@ -10,22 +10,35 @@
 
       <progress-block :progress="userProgress" />
 
-      <div :class="b('poll-list-wrapper')">
-        <h2 :class="b('title', { small: true })">
-          {{ textAttributes.subTitle }}
-        </h2>
+      <div :class="b('wrapper')">
+        <div>
+          <h2 :class="b('title', { small: true })">
+            {{ textAttributes.yourReactions }}
+          </h2>
 
-        <ul :class="b('list')">
-          <li
-            v-for="(item, index) in userPopularPolls"
-            :key="index"
-          >
-            <poll-block
-              :poll="item"
-              :view="pollBlockView.default"
-            />
-          </li>
-        </ul>
+          <reactions-block
+            :reactions="reactions"
+            :view="reactionsBlockView.default"
+          />
+        </div>
+
+        <div>
+          <h2 :class="b('title', { small: true })">
+            {{ textAttributes.yourPolls }}
+          </h2>
+
+          <ul :class="b('list')">
+            <li
+              v-for="(item, index) in userPopularPolls"
+              :key="index"
+            >
+              <poll-block
+                :poll="item"
+                :view="pollBlockView.default"
+              />
+            </li>
+          </ul>
+        </div>
       </div>
 
       <ui-button

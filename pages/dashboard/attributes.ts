@@ -2,6 +2,7 @@ export const COMPONENT_NAME = 'dashboard-page';
 
 export enum DashboardPageTextAttribute {
   title = 'Dashboard',
-  subTitle = 'Your Popular Polls',
+  yourPolls = 'Your Popular Polls',
+  yourReactions = 'Your reactions',
   allPolls = 'See all polls'
 }
