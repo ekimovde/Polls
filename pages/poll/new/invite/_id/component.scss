@@ -1,6 +1,6 @@
 @import "assets/scss/helper.scss";
 
-.poll-new-page {
+.poll-new-invite-id-page {
   box-sizing: border-box;
   width: 100%;
 
@@ -17,8 +17,6 @@
 
     display: flex;
     align-items: center;
-    margin: 0;
-    padding: 0;
     color: #939fad;
     line-height: 18px;
     letter-spacing: -0.2145px;
@@ -40,9 +38,9 @@
   &__wrapper {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    padding: 150px 0;
     row-gap: 35px;
+    width: 100%;
+    padding: 100px 0;
   }
 
   &__header {
@@ -59,6 +57,10 @@
     color: $black;
     line-height: 40px;
     letter-spacing: -0.264px;
+
+    span {
+      color: #6e41e2;
+    }
   }
 
   &__text {
@@ -90,11 +92,15 @@
     line-height: 17px;
   }
 
-  &__copyright-text {
+  &__buttons {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+  }
+
+  &__copyright {
     @include fontInter12Medium;
 
-    margin: 0;
-    padding: 0;
     color: #c9c9c9;
     line-height: 13px;
   }

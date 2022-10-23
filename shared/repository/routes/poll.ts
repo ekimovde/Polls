@@ -6,7 +6,11 @@ type PollRoutes = Pick<Routes,
   RoutesName.pollId |
   RoutesName.pollNew |
   RoutesName.pollSettingsId |
-  RoutesName.pollInviteId
+  RoutesName.pollInviteId |
+  RoutesName.pollNewInviteId |
+  RoutesName.pollNewJoinLinkId |
+  RoutesName.pollNewShareId |
+  RoutesName.pollNewSummaryId
 >
 
 enum PollRoutesTitle {
@@ -37,12 +41,72 @@ export const pollRoutes: PollRoutes = {
     meta: {
       title: PollRoutesTitle.poll
     }
+  },
+  [RoutesName.pollNewInviteId]: {
+    name: RoutesName.pollNewInviteId,
+    meta: {
+      title: PollRoutesTitle.poll
+    }
+  },
+  [RoutesName.pollNewJoinLinkId]: {
+    name: RoutesName.pollNewJoinLinkId,
+    meta: {
+      title: PollRoutesTitle.poll
+    }
+  },
+  [RoutesName.pollNewShareId]: {
+    name: RoutesName.pollNewShareId,
+    meta: {
+      title: PollRoutesTitle.poll
+    }
+  },
+  [RoutesName.pollNewSummaryId]: {
+    name: RoutesName.pollNewSummaryId,
+    meta: {
+      title: PollRoutesTitle.poll
+    }
   }
 };
 
 export const getPollIdRoute = (id: string): Partial<Route> => {
   return {
     ...pollRoutes[RoutesName.pollId],
+    params: {
+      id
+    }
+  };
+};
+
+export const getPollNewInviteIdRoute = (id: string): Partial<Route> => {
+  return {
+    ...pollRoutes[RoutesName.pollNewInviteId],
+    params: {
+      id
+    }
+  };
+};
+
+export const getPollNewJoinLinkIdRoute = (id: string): Partial<Route> => {
+  return {
+    ...pollRoutes[RoutesName.pollNewJoinLinkId],
+    params: {
+      id
+    }
+  };
+};
+
+export const getPollNewShareIdRoute = (id: string): Partial<Route> => {
+  return {
+    ...pollRoutes[RoutesName.pollNewShareId],
+    params: {
+      id
+    }
+  };
+};
+
+export const getPollNewSummaryIdRoute = (id: string): Partial<Route> => {
+  return {
+    ...pollRoutes[RoutesName.pollNewSummaryId],
     params: {
       id
     }

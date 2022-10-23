@@ -4,7 +4,7 @@
 <template>
   <div :class="b()">
     <div :class="b('top-nav')">
-      <brand-block />
+      <brand-block :size="brandBlockSize.default" />
 
       <p :class="b('navigation')">
         {{ textAttributes.backTo }}
@@ -28,6 +28,12 @@
         <div :class="b('header')">
           <h1 :class="b('title')">
             {{ textAttributes.title }}
+
+            <span>
+              {{ id }}
+            </span>
+
+            {{ textAttributes.joinLink }}
           </h1>
 
           <p :class="b('text')">
@@ -35,51 +41,36 @@
           </p>
         </div>
 
-        <div :class="b('form-wrapper')">
-          <div :class="b('input-wrapper')">
-            <label
-              for="poll_name"
-              :class="b('label')"
-            >
-              {{ textAttributes.nameLabel }}
-            </label>
+        <ui-input
+          :size="uiInputSize.xs"
+          :placeholder="textAttributes.placeholder"
+          :is-expanded="true"
+          :is-disabled="true"
+        />
 
-            <ui-input
-              id="poll_name"
-              :size="uiInputSize.xl"
-              :placeholder="textAttributes.namePlaceholder"
-              :is-expanded="true"
-              :error-message="textAttributes.nameErrorMessage"
-            />
-          </div>
-
-          <div :class="b('input-wrapper')">
-            <label
-              for="poll_colour"
-              :class="b('label')"
-            >
-              {{ textAttributes.colourLabel }}
-            </label>
-
-            <ui-input
-              id="poll_colour"
-              :size="uiInputSize.xl"
-              :placeholder="textAttributes.colourLabel"
-              :is-expanded="true"
-              :error-message="textAttributes.nameErrorMessage"
-            />
-          </div>
-
+        <div :class="b('buttons')">
           <ui-button
             :view="uiButtonView.action"
             :size="uiButtonSize.xl"
             :theme="uiButtonTheme.purple"
+            :is-nuxt-link="true"
+            :to="pollNewSummaryIdRoute"
           >
-            {{ textAttributes.createPoll }}
+            {{ textAttributes.continue }}
+          </ui-button>
+
+          <ui-button
+            :view="uiButtonView.action"
+            :size="uiButtonSize.xl"
+            :theme="uiButtonTheme.darkGrey"
+            :is-nuxt-link="true"
+            :to="pollNewSummaryIdRoute"
+          >
+            {{ textAttributes.skip }}
           </ui-button>
         </div>
 
-        <p :class="b('copyright-text')">
+        <p :class="b('copyright')">
           {{ displayedCopyright }}
         </p>
       </div>

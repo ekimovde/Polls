@@ -1,7 +1,6 @@
 @import "assets/scss/helper.scss";
 
-.poll-new-page {
-  box-sizing: border-box;
+.poll-new-join-link-id-page {
   width: 100%;
 
   &__top-nav {
@@ -15,19 +14,15 @@
   &__navigation {
     @include fontInter15Medium;
 
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0;
     color: #939fad;
     line-height: 18px;
     letter-spacing: -0.2145px;
-    column-gap: 5px;
   }
 
   &__button-text {
-    @include fontInter16Bold;
+    @include fontInter15Bold;
 
+    color: #6e41e2;
     line-height: 18px;
     letter-spacing: -0.2145px;
   }
@@ -41,8 +36,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 150px 0;
-    row-gap: 35px;
+    padding: 100px 0;
+    row-gap: 25px;
   }
 
   &__header {
@@ -59,6 +54,10 @@
     color: $black;
     line-height: 40px;
     letter-spacing: -0.264px;
+
+    span {
+      color: #6e41e2;
+    }
   }
 
   &__text {
@@ -71,26 +70,13 @@
     letter-spacing: -0.264px;
   }
 
-  &__form-wrapper {
+  &__buttons {
     display: flex;
-    flex-direction: column;
-    row-gap: 25px;
+    align-items: center;
+    column-gap: 20px;
   }
 
-  &__input-wrapper {
-    display: flex;
-    flex-direction: column;
-    row-gap: 6px;
-  }
-
-  &__label {
-    @include fontInter14Medium;
-
-    color: #757575;
-    line-height: 17px;
-  }
-
-  &__copyright-text {
+  &__copyright {
     @include fontInter12Medium;
 
     margin: 0;

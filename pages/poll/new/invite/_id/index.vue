@@ -4,7 +4,7 @@
 <template>
   <div :class="b()">
     <div :class="b('top-nav')">
-      <brand-block />
+      <brand-block :size="brandBlockSize.default" />
 
       <p :class="b('navigation')">
         {{ textAttributes.backTo }}
@@ -28,6 +28,12 @@
         <div :class="b('header')">
           <h1 :class="b('title')">
             {{ textAttributes.title }}
+
+            <span>
+              {{ id }}
+            </span>
+
+            {{ textAttributes.viaEmail }}
           </h1>
 
           <p :class="b('text')">
@@ -38,50 +44,61 @@
         <div :class="b('form-wrapper')">
           <div :class="b('input-wrapper')">
             <label
-              for="poll_name"
+              for="poll_invite_message"
               :class="b('label')"
             >
-              {{ textAttributes.nameLabel }}
+              {{ textAttributes.noteLabel }}
             </label>
 
-            <ui-input
-              id="poll_name"
-              :size="uiInputSize.xl"
-              :placeholder="textAttributes.namePlaceholder"
+            <ui-textarea
+              id="poll_invite_message"
+              :placeholder="textAttributes.notePlaceholder"
               :is-expanded="true"
-              :error-message="textAttributes.nameErrorMessage"
             />
           </div>
 
           <div :class="b('input-wrapper')">
             <label
-              for="poll_colour"
+              for="poll_invite_email"
               :class="b('label')"
             >
-              {{ textAttributes.colourLabel }}
+              {{ textAttributes.emailLabel }}
             </label>
 
             <ui-input
-              id="poll_colour"
-              :size="uiInputSize.xl"
-              :placeholder="textAttributes.colourLabel"
+              id="poll_invite_email"
+              :size="uiInputSize.xs"
+              :placeholder="textAttributes.emailPlaceholder"
+              :error-message="textAttributes.emailErrorMessage"
               :is-expanded="true"
-              :error-message="textAttributes.nameErrorMessage"
             />
           </div>
 
-          <ui-button
-            :view="uiButtonView.action"
-            :size="uiButtonSize.xl"
-            :theme="uiButtonTheme.purple"
-          >
-            {{ textAttributes.createPoll }}
-          </ui-button>
-        </div>
+          <div :class="b('buttons')">
+            <ui-button
+              :view="uiButtonView.action"
+              :size="uiButtonSize.xl"
+              :theme="uiButtonTheme.purple"
+              @click="sendInvite"
+            >
+              {{ textAttributes.sendInvites }}
+            </ui-button>
 
-        <p :class="b('copyright-text')">
-          {{ displayedCopyright }}
-        </p>
+            <ui-button
+              :view="uiButtonView.action"
+              :size="uiButtonSize.xl"
+              :theme="uiButtonTheme.darkGrey"
+              :is-nuxt-link="true"
+              :to="pollNewSummaryIdRoute"
+            >
+              {{ textAttributes.skip }}
+            </ui-button>
+          </div>
+
+          <p :class="b('copyright')">
+            {{ displayedCopyright }}
+          </p>
+        </div>
       </div>
     </div>
   </div>

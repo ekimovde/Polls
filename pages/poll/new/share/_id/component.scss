@@ -1,7 +1,6 @@
 @import "assets/scss/helper.scss";
 
-.poll-new-page {
-  box-sizing: border-box;
+.poll-new-share-id-page {
   width: 100%;
 
   &__top-nav {
@@ -59,6 +58,10 @@
     color: $black;
     line-height: 40px;
     letter-spacing: -0.264px;
+
+    span {
+      color: #6e41e2;
+    }
   }
 
   &__text {
@@ -71,26 +74,7 @@
     letter-spacing: -0.264px;
   }
 
-  &__form-wrapper {
-    display: flex;
-    flex-direction: column;
-    row-gap: 25px;
-  }
-
-  &__input-wrapper {
-    display: flex;
-    flex-direction: column;
-    row-gap: 6px;
-  }
-
-  &__label {
-    @include fontInter14Medium;
-
-    color: #757575;
-    line-height: 17px;
-  }
-
-  &__copyright-text {
+  &__copyright {
     @include fontInter12Medium;
 
     margin: 0;
