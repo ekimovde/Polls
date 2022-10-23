@@ -19,6 +19,8 @@
           :view="uiButtonView.simple"
           :size="uiButtonSize.byContent"
           :theme="uiButtonTheme.purple"
+          :is-nuxt-link="true"
+          :to="pollNewRoute"
         >
           <span :class="b('button-text')">
             {{ textAttributes.createPoll }}
@@ -33,10 +35,13 @@
 
       <ul :class="b('list')">
         <li
-          v-for="item in 3"
-          :key="item"
+          v-for="(item, index) in polls"
+          :key="index"
         >
-          asfasfs
+          <poll-block
+            :poll="item"
+            :view="pollBlockView.regular"
+          />
         </li>
       </ul>
     </div>

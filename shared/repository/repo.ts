@@ -16,7 +16,8 @@ export interface ProjectRepository {
   auth(params?: AuthorizationRequest): Promise<AccessTokens>
   updateAccessToken(params?: UpdateAccessTokenRequest): Promise<AccessTokens>
   getUserProgress(): Promise<UserProgressResponse[]>
-  getUserPopularPolls(): Promise<UserPopularPollsResponse[]>
+  getUserPopularPolls(): Promise<PollResponse[]>
+  getPolls(): Promise<PollResponse[]>
 }
 
 export interface ProjectUrlGenerator {
@@ -73,7 +74,8 @@ export interface UserProgressResponse {
   theme: UiProgressTheme
 }
 
-export interface UserPopularPollsResponse {
+export interface PollResponse {
+  id: number
   name: string
   color: SharedColorTheme
   category: PollCategory

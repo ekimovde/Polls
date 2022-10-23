@@ -1,9 +1,10 @@
-import { UserPopularPollsResponse } from '../repo';
+import { PollResponse } from '../repo';
 import { PollCategory } from '../constants';
 import { SharedColorTheme } from '~/components/shared/color/component';
 
-export const fakeUserPopularPoll = (params: Partial<UserPopularPollsResponse> = {}): UserPopularPollsResponse => {
+export const fakePoll = (params: Partial<PollResponse> = {}): PollResponse => {
   return {
+    id: 1,
     name: 'Test',
     color: SharedColorTheme.green,
     category: PollCategory.animals,
@@ -14,10 +15,11 @@ export const fakeUserPopularPoll = (params: Partial<UserPopularPollsResponse> = 
   };
 };
 
-export const fakeUserPopularPolls = (): UserPopularPollsResponse[] => {
+export const fakePolls = (): PollResponse[] => {
   return [
-    fakeUserPopularPoll(),
-    fakeUserPopularPoll({
+    fakePoll(),
+    fakePoll({
+      id: 2,
       color: SharedColorTheme.orange,
       category: PollCategory.webDesign
     })

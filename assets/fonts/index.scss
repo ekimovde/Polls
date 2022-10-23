@@ -304,6 +304,13 @@ $font-family-inter-bold: "Inter-Bold", sans-serif;
   @include font-base;
 }
 
+@mixin fontInter22Medium {
+  font-size: 22px;
+  font-family: $font-family-inter-medium;
+
+  @include font-base;
+}
+
 @mixin fontInter20Medium {
   font-size: 20px;
   font-family: $font-family-inter-medium;

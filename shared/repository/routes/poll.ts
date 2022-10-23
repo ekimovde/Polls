@@ -1,3 +1,4 @@
+import { Route } from 'vue-router';
 import { RoutesName } from './routes-name';
 import { Routes } from '../constants';
 
@@ -37,4 +38,13 @@ export const pollRoutes: PollRoutes = {
       title: PollRoutesTitle.poll
     }
   }
+};
+
+export const getPollIdRoute = (id: string): Partial<Route> => {
+  return {
+    ...pollRoutes[RoutesName.pollId],
+    params: {
+      id
+    }
+  };
 };

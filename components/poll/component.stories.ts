@@ -1,7 +1,8 @@
 import { withDesign } from 'storybook-addon-designs';
 import { Component } from 'vue';
 import { PollBlock } from './index';
-import { fakeUserPopularPoll } from '~/shared/repository/fixtures/fake-user-popular-polls';
+import { PollBlockView } from './component';
+import { fakePoll } from '~/shared/repository/fixtures/fake-polls';
 
 export default {
   title: 'Components / Poll',
@@ -14,21 +15,26 @@ export default {
   }
 };
 
-export const Default = (): Component => create();
+export const DefaultView = (): Component => create();
+export const RegularView = (): Component => create(PollBlockView.regular);
 
-function create(): Component {
+function create(view = PollBlockView.default): Component {
   return {
     components: {
       PollBlock
     },
     data() {
       return {
-        poll: fakeUserPopularPoll()
+        poll: fakePoll(),
+        view
       };
     },
     template: `
       <div style="padding: 20px;">
-        <poll-block :poll="poll" />
+        <poll-block
+          :poll="poll"
+          :view="view"
+        />
       </div>
     `
   };

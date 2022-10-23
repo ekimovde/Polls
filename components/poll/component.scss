@@ -6,12 +6,9 @@
   justify-content: space-between;
   box-sizing: border-box;
   width: 100%;
-  padding: 17px 16px 15px 16px;
-  color: #2e2e2e;
   text-decoration: none;
   background-color: $white;
   border: 1px solid #ebebeb;
-  border-radius: 8px;
   outline: none;
   box-shadow: 0 0 14px rgb(0 0 0 / 5%);
   transition: box-shadow 0.5s ease;
@@ -23,15 +20,42 @@
     transition: transform 0.5s ease, box-shadow 0.5s ease;
   }
 
+  &--view {
+    &-default {
+      padding: 17px 16px 15px 16px;
+      border-radius: 8px;
+    }
+
+    &-regular {
+      padding: 35px 20px 25px 30px;
+      border-radius: 10px;
+    }
+  }
+
   &__inner-wrapper {
     display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  &__outer-wrapper {
+    display: flex;
     align-items: center;
-    column-gap: 15px;
+    column-gap: 10px;
   }
 
   &__title {
     @include fontInter19SemiBold;
 
     color: $black;
+  }
+
+  &__text {
+    @include fontInter14Regular;
+
+    margin: 0;
+    padding: 0;
+    color: #999;
+    line-height: 15px;
   }
 }

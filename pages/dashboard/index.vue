@@ -20,10 +20,30 @@
             v-for="(item, index) in userPopularPolls"
             :key="index"
           >
-            <poll-block :poll="item" />
+            <poll-block
+              :poll="item"
+              :view="pollBlockView.default"
+            />
           </li>
         </ul>
       </div>
+
+      <ui-button
+        :view="uiButtonView.simple"
+        :size="uiButtonSize.byContent"
+        :theme="uiButtonTheme.purple"
+        :is-nuxt-link="true"
+        :to="pollsRoute"
+      >
+        <span :class="b('button-text')">
+          {{ textAttributes.allPolls }}
+
+          <i
+            class='bx bx-right-arrow-alt'
+            :class="b('icon')"
+          />
+        </span>
+      </ui-button>
     </div>
   </div>
 </template>
