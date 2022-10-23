@@ -1,0 +1,33 @@
+@import "assets/scss/helper.scss";
+
+.summary-block {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  row-gap: 40px;
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 25px;
+  }
+
+  &__icon {
+    @include fontInter42Bold;
+
+    color: #6e41e2;
+    line-height: 42px;
+  }
+
+  &__text {
+    @include fontInter16Medium;
+
+    margin: 0;
+    padding: 0;
+    color: #9a9dab;
+    line-height: 22px;
+    letter-spacing: -0.264px;
+  }
+}
