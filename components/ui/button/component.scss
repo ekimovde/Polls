@@ -26,12 +26,23 @@ $root-name: "ui-button";
           @include fontInter22SemiBold;
 
           width: 32px;
+          min-width: 32px;
           height: 32px;
+          min-height: 32px;
           border-radius: 5px;
         }
       }
 
       &.#{$root-name}--theme {
+        &-default {
+          color: #9fa1ad;
+          background-color: $white;
+
+          &:hover {
+            color: #763aeb;
+          }
+        }
+
         &-grey {
           color: #9fa1ad;
           background-color: #f5f5f5;
