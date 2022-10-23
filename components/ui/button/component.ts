@@ -14,7 +14,8 @@ export enum UiButtonView {
 export enum UiButtonTheme {
   default = 'default',
   purple = 'purple',
-  grey = 'grey'
+  grey = 'grey',
+  darkGrey = 'dark-grey'
 }
 
 export enum UiButtonSize {

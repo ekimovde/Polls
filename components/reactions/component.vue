@@ -6,9 +6,9 @@
     :class="b()"
     :data-test="tid()"
   >
-    <h5 :class="b('title')">
+    <div :class="b('title')">
       {{ textAttributes.title }}
-    </h5>
+    </div>
 
     <ul :class="b('list')">
       <li

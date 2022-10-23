@@ -75,7 +75,7 @@ export default class extends mixins(TestId, Translatable) {
   readonly testLocators = UiInputTestLocator;
 
   input(event: Event): void {
-    const target = <HTMLInputElement>event.target;
+    const target = event.target as HTMLInputElement;
 
     this.$emit(UiInputEvent.input, target.value);
   }

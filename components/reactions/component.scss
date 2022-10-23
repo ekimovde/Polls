@@ -8,16 +8,18 @@
   max-width: 320px;
   padding: 20px 25px;
   background-color: $white;
+  border: solid 1px #ececec;
   border-radius: 7px;
   box-shadow: 0 0 14px rgba(0, 0, 0, 0.05);
   row-gap: 15px;
 
   &__title {
-    @include fontInter13Medium;
+    @include fontInter14Medium;
 
     margin: 0;
     padding: 0;
     color: $black;
+    line-height: 18px;
     text-align: center;
   }
 
@@ -50,8 +52,6 @@
     color: #838295;
 
     &--grey {
-      @include fontInter12Regular;
-
       color: #acb2b7;
       text-align: center;
     }

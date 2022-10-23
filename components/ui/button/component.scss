@@ -77,6 +77,19 @@ $root-name: "ui-button";
             background-color: #321e66;
           }
         }
+
+        &-dark-grey {
+          color: #4f586d;
+          background: #f6f6fa;
+
+          &:hover {
+            color: #6e7b9b;
+          }
+
+          &:focus {
+            color: #000;
+          }
+        }
       }
     }
 

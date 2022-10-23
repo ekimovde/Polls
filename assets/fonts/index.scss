@@ -211,6 +211,13 @@ $font-family-inter-bold: "Inter-Bold", sans-serif;
 
 // fontInterBold
 
+@mixin fontInter42Bold {
+  font-size: 42px;
+  font-family: $font-family-inter-bold;
+
+  @include font-base;
+}
+
 @mixin fontInter40Bold {
   font-size: 40px;
   font-family: $font-family-inter-bold;

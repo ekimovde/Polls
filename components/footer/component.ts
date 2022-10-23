@@ -20,11 +20,7 @@ export default class extends mixins(TestId, Translatable) {
 
   readonly footerSocialLinks = footerSocialLinks();
 
-  get currentYear(): number {
-    return new Date().getFullYear();
-  }
-
   get displayedCopyright(): string {
-    return `© ${this.currentYear}`;
+    return `© ${new Date().getFullYear()}`;
   }
 }
