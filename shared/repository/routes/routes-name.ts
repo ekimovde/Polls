@@ -5,12 +5,13 @@ export enum RoutesName {
   authLogin = 'auth-login',
   authRegistration = 'auth-registration',
   dashboard = 'dashboard',
-  myVotes = 'my-votes',
-  pollMy = 'poll-my',
+  votesMy = 'votes-my',
+  polls = 'polls',
+  pollsMy = 'polls-my',
+  pollId = 'poll-id',
   pollNew = 'poll-new',
-  pollResult = 'poll-result',
-  pollSettings = 'poll-settings',
-  pollInvite = 'poll-invite',
+  pollSettingsId = 'poll-settings-id',
+  pollInviteId = 'poll-invite-id',
   accountProfile = 'account-profile',
   accountProfilePassword = 'account-profile-password'
 };

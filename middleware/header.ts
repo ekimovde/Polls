@@ -6,6 +6,7 @@ const header: Middleware = async (context) => {
   const { headerRepo } = $projectServices;
 
   const routesToHideHeader = [
+    RoutesName.index,
     RoutesName.authLogin,
     RoutesName.authRegistration
   ];

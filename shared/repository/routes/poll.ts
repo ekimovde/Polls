@@ -2,46 +2,39 @@ import { RoutesName } from './routes-name';
 import { Routes } from '../constants';
 
 type PollRoutes = Pick<Routes,
-  RoutesName.pollMy |
+  RoutesName.pollId |
   RoutesName.pollNew |
-  RoutesName.pollResult |
-  RoutesName.pollSettings |
-  RoutesName.pollInvite
+  RoutesName.pollSettingsId |
+  RoutesName.pollInviteId
 >
 
-enum UserRoutesTitle {
+enum PollRoutesTitle {
   poll = 'Опрос'
 }
 
 export const pollRoutes: PollRoutes = {
-  [RoutesName.pollMy]: {
-    name: RoutesName.pollMy,
+  [RoutesName.pollId]: {
+    name: RoutesName.pollId,
     meta: {
-      title: UserRoutesTitle.poll
+      title: PollRoutesTitle.poll
     }
   },
   [RoutesName.pollNew]: {
     name: RoutesName.pollNew,
     meta: {
-      title: UserRoutesTitle.poll
+      title: PollRoutesTitle.poll
     }
   },
-  [RoutesName.pollResult]: {
-    name: RoutesName.pollResult,
+  [RoutesName.pollSettingsId]: {
+    name: RoutesName.pollSettingsId,
     meta: {
-      title: UserRoutesTitle.poll
+      title: PollRoutesTitle.poll
     }
   },
-  [RoutesName.pollSettings]: {
-    name: RoutesName.pollSettings,
+  [RoutesName.pollInviteId]: {
+    name: RoutesName.pollInviteId,
     meta: {
-      title: UserRoutesTitle.poll
-    }
-  },
-  [RoutesName.pollInvite]: {
-    name: RoutesName.pollInvite,
-    meta: {
-      title: UserRoutesTitle.poll
+      title: PollRoutesTitle.poll
     }
   }
 };

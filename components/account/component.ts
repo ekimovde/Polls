@@ -33,6 +33,8 @@ export default class extends mixins(TestId, Translatable) {
   isVisible = false;
 
   open(route: Route, type: DropdownItemTypeBase): void {
+    this.isVisible = false;
+
     if (type === DropdownItemTypeBase.logout) {
       return;
     }

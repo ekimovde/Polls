@@ -1,5 +1,5 @@
 import { Component, mixins } from 'nuxt-property-decorator';
-import { COMPONENT_NAME, PollResultPagePageTextAttribute } from './attributes';
+import { COMPONENT_NAME, PollIdPagePageTextAttribute } from './attributes';
 import TestId from '~/shared/utils/unit-test/test-id';
 import { Translatable } from '~/components/shared/translatable';
 
@@ -7,7 +7,7 @@ import { Translatable } from '~/components/shared/translatable';
   name: COMPONENT_NAME
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(PollResultPagePageTextAttribute)
+  readonly textAttributes = this.transAll(PollIdPagePageTextAttribute)
 
   //
 }

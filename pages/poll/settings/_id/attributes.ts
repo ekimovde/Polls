@@ -1,6 +1,6 @@
-export const COMPONENT_NAME = 'poll-settings-page';
+export const COMPONENT_NAME = 'poll-settings-id-page';
 
-export enum PollSettingsPagePageTextAttribute {
+export enum PollSettingsIdPagePageTextAttribute {
   title = 'Poll Settings',
   description = 'The below settings are for the',
   pollName = 'Poll Name',

@@ -20,10 +20,12 @@ export const accountDropdownList = (): DropdownItemBase[][] => {
         title: 'Manage team'
       }),
       accountDropdownItem({
-        title: 'Plans'
+        title: 'My Polls',
+        routeName: RoutesName.pollsMy
       }),
       accountDropdownItem({
-        title: 'Company details'
+        title: 'My Votes',
+        routeName: RoutesName.votesMy
       })
     ],
     [

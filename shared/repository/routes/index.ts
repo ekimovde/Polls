@@ -3,7 +3,9 @@ import { Routes } from '../constants';
 import { userRoutes } from './user';
 import { authRoutes } from './auth';
 import { pollRoutes } from './poll';
+import { pollsRoutes } from './polls';
 import { accountRoutes } from './account';
+import { votesRoutes } from './votes';
 
 export const routes: Routes = {
   [RoutesName.index]: {
@@ -12,11 +14,10 @@ export const routes: Routes = {
   [RoutesName.dashboard]: {
     name: RoutesName.dashboard
   },
-  [RoutesName.myVotes]: {
-    name: RoutesName.myVotes
-  },
   ...userRoutes,
   ...authRoutes,
   ...pollRoutes,
-  ...accountRoutes
+  ...pollsRoutes,
+  ...accountRoutes,
+  ...votesRoutes
 };
