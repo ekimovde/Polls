@@ -18,6 +18,7 @@ export interface ProjectRepository {
   getUserProgress(): Promise<UserProgressResponse[]>
   getUserPopularPolls(): Promise<PollResponse[]>
   getPolls(): Promise<PollResponse[]>
+  getReactions(): Promise<ReactionResponse[]>
 }
 
 export interface ProjectUrlGenerator {
@@ -82,4 +83,10 @@ export interface PollResponse {
   isPublic: boolean
   created: string
   updated: string
+}
+
+export interface ReactionResponse {
+  id: number
+  icon: string
+  quantity: number
 }

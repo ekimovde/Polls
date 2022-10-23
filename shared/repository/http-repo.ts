@@ -1,7 +1,7 @@
 import { AxiosInstance } from 'axios';
 import { StoreGetters } from '~/store/model';
 import { createFormDataFromObject } from '../utils/create-form-data-from-object';
-import { ProjectRepository, AuthorizationRequest, AccessTokens, ApiWrapper, UpdateAccessTokenRequest, TranslationRequest, UserProgressResponse, PollResponse } from './repo';
+import { ProjectRepository, AuthorizationRequest, AccessTokens, ApiWrapper, UpdateAccessTokenRequest, TranslationRequest, UserProgressResponse, PollResponse, ReactionResponse } from './repo';
 import { UrlGenerator } from './url-generator';
 import { Translation } from '../services/translator';
 
@@ -58,6 +58,12 @@ export class HttpRepo implements ProjectRepository {
 
   async getPolls(): Promise<PollResponse[]> {
     const { data } = await this.axios.get<ApiWrapper<PollResponse[]>>(this.urlGenerator.getPolls());
+
+    return data.response;
+  }
+
+  async getReactions(): Promise<ReactionResponse[]> {
+    const { data } = await this.axios.get<ApiWrapper<ReactionResponse[]>>(this.urlGenerator.getReactions());
 
     return data.response;
   }

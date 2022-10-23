@@ -6,7 +6,8 @@ export enum ApiRoutes {
   auth = 'auth/',
   updateAccessToken = 'update-access-token/',
   user = 'user/',
-  polls = 'polls/'
+  polls = 'polls/',
+  reactions = 'reactions/'
 }
 
 export class UrlGenerator implements ProjectUrlGenerator {
@@ -36,5 +37,9 @@ export class UrlGenerator implements ProjectUrlGenerator {
 
   getPolls(): string {
     return ApiRoutes.polls;
+  }
+
+  getReactions(): string {
+    return ApiRoutes.reactions;
   }
 }
