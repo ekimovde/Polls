@@ -3,7 +3,7 @@
 
 <template>
   <nav
-    :class="b()"
+    :class="b({ view })"
     :data-test="tid()"
   >
     <brand-block />

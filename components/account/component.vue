@@ -16,7 +16,10 @@
           :size="uiButtonSize.byContent"
           :theme="uiButtonTheme.default"
         >
-          <avatar-block src="" />
+          <avatar-block
+            src=""
+            :size="avatarBlockSize.default"
+          />
 
           <i
             class='bx bx-chevron-down'

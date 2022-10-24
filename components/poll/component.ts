@@ -8,6 +8,7 @@ import { UiButtonView, UiButtonSize, UiButtonTheme } from '../ui/button/componen
 import { PollResponse } from '~/shared/repository/repo';
 import { AvatarBlock } from '~/components/avatar';
 import { getPollIdRoute } from '~/shared/repository/routes/poll';
+import { AvatarBlockSize } from '../avatar/component';
 
 export enum PollBlockView {
   default = 'default',
@@ -42,6 +43,8 @@ export default class extends mixins(TestId, Translatable) {
   readonly uiButtonView = UiButtonView;
   readonly uiButtonSize = UiButtonSize;
   readonly uiButtonTheme = UiButtonTheme;
+
+  readonly avatarBlockSize = AvatarBlockSize;
 
   get isDefaultView(): boolean {
     return this.view === PollBlockView.default;

@@ -9,7 +9,7 @@
           {{ textAttributes.title }}
         </h1>
 
-        <div :class="b('text')">
+        <div :class="b('description')">
           {{ textAttributes.description }}
 
           <ui-button
@@ -60,12 +60,12 @@
         </div>
 
         <div :class="b('notifications')">
-          <h3 :class="b('title', { small: true })">
+          <h3 :class="b('sub-title')">
             {{ textAttributes.notifications }}
           </h3>
 
           <div :class="b('block')">
-            <p :class="b('text', { grey: true })">
+            <p :class="b('text')">
               {{ textAttributes.notificationsDescription }}
             </p>
 
@@ -75,7 +75,7 @@
               :theme="uiButtonTheme.purple"
             >
               <span :class="b('button-text')">
-                Yes
+                {{ textAttributes.yes }}
               </span>
             </ui-button>
           </div>

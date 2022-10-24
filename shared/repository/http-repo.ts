@@ -62,6 +62,12 @@ export class HttpRepo implements ProjectRepository {
     return data.response;
   }
 
+  async getMyPolls(): Promise<PollResponse[]> {
+    const { data } = await this.axios.get<ApiWrapper<PollResponse[]>>(this.urlGenerator.getMyPolls());
+
+    return data.response;
+  }
+
   async getReactions(): Promise<ReactionResponse[]> {
     const { data } = await this.axios.get<ApiWrapper<ReactionResponse[]>>(this.urlGenerator.getReactions());
 

@@ -30,9 +30,9 @@ export default class extends mixins(TestId, Translatable) {
 
   readonly pollBlockView = PollBlockView;
 
-  isLoading = false;
-
   polls: PollResponse[] = [];
+
+  isLoading = false;
 
   get pollNewRoute(): Partial<Route> {
     return routes[RoutesName.pollNew];

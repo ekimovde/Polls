@@ -12,7 +12,16 @@
   padding: 15px 30px;
   background-color: $white;
   border-bottom: 1px solid #ebebeb;
-  box-shadow: 0 0 14px rgb(0 0 0 / 5%);
+
+  &--view {
+    &-default {
+      box-shadow: 0 0 14px rgb(0 0 0 / 5%);
+    }
+
+    &-regular {
+      box-shadow: none;
+    }
+  }
 
   @media screen and (max-width: 800px) {
     position: fixed;

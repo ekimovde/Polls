@@ -50,6 +50,10 @@ export class FakeRepo implements ProjectRepository {
     return respondMockResult(fakePolls());
   }
 
+  async getMyPolls(): Promise<PollResponse[]> {
+    return respondMockResult(fakePolls());
+  }
+
   async getReactions(): Promise<ReactionResponse[]> {
     return respondMockResult(fakeReactions());
   }

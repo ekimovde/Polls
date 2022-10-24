@@ -39,6 +39,10 @@ export class UrlGenerator implements ProjectUrlGenerator {
     return ApiRoutes.polls;
   }
 
+  getMyPolls(): string {
+    return `${ApiRoutes.polls}/my/`;
+  }
+
   getReactions(): string {
     return ApiRoutes.reactions;
   }

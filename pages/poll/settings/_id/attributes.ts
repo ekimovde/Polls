@@ -8,5 +8,6 @@ export enum PollSettingsIdPagePageTextAttribute {
   placeholder = 'Eg. Design Poll',
   notifications = 'Notifications',
   notificationsDescription = 'Receive an email when a team member completes a stand-up',
-  saveChanges = 'Save Changes'
+  saveChanges = 'Save Changes',
+  yes = 'Yes'
 }

@@ -18,6 +18,7 @@ export interface ProjectRepository {
   getUserProgress(): Promise<UserProgressResponse[]>
   getUserPopularPolls(): Promise<PollResponse[]>
   getPolls(): Promise<PollResponse[]>
+  getMyPolls(): Promise<PollResponse[]>
   getReactions(): Promise<ReactionResponse[]>
 }
 

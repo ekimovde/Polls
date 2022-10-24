@@ -1,5 +1,89 @@
 @import "assets/scss/helper.scss";
 
 .polls-my-page {
-  //
+  width: 100%;
+  padding: 60px 0 80px 0;
+  background-color: #f9f9f9;
+
+  @media screen and (max-width: 800px) {
+    padding: 100px 0 50px 0;
+  }
+
+  &__inner-wrapper {
+    width: 940px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 1000px) {
+      width: 90%;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    @media screen and (max-width: 600px) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+  }
+
+  &__title {
+    @include fontInter40Bold;
+
+    margin: 0;
+    padding: 0;
+    color: $black;
+    line-height: 48px;
+    letter-spacing: -0.264px;
+
+    @media screen and (max-width: 600px) {
+      @include fontInter26Bold;
+
+      line-height: 32px;
+    }
+  }
+
+  &__text {
+    @include fontInter16Medium;
+
+    margin: 0;
+    padding: 0;
+    color: #999;
+    line-height: 24px;
+
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    row-gap: 20px;
+  }
+
+  &__button-text {
+    @include fontInter16SemiBold;
+
+    display: flex;
+    align-items: center;
+    line-height: 19px;
+    column-gap: 5px;
+    transition: opacity 0.5s ease;
+  }
+
+  &__icon {
+    @include fontInter26SemiBold;
+  }
 }

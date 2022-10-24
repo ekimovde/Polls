@@ -39,7 +39,10 @@
         v-if="isRegularView"
         :class="b('outer-wrapper', { view })"
       >
-        <avatar-block src="" />
+        <avatar-block
+          src=""
+          :size="avatarBlockSize.default"
+        />
 
         <p :class="b('text')">
           {{ poll.created }}

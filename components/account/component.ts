@@ -9,6 +9,7 @@ import { AvatarBlock } from '~/components/avatar';
 import { UiDropdownPlacement } from '../ui/dropdown/component';
 import { accountDropdownList } from '~/static-data/account/factory';
 import { DropdownItemBase, DropdownItemTypeBase } from '~/shared/repository/constants';
+import { AvatarBlockSize } from '../avatar/component';
 
 @Component({
   name: COMPONENT_NAME,
@@ -27,6 +28,8 @@ export default class extends mixins(TestId, Translatable) {
   readonly uiButtonTheme = UiButtonTheme;
 
   readonly uiDropdownPlacement = UiDropdownPlacement;
+
+  readonly avatarBlockSize = AvatarBlockSize;
 
   readonly accountDropdownList: DropdownItemBase[][] = accountDropdownList();
 

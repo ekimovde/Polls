@@ -5,12 +5,24 @@
   padding: 60px 0 80px 0;
   background-color: #f9f9f9;
 
+  @media screen and (max-width: 800px) {
+    padding: 100px 0 50px 0;
+  }
+
   &__inner-wrapper {
     display: flex;
     flex-direction: column;
     width: 640px;
     margin: 0 auto;
     row-gap: 15px;
+
+    @media screen and (max-width: 1000px) {
+      width: 640px;
+    }
+
+    @media screen and (max-width: 700px) {
+      width: 90%;
+    }
   }
 
   &__header {
@@ -28,11 +40,26 @@
     line-height: 38px;
     letter-spacing: -0.264px;
 
-    &--small {
-      @include fontInter16Regular;
+    @media screen and (max-width: 600px) {
+      @include fontInter26Bold;
 
-      line-height: 19px;
-      letter-spacing: -0.264px;
+      line-height: 32px;
+    }
+  }
+
+  &__description {
+    @include fontInter16Medium;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #999;
+    line-height: 24px;
+
+    @media screen and (max-width: 600px) {
+      @include fontInter14Medium;
+
+      line-height: 24px;
     }
   }
 
@@ -42,16 +69,9 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    color: #999;
-    line-height: 24px;
-
-    &--grey {
-      @include fontInter16Medium;
-
-      color: #757575;
-      line-height: 17px;
-      letter-spacing: -0.264px;
-    }
+    color: #757575;
+    line-height: 17px;
+    letter-spacing: -0.264px;
   }
 
   &__button-text {
@@ -91,9 +111,20 @@
     row-gap: 8px;
   }
 
+  &__sub-title {
+    @include fontInter16Regular;
+
+    margin: 0;
+    padding: 0;
+    color: $black;
+    line-height: 19px;
+    letter-spacing: -0.264px;
+  }
+
   &__block {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    column-gap: 15px;
   }
 }

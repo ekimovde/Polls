@@ -6,6 +6,11 @@ import { BrandBlock } from '~/components/brand/index';
 import { NavigationBlock } from '~/components/navigation/index';
 import { AccountBlock } from '~/components/account';
 
+export enum HeaderBlockView {
+  default = 'default',
+  regular = 'regular'
+}
+
 @Component({
   name: COMPONENT_NAME,
   components: {
@@ -17,4 +22,10 @@ import { AccountBlock } from '~/components/account';
 export default class extends mixins(TestId, Translatable) {
   readonly textAttributes = this.transAll(HeaderBlockTextAttribute);
   readonly testLocators = HeaderBlockTestLocator;
+
+  readonly headerRepo = this.$projectServices.headerRepo;
+
+  get view(): HeaderBlockView {
+    return this.headerRepo.view;
+  }
 }
