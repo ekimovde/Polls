@@ -2,7 +2,7 @@
 <style lang="scss" scoped src="./component.scss"></style>
 
 <template>
-  <div
+  <nav
     :class="b()"
     :data-test="tid()"
   >
@@ -11,5 +11,5 @@
     <navigation-block />
 
     <account-block />
-  </div>
+  </nav>
 </template>

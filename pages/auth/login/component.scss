@@ -16,6 +16,15 @@
     letter-spacing: -0.2145px;
     text-align: right;
     column-gap: 5px;
+
+    @media screen and (max-width: 600px) {
+      position: fixed;
+      bottom: 0;
+      justify-content: center;
+      width: 100%;
+      padding: 30px;
+      text-align: center;
+    }
   }
 
   &__button-text {
@@ -32,16 +41,29 @@
   &__inner-wrapper {
     width: 380px;
     margin: 0 auto;
+
+    @media screen and (max-width: 600px) {
+      width: 90%;
+    }
   }
 
   &__wrapper {
     width: 100%;
     padding: 100px 0;
     text-align: center;
+
+    @media screen and (max-width: 600px) {
+      padding: 40px 0;
+    }
   }
 
   &__brand {
     margin: 0 auto;
+
+    @media screen and (max-width: 600px) {
+      margin: initial;
+      margin-right: auto;
+    }
   }
 
   &__header {
@@ -49,6 +71,11 @@
     flex-direction: column;
     row-gap: 10px;
     margin: 18px 0 35px 0;
+
+    @media screen and (max-width: 600px) {
+      align-items: flex-start;
+      margin: 18px 0 25px 0;
+    }
   }
 
   &__title {
@@ -59,6 +86,12 @@
     color: $black;
     line-height: 48px;
     letter-spacing: -0.264px;
+
+    @media screen and (max-width: 600px) {
+      @include fontInter28Bold;
+
+      line-height: 32px;
+    }
   }
 
   &__text {

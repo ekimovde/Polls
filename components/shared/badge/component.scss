@@ -3,9 +3,14 @@
 .shared-badge {
   @include fontInter14Medium;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
   padding: 0 6px;
   color: #fff;
   line-height: 24px;
+  text-align: center;
   background-color: #000;
   border-radius: 6px;
 

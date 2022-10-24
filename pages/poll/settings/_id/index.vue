@@ -16,9 +16,11 @@
             :view="uiButtonView.simple"
             :size="uiButtonSize.byContent"
             :theme="uiButtonTheme.purple"
+            :is-nuxt-link="true"
+            :to="pollIdRoute"
           >
             <span :class="b('button-text')">
-              Test
+              {{ id }}
             </span>
           </ui-button>
         </div>

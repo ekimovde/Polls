@@ -3,6 +3,11 @@ import { COMPONENT_NAME, AvatarBlockTextAttribute, AvatarBlockTestLocator } from
 import TestId from '~/shared/utils/unit-test/test-id';
 import { Translatable } from '~/components/shared/translatable';
 
+export enum AvatarBlockSize {
+  default = 'default',
+  xs = 'xs'
+}
+
 @Component({
   name: COMPONENT_NAME
 })
@@ -11,6 +16,12 @@ export default class extends mixins(TestId, Translatable) {
     type: String,
     default: ''
   }) readonly src: string;
+
+  @Prop({
+    type: String,
+    validator: val => Object.values(AvatarBlockSize).includes(val),
+    default: AvatarBlockSize.default
+  }) readonly size: AvatarBlockSize;
 
   readonly textAttributes = this.transAll(AvatarBlockTextAttribute);
   readonly testLocators = AvatarBlockTestLocator;

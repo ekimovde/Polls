@@ -63,6 +63,13 @@ $root-name: "ui-button";
           padding: 17px 31px;
           line-height: 23px;
           border-radius: 7px;
+
+          @media screen and (max-width: 600px) {
+            @include fontInter17SemiBold;
+
+            padding: 18px 27px;
+            line-height: 20px;
+          }
         }
 
         &-xs {

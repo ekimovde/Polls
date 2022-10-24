@@ -12,11 +12,24 @@
   border-radius: 8px;
   box-shadow: 0 0 14px rgb(0 0 0 / 5%);
 
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+
   &__item {
     border-right: solid 1px #ececec;
 
     &:last-child {
       border-right: none;
+    }
+
+    @media screen and (max-width: 600px) {
+      border-right: none;
+      border-bottom: solid 1px #ececec;
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
   }
 

@@ -12,7 +12,7 @@
 
       <div :class="b('wrapper')">
         <div>
-          <h2 :class="b('title', { small: true })">
+          <h2 :class="b('sub-title')">
             {{ textAttributes.yourReactions }}
           </h2>
 
@@ -23,7 +23,7 @@
         </div>
 
         <div>
-          <h2 :class="b('title', { small: true })">
+          <h2 :class="b('sub-title')">
             {{ textAttributes.yourPolls }}
           </h2>
 
@@ -52,7 +52,7 @@
           {{ textAttributes.allPolls }}
 
           <i
-            class='bx bx-right-arrow-alt'
+            class="bx bx-right-arrow-alt"
             :class="b('icon')"
           />
         </span>

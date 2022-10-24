@@ -26,7 +26,7 @@
             {{ textAttributes.createPoll }}
 
             <i
-              class='bx bx-plus'
+              class="bx bx-plus"
               :class="b('icon')"
             />
           </span>

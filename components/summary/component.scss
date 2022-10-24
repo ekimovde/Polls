@@ -19,6 +19,12 @@
 
     color: #6e41e2;
     line-height: 42px;
+
+    @media screen and (max-width: 500px) {
+      @include fontInter30Bold;
+
+      line-height: 30px;
+    }
   }
 
   &__text {

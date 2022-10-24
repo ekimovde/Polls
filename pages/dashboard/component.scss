@@ -6,9 +6,17 @@
   padding: 60px 0 80px 0;
   background-color: #f9f9f9;
 
+  @media screen and (max-width: 800px) {
+    padding: 100px 0 50px 0;
+  }
+
   &__inner-wrapper {
     width: 940px;
     margin: 0 auto;
+
+    @media screen and (max-width: 1000px) {
+      width: 90%;
+    }
   }
 
   &__title {
@@ -22,11 +30,22 @@
     line-height: 48px;
     letter-spacing: -0.264px;
 
-    &--small {
-      @include fontInter22SemiBold;
+    @media screen and (max-width: 600px) {
+      @include fontInter26Bold;
 
-      line-height: 27px;
+      line-height: 32px;
     }
+  }
+
+  &__sub-title {
+    @include fontInter22SemiBold;
+
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 0;
+    color: $black;
+    line-height: 27px;
+    letter-spacing: -0.264px;
   }
 
   &__wrapper {

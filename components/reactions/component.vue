@@ -14,6 +14,7 @@
       <li
         v-for="(item, index) in reactions"
         :key="index"
+        :class="b('item')"
       >
         <ui-button
           :view="uiButtonView.simple"

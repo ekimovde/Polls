@@ -1,8 +1,18 @@
 @import "assets/scss/helper.scss";
 
 .avatar-block {
-  width: 40px;
-  height: auto;
   object-fit: cover;
   border-radius: 50px;
+
+  &--size {
+    &-default {
+      width: 40px;
+      height: 40px;
+    }
+
+    &-xs {
+      width: 30px;
+      height: 30px;
+    }
+  }
 }

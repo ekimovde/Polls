@@ -34,6 +34,14 @@
   &__inner-wrapper {
     width: 540px;
     margin: 0 auto;
+
+    @media screen and (max-width: 1000px) {
+      width: 540px;
+    }
+
+    @media screen and (max-width: 600px) {
+      width: 90%;
+    }
   }
 
   &__wrapper {
@@ -42,6 +50,18 @@
     width: 100%;
     padding: 150px 0;
     row-gap: 35px;
+
+    @media (max-height: 900px) {
+      padding: 80px 0;
+    }
+
+    @media (max-height: 700px) {
+      padding: 40px 0;
+    }
+
+    @media (max-height: 900px) and (max-width: 600px) {
+      padding: 0 0 50px 0;
+    }
   }
 
   &__header {
@@ -61,6 +81,12 @@
 
     span {
       color: #6e41e2;
+    }
+
+    @media screen and (max-width: 600px) {
+      @include fontInter26Bold;
+
+      line-height: 32px;
     }
   }
 

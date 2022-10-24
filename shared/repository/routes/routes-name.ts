@@ -16,6 +16,7 @@ export enum RoutesName {
   pollNewSummaryId = 'poll-new-summary-id',
   pollSettingsId = 'poll-settings-id',
   pollInviteId = 'poll-invite-id',
+  pollMembersId = 'poll-members-id',
   accountProfile = 'account-profile',
   accountProfilePassword = 'account-profile-password'
 };

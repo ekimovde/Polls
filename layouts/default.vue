@@ -6,12 +6,7 @@
       <nuxt />
     </main>
 
-    <footer
-      v-if="isFooterVisible"
-      :class="b('footer')"
-    >
-      <footer-block />
-    </footer>
+    <footer-block v-if="isFooterVisible" />
   </div>
 </template>
 
@@ -54,13 +49,6 @@
   &__body {
     width: 100%;
     background-color: #fff;
-  }
-
-  &__footer {
-    width: 100%;
-    background-color: $white;
-    border-top: solid 1px #F4F4F4;
-    padding: 50px 0px 60px 0px;
   }
 }
 

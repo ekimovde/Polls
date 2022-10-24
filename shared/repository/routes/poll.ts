@@ -10,7 +10,8 @@ type PollRoutes = Pick<Routes,
   RoutesName.pollNewInviteId |
   RoutesName.pollNewJoinLinkId |
   RoutesName.pollNewShareId |
-  RoutesName.pollNewSummaryId
+  RoutesName.pollNewSummaryId |
+  RoutesName.pollMembersId
 >
 
 enum PollRoutesTitle {
@@ -65,12 +66,27 @@ export const pollRoutes: PollRoutes = {
     meta: {
       title: PollRoutesTitle.poll
     }
+  },
+  [RoutesName.pollMembersId]: {
+    name: RoutesName.pollMembersId,
+    meta: {
+      title: PollRoutesTitle.poll
+    }
   }
 };
 
 export const getPollIdRoute = (id: string): Partial<Route> => {
   return {
     ...pollRoutes[RoutesName.pollId],
+    params: {
+      id
+    }
+  };
+};
+
+export const getPollSettingsIdRoute = (id: string): Partial<Route> => {
+  return {
+    ...pollRoutes[RoutesName.pollSettingsId],
     params: {
       id
     }
@@ -107,6 +123,15 @@ export const getPollNewShareIdRoute = (id: string): Partial<Route> => {
 export const getPollNewSummaryIdRoute = (id: string): Partial<Route> => {
   return {
     ...pollRoutes[RoutesName.pollNewSummaryId],
+    params: {
+      id
+    }
+  };
+};
+
+export const getPollMembersIdRoute = (id: string): Partial<Route> => {
+  return {
+    ...pollRoutes[RoutesName.pollMembersId],
     params: {
       id
     }

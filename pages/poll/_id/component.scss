@@ -1,5 +1,112 @@
 @import "assets/scss/helper.scss";
 
 .poll-id-page {
-  //
+  width: 100%;
+  padding: 0 0 80px 0;
+  background-color: #f9f9f9;
+
+  &__poll-header {
+    position: relative;
+    width: 100%;
+    margin-bottom: 50px;
+    padding: 50px 0 0 0;
+    background: $white;
+    border-bottom: 1px solid #ebebeb;
+
+    @media screen and (max-width: 800px) {
+      padding: 100px 0 0 0;
+    }
+
+    @media screen and (max-width: 600px) {
+      margin-bottom: 30px;
+      padding: 100px 0 0 0;
+    }
+  }
+
+  &__poll-header-inner {
+    position: relative;
+    z-index: 50;
+    width: 100%;
+  }
+
+  &__inner-wrapper {
+    width: 1100px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 1240px) {
+      width: 90%;
+    }
+
+    @media screen and (max-width: 1000px) {
+      width: 90%;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+      row-gap: 20px;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  &__title {
+    @include fontInter40Bold;
+
+    margin: 0;
+    padding: 0;
+    color: $black;
+    line-height: 48px;
+    letter-spacing: -0.264px;
+
+    @media screen and (max-width: 600px) {
+      @include fontInter30Bold;
+
+      line-height: 30px;
+    }
+  }
+
+  &__text {
+    @include fontInter15Medium;
+
+    margin: 0;
+    padding: 0;
+    color: #a3a3a3;
+    line-height: 18px;
+
+    @media screen and (max-width: 600px) {
+      line-height: 19px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 35px;
+
+    @media screen and (max-width: 600px) {
+      flex-direction: column-reverse;
+      margin-top: 15px;
+      row-gap: 15px;
+    }
+  }
+
+  &__avatar {
+    margin-top: -10px;
+
+    @media screen and (max-width: 600px) {
+      margin-top: 0;
+    }
+  }
 }
