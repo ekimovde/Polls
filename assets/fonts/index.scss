@@ -67,8 +67,23 @@ $font-family-inter-bold: "Inter-Bold", sans-serif;
   @include font-base;
 }
 
+@mixin fontInter17Regular {
+  font-size: 17px;
+  font-family: $font-family-inter-regular;
+  line-height: 120%;
+
+  @include font-base;
+}
+
 @mixin fontInter16Regular {
   font-size: 16px;
+  font-family: $font-family-inter-regular;
+
+  @include font-base;
+}
+
+@mixin fontInter15Regular {
+  font-size: 15px;
   font-family: $font-family-inter-regular;
 
   @include font-base;
@@ -211,6 +226,27 @@ $font-family-inter-bold: "Inter-Bold", sans-serif;
 
 // fontInterBold
 
+@mixin fontInter64Bold {
+  font-size: 64px;
+  font-family: $font-family-inter-bold;
+
+  @include font-base;
+}
+
+@mixin fontInter60Bold {
+  font-size: 60px;
+  font-family: $font-family-inter-bold;
+
+  @include font-base;
+}
+
+@mixin fontInter54Bold {
+  font-size: 54px;
+  font-family: $font-family-inter-bold;
+
+  @include font-base;
+}
+
 @mixin fontInter42Bold {
   font-size: 42px;
   font-family: $font-family-inter-bold;
@@ -274,8 +310,22 @@ $font-family-inter-bold: "Inter-Bold", sans-serif;
   @include font-base;
 }
 
+@mixin fontInter19Bold {
+  font-size: 19px;
+  font-family: $font-family-inter-bold;
+
+  @include font-base;
+}
+
 @mixin fontInter18Bold {
   font-size: 18px;
+  font-family: $font-family-inter-bold;
+
+  @include font-base;
+}
+
+@mixin fontInter17Bold {
+  font-size: 17px;
   font-family: $font-family-inter-bold;
 
   @include font-base;
@@ -341,6 +391,13 @@ $font-family-inter-bold: "Inter-Bold", sans-serif;
 
 @mixin fontInter20Medium {
   font-size: 20px;
+  font-family: $font-family-inter-medium;
+
+  @include font-base;
+}
+
+@mixin fontInter19Medium {
+  font-size: 19px;
   font-family: $font-family-inter-medium;
 
   @include font-base;

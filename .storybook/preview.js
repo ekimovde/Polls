@@ -90,6 +90,14 @@ addParameters({
         },
         type: 'ipad'
       },
+      desktopSmall: {
+        name: 'desktop 1280',
+        styles: {
+          height: '768px',
+          width: '1280px'
+        },
+        type: 'desktop'
+      },
       desktop: {
         name: 'desktop 1440',
         styles: {

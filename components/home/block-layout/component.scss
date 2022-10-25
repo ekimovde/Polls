@@ -1,0 +1,135 @@
+@import "assets/scss/helper.scss";
+
+.home-block-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 100px;
+
+  @media screen and (max-width: 1240px) {
+    column-gap: 60px;
+  }
+
+  @media screen and (max-width: 1000px) {
+    column-gap: 60px;
+  }
+
+  @media screen and (max-width: 900px) {
+    row-gap: 50px;
+  }
+
+  @media screen and (max-width: 600px) {
+    row-gap: 20px;
+  }
+
+  &--view {
+    &-default {
+      flex-direction: row;
+
+      @media screen and (max-width: 900px) {
+        flex-direction: column;
+      }
+    }
+
+    &-regular {
+      flex-direction: row-reverse;
+
+      @media screen and (max-width: 900px) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__category {
+    @include fontInter19Bold;
+
+    line-height: 22px;
+
+    @media screen and (max-width: 600px) {
+      @include fontInter17Bold;
+
+      line-height: 18px;
+    }
+
+    &--theme {
+      &-pink {
+        color: #ff357e;
+      }
+
+      &-orange {
+        color: #ff9263;
+      }
+
+      &-purple {
+        color: #6e41e2;
+      }
+
+      &-blue {
+        color: #4199ff;
+      }
+
+      &-green {
+        color: #2ecb71;
+      }
+
+      &-teal {
+        color: #00d5c8;
+      }
+    }
+  }
+
+  &__title {
+    @include fontInter60Bold;
+
+    margin: 15px 0 10px 0;
+    padding: 0;
+    color: $black;
+    font-size: 60px;
+    line-height: 68px;
+
+    @media screen and (max-width: 600px) {
+      @include fontInter28Bold;
+
+      margin: 5px 0 10px 0;
+      line-height: 36px;
+    }
+  }
+
+  &__text {
+    @include fontInter17Regular;
+
+    margin: 0;
+    padding: 0;
+    color: #777;
+    font-size: 17px;
+    line-height: 28px;
+
+    @media screen and (max-width: 600px) {
+      @include fontInter15Regular;
+
+      line-height: 24px;
+    }
+  }
+
+  &__display {
+    width: 100%;
+    min-width: 600px;
+
+    @media screen and (max-width: 1240px) {
+      min-width: 520px;
+    }
+
+    @media screen and (max-width: 1000px) {
+      min-width: 430px;
+    }
+
+    @media screen and (max-width: 900px) {
+      min-width: initial;
+    }
+  }
+}

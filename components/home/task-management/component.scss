@@ -1,0 +1,10 @@
+@import "assets/scss/helper.scss";
+
+.home-task-management {
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}

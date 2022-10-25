@@ -70,6 +70,13 @@ $root-name: "ui-button";
             padding: 18px 27px;
             line-height: 20px;
           }
+
+          @media screen and (max-width: 450px) {
+            @include fontInter16SemiBold;
+
+            padding: 14px 27px;
+            line-height: 19px;
+          }
         }
 
         &-xs {
@@ -106,6 +113,19 @@ $root-name: "ui-button";
 
           &:focus {
             color: #000;
+          }
+        }
+
+        &-green {
+          color: $white;
+          background: #2ecb71;
+
+          &:hover {
+            background-color: #209852;
+          }
+
+          &:focus {
+            background-color: #1d7a44;
           }
         }
       }
