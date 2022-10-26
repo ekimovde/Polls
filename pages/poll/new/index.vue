@@ -46,6 +46,7 @@
 
             <ui-input
               id="poll_name"
+              v-model="name"
               :size="uiInputSize.xl"
               :placeholder="textAttributes.namePlaceholder"
               :is-expanded="true"
@@ -61,12 +62,12 @@
               {{ textAttributes.colourLabel }}
             </label>
 
-            <ui-input
+            <ui-select
               id="poll_colour"
-              :size="uiInputSize.xl"
-              :placeholder="textAttributes.colourLabel"
+              v-model="colour"
+              :options="options"
+              :view="uiSelectView.regular"
               :is-expanded="true"
-              :error-message="textAttributes.nameErrorMessage"
             />
           </div>
 

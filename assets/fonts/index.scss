@@ -366,6 +366,13 @@ $font-family-inter-bold: "Inter-Bold", sans-serif;
   @include font-base;
 }
 
+@mixin fontInter8Bold {
+  font-size: 8px;
+  font-family: $font-family-inter-bold;
+
+  @include font-base;
+}
+
 // fontInterMedium
 
 @mixin fontInter26Medium {
@@ -454,6 +461,13 @@ $font-family-inter-bold: "Inter-Bold", sans-serif;
 
 @mixin fontInter10Medium {
   font-size: 10px;
+  font-family: $font-family-inter-medium;
+
+  @include font-base;
+}
+
+@mixin fontInter8Medium {
+  font-size: 8px;
   font-family: $font-family-inter-medium;
 
   @include font-base;

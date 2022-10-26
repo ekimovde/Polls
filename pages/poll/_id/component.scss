@@ -89,6 +89,54 @@
     }
   }
 
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__inner-item {
+    border-bottom: solid 1px #ebebeb;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__item {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px 20px;
+    overflow: scroll;
+  }
+
+  &__link {
+    @include fontInter15Medium;
+
+    clear: both;
+    width: 100%;
+    color: #1a1919;
+    line-height: 24px;
+    text-align: left;
+    text-decoration: none;
+    outline: none;
+    transition: background 0.5s ease, color 0.5s ease;
+
+    &:hover {
+      color: #6e41e2;
+    }
+
+    &--type {
+      &-regular {
+        color: #ed464e;
+
+        &:hover {
+          color: #ff787e;
+        }
+      }
+    }
+  }
+
   &__bottom {
     display: flex;
     align-items: flex-start;

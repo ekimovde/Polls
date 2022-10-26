@@ -10,6 +10,8 @@ import { UiInputSize } from '~/components/ui/input/component';
 import { UiButtonView, UiButtonSize, UiButtonTheme } from '~/components/ui/button/component';
 import { routes } from '~/shared/repository/routes';
 import { RoutesName } from '~/shared/repository/routes/routes-name';
+import { UiSelectView } from '~/components/ui/select/component';
+import { selectOptionsWithColors } from '~/static-data/select/factory';
 
 @Component({
   name: COMPONENT_NAME,
@@ -30,6 +32,13 @@ export default class extends mixins(TestId, Translatable) {
   readonly uiButtonView = UiButtonView;
   readonly uiButtonSize = UiButtonSize;
   readonly uiButtonTheme = UiButtonTheme;
+
+  readonly uiSelectView = UiSelectView;
+
+  readonly options = selectOptionsWithColors();
+
+  name = '';
+  colour = '';
 
   get pollsRoute(): Partial<Route> {
     return routes[RoutesName.polls];
