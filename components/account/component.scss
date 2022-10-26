@@ -50,7 +50,7 @@
     }
 
     &--type {
-      &-logout {
+      &-regular {
         color: #ed464e;
 
         &:hover {
@@ -58,10 +58,5 @@
         }
       }
     }
-  }
-
-  &__text {
-    margin: 0;
-    padding: 0;
   }
 }

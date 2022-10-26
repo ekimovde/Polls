@@ -6,10 +6,9 @@ import { Translatable } from '~/components/shared/translatable';
 import { uiButton, uiDropdown } from '~/components/ui';
 import { UiButtonView, UiButtonSize, UiButtonTheme } from '../ui/button/component';
 import { AvatarBlock } from '~/components/avatar';
-import { UiDropdownPlacement } from '../ui/dropdown/component';
-import { accountDropdownList } from '~/static-data/account/factory';
 import { DropdownItemBase, DropdownItemTypeBase } from '~/shared/repository/constants';
 import { AvatarBlockSize } from '../avatar/component';
+import { accountDropdownList } from '~/static-data/dropdown/factory';
 
 @Component({
   name: COMPONENT_NAME,
@@ -27,18 +26,20 @@ export default class extends mixins(TestId, Translatable) {
   readonly uiButtonSize = UiButtonSize;
   readonly uiButtonTheme = UiButtonTheme;
 
-  readonly uiDropdownPlacement = UiDropdownPlacement;
-
   readonly avatarBlockSize = AvatarBlockSize;
 
-  readonly accountDropdownList: DropdownItemBase[][] = accountDropdownList();
+  readonly dropdownList: DropdownItemBase[][] = accountDropdownList();
 
   isVisible = false;
+
+  toggleVisible(): void {
+    this.isVisible = !this.isVisible;
+  }
 
   open(route: Route, type: DropdownItemTypeBase): void {
     this.isVisible = false;
 
-    if (type === DropdownItemTypeBase.logout) {
+    if (type === DropdownItemTypeBase.regular) {
       return;
     }
 

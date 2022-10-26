@@ -12,9 +12,20 @@
     >
       <div :class="b('inner-wrapper')">
         <div>
-          <h4 :class="b('title')">
-            {{ item.title }}
-          </h4>
+          <div :class="b('header')">
+            <h4 :class="b('title')">
+              {{ item.title }}
+            </h4>
+
+            <shared-badge
+              v-if="isSharedBadgeShown(item.type)"
+              :theme="sharedColorTheme.pinkLight"
+              :size="sharedBadgeSize.small"
+              :is-uppercase="true"
+            >
+              {{ textAttributes.new }}
+            </shared-badge>
+          </div>
 
           <p :class="b('text')">
             {{ item.description }}

@@ -24,7 +24,7 @@ function create(): Component {
       <div style="
         padding: 20px;
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
       ">
         <account-block />
