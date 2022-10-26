@@ -3,7 +3,7 @@
 
 <template>
   <div
-    :class="b({ theme })"
+    :class="b({ theme, size, uppercase: isUppercase })"
     :data-test="tid()"
   >
     <slot>

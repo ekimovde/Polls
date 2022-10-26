@@ -1,18 +1,36 @@
 @import "assets/scss/helper.scss";
 
 .shared-badge {
-  @include fontInter14Medium;
-
   display: flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  padding: 0 6px;
-  color: #fff;
-  line-height: 24px;
+  color: $white;
   text-align: center;
-  background-color: #000;
-  border-radius: 6px;
+  background-color: $black;
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+
+  &--size {
+    &-xl {
+      @include fontInter14Medium;
+
+      padding: 0 6px;
+      line-height: 24px;
+      border-radius: 6px;
+    }
+
+    &-small {
+      @include fontInter8Bold;
+
+      padding: 3px 5px;
+      font-size: 8px;
+      line-height: 8px;
+      border-radius: 5px;
+    }
+  }
 
   &--theme {
     &-purple {
@@ -38,6 +56,11 @@
     &-pink {
       color: #ff007d;
       background-color: #ffebf5;
+    }
+
+    &-pink-light {
+      color: $white;
+      background-color: #ff357e;
     }
 
     &-blue {

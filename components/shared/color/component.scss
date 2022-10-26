@@ -1,8 +1,6 @@
 @import "assets/scss/helper.scss";
 
 .shared-color {
-  width: 14px;
-  height: 14px;
   border-radius: 50%;
 
   &--theme {
@@ -32,6 +30,18 @@
 
     &-grey {
       background-color: #787890;
+    }
+  }
+
+  &--size {
+    &-xl {
+      min-width: 14px;
+      min-height: 14px;
+    }
+
+    &-xs {
+      min-width: 12px;
+      min-height: 12px;
     }
   }
 }

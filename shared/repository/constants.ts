@@ -1,5 +1,6 @@
 import { Route } from 'vue-router';
 import { RoutesName } from './routes/routes-name';
+import { SharedColorTheme } from '~/components/shared/color/component';
 
 export type Routes = Record<RoutesName, Partial<Route>>
 
@@ -22,7 +23,7 @@ export interface LinkItemBase {
 
 export interface SelectOptionBase {
   label: string,
-  value: string | number
+  value: string | number | SharedColorTheme
 }
 
 export interface DropdownItemBase {
@@ -33,7 +34,7 @@ export interface DropdownItemBase {
 
 export enum DropdownItemTypeBase {
   default = 'default',
-  logout = 'logout'
+  regular = 'regular'
 }
 
 export enum PollCategory {

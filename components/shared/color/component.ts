@@ -8,8 +8,14 @@ export enum SharedColorTheme {
   green = 'green',
   red = 'red',
   pink = 'pink',
+  pinkLight = 'pink-light',
   blue = 'blue',
-  grey = 'grey'
+  grey = 'grey',
+}
+
+export enum SharedColorSize {
+  xl = 'xl',
+  xs = 'xs'
 }
 
 @Component({
@@ -21,6 +27,12 @@ export default class extends mixins(TestId) {
     validator: val => Object.values(SharedColorTheme).includes(val),
     default: SharedColorTheme.purple
   }) readonly theme: SharedColorTheme;
+
+  @Prop({
+    type: String,
+    validator: val => Object.values(SharedColorSize).includes(val),
+    default: SharedColorSize.xl
+  }) readonly size: SharedColorSize;
 
   readonly testLocators = SharedColorTestLocator;
 }

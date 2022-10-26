@@ -1,7 +1,7 @@
 import { withDesign } from 'storybook-addon-designs';
 import { Component } from 'vue';
 import { SharedColor } from '~/components/shared/color';
-import { SharedColorTheme } from './component';
+import { SharedColorTheme, SharedColorSize } from './component';
 
 export default {
   title: 'Components / Shared / Color',
@@ -15,21 +15,25 @@ export default {
 };
 
 export const PurpleTheme = (): Component => create();
-export const OrangeTheme = (): Component => create(SharedColorTheme.orange);
-export const GreenTheme = (): Component => create(SharedColorTheme.green);
-export const RedTheme = (): Component => create(SharedColorTheme.red);
-export const PinkTheme = (): Component => create(SharedColorTheme.pink);
-export const BlueTheme = (): Component => create(SharedColorTheme.blue);
-export const GreyTheme = (): Component => create(SharedColorTheme.grey);
+export const OrangeTheme = (): Component => create({ theme: SharedColorTheme.orange });
+export const GreenTheme = (): Component => create({ theme: SharedColorTheme.green });
+export const RedTheme = (): Component => create({ theme: SharedColorTheme.red });
+export const PinkTheme = (): Component => create({ theme: SharedColorTheme.pink });
+export const BlueTheme = (): Component => create({ theme: SharedColorTheme.blue });
+export const GreyTheme = (): Component => create({ theme: SharedColorTheme.grey });
+export const isXlSize = (): Component => create();
+export const isXsSize = (): Component => create({ size: SharedColorSize.xs });
 
-function create(theme = SharedColorTheme.purple): Component {
+function create(props = {}): Component {
   return {
     components: {
       SharedColor
     },
     data() {
       return {
-        theme
+        theme: SharedColorTheme.purple,
+        size: SharedColorSize.xl,
+        ...props
       };
     },
     template: `
@@ -39,7 +43,10 @@ function create(theme = SharedColorTheme.purple): Component {
         justify-content: center;
         align-items: center;
       ">
-        <shared-color :theme="theme" />
+        <shared-color
+          :theme="theme"
+          :size="size"
+        />
       </div>
     `
   };

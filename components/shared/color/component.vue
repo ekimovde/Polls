@@ -3,7 +3,7 @@
 
 <template>
   <div
-    :class="b({ theme })"
+    :class="b({ theme, size })"
     :data-test="tid()"
   />
 </template>
