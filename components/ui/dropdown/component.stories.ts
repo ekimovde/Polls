@@ -29,18 +29,14 @@ function create(): Component {
       <div style="
         padding: 20px;
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
       ">
         <ui-dropdown :is-visible.sync="isVisible">
           <template slot="reference">
-            <button>
+            <button @click="isVisible = !isVisible">
               Click
             </button>
-          </template>
-
-          <template slot="content">
-            Content
           </template>
         </ui-dropdown>
       </div>

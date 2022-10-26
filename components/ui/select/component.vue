@@ -8,21 +8,25 @@
     :data-test="tid()"
     @keydown.esc="deactivate"
   >
-    <label :class="b('label')">
-      What is your timezone
-    </label>
-
     <div
       :class="b('wrapper', { open: isActivated })"
       @click="activate"
     >
       <div :class="b('block')">
-        <span :class="b('text')">
-          {{ diaplayedCurrentValue }}
-        </span>
+        <div :class="b('inner-block')">
+          <shared-color
+            v-if="isSharedColorShown"
+            :theme="value"
+            :size="sharedColorSize.xs"
+          />
+
+          <span :class="b('text', { default: !hasValue })">
+            {{ diaplayedCurrentValue }}
+          </span>
+        </div>
 
         <i
-          class='bx bx-chevron-down'
+          class="bx bx-chevron-down"
           :class="b('icon')"
         />
       </div>
@@ -34,7 +38,15 @@
           :class="b('item')"
           @click.stop="select(item)"
         >
-          {{ item.label }}
+          <shared-color
+            v-if="isRegularView"
+            :theme="item.value"
+            :size="sharedColorSize.xs"
+          />
+
+          <span>
+            {{ item.label }}
+          </span>
         </li>
       </ul>
     </div>

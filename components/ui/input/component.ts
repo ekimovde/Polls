@@ -4,7 +4,8 @@ import TestId from '~/shared/utils/unit-test/test-id';
 import { Translatable } from '~/components/shared/translatable';
 
 export enum UiInputView {
-  default = 'default'
+  default = 'default',
+  regular = 'regular'
 }
 
 export enum UiInputSize {

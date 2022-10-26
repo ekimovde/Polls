@@ -4,6 +4,13 @@ import { COMPONENT_NAME, UiSelectTextAttribute, UiSelectTestLocator } from './at
 import TestId from '~/shared/utils/unit-test/test-id';
 import { SelectOptionBase } from '~/shared/repository/constants';
 import { Translatable } from '~/components/shared/translatable';
+import { SharedColor } from '~/components/shared/color';
+import { SharedColorSize } from '~/components/shared/color/component';
+
+export enum UiSelectView {
+  default = 'default',
+  regular = 'regular'
+}
 
 export enum UiSelectEvent {
   input = 'input'
@@ -11,7 +18,12 @@ export enum UiSelectEvent {
 
 @Component({
   name: COMPONENT_NAME,
-  directives: { ClickOutside }
+  directives: {
+    ClickOutside
+  },
+  components: {
+    SharedColor
+  }
 })
 export default class extends mixins(TestId, Translatable) {
   @Prop({
@@ -38,8 +50,16 @@ export default class extends mixins(TestId, Translatable) {
     default: false
   }) readonly isExpanded: boolean;
 
+  @Prop({
+    type: String,
+    validator: val => Object.values(UiSelectView).includes(val),
+    default: UiSelectView.default
+  }) readonly view: UiSelectView;
+
   readonly textAttributes = this.transAll(UiSelectTextAttribute);
   readonly testLocators = UiSelectTestLocator;
+
+  readonly sharedColorSize = SharedColorSize;
 
   search = '';
 
@@ -53,8 +73,20 @@ export default class extends mixins(TestId, Translatable) {
     return !this.isActivated || !this.hasOptions;
   }
 
+  get isRegularView(): boolean {
+    return this.view === UiSelectView.regular;
+  }
+
+  get isSharedColorShown(): boolean {
+    return this.isRegularView && Boolean(this.value);
+  }
+
   get hasOptions(): boolean {
     return Boolean(this.options.length);
+  }
+
+  get hasValue(): boolean {
+    return Boolean(this.value);
   }
 
   get contentClasses(): string {

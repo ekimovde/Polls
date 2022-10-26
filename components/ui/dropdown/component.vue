@@ -3,25 +3,16 @@
 
 <template>
   <div
+    v-click-outside="hide"
     :class="b()"
     :data-test="tid()"
   >
-    <el-popover
-      :placement="placement"
-      :popper-class="b('wrapper')"
-      :visible-arrow="false"
-      :value="isVisible"
-      :open-delay="100"
-      :close-delay="100"
-      trigger="click"
-      @show="show"
-      @hide="hide"
-    >
-      <template slot="reference">
-        <slot name="reference" />
-      </template>
+    <slot name="reference" />
 
-      <slot name="content" />
-    </el-popover>
+    <div :class="b('wrapper', { active: isVisible })">
+      <slot name="content">
+        Content
+      </slot>
+    </div>
   </div>
 </template>

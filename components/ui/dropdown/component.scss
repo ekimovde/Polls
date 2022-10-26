@@ -1,21 +1,38 @@
 @import "assets/scss/helper";
 
-$root-name: "el-popover";
-
 .ui-dropdown {
-  .#{$root-name}__reference-wrapper {
-    display: block;
-  }
+  position: relative;
 
   &__wrapper {
-    top: 70px !important;
-    min-width: 220px;
-    max-width: fit-content;
-    height: fit-content;
-    max-height: 480px;
-    background: #fff;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    left: inherit;
+    z-index: 500;
+    display: none;
+    width: 200px;
+    padding: 2px 0;
+    background: $white;
     border: 1px solid #ebebeb;
     border-radius: 8px;
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.05);
+    animation: fadeInUp;
+    animation-duration: 0.4s;
+
+    &--active {
+      display: block;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      transform: translate3d(0, 20px, 0);
+      opacity: 0;
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
   }
 }

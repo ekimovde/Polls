@@ -4,15 +4,6 @@
   box-sizing: border-box;
   width: 100%;
 
-  &__label {
-    @include fontInter14Medium;
-
-    display: block;
-    margin-bottom: 6px;
-    color: #757575;
-    line-height: 17px;
-  }
-
   &__wrapper {
     @include fontInter16Medium;
 
@@ -49,6 +40,13 @@
     align-items: center;
   }
 
+  &__inner-block {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    column-gap: 10px;
+  }
+
   &__text {
     @include fontInter16Medium;
 
@@ -59,6 +57,11 @@
     white-space: nowrap;
     text-align: left;
     text-overflow: ellipsis;
+
+    &--default {
+      color: #19385d;
+      opacity: 0.6;
+    }
   }
 
   &__icon {
@@ -100,12 +103,15 @@
   &__item {
     @include fontInter15Medium;
 
+    display: flex;
+    align-items: center;
     padding: 12px 17px 12px 17px;
     color: #19385d;
     font-size: 15.5px;
     font-style: normal;
     line-height: inherit;
     text-align: left;
+    column-gap: 10px;
     list-style: none;
     outline: none;
     cursor: pointer;

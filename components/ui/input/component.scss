@@ -23,19 +23,6 @@
       max-width: initial;
     }
 
-    &--view {
-      &-default {
-        color: #19385d;
-        background-color: #f6f6fa;
-
-        &:focus {
-          color: #6e41e2;
-          background-color: $white;
-          transition: border 0.5s ease, color 0.5s ease;
-        }
-      }
-    }
-
     &--size {
       &-xl {
         @include fontInter17Medium;
@@ -75,6 +62,31 @@
 
           padding: 14px 15px 13px 15px;
           line-height: 17px;
+        }
+      }
+    }
+
+    &--view {
+      &-default {
+        color: #19385d;
+        background-color: #f6f6fa;
+
+        &:focus {
+          color: #6e41e2;
+          background-color: $white;
+          transition: border 0.5s ease, color 0.5s ease;
+        }
+      }
+
+      &-regular {
+        color: #19385d;
+        background-color: $white;
+        border-color: $white;
+
+        &:focus {
+          color: #19385d;
+          background-color: #f6f6fa;
+          transition: border 0.5s ease, color 0.5s ease;
         }
       }
     }

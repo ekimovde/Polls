@@ -1,7 +1,8 @@
 import { withDesign } from 'storybook-addon-designs';
 import { Component } from 'vue';
 import { uiSelect } from '~/components/ui';
-import { selectOptions } from '~/static-data/select/factory';
+import { selectOptions, selectOptionsWithColors } from '~/static-data/select/factory';
+import { UiSelectView } from './component';
 
 export default {
   title: 'Components / Ui / Select',
@@ -14,9 +15,13 @@ export default {
   }
 };
 
-export const Default = (): Component => create();
+export const DefaultView = (): Component => create();
+export const RegularView = (): Component => create({
+  view: UiSelectView.regular,
+  options: selectOptionsWithColors()
+});
 
-function create(): Component {
+function create(props = {}): Component {
   return {
     components: {
       uiSelect
@@ -24,7 +29,9 @@ function create(): Component {
     data() {
       return {
         value: '',
-        options: selectOptions()
+        options: selectOptions(),
+        view: UiSelectView.default,
+        ...props
       };
     },
     template: `
@@ -37,6 +44,7 @@ function create(): Component {
         <ui-select
           v-model="value"
           :options="options"
+          :view="view"
         />
       </div>
     `

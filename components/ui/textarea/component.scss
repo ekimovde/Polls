@@ -17,6 +17,13 @@
   -webkit-appearance: none;
   resize: none;
 
+  @media screen and (max-width: 450px) {
+    @include fontInter15Medium;
+
+    padding: 14px 15px 13px 15px;
+    line-height: 17px;
+  }
+
   &:focus {
     color: #6e41e2;
     background-color: $white;
