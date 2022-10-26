@@ -1,0 +1,38 @@
+@import "assets/scss/helper.scss";
+
+.settings-invite {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30px;
+  background: $white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 5%);
+
+  &__title {
+    @include fontInter16Regular;
+
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    color: #19385d;
+  }
+
+  &__form-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+  }
+
+  &__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+  }
+
+  &__label {
+    @include fontInter15Medium;
+
+    color: #757575;
+    line-height: 17px;
+  }
+}

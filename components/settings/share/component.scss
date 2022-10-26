@@ -1,0 +1,39 @@
+@import "assets/scss/helper.scss";
+
+.settings-share {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30px;
+  background-color: #f2f2f9;
+  border-radius: 10px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+  }
+
+  &__title {
+    @include fontInter16Regular;
+
+    margin: 0;
+    padding: 0;
+    color: #19385d;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    margin: 8px 0 15px 0;
+  }
+
+  &__text {
+    @include fontInter13Medium;
+
+    margin: 0;
+    padding: 0;
+    color: #8989a3;
+    line-height: 20px;
+  }
+}
