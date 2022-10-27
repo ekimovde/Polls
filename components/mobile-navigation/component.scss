@@ -5,12 +5,14 @@
   bottom: 0;
   left: 0;
   z-index: 400;
-  // display: none;
   box-sizing: border-box;
   width: 100%;
-  height: calc(100% - 79px);
+  height: calc(100% - 68px);
   padding-top: 0;
   background-color: $white;
+  animation: fadeIn;
+  animation-duration: 0.6s;
+  animation-direction: alternate;
 
   &__list {
     display: flex;
@@ -89,5 +91,15 @@
     padding: 0;
     color: #757575;
     line-height: 16px;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 }

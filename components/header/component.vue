@@ -7,9 +7,24 @@
     :data-test="tid()"
   >
     <brand-block />
+    <navigation-block :class="b('block')" />
+    <account-block :class="b('block')" />
 
-    <navigation-block />
+    <ui-button
+      :view="uiButtonView.simple"
+      :size="uiButtonSize.byContent"
+      :theme="theme"
+      :class="b('ui-button')"
+      @click="toggleVisible"
+    >
+      <i
+        class='bx bx-menu'
+        :class="b('icon')"
+      />
+    </ui-button>
 
-    <account-block />
+    <transition name="mobile-navigation">
+      <mobile-navigation v-show="isVisible" />
+    </transition>
   </nav>
 </template>

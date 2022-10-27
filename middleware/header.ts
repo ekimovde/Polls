@@ -30,11 +30,14 @@ const header: Middleware = async (context) => {
   if (isHeaderRegular) {
     void headerRepo.setView(HeaderBlockView.regular);
     void headerRepo.setVisible(true);
+    void headerRepo.setMobileNavVisible(false);
+
     return;
   }
 
   void headerRepo.setVisible(true);
   void headerRepo.setView(HeaderBlockView.default);
+  void headerRepo.setMobileNavVisible(false);
 };
 
 export default header;

@@ -1,5 +1,5 @@
 <template>
-  <div :class="b()">
+  <div :class="b({ ['no-scroll']: isMovileNavigationVisible })">
     <header-block v-if="isHeaderVisible" />
 
     <main :class="b('body')">
@@ -31,6 +31,10 @@
       return this.headerRepo.isVisible;
     }
 
+    get isMovileNavigationVisible(): boolean {
+      return this.headerRepo.isMovileNavigationVisible;
+    }
+
     get isFooterVisible(): boolean {
       return this.footerRepo.isVisible;
     }
@@ -45,6 +49,10 @@
   height: 100vh;
   width: 100%;
   box-sizing: border-box;
+
+  &--no-scroll {
+    overflow: hidden;
+  }
 
   &__body {
     width: 100%;

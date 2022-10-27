@@ -28,4 +28,50 @@
     height: 68px;
     padding: 6px 20px;
   }
+
+  &__block {
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+  }
+
+  &__ui-button {
+    display: none;
+
+    @media screen and (max-width: 800px) {
+      display: block;
+    }
+  }
+
+  &__icon {
+    @include fontInter38Bold;
+
+    display: block;
+    line-height: 40px;
+  }
+
+  // Animations
+
+  // *-enter
+  // *-enter-active
+  // *-enter-to
+
+  // *-leave
+  // *-leave-active
+  // *-leave-to
+
+  .mobile-navigation-enter-active,
+  .mobile-navigation-leave-active {
+    transition: opacity 0.35s ease-in-out;
+  }
+
+  .mobile-navigation-enter,
+  .mobile-navigation-leave-to {
+    opacity: 0;
+  }
+
+  .mobile-navigation-enter-to,
+  .mobile-navigation-leave {
+    opacity: 1;
+  }
 }
