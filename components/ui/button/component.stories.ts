@@ -21,7 +21,7 @@ export const View = (): Component => ({
     <div>
       <table class="storybook-table">
         <tr>
-          <th colspan="6">
+          <th colspan="7">
             View состояния, Size xs
           </th>
         </tr>
@@ -47,6 +47,10 @@ export const View = (): Component => ({
 
           <th>
             green
+          </th>
+
+          <th>
+            pink
           </th>
         </tr>
 
@@ -74,6 +78,10 @@ export const View = (): Component => ({
           <td>
             <ui-button view="action" theme="green" size="xl">кнопка</ui-button>
           </td>
+
+          <td>
+            NULL
+          </td>
         </tr>
 
         <tr>
@@ -95,6 +103,10 @@ export const View = (): Component => ({
 
           <td class="center">
             <ui-button view="default" theme="default" size="xl">x</ui-button>
+          </td>
+
+          <td>
+            NULL
           </td>
 
           <td>
@@ -125,6 +137,10 @@ export const View = (): Component => ({
 
           <td>
             NULL
+          </td>
+
+          <td>
+            <ui-button view="simple" theme="pink" size="by-content">click</ui-button>
           </td>
         </tr>
       </table>

@@ -20,6 +20,7 @@ export interface ProjectRepository {
   getPolls(): Promise<PollResponse[]>
   getMyPolls(): Promise<PollResponse[]>
   getReactions(): Promise<ReactionResponse[]>
+  getPollMembers(id: string): Promise<PollMembersResponse[]>
 }
 
 export interface ProjectUrlGenerator {
@@ -90,4 +91,11 @@ export interface ReactionResponse {
   id: number
   icon: string
   quantity: number
+}
+
+export interface PollMembersResponse {
+  id: number
+  avatar: string
+  name: string
+  role: string
 }

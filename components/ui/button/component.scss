@@ -196,6 +196,17 @@ $root-name: "ui-button";
             color: #6e41e2;
           }
         }
+
+        &-pink {
+          color: #ff357e;
+          text-decoration: none;
+          background-color: transparent;
+          transition: background 0.5s ease, color 0.5s ease;
+
+          &:hover {
+            color: #c81d5b;
+          }
+        }
       }
     }
   }

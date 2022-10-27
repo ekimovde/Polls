@@ -8,7 +8,8 @@ import {
   TranslationRequest,
   UserProgressResponse,
   PollResponse,
-  ReactionResponse
+  ReactionResponse,
+  PollMembersResponse
 } from './repo';
 import { translationResponse } from './fixtures/translation';
 import { translationsResponse } from './fixtures/translations';
@@ -16,6 +17,7 @@ import { Translation } from '../services/translator';
 import { fakeUserProgress } from './fixtures/fake-user-progress';
 import { fakePolls } from './fixtures/fake-polls';
 import { fakeReactions } from './fixtures/fake-reactions';
+import { fakePollMembers } from './fixtures/fake-poll-members';
 
 export class FakeRepo implements ProjectRepository {
   static create(): ProjectRepository {
@@ -56,5 +58,9 @@ export class FakeRepo implements ProjectRepository {
 
   async getReactions(): Promise<ReactionResponse[]> {
     return respondMockResult(fakeReactions());
+  }
+
+  async getPollMembers(id: string): Promise<PollMembersResponse[]> {
+    return respondMockResult(fakePollMembers());
   }
 };
