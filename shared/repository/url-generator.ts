@@ -4,8 +4,8 @@ export enum ApiRoutes {
   translation = 'translation/',
   translations = 'translations/',
   auth = 'auth/',
-  updateAccessToken = 'update-access-token/',
   user = 'user/',
+  users = 'users/',
   poll = 'poll/',
   polls = 'polls/',
   reactions = 'reactions/'
@@ -20,12 +20,24 @@ export class UrlGenerator implements ProjectUrlGenerator {
     return ApiRoutes.translations;
   }
 
-  auth(): string {
-    return ApiRoutes.auth;
+  signup(): string {
+    return `${ApiRoutes.auth}signup/`;
   }
 
-  updateAccessToken(): string {
-    return ApiRoutes.updateAccessToken;
+  signin(): string {
+    return `${ApiRoutes.auth}signin/`;
+  }
+
+  logout(): string {
+    return `${ApiRoutes.auth}logout/`;
+  }
+
+  refresh(): string {
+    return `${ApiRoutes.auth}refresh/`;
+  }
+
+  getSelfInfo(): string {
+    return `${ApiRoutes.users}info/`;
   }
 
   getUserProgress(): string {

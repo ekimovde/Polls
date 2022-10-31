@@ -7,7 +7,7 @@
     :data-test="tid()"
   >
     <li
-      v-for="(item, index) in navigations"
+      v-for="(item, index) in displayedNavigationLinks"
       :key="index"
     >
       <nuxt-link

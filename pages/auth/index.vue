@@ -10,8 +10,8 @@
         :view="uiButtonView.simple"
         :size="uiButtonSize.byContent"
         :theme="uiButtonTheme.purple"
-        :is-nuxt-link="true"
-        :to="authRegistrationRoute"
+        :is-disabled="isLoading"
+        @click="signup"
       >
         <span :class="b('button-text')">
           {{ textAttributes.signUp }}
@@ -38,15 +38,22 @@
 
         <div :class="b('form-wrapper')">
           <ui-input
+            v-model="$v.form.email.$model"
             :size="uiInputSize.xl"
-            :placeholder="textAttributes.emailAddress"
+            :placeholder="textAttributes.email"
             :is-expanded="true"
+            :is-error="hasEmailInputError"
+            :error-message="textAttributes.emailErrorMessage"
           />
 
           <ui-input
+            v-model="$v.form.password.$model"
             :size="uiInputSize.xl"
             :placeholder="textAttributes.password"
+            :type="uiInputType.password"
             :is-expanded="true"
+            :is-error="hasPasswordInputError"
+            :error-message="textAttributes.passwordErrorMessage"
           />
 
           <ui-button
@@ -54,6 +61,8 @@
             :size="uiButtonSize.xl"
             :theme="uiButtonTheme.purple"
             :is-expanded="true"
+            :is-loading="isLoading"
+            @click="signin"
           >
             {{ textAttributes.title }}
           </ui-button>
@@ -66,8 +75,8 @@
             :view="uiButtonView.simple"
             :size="uiButtonSize.byContent"
             :theme="uiButtonTheme.grey"
-            :is-nuxt-link="true"
-            :to="authRegistrationRoute"
+            :is-disabled="isLoading"
+            @click="resetPassword"
           >
             <span :class="b('button-text', { small: true })">
               {{ textAttributes.reset }}

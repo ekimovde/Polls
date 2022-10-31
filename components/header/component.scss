@@ -43,6 +43,19 @@
     }
   }
 
+  &__navigation-items {
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+  }
+
+  &__button-text {
+    @include fontInter15Bold;
+
+    line-height: 18px;
+    letter-spacing: -0.2145px;
+  }
+
   &__icon {
     @include fontInter38Bold;
 

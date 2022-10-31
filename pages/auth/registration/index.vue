@@ -24,34 +24,49 @@
             <div :class="b('form-wrapper')">
               <div :class="b('split-fields')">
                 <ui-input
+                  v-model="form.firstName"
                   :size="uiInputSize.xl"
                   :placeholder="textAttributes.firstName"
+                  :error-message="textAttributes.errorMessage"
+                  :is-error="hasFirstNameInputError"
                   :is-expanded="true"
                 />
 
                 <ui-input
+                  v-model="form.lastName"
                   :size="uiInputSize.xl"
                   :placeholder="textAttributes.lastName"
+                  :error-message="textAttributes.errorMessage"
+                  :is-error="hasLastNameInputError"
                   :is-expanded="true"
                 />
               </div>
 
               <ui-input
+                v-model="form.nickName"
                 :size="uiInputSize.xl"
-                :placeholder="textAttributes.jobTitle"
+                :placeholder="textAttributes.nickName"
+                :error-message="textAttributes.errorMessage"
+                :is-error="hasNickNameInputError"
                 :is-expanded="true"
               />
 
               <ui-input
+                v-model="form.email"
                 :size="uiInputSize.xl"
                 :placeholder="textAttributes.email"
+                :error-message="textAttributes.emailErrorMessage"
+                :is-error="hasEmailInputError"
                 :is-expanded="true"
               />
 
               <ui-input
+                v-model="form.password"
                 :size="uiInputSize.xl"
                 :type="uiInputType.password"
                 :placeholder="textAttributes.password"
+                :error-message="textAttributes.passwordErrorMessage"
+                :is-error="hasPasswordInputError"
                 :is-expanded="true"
               />
 
@@ -64,6 +79,8 @@
                 :size="uiButtonSize.xl"
                 :theme="uiButtonTheme.purple"
                 :is-expanded="true"
+                :is-loading="isLoading"
+                @click="signup"
               >
                 {{ textAttributes.createAccount }}
               </ui-button>
@@ -76,8 +93,8 @@
                 :view="uiButtonView.simple"
                 :size="uiButtonSize.byContent"
                 :theme="uiButtonTheme.grey"
-                :is-nuxt-link="true"
-                :to="authLoginRoute"
+                :is-disabled="isLoading"
+                @click="signin"
               >
                 <span :class="b('button-text')">
                   {{ textAttributes.logIn }}

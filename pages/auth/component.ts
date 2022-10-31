@@ -1,35 +1,35 @@
 import { Component, mixins } from 'nuxt-property-decorator';
 import { Route } from 'vue-router';
 import { validationMixin } from 'vuelidate';
-import { ValidationRule, required, email, minLength, maxLength, helpers } from 'vuelidate/lib/validators';
-import { COMPONENT_NAME, AuthRegistrationPageTextAttribute } from './attributes';
+import { ValidationRule, required, email, minLength, maxLength } from 'vuelidate/lib/validators';
+import { COMPONENT_NAME, AuthPageTextAttribute } from './attributes';
 import TestId from '~/shared/utils/unit-test/test-id';
 import { Translatable } from '~/components/shared/translatable';
+import { BrandBlock } from '~/components/brand';
+import { BrandBlockSize } from '~/components/brand/component';
 import { uiInput, uiButton } from '~/components/ui';
 import { UiInputSize, UiInputType } from '~/components/ui/input/component';
 import { UiButtonView, UiButtonSize, UiButtonTheme } from '~/components/ui/button/component';
-import { BrandBlock } from '~/components/brand';
-import { BrandBlockSize } from '~/components/brand/component';
-import { routes } from '~/shared/repository/routes';
 import { RoutesName } from '~/shared/repository/routes/routes-name';
-import { SignupRequest } from '~/shared/repository/repo';
-
-const regexForNickName = helpers.regex('alpha', /^[A-Za-z\d_]{5,32}$/);
+import { routes } from '~/shared/repository/routes';
+import { SigninRequest } from '~/shared/repository/repo';
 
 @Component({
   name: COMPONENT_NAME,
   mixins: [validationMixin],
   components: {
+    BrandBlock,
     uiInput,
-    uiButton,
-    BrandBlock
+    uiButton
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(AuthRegistrationPageTextAttribute)
+  readonly textAttributes = this.transAll(AuthPageTextAttribute);
 
   readonly userRepo = this.$projectServices.userRepo;
   readonly notifier = this.$projectServices.notification;
+
+  readonly brandBlockSize = BrandBlockSize;
 
   readonly uiInputSize = UiInputSize;
   readonly uiInputType = UiInputType;
@@ -38,17 +38,10 @@ export default class extends mixins(TestId, Translatable) {
   readonly uiButtonSize = UiButtonSize;
   readonly uiButtonTheme = UiButtonTheme;
 
-  readonly brandBlockSize = BrandBlockSize;
-
-  readonly picture = require('@assets/images/home-slide.png');
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   $v: any = {};
 
-  form: SignupRequest = {
-    firstName: '',
-    lastName: '',
-    nickName: '',
+  form: SigninRequest = {
     email: '',
     password: ''
   }
@@ -59,18 +52,6 @@ export default class extends mixins(TestId, Translatable) {
     return this.$v.form.$invalid as boolean;
   }
 
-  get hasFirstNameInputError(): boolean {
-    return <boolean> this.$v.form.firstName.$invalid && <boolean> this.$v.form.firstName.$dirty;
-  }
-
-  get hasLastNameInputError(): boolean {
-    return <boolean> this.$v.form.lastName.$invalid && <boolean> this.$v.form.lastName.$dirty;
-  }
-
-  get hasNickNameInputError(): boolean {
-    return <boolean> this.$v.form.nickName.$invalid && <boolean> this.$v.form.nickName.$dirty;
-  }
-
   get hasEmailInputError(): boolean {
     return <boolean> this.$v.form.email.$invalid && <boolean> this.$v.form.email.$dirty;
   }
@@ -79,8 +60,8 @@ export default class extends mixins(TestId, Translatable) {
     return <boolean> this.$v.form.password.$invalid && <boolean> this.$v.form.password.$dirty;
   }
 
-  get authLoginRoute(): Partial<Route> {
-    return routes[RoutesName.auth];
+  get authRegistrationRoute(): Partial<Route> {
+    return routes[RoutesName.authRegistration];
   }
 
   get displayedCopyright(): string {
@@ -90,20 +71,21 @@ export default class extends mixins(TestId, Translatable) {
   validations(): Record<string, Partial<ValidationRule>> {
     return {
       form: {
-        firstName: { required },
-        lastName: { required },
-        nickName: { required, regexForNickName },
         email: { required, email },
         password: { required, minLength: minLength(4), maxLength: maxLength(16) }
       }
     };
   }
 
-  signin(): void {
-    void this.$router.push(this.authLoginRoute);
+  resetPassword(): void {
+    void this.$router.push(this.authRegistrationRoute);
   }
 
-  async signup(): Promise<void> {
+  signup(): void {
+    void this.$router.push(this.authRegistrationRoute);
+  }
+
+  async signin(): Promise<void> {
     if (this.isFormInvalid) {
       this.$v.form.$touch();
       return;
@@ -112,7 +94,7 @@ export default class extends mixins(TestId, Translatable) {
     try {
       this.isLoading = true;
 
-      await this.userRepo.signup(this.form);
+      await this.userRepo.signin(this.form);
     } catch (error) {
       this.notifier.showError();
     } finally {

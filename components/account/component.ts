@@ -22,6 +22,8 @@ export default class extends mixins(TestId, Translatable) {
   readonly textAttributes = this.transAll(AccountBlockTextAttribute);
   readonly testLocators = AccountBlockTestLocator;
 
+  readonly userRepo = this.$projectServices.userRepo;
+
   readonly uiButtonView = UiButtonView;
   readonly uiButtonSize = UiButtonSize;
   readonly uiButtonTheme = UiButtonTheme;
@@ -36,10 +38,11 @@ export default class extends mixins(TestId, Translatable) {
     this.isVisible = !this.isVisible;
   }
 
-  open(route: Route, type: DropdownItemTypeBase): void {
+  async open(route: Route, type: DropdownItemTypeBase): Promise<void> {
     this.isVisible = false;
 
     if (type === DropdownItemTypeBase.regular) {
+      await this.userRepo.logout();
       return;
     }
 

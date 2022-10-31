@@ -16,6 +16,8 @@
             :size="uiButtonSize.xl"
             :theme="uiButtonTheme.purple"
             :is-expanded="true"
+            :is-nuxt-link="true"
+            :to="linkRoute"
           >
             {{ textAttributes.startButton }}
           </ui-button>
@@ -44,6 +46,7 @@
 
 <script lang="ts">
   import { Component, Vue, mixins } from 'nuxt-property-decorator';
+  import { Route } from 'vue-router';
   import { COMPONENT_NAME, IndexPageTextAttribute } from './attributes';
   import { HomeFeatures } from '~/components/home/features';
   import { HomeDiscussions } from '~/components/home/discussions';
@@ -55,6 +58,8 @@
   import { Translatable } from '~/components/shared/translatable';
   import { uiButton } from '~/components/ui';
   import { UiButtonView, UiButtonSize, UiButtonTheme } from '~/components/ui/button/component';
+  import { routes } from '~/shared/repository/routes';
+  import { RoutesName } from '~/shared/repository/routes/routes-name';
 
   @Component({
     name: COMPONENT_NAME,
@@ -72,9 +77,21 @@
   export default class HomePage extends mixins(Vue, Translatable) {
     readonly textAttributes = this.transAll(IndexPageTextAttribute);
 
+    readonly userRepo = this.$projectServices.userRepo;
+
     readonly uiButtonView = UiButtonView;
     readonly uiButtonSize = UiButtonSize;
     readonly uiButtonTheme = UiButtonTheme;
+
+    get isAuthorized(): boolean {
+      return this.userRepo.isAuthorized;
+    }
+
+    get linkRoute(): Partial<Route> {
+      return this.isAuthorized
+        ? routes[RoutesName.dashboard]
+        : routes[RoutesName.authRegistration];
+    }
   }
 </script>
 

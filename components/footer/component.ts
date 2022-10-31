@@ -3,12 +3,14 @@ import { COMPONENT_NAME, FooterBlockTextAttribute, FooterBlockTestLocator } from
 import TestId from '~/shared/utils/unit-test/test-id';
 import { Translatable } from '~/components/shared/translatable';
 import { BrandBlock } from '~/components/brand';
-import { footerLinks, footerOtherLinks, footerSocialLinks } from '~/static-data/footer/factory';
+import { footerLinks, footerOtherLinks } from '~/static-data/footer/factory';
+import { SocialLinks } from '~/components/social-links';
 
 @Component({
   name: COMPONENT_NAME,
   components: {
-    BrandBlock
+    BrandBlock,
+    SocialLinks
   }
 })
 export default class extends mixins(TestId, Translatable) {
@@ -17,8 +19,6 @@ export default class extends mixins(TestId, Translatable) {
 
   readonly footerLinks = footerLinks();
   readonly footerOtherLinks = footerOtherLinks();
-
-  readonly footerSocialLinks = footerSocialLinks();
 
   get displayedCopyright(): string {
     return `© ${new Date().getFullYear()}`;

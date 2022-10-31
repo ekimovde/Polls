@@ -2,14 +2,16 @@ import { respondMockResult } from '../utils/respond-mock-result';
 import { consoleLogMethodCalls } from '../utils/unit-test/console-log-method-calls';
 import {
   AccessTokens,
-  AuthorizationRequest,
+  SigninRequest,
   ProjectRepository,
-  UpdateAccessTokenRequest,
+  RefreshTokenRequest,
   TranslationRequest,
   UserProgressResponse,
   PollResponse,
   ReactionResponse,
-  PollMembersResponse
+  PollMembersResponse,
+  SelfInfoResponse,
+  SignupRequest
 } from './repo';
 import { translationResponse } from './fixtures/translation';
 import { translationsResponse } from './fixtures/translations';
@@ -18,6 +20,7 @@ import { fakeUserProgress } from './fixtures/fake-user-progress';
 import { fakePolls } from './fixtures/fake-polls';
 import { fakeReactions } from './fixtures/fake-reactions';
 import { fakePollMembers } from './fixtures/fake-poll-members';
+import { fakeSelfInfo } from './fixtures/fake-self-info';
 
 export class FakeRepo implements ProjectRepository {
   static create(): ProjectRepository {
@@ -32,12 +35,24 @@ export class FakeRepo implements ProjectRepository {
     return respondMockResult(translationsResponse());
   }
 
-  async auth(params: AuthorizationRequest): Promise<AccessTokens> {
+  async signup(params: SignupRequest): Promise<AccessTokens> {
     return null;
   }
 
-  async updateAccessToken(params: UpdateAccessTokenRequest): Promise<AccessTokens> {
+  async signin(params: SigninRequest): Promise<AccessTokens> {
     return null;
+  }
+
+  async logout(): Promise<void> {
+    void respondMockResult(null);
+  }
+
+  async refresh(params: RefreshTokenRequest): Promise<AccessTokens> {
+    return null;
+  }
+
+  async getSelfInfo(): Promise<SelfInfoResponse> {
+    return respondMockResult(fakeSelfInfo());
   }
 
   async getUserProgress(): Promise<UserProgressResponse[]> {

@@ -40,7 +40,7 @@ export default class extends mixins(TestId, Translatable) {
 
   async created(): Promise<void> {
     try {
-      await this.getPolls();
+      // await this.getPolls();
     } catch (error) {
       this.notifier.showError();
     } finally {

@@ -3,18 +3,19 @@ import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 import isEmpty from 'lodash/isEmpty';
 import { $projectServices } from '~/shared/repository/initialize-project-services';
 import { decodeJwtToken, ExtendedJwtPayload } from '~/shared/utils/decode-jwt-token';
-import { AuthorizationRequest } from '~/shared/repository/repo';
+import { SigninRequest, SelfInfoResponse, SignupRequest } from '~/shared/repository/repo';
 import { Language } from '../model';
 import { DEFAULT_COUNTRY_ID, DEFAULT_COUNTRY_CODE, DEFAULT_COUNTRY_TITLE } from '~/shared/repository/constants';
+import { RoutesName } from '~/shared/repository/routes/routes-name';
 
 enum UserMutation {
-  UPDATE_USER = 'UPDATE_USER',
+  UPDATE_INFO = 'UPDATE_INFO',
   UPDATE_TOKENS = 'UPDATE_TOKENS',
   LOGOUT = 'LOGOUT'
 }
 
 interface State {
-  user: string
+  user: SelfInfoResponse
   accessToken: string
   refreshToken: string
 }
@@ -25,7 +26,7 @@ interface State {
   name: 'user'
 })
 export default class UserModuleState extends VuexModule<State> {
-  user = null;
+  user: SelfInfoResponse = null;
   accessToken = null;
   refreshToken = null;
 
@@ -58,8 +59,8 @@ export default class UserModuleState extends VuexModule<State> {
   }
 
   @Mutation
-  [UserMutation.UPDATE_USER](user: string): void {
-    this.user = user;
+  [UserMutation.UPDATE_INFO](info: SelfInfoResponse): void {
+    this.user = info;
   };
 
   @Mutation
@@ -75,36 +76,46 @@ export default class UserModuleState extends VuexModule<State> {
     this.user = null;
 
     // @ts-ignore
-    $nuxt.$router.push(RoutesName.auth);
+    $nuxt.$router.push({ name: RoutesName.auth });
   }
 
   @Action({ rawError: true })
-  updateUser(user: string): void {
-    this.UPDATE_USER(user);
+  updateInfo(info: SelfInfoResponse): void {
+    this.UPDATE_INFO(info);
   }
 
   @Action({ rawError: true })
-  logout(): void {
+  async logout(): Promise<void> {
+    await $projectServices.projectRepository.logout();
+
     this.LOGOUT();
   }
 
   @Action({ rawError: true })
-  async auth({ login, password }: AuthorizationRequest): Promise<void> {
-    const JWTTokens = await $projectServices.projectRepository.auth({
-      login, password
-    });
-
+  async signup(data: SignupRequest): Promise<void> {
+    const JWTTokens = await $projectServices.projectRepository.signup(data);
     const { accessToken, refreshToken } = JWTTokens;
 
     this.UPDATE_TOKENS({ accessToken, refreshToken });
 
     // @ts-ignore
-    await $nuxt.$router.push(routes[RoutesName.index]);
+    await $nuxt.$router.push({ name: RoutesName.dashboard });
   }
 
   @Action({ rawError: true })
-  async updateAccessToken(): Promise<void> {
-    const JWTToken = await $projectServices.projectRepository.updateAccessToken({
+  async signin(data: SigninRequest): Promise<void> {
+    const JWTTokens = await $projectServices.projectRepository.signin(data);
+    const { accessToken, refreshToken } = JWTTokens;
+
+    this.UPDATE_TOKENS({ accessToken, refreshToken });
+
+    // @ts-ignore
+    await $nuxt.$router.push({ name: RoutesName.dashboard });
+  }
+
+  @Action({ rawError: true })
+  async refresh(): Promise<void> {
+    const JWTToken = await $projectServices.projectRepository.refresh({
       refresh_token: this.refreshToken
     });
 

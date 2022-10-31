@@ -2,20 +2,20 @@ import { RoutesName } from './routes-name';
 import { Routes } from '../constants';
 
 type AuthRoutes = Pick<Routes,
-  RoutesName.authLogin |
+  RoutesName.auth |
   RoutesName.authRegistration
 >
 
 enum UserRoutesTitle {
-  login = 'Вход',
+  auth = 'Вход',
   registration = 'Регистрация'
 }
 
 export const authRoutes: AuthRoutes = {
-  [RoutesName.authLogin]: {
-    name: RoutesName.authLogin,
+  [RoutesName.auth]: {
+    name: RoutesName.auth,
     meta: {
-      title: UserRoutesTitle.login
+      title: UserRoutesTitle.auth
     }
   },
   [RoutesName.authRegistration]: {

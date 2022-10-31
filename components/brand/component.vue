@@ -5,7 +5,7 @@
   <nuxt-link
     :class="b({ size })"
     :data-test="tid()"
-    :to="{ name: routesName.index }"
+    :to="linkRoute"
   >
     <img
       :class="b('image')"

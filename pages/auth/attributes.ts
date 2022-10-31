@@ -1,10 +1,12 @@
-export const COMPONENT_NAME = 'auth-login-page';
+export const COMPONENT_NAME = 'auth-page';
 
-export enum AuthLoginPageTextAttribute {
+export enum AuthPageTextAttribute {
   title = 'Log in',
   description = 'Log in to your Stand account',
-  emailAddress = 'Email Address',
+  email = 'Email Address',
+  emailErrorMessage = 'Please enter your valid Email!',
   password = 'Password',
+  passwordErrorMessage = 'Please enter your valid password!',
   reset = 'reset it here',
   forgotPassword = 'Forgot your password? You can',
   signUp = 'Sign Up',

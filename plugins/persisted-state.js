@@ -6,7 +6,7 @@ export default ({ store }) => {
   createPersistedState({
     key,
     paths: [
-      'user',
+      'user'
     ]
   })(store);
 };

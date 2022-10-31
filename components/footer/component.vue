@@ -10,24 +10,7 @@
       <div :class="b('info')">
         <brand-block />
 
-        <ul :class="b('list')">
-          <li
-            v-for="(item, index) in footerSocialLinks"
-            :key="index"
-          >
-            <a
-              :class="b('social-link')"
-              :href="item.href"
-              :target="item.target"
-            >
-              <img
-                :class="b('image')"
-                :src="item.src"
-                alt=""
-              >
-            </a>
-          </li>
-        </ul>
+        <social-links :class="b('social-links')" />
 
         <div :class="b('copyright')">
           {{ displayedCopyright }}

@@ -3,6 +3,7 @@
 $root-name: "ui-button";
 
 .#{$root-name} {
+  display: inline-block;
   box-sizing: border-box;
   width: fit-content;
   text-align: center;
@@ -60,22 +61,37 @@ $root-name: "ui-button";
         &-xl {
           @include fontInter19SemiBold;
 
+          height: 57px;
           padding: 17px 31px;
           line-height: 23px;
           border-radius: 7px;
 
+          i {
+            @include fontInter28SemiBold;
+          }
+
           @media screen and (max-width: 600px) {
             @include fontInter17SemiBold;
 
+            height: 56px;
             padding: 18px 27px;
             line-height: 20px;
+
+            i {
+              @include fontInter26SemiBold;
+            }
           }
 
           @media screen and (max-width: 450px) {
             @include fontInter16SemiBold;
 
+            height: 47px;
             padding: 14px 27px;
             line-height: 19px;
+
+            i {
+              @include fontInter22SemiBold;
+            }
           }
         }
 
@@ -100,6 +116,11 @@ $root-name: "ui-button";
 
           &:focus {
             background-color: #321e66;
+          }
+
+          &.#{$root-name}--loading {
+            background-color: #321e66;
+            cursor: initial;
           }
         }
 

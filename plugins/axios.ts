@@ -33,14 +33,14 @@ const axiosPlugin: Plugin = (context) => {
 
         if (!isAccessTokenValid) {
           if (refreshTokenRequest === null) {
-            refreshTokenRequest = userStore.updateAccessToken();
+            refreshTokenRequest = userStore.refresh();
           }
 
           await refreshTokenRequest;
           refreshTokenRequest = null;
         }
 
-        config.headers.AccessToken = store.state.user.accessToken;
+        config.headers.AccessToken = `Bearer ${<string>store.state.user.accessToken}`;
       }
 
       config.params = { ...config.params, t: generateUnixTimestamp() };
@@ -66,19 +66,30 @@ const axiosPlugin: Plugin = (context) => {
       return response;
     },
     error => {
-      const { response } = error;
-      const { status } = response;
+      const isErrorInstanceOfError = error instanceof Error;
 
-      if (response.config.showLoader) {
-        void loaderStore.done();
+      if (isErrorInstanceOfError) {
+        const { response } = error;
+        const { status } = response;
+
+        if (response.config.showLoader) {
+          void loaderStore.done();
+        }
+
+        if (response.status === 401) {
+          void loaderStore.done();
+          void userStore.LOGOUT();
+        }
+
+        return Promise.reject(status);
       }
 
-      if (response.status === 401) {
+      if (error === 401) {
         void loaderStore.done();
-        void userStore.logout();
+        void userStore.LOGOUT();
       }
 
-      return Promise.reject(status);
+      return Promise.reject(error);
     }
   );
 

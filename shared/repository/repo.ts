@@ -13,8 +13,11 @@ import FooterModuleStore from '~/store/modules/footer';
 export interface ProjectRepository {
   getTranslation(params: TranslationRequest): Promise<string>
   getTranslationList(): Promise<Translation[]>
-  auth(params?: AuthorizationRequest): Promise<AccessTokens>
-  updateAccessToken(params?: UpdateAccessTokenRequest): Promise<AccessTokens>
+  signup(params: SignupRequest): Promise<AccessTokens>
+  signin(params: SigninRequest): Promise<AccessTokens>
+  logout(): Promise<void>
+  refresh(params: RefreshTokenRequest): Promise<AccessTokens>
+  getSelfInfo(): Promise<SelfInfoResponse>
   getUserProgress(): Promise<UserProgressResponse[]>
   getUserPopularPolls(): Promise<PollResponse[]>
   getPolls(): Promise<PollResponse[]>
@@ -26,8 +29,10 @@ export interface ProjectRepository {
 export interface ProjectUrlGenerator {
   getTranslation(): string
   getTranslationList(): string
-  auth(): string
-  updateAccessToken(): string
+  signup(): string
+  signin(): string
+  logout(): string
+  refresh(): string
 }
 
 export interface ProjectServices {
@@ -49,12 +54,20 @@ export interface ApiWrapper<T> {
   response: T
 }
 
-export interface AuthorizationRequest {
-  login: string
+export interface SignupRequest {
+  firstName: string
+  lastName: string
+  nickName: string
+  email: string
   password: string
 }
 
-export interface UpdateAccessTokenRequest {
+export interface SigninRequest {
+  email: string
+  password: string
+}
+
+export interface RefreshTokenRequest {
   refresh_token: string
 }
 
@@ -68,6 +81,15 @@ export interface AccessTokens {
 export interface TranslationRequest {
   text: string
   case?: string
+}
+
+export interface SelfInfoResponse {
+  id: number
+  firstName: string
+  lastName: string
+  fullName: string
+  nickName: string
+  email: string
 }
 
 export interface UserProgressResponse {

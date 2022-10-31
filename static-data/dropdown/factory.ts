@@ -41,6 +41,39 @@ export const accountDropdownList = (): DropdownItemBase[][] => {
   ];
 };
 
+export const accountDropdownListForIndexPage = (): DropdownItemBase[][] => {
+  return [
+    [
+      dropdownItem({
+        title: 'Home',
+        routeName: RoutesName.index
+      }),
+      dropdownItem({
+        title: 'Features',
+        routeName: RoutesName.index
+      }),
+      dropdownItem({
+        title: 'Pricing',
+        routeName: RoutesName.index
+      })
+    ],
+    [
+      dropdownItem({
+        title: 'About us',
+        routeName: RoutesName.index
+      }),
+      dropdownItem({
+        title: 'Contact',
+        routeName: RoutesName.index
+      }),
+      dropdownItem({
+        title: 'Brand',
+        routeName: RoutesName.index
+      })
+    ]
+  ];
+};
+
 export const pollSettingsDropdownList = (): DropdownItemBase[][] => {
   return [
     [

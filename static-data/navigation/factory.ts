@@ -18,3 +18,16 @@ export const navigations = (): RouteItemBase[] => {
     })
   ];
 };
+
+export const navigationsForIndexPage = (): RouteItemBase[] => {
+  return [
+    navigationItem({
+      title: 'Home',
+      routeName: RoutesName.index
+    }),
+    navigationItem({
+      title: 'Features',
+      routeName: RoutesName.index
+    })
+  ];
+};

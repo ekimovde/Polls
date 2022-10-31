@@ -19,7 +19,7 @@ module.exports = {
   telemetry: false,
   server: {
     port: 3000,
-    host: '0.0.0.0',
+    // host: '0.0.0.0',
     timing: false
   },
   ...config,
@@ -51,6 +51,7 @@ module.exports = {
     '~plugins/el-ui-loading',
     '~plugins/vue-bem-cn',
     '~plugins/project-services',
+    '~plugins/vuelidate',
     { src: '~plugins/persisted-state', mode: 'client' }
   ],
   messages: {

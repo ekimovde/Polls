@@ -9,6 +9,11 @@
     :class="b('', { size, view, theme, loading: isLoading, disabled: isDisabled, expanded: isExpanded })"
     v-on="$listeners"
   >
-    <slot />
+    <i
+      v-if="isLoading"
+      class="bx bx-loader-circle bx-spin"
+      :class="b('icon')"
+    />
+    <slot v-else />
   </component>
 </template>

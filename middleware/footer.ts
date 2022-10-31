@@ -6,7 +6,7 @@ const footer: Middleware = async (context) => {
   const { footerRepo } = $projectServices;
 
   const routesToHideFooter = [
-    RoutesName.authLogin,
+    RoutesName.auth,
     RoutesName.authRegistration,
     RoutesName.pollNew,
     RoutesName.pollNewInviteId,

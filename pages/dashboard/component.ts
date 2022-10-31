@@ -28,6 +28,7 @@ export default class extends mixins(TestId, Translatable) {
 
   readonly projectRepository = this.$projectServices.projectRepository;
   readonly notifier = this.$projectServices.notification;
+  readonly userRepo = this.$projectServices.userRepo;
 
   readonly pollBlockView = PollBlockView;
 
@@ -52,15 +53,22 @@ export default class extends mixins(TestId, Translatable) {
       this.isLoading = true;
 
       await Promise.allSettled([
-        await this.getUserProgress(),
-        await this.getUserPopularPolls(),
-        await this.getReactions()
+        await this.getSelfInfo()
+        // await this.getUserProgress(),
+        // await this.getUserPopularPolls(),
+        // await this.getReactions()
       ]);
     } catch (error) {
       this.notifier.showError();
     } finally {
       this.isLoading = false;
     }
+  }
+
+  async getSelfInfo(): Promise<void> {
+    const userInfo = await this.projectRepository.getSelfInfo();
+
+    this.userRepo.updateInfo(userInfo);
   }
 
   async getUserProgress(): Promise<void> {

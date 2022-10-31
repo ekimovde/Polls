@@ -2,7 +2,7 @@ export enum RoutesName {
   index = 'index',
   user = 'user',
   userId = 'user-id',
-  authLogin = 'auth-login',
+  auth = 'auth',
   authRegistration = 'auth-registration',
   dashboard = 'dashboard',
   votesMy = 'votes-my',

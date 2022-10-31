@@ -8,7 +8,7 @@
   >
     <ul :class="b('list')">
       <li
-        v-for="(item, index) in navigationList"
+        v-for="(item, index) in displayedNavigationsList"
         :key="index"
       >
         <ul :class="b('links')">
@@ -36,23 +36,69 @@
           </li>
         </ul>
       </li>
+
+      <social-links v-if="isIndexPage" />
     </ul>
 
     <div :class="b('footer')">
-      <avatar-block
-        src=""
-        :size="avatarBlockSize.default"
-      />
+      <div
+        v-if="isUserInfoShown"
+        :class="b('user-info')"
+      >
+        <avatar-block
+          src=""
+          :size="avatarBlockSize.default"
+        />
 
-      <div :class="b('block')">
-        <p :class="b('name')">
-          Denis Ekimov
-        </p>
+        <div :class="b('block')">
+          <p :class="b('name')">
+            {{ displayedUserName }}
+          </p>
 
-        <p :class="b('role')">
-          Company Owner
-        </p>
+          <p :class="b('nick-name')">
+            {{ displayedUserNickName }}
+          </p>
+        </div>
       </div>
+
+      <div
+        v-if="isStartAppButtonsShown"
+        :class="b('buttons')"
+      >
+        <ui-button
+          :view="uiButtonView.action"
+          :size="uiButtonSize.xs"
+          :theme="uiButtonTheme.purple"
+          :is-expanded="true"
+          :is-nuxt-link="true"
+          :to="authRegistrationRoute"
+        >
+          {{ textAttributes.startYourTrial }}
+        </ui-button>
+
+        <ui-button
+          :view="uiButtonView.action"
+          :size="uiButtonSize.xs"
+          :theme="uiButtonTheme.darkGrey"
+          :is-expanded="true"
+          :is-nuxt-link="true"
+          :to="authRoute"
+        >
+          {{ textAttributes.login }}
+        </ui-button>
+      </div>
+
+      <ui-button
+        v-if="isDashboardButtonShown"
+        :view="uiButtonView.action"
+        :size="uiButtonSize.xs"
+        :theme="uiButtonTheme.purple"
+        :is-expanded="true"
+        :is-nuxt-link="true"
+        :to="dashboardRoute"
+      >
+        {{ textAttributes.dashboard }}
+      </ui-button>
     </div>
   </div>
 </template>

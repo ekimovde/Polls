@@ -1,7 +1,7 @@
 import { AxiosInstance } from 'axios';
 import { StoreGetters } from '~/store/model';
 import { createFormDataFromObject } from '../utils/create-form-data-from-object';
-import { ProjectRepository, AuthorizationRequest, AccessTokens, ApiWrapper, UpdateAccessTokenRequest, TranslationRequest, UserProgressResponse, PollResponse, ReactionResponse, PollMembersResponse } from './repo';
+import { ProjectRepository, SigninRequest, AccessTokens, ApiWrapper, RefreshTokenRequest, TranslationRequest, UserProgressResponse, PollResponse, ReactionResponse, PollMembersResponse, SelfInfoResponse, SignupRequest } from './repo';
 import { UrlGenerator } from './url-generator';
 import { Translation } from '../services/translator';
 
@@ -27,18 +27,33 @@ export class HttpRepo implements ProjectRepository {
     return data.response;
   }
 
-  async auth(params?: AuthorizationRequest): Promise<AccessTokens> {
-    const payload = createFormDataFromObject({ ...params });
+  async signup(params: SignupRequest): Promise<AccessTokens> {
     const { data } = await this.axios
-      .post<ApiWrapper<AccessTokens>>(this.urlGenerator.auth(), payload, { skipAuth: true });
+      .post<ApiWrapper<AccessTokens>>(this.urlGenerator.signup(), params, { skipAuth: true });
 
     return data.response;
   }
 
-  async updateAccessToken(params?: UpdateAccessTokenRequest): Promise<AccessTokens> {
-    const payload = createFormDataFromObject({ ...params });
+  async signin(params: SigninRequest): Promise<AccessTokens> {
     const { data } = await this.axios
-      .post<ApiWrapper<AccessTokens>>(this.urlGenerator.updateAccessToken(), payload, { skipAuth: true });
+      .post<ApiWrapper<AccessTokens>>(this.urlGenerator.signin(), params, { skipAuth: true });
+
+    return data.response;
+  }
+
+  async logout(): Promise<void> {
+    await this.axios.get<ApiWrapper<AccessTokens>>(this.urlGenerator.logout());
+  }
+
+  async refresh(params?: RefreshTokenRequest): Promise<AccessTokens> {
+    const { data } = await this.axios
+      .post<ApiWrapper<AccessTokens>>(this.urlGenerator.refresh(), params, { skipAuth: true });
+
+    return data.response;
+  }
+
+  async getSelfInfo(): Promise<SelfInfoResponse> {
+    const { data } = await this.axios.get<ApiWrapper<SelfInfoResponse>>(this.urlGenerator.getSelfInfo());
 
     return data.response;
   }
