@@ -42,8 +42,8 @@ export default class extends mixins(TestId, Translatable) {
   $v: any = {};
 
   form: SigninRequest = {
-    email: '',
-    password: ''
+    email: 'ekimov_de@mail.ru',
+    password: '123456'
   }
 
   isLoading = false;

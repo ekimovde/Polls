@@ -9,6 +9,8 @@
       </h1>
 
       <div :class="b('wrapper')">
+        <upload-picture />
+
         <div :class="b('split-fields')">
           <div :class="b('input-wrapper')">
             <label
@@ -20,6 +22,7 @@
 
             <ui-input
               id="first_name"
+              v-model="form.firstName"
               :is-expanded="true"
               :placeholder="textAttributes.firstName"
               :size="uiInputSize.xs"
@@ -36,6 +39,7 @@
 
             <ui-input
               id="last_name"
+              v-model="form.lastName"
               :is-expanded="true"
               :placeholder="textAttributes.lastName"
               :size="uiInputSize.xs"
@@ -48,13 +52,14 @@
             for="job_title"
             :class="b('label')"
           >
-            {{ textAttributes.jobTitle }}
+            {{ textAttributes.nickName }}
           </label>
 
           <ui-input
             id="job_title"
+            v-model="form.nickName"
             :is-expanded="true"
-            :placeholder="textAttributes.jobTitle"
+            :placeholder="textAttributes.nickName"
             :size="uiInputSize.xs"
           />
         </div>
@@ -63,6 +68,9 @@
           :view="uiButtonView.action"
           :size="uiButtonSize.xs"
           :theme="uiButtonTheme.purple"
+          :is-disabled="isUserInfoEqual"
+          :is-loading="isLoading"
+          @click="setUserInfo"
         >
           {{ textAttributes.saveChanges }}
         </ui-button>

@@ -2,6 +2,7 @@ import { addDecorator, addParameters } from '@storybook/vue';
 import Vue from 'vue';
 import vueBemCn from 'vue-bem-cn';
 import VueRouter from 'vue-router'
+import InlineSvg from 'vue-inline-svg';
 
 // eslint-disable-next-line import/extensions
 import 'normalize.css';
@@ -14,6 +15,8 @@ import Vuex from 'vuex';
 
 Vue.use(vueBemCn);
 Vue.use(Vuex);
+
+Vue.component('inline-svg', InlineSvg);
 
 const services = createFakeServices();
 // noinspection JSUnusedGlobalSymbols

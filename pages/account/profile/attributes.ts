@@ -4,6 +4,6 @@ export enum AccountProfilePageTextAttribute {
   title = 'Edit profile',
   firstName = 'First Name',
   lastName = 'Last Name',
-  jobTitle = 'Job Title',
+  nickName = 'Nick Name',
   saveChanges = 'Save Changes'
 }

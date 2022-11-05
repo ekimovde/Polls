@@ -40,6 +40,14 @@ export class UrlGenerator implements ProjectUrlGenerator {
     return `${ApiRoutes.users}info/`;
   }
 
+  setUserInfo(): string {
+    return `${ApiRoutes.users}set-user-info/`;
+  }
+
+  setUserPassword(): string {
+    return `${ApiRoutes.users}set-user-password/`;
+  }
+
   getUserProgress(): string {
     return `${ApiRoutes.user}/progress/`;
   }

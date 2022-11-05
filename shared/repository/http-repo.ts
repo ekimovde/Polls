@@ -1,7 +1,7 @@
 import { AxiosInstance } from 'axios';
 import { StoreGetters } from '~/store/model';
 import { createFormDataFromObject } from '../utils/create-form-data-from-object';
-import { ProjectRepository, SigninRequest, AccessTokens, ApiWrapper, RefreshTokenRequest, TranslationRequest, UserProgressResponse, PollResponse, ReactionResponse, PollMembersResponse, SelfInfoResponse, SignupRequest } from './repo';
+import { ProjectRepository, SigninRequest, AccessTokens, ApiWrapper, RefreshTokenRequest, TranslationRequest, UserProgressResponse, PollResponse, ReactionResponse, PollMembersResponse, SelfInfoResponse, SignupRequest, SetUserInfoRequest, SetUserPasswordRequest } from './repo';
 import { UrlGenerator } from './url-generator';
 import { Translation } from '../services/translator';
 
@@ -54,6 +54,18 @@ export class HttpRepo implements ProjectRepository {
 
   async getSelfInfo(): Promise<SelfInfoResponse> {
     const { data } = await this.axios.get<ApiWrapper<SelfInfoResponse>>(this.urlGenerator.getSelfInfo());
+
+    return data.response;
+  }
+
+  async setUserInfo(params: SetUserInfoRequest): Promise<SelfInfoResponse> {
+    const { data } = await this.axios.patch<ApiWrapper<SelfInfoResponse>>(this.urlGenerator.setUserInfo(), params);
+
+    return data.response;
+  }
+
+  async setUserPassword(params: SetUserPasswordRequest): Promise<SelfInfoResponse> {
+    const { data } = await this.axios.patch<ApiWrapper<SelfInfoResponse>>(this.urlGenerator.setUserPassword(), params);
 
     return data.response;
   }

@@ -1,5 +1,63 @@
 @import "assets/scss/helper.scss";
 
 .upload-picture {
-  //
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+
+  &__avatar-wrapper {
+    position: relative;
+  }
+
+  &__image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__edit {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(110 65 226);
+    border-radius: 50%;
+  }
+
+  &__icon {
+    @include fontInter16Regular;
+
+    color: $white;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    @include fontInter16Medium;
+
+    margin: 0;
+    padding: 0;
+    color: $black;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.264px;
+  }
+
+  &__description {
+    @include fontInter14Regular;
+
+    margin: 0;
+    padding: 0;
+    color: #a4a4a4;
+    line-height: 16px;
+    letter-spacing: -0.264px;
+  }
 }

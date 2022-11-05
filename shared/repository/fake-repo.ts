@@ -11,7 +11,9 @@ import {
   ReactionResponse,
   PollMembersResponse,
   SelfInfoResponse,
-  SignupRequest
+  SignupRequest,
+  SetUserInfoRequest,
+  SetUserPasswordRequest
 } from './repo';
 import { translationResponse } from './fixtures/translation';
 import { translationsResponse } from './fixtures/translations';
@@ -52,6 +54,14 @@ export class FakeRepo implements ProjectRepository {
   }
 
   async getSelfInfo(): Promise<SelfInfoResponse> {
+    return respondMockResult(fakeSelfInfo());
+  }
+
+  async setUserInfo(params: SetUserInfoRequest): Promise<SelfInfoResponse> {
+    return respondMockResult(fakeSelfInfo());
+  }
+
+  async setUserPassword(params: SetUserPasswordRequest): Promise<SelfInfoResponse> {
     return respondMockResult(fakeSelfInfo());
   }
 

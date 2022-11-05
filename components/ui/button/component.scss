@@ -118,9 +118,19 @@ $root-name: "ui-button";
             background-color: #321e66;
           }
 
-          &.#{$root-name}--loading {
-            background-color: #321e66;
+          &.#{$root-name}--disabled {
+            color: #4f586d;
+            background: #f6f6fa;
+            box-shadow: none;
             cursor: initial;
+          }
+
+          &.#{$root-name}--loading {
+            color: transparent;
+            background: lighten(#4926a1, 5) svg-load("loading.svg") no-repeat center/auto 50%;
+            border: none;
+            cursor: initial;
+            transition: none;
           }
         }
 

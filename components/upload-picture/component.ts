@@ -10,5 +10,5 @@ export default class extends mixins(TestId, Translatable) {
   readonly textAttributes = this.transAll(UploadPictureTextAttribute);
   readonly testLocators = UploadPictureTestLocator;
 
-  //
+  readonly placeholder = require('@assets/images/avatar-placeholder.jpg');
 }

@@ -19,9 +19,12 @@
 
           <ui-input
             id="current_password"
+            v-model="$v.form.password.$model"
             :is-expanded="true"
             :placeholder="textAttributes.placeholder"
             :type="uiInputType.password"
+            :is-error="hasPasswordInputError"
+            :error-message="textAttributes.errorMessage"
           />
         </div>
 
@@ -35,9 +38,12 @@
 
           <ui-input
             id="password"
+            v-model="$v.form.newPassword.$model"
             :is-expanded="true"
             :placeholder="textAttributes.placeholder"
             :type="uiInputType.password"
+            :is-error="hasNewPasswordInputError"
+            :error-message="textAttributes.errorMessage"
           />
         </div>
 
@@ -45,6 +51,9 @@
           :view="uiButtonView.action"
           :size="uiButtonSize.xs"
           :theme="uiButtonTheme.purple"
+          :is-disabled="isFormInvalid"
+          :is-loading="isLoading"
+          @click="setPassword"
         >
           {{ textAttributes.saveChanges }}
         </ui-button>

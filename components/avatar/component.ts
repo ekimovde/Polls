@@ -26,7 +26,7 @@ export default class extends mixins(TestId, Translatable) {
   readonly textAttributes = this.transAll(AvatarBlockTextAttribute);
   readonly testLocators = AvatarBlockTestLocator;
 
-  readonly placeholder = require('@assets/images/avatar-placeholder.jpg')
+  readonly placeholder = require('@assets/images/avatar-placeholder.jpg');
 
   replaceByDefault(event: Event): void {
     (event.target as HTMLImageElement).src = this.placeholder;

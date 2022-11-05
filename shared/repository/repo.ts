@@ -18,6 +18,8 @@ export interface ProjectRepository {
   logout(): Promise<void>
   refresh(params: RefreshTokenRequest): Promise<AccessTokens>
   getSelfInfo(): Promise<SelfInfoResponse>
+  setUserInfo(params: SetUserInfoRequest): Promise<SelfInfoResponse>
+  setUserPassword(params: SetUserPasswordRequest): Promise<SelfInfoResponse>
   getUserProgress(): Promise<UserProgressResponse[]>
   getUserPopularPolls(): Promise<PollResponse[]>
   getPolls(): Promise<PollResponse[]>
@@ -33,6 +35,9 @@ export interface ProjectUrlGenerator {
   signin(): string
   logout(): string
   refresh(): string
+  getSelfInfo(): string
+  setUserInfo(): string
+  setUserPassword(): string
 }
 
 export interface ProjectServices {
@@ -90,6 +95,17 @@ export interface SelfInfoResponse {
   fullName: string
   nickName: string
   email: string
+}
+
+export interface SetUserInfoRequest {
+  firstName?: string
+  lastName?: string
+  nickName?: string
+}
+
+export interface SetUserPasswordRequest {
+  password: string
+  newPassword: string
 }
 
 export interface UserProgressResponse {

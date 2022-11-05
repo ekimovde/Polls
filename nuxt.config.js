@@ -52,6 +52,7 @@ module.exports = {
     '~plugins/vue-bem-cn',
     '~plugins/project-services',
     '~plugins/vuelidate',
+    '~plugins/inline-svg',
     { src: '~plugins/persisted-state', mode: 'client' }
   ],
   messages: {
