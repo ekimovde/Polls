@@ -10,12 +10,14 @@ import { PollResponse } from '~/shared/repository/repo';
 import { PollBlock } from '~/components/poll';
 import { routes } from '~/shared/repository/routes';
 import { RoutesName } from '~/shared/repository/routes/routes-name';
+import { PollEmptyBanner } from '~/components/poll/empty-banner';
 
 @Component({
   name: COMPONENT_NAME,
   components: {
     uiButton,
-    PollBlock
+    PollBlock,
+    PollEmptyBanner
   }
 })
 export default class extends mixins(TestId, Translatable) {
@@ -34,13 +36,24 @@ export default class extends mixins(TestId, Translatable) {
 
   isLoading = false;
 
+  get hasPolls(): boolean {
+    return Boolean(this.polls.length);
+  }
+
   get pollNewRoute(): Partial<Route> {
     return routes[RoutesName.pollNew];
   }
 
+  get displayedDescription(): string {
+    const { descriptionOne, descriptionTwo } = this.textAttributes;
+    return `${descriptionOne} ${this.polls.length} ${descriptionTwo}`;
+  }
+
   async created(): Promise<void> {
     try {
-      // await this.getPolls();
+      this.isLoading = true;
+
+      await this.getPolls();
     } catch (error) {
       this.notifier.showError();
     } finally {

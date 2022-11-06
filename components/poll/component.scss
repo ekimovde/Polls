@@ -16,7 +16,8 @@
   &:hover {
     position: relative;
     z-index: 50;
-    box-shadow: 0 10px 13px rgb(120 81 195 / 7%);
+    box-shadow: 0 10px 30px rgb(120 81 195 / 12%);
+    transform: translateY(-2px);
     transition: transform 0.5s ease, box-shadow 0.5s ease;
   }
 

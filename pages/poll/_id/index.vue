@@ -20,6 +20,7 @@
             <ui-dropdown :is-visible.sync="isVisible">
               <template slot="reference">
                 <ui-button
+                  v-if="isSettingsButtonShown"
                   :view="uiButtonView.action"
                   :size="uiButtonSize.xs"
                   :theme="uiButtonTheme.darkGrey"
@@ -83,5 +84,27 @@
     <div :class="b('inner-wrapper')">
       fassaf
     </div>
+
+    <ui-modal :is-visible.sync="isModalVisible">
+      <div>
+        <h4 :class="b('modal-title')">
+          {{ textAttributes.modalTitle }}
+        </h4>
+
+        <p :class="b('modal-description')">
+          {{ textAttributes.modalDescription }}
+        </p>
+
+        <ui-button
+          :view="uiButtonView.action"
+          :size="uiButtonSize.xs"
+          :theme="uiButtonTheme.red"
+          :is-loading="isRemoveLoading"
+          @click="remove"
+        >
+          {{ textAttributes.deletePoll }}
+        </ui-button>
+      </div>
+    </ui-modal>
   </div>
 </template>

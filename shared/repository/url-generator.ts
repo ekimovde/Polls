@@ -48,6 +48,34 @@ export class UrlGenerator implements ProjectUrlGenerator {
     return `${ApiRoutes.users}set-user-password/`;
   }
 
+  setPoll(): string {
+    return ApiRoutes.polls;
+  }
+
+  getPolls(): string {
+    return ApiRoutes.polls;
+  }
+
+  getMyPolls(): string {
+    return `${ApiRoutes.polls}my/`;
+  }
+
+  getPoll(id: string): string {
+    return `${ApiRoutes.polls}${id}`;
+  }
+
+  sendPollInvite(): string {
+    return `${ApiRoutes.polls}invite/`;
+  }
+
+  removePoll(id: string): string {
+    return `${ApiRoutes.polls}${id}`;
+  }
+
+  updatePoll(id: string): string {
+    return `${ApiRoutes.polls}${id}`;
+  }
+
   getUserProgress(): string {
     return `${ApiRoutes.user}/progress/`;
   }
@@ -58,14 +86,6 @@ export class UrlGenerator implements ProjectUrlGenerator {
 
   getPollMembers(id: string): string {
     return `${ApiRoutes.poll}/${id}/members`;
-  }
-
-  getPolls(): string {
-    return ApiRoutes.polls;
-  }
-
-  getMyPolls(): string {
-    return `${ApiRoutes.polls}/my/`;
   }
 
   getReactions(): string {

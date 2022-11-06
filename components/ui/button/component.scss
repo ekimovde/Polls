@@ -159,6 +159,28 @@ $root-name: "ui-button";
             background-color: #1d7a44;
           }
         }
+
+        &-red {
+          color: $white;
+          background: #ff5252;
+          box-shadow: 0 2px 4px rgba(255, 82, 82, 0.15);
+
+          &:hover {
+            background-color: #c83e3e;
+          }
+
+          &:focus {
+            background-color: #7b1616;
+          }
+
+          &.#{$root-name}--loading {
+            color: transparent;
+            background: lighten(#7b1616, 5) svg-load("loading.svg") no-repeat center/auto 50%;
+            border: none;
+            cursor: initial;
+            transition: none;
+          }
+        }
       }
     }
 

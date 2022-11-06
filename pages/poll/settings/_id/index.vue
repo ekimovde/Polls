@@ -37,7 +37,7 @@
 
           <ui-input
             id="poll_name"
-            v-model="name"
+            v-model="$v.form.name.$model"
             :size="uiInputSize.xs"
             :placeholder="textAttributes.placeholder"
             :is-expanded="true"
@@ -46,15 +46,15 @@
 
         <div :class="b('input-wrapper')">
           <label
-            for="poll_colour"
+            for="poll_color"
             :class="b('label')"
           >
             {{ textAttributes.chooseColor }}
           </label>
 
           <ui-select
-            id="poll_colour"
-            v-model="colour"
+            id="poll_color"
+            v-model="$v.form.color.$model"
             :view="uiSelectView.regular"
             :options="options"
             :is-expanded="true"
@@ -87,6 +87,9 @@
           :view="uiButtonView.action"
           :size="uiButtonSize.xl"
           :theme="uiButtonTheme.purple"
+          :is-disabled="isPollEqual"
+          :is-loading="isUpdateLoading"
+          @click="updatePoll"
         >
           {{ textAttributes.saveChanges }}
         </ui-button>

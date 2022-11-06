@@ -13,16 +13,19 @@ import {
   SelfInfoResponse,
   SignupRequest,
   SetUserInfoRequest,
-  SetUserPasswordRequest
+  SetUserPasswordRequest,
+  SetPollRequest,
+  SendPollInviteRequest
 } from './repo';
 import { translationResponse } from './fixtures/translation';
 import { translationsResponse } from './fixtures/translations';
 import { Translation } from '../services/translator';
 import { fakeUserProgress } from './fixtures/fake-user-progress';
-import { fakePolls } from './fixtures/fake-polls';
+import { fakePolls, fakePoll } from './fixtures/fake-polls';
 import { fakeReactions } from './fixtures/fake-reactions';
 import { fakePollMembers } from './fixtures/fake-poll-members';
 import { fakeSelfInfo } from './fixtures/fake-self-info';
+import { fakeTokens } from './fixtures/fake-tokens';
 
 export class FakeRepo implements ProjectRepository {
   static create(): ProjectRepository {
@@ -38,11 +41,11 @@ export class FakeRepo implements ProjectRepository {
   }
 
   async signup(params: SignupRequest): Promise<AccessTokens> {
-    return null;
+    return respondMockResult(fakeTokens());
   }
 
   async signin(params: SigninRequest): Promise<AccessTokens> {
-    return null;
+    return respondMockResult(fakeTokens());
   }
 
   async logout(): Promise<void> {
@@ -50,7 +53,7 @@ export class FakeRepo implements ProjectRepository {
   }
 
   async refresh(params: RefreshTokenRequest): Promise<AccessTokens> {
-    return null;
+    return respondMockResult(fakeTokens());
   }
 
   async getSelfInfo(): Promise<SelfInfoResponse> {
@@ -65,12 +68,8 @@ export class FakeRepo implements ProjectRepository {
     return respondMockResult(fakeSelfInfo());
   }
 
-  async getUserProgress(): Promise<UserProgressResponse[]> {
-    return respondMockResult(fakeUserProgress());
-  }
-
-  async getUserPopularPolls(): Promise<PollResponse[]> {
-    return respondMockResult(fakePolls());
+  async setPoll(params: SetPollRequest): Promise<PollResponse> {
+    return respondMockResult(fakePoll());
   }
 
   async getPolls(): Promise<PollResponse[]> {
@@ -78,6 +77,30 @@ export class FakeRepo implements ProjectRepository {
   }
 
   async getMyPolls(): Promise<PollResponse[]> {
+    return respondMockResult(fakePolls());
+  }
+
+  async getPoll(id: string): Promise<PollResponse> {
+    return respondMockResult(fakePoll());
+  }
+
+  async sendPollInvite(params: SendPollInviteRequest): Promise<void> {
+    void respondMockResult(null);
+  }
+
+  async removePoll(id: string): Promise<void> {
+    void respondMockResult(null);
+  }
+
+  async updatePoll(id: string, params: SetPollRequest): Promise<void> {
+    void respondMockResult(null);
+  }
+
+  async getUserProgress(): Promise<UserProgressResponse[]> {
+    return respondMockResult(fakeUserProgress());
+  }
+
+  async getUserPopularPolls(): Promise<PollResponse[]> {
     return respondMockResult(fakePolls());
   }
 

@@ -30,7 +30,7 @@
             {{ textAttributes.title }}
 
             <span>
-              {{ id }}
+              {{ displayedPollName }}
             </span>
           </h1>
 

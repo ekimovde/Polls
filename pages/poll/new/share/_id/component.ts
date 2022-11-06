@@ -10,6 +10,7 @@ import { UiButtonView, UiButtonSize, UiButtonTheme } from '~/components/ui/butto
 import { routes } from '~/shared/repository/routes';
 import { RoutesName } from '~/shared/repository/routes/routes-name';
 import { ShareList } from '~/components/share-list';
+import { PollResponse } from '~/shared/repository/repo';
 
 @Component({
   name: COMPONENT_NAME,
@@ -22,11 +23,18 @@ import { ShareList } from '~/components/share-list';
 export default class extends mixins(TestId, Translatable) {
   readonly textAttributes = this.transAll(PollNewShareIdPagePageTextAttribute)
 
+  readonly projectRepository = this.$projectServices.projectRepository;
+  readonly notifier = this.$projectServices.notification;
+
   readonly brandBlockSize = BrandBlockSize;
 
   readonly uiButtonView = UiButtonView;
   readonly uiButtonSize = UiButtonSize;
   readonly uiButtonTheme = UiButtonTheme;
+
+  poll: PollResponse = null;
+
+  isLoading = false;
 
   get id(): string {
     return this.$route.params.id;
@@ -36,7 +44,27 @@ export default class extends mixins(TestId, Translatable) {
     return routes[RoutesName.polls];
   }
 
+  get displayedPollName(): string {
+    return this.poll ? this.poll.name : null;
+  }
+
   get displayedCopyright(): string {
     return `© ${new Date().getFullYear()}`;
+  }
+
+  async created(): Promise<void> {
+    try {
+      this.isLoading = true;
+
+      await this.getPoll();
+    } catch (error) {
+      this.notifier.showError();
+    } finally {
+      this.isLoading = false;
+    }
+  }
+
+  async getPoll(): Promise<void> {
+    this.poll = await this.projectRepository.getPoll(this.id);
   }
 }

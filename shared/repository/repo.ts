@@ -20,10 +20,15 @@ export interface ProjectRepository {
   getSelfInfo(): Promise<SelfInfoResponse>
   setUserInfo(params: SetUserInfoRequest): Promise<SelfInfoResponse>
   setUserPassword(params: SetUserPasswordRequest): Promise<SelfInfoResponse>
-  getUserProgress(): Promise<UserProgressResponse[]>
-  getUserPopularPolls(): Promise<PollResponse[]>
+  setPoll(params: SetPollRequest): Promise<PollResponse>
   getPolls(): Promise<PollResponse[]>
   getMyPolls(): Promise<PollResponse[]>
+  getPoll(id: string): Promise<PollResponse>
+  sendPollInvite(params: SendPollInviteRequest): Promise<void>
+  removePoll(id: string): Promise<void>
+  updatePoll(id: string, params: SetPollRequest): Promise<void>
+  getUserProgress(): Promise<UserProgressResponse[]>
+  getUserPopularPolls(): Promise<PollResponse[]>
   getReactions(): Promise<ReactionResponse[]>
   getPollMembers(id: string): Promise<PollMembersResponse[]>
 }
@@ -38,6 +43,11 @@ export interface ProjectUrlGenerator {
   getSelfInfo(): string
   setUserInfo(): string
   setUserPassword(): string
+  getPolls(): string
+  getMyPolls(): string
+  getPoll(id: string): string
+  removePoll(id: string): string
+  updatePoll(id: string): string
 }
 
 export interface ProjectServices {
@@ -108,11 +118,11 @@ export interface SetUserPasswordRequest {
   newPassword: string
 }
 
-export interface UserProgressResponse {
-  title: string
-  value: number
-  description: string
-  theme: UiProgressTheme
+export interface SetPollRequest {
+  name: string
+  color: SharedColorTheme
+  category: PollCategory
+  isPublic: boolean
 }
 
 export interface PollResponse {
@@ -121,8 +131,22 @@ export interface PollResponse {
   color: SharedColorTheme
   category: PollCategory
   isPublic: boolean
+  userId: number
   created: string
   updated: string
+}
+
+export interface SendPollInviteRequest {
+  pollId: number
+  description: string
+  emailTo: string
+}
+
+export interface UserProgressResponse {
+  title: string
+  value: number
+  description: string
+  theme: UiProgressTheme
 }
 
 export interface ReactionResponse {

@@ -16,6 +16,18 @@
     @media screen and (max-width: 1000px) {
       width: 90%;
     }
+
+    &--empty {
+      width: 640px;
+
+      @media screen and (max-width: 1000px) {
+        width: 640px;
+      }
+
+      @media screen and (max-width: 700px) {
+        width: 90%;
+      }
+    }
   }
 
   &__wrapper {
@@ -85,5 +97,9 @@
 
   &__icon {
     @include fontInter26SemiBold;
+  }
+
+  &__poll-empty-banner {
+    margin: 80px 0;
   }
 }

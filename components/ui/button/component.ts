@@ -17,7 +17,8 @@ export enum UiButtonTheme {
   grey = 'grey',
   darkGrey = 'dark-grey',
   green = 'green',
-  pink = 'pink'
+  pink = 'pink',
+  red = 'red'
 }
 
 export enum UiButtonSize {

@@ -45,7 +45,7 @@
         />
 
         <p :class="b('text')">
-          {{ poll.created }}
+          {{ displayedDate }}
         </p>
 
         <shared-badge :theme="poll.color">

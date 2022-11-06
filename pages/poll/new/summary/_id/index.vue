@@ -29,7 +29,7 @@
           {{ textAttributes.title }}
 
           <span>
-            {{ id }}
+            {{ displayedPollName }}
           </span>
 
           {{ textAttributes.soWhatNext }}
@@ -41,6 +41,8 @@
           :view="uiButtonView.action"
           :size="uiButtonSize.xl"
           :theme="uiButtonTheme.purple"
+          :is-nuxt-link="true"
+          :to="pollIdRoute"
         >
           {{ textAttributes.continueToPoll }}
         </ui-button>

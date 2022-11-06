@@ -157,4 +157,36 @@
       margin-top: 0;
     }
   }
+
+  &__modal-title {
+    @include fontInter26Bold;
+
+    margin: 0;
+    padding: 0;
+    color: $black;
+    font-size: 26px;
+    line-height: 32px;
+
+    @media screen and (max-width: 600px) {
+      @include fontInter22Bold;
+
+      line-height: 30px;
+    }
+  }
+
+  &__modal-description {
+    @include fontInter16Regular;
+
+    margin: 0;
+    margin: 10px 0 20px 0;
+    padding: 0;
+    color: #999;
+    line-height: 24px;
+
+    @media screen and (max-width: 600px) {
+      @include fontInter15Regular;
+
+      line-height: 22px;
+    }
+  }
 }

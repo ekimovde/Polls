@@ -8,7 +8,7 @@ export enum PollNewInviteIdPagePageTextAttribute {
   description = 'Add team members via email and we will send them an invite to join your team. You can also add a note to that invite, we’ve added a common note to get you started.',
   emailPlaceholder = 'email@example.com',
   emailLabel = 'Email Address',
-  emailErrorMessage = 'Please enter an email address',
+  emailErrorMessage = 'Please enter your valid Email!',
   sendInvites = 'Send Invites',
   skip = 'Skip',
   notePlaceholder = 'Add a message to your invites',

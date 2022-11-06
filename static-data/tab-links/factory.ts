@@ -3,18 +3,14 @@ import { RoutesName } from '~/shared/repository/routes/routes-name';
 
 export const tabLink = (params: Partial<RouteItemBase> = {}): RouteItemBase => {
   return {
-    title: 'Stand-ups',
-    routeName: RoutesName.index,
+    title: 'Content',
+    routeName: RoutesName.pollId,
     ...params
   };
 };
 
 export const tabLinks = (): RouteItemBase[] => {
   return [
-    tabLink(),
-    tabLink({
-      title: 'Tasks',
-      routeName: RoutesName.polls
-    })
+    tabLink()
   ];
 };

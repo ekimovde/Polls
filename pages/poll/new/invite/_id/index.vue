@@ -30,7 +30,7 @@
             {{ textAttributes.title }}
 
             <span>
-              {{ id }}
+              {{ displayedPollName }}
             </span>
 
             {{ textAttributes.viaEmail }}
@@ -52,6 +52,7 @@
 
             <ui-textarea
               id="poll_invite_message"
+              v-model="form.description"
               :placeholder="textAttributes.notePlaceholder"
               :is-expanded="true"
             />
@@ -67,10 +68,12 @@
 
             <ui-input
               id="poll_invite_email"
+              v-model="$v.form.emailTo.$model"
               :size="uiInputSize.xs"
               :placeholder="textAttributes.emailPlaceholder"
-              :error-message="textAttributes.emailErrorMessage"
               :is-expanded="true"
+              :is-error="hasEmailToInputError"
+              :error-message="textAttributes.emailErrorMessage"
             />
           </div>
 
@@ -79,7 +82,8 @@
               :view="uiButtonView.action"
               :size="uiButtonSize.xl"
               :theme="uiButtonTheme.purple"
-              @click="sendInvite"
+              :is-loading="isLoading"
+              @click="sendPollInvite"
             >
               {{ textAttributes.sendInvites }}
             </ui-button>

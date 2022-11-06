@@ -9,6 +9,7 @@ export const fakePoll = (params: Partial<PollResponse> = {}): PollResponse => {
     color: SharedColorTheme.green,
     category: PollCategory.animals,
     isPublic: true,
+    userId: 2,
     created: '2022.10.21 01:35',
     updated: '2022.10.21 01:35',
     ...params
@@ -21,7 +22,8 @@ export const fakePolls = (): PollResponse[] => {
     fakePoll({
       id: 2,
       color: SharedColorTheme.orange,
-      category: PollCategory.webDesign
+      category: PollCategory.webDesign,
+      userId: 3
     })
   ];
 };
