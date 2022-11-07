@@ -101,7 +101,8 @@ export default class extends mixins(TestId, Translatable) {
     try {
       this.isUpdateLoading = true;
 
-      await this.projectRepository.updatePoll(this.poll.id, this.form);
+      await this.projectRepository.updatePoll(String(this.poll.id), this.form);
+      void this.$router.push(getPollIdRoute(this.id));
     } catch (error) {
       this.notifier.showError();
     } finally {

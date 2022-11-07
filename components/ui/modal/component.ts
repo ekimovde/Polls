@@ -1,12 +1,17 @@
 import { Component, mixins, Prop } from 'nuxt-property-decorator';
-import { Progress } from 'element-ui';
 import { COMPONENT_NAME, UiModalTestLocator } from './attributes';
 import TestId from '~/shared/utils/unit-test/test-id';
+import { uiButton } from '~/components/ui';
+import { UiButtonView, UiButtonSize, UiButtonTheme } from '../button/component';
+
+enum UiModalEvent {
+  close = 'update:is-visible'
+}
 
 @Component({
   name: COMPONENT_NAME,
   components: {
-    ElProgress: Progress
+    uiButton
   }
 })
 export default class extends mixins(TestId) {
@@ -17,5 +22,11 @@ export default class extends mixins(TestId) {
 
   readonly testLocators = UiModalTestLocator;
 
-  //
+  readonly uiButtonView = UiButtonView;
+  readonly uiButtonSize = UiButtonSize;
+  readonly uiButtonTheme = UiButtonTheme;
+
+  close(): void {
+    this.$emit(UiModalEvent.close, false);
+  }
 }

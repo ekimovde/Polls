@@ -1,5 +1,69 @@
 @import "assets/scss/helper";
 
-.ui-modal {
-  //
+$root-name: "ui-modal";
+
+.#{$root-name} {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 5, 47, 0.6);
+  transition: opacity 0.2s ease;
+
+  &__wrapper {
+    position: relative;
+    z-index: 501;
+    width: 100%;
+    max-width: 560px;
+    padding: 20px 18px;
+    padding: 40px;
+    overflow: hidden;
+    background-color: $white;
+    border: 1px solid #dcdfe6;
+    border-radius: 8px;
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.2s ease;
+
+    @media screen and (max-width: 600px) {
+      width: 90%;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  &__icon {
+    @include fontInter24Regular;
+
+    color: #666;
+    opacity: 0.6;
+  }
+}
+
+// Animation
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.35s ease-in-out;
+}
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .#{$root-name}__wrapper,
+.modal-leave-active .#{$root-name}__wrapper {
+  transform: scale(1.2);
 }

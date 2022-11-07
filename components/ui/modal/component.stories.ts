@@ -32,6 +32,8 @@ function create(): Component {
         justify-content: center;
         align-items: center;
       ">
+        <button @click="isVisible = !isVisible"> Click </button>
+
         <ui-modal :is-visible.sync="isVisible" />
       </div>
     `
