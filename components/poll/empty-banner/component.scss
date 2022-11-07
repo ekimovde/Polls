@@ -1,0 +1,42 @@
+@import "assets/scss/helper.scss";
+
+.poll-empty-banner {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 50px;
+  background: $white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 5%);
+
+  @media screen and (max-width: 450px) {
+    padding: 30px;
+  }
+
+  &__title {
+    @include fontInter26Bold;
+
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    color: $black;
+    line-height: 31px;
+    letter-spacing: -0.264px;
+
+    @media screen and (max-width: 600px) {
+      @include fontInter20Bold;
+
+      line-height: 24px;
+    }
+  }
+
+  &__description {
+    @include fontInter15Medium;
+
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    color: #9a9dab;
+    line-height: 24px;
+    letter-spacing: -0.264px;
+  }
+}
