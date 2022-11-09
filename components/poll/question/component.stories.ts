@@ -1,9 +1,9 @@
 import { withDesign } from 'storybook-addon-designs';
 import { Component } from 'vue';
-import { HeaderBlock } from './index';
+import { PollQuestion } from './index';
 
 export default {
-  title: 'Components / Header',
+  title: 'Components / Poll / Question',
   decorators: [withDesign],
   parameters: {
     design: {
@@ -18,9 +18,13 @@ export const Default = (): Component => create();
 function create(): Component {
   return {
     components: {
-      HeaderBlock
+      PollQuestion
     },
-    template: '<header-block />'
+    template: `
+      <div style="padding: 20px;">
+        <poll-question />
+      </div>
+    `
   };
 };
 

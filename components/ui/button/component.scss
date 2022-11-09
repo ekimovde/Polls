@@ -24,12 +24,22 @@ $root-name: "ui-button";
 
       &.#{$root-name}--size {
         &-xl {
-          @include fontInter22SemiBold;
+          @include fontInter22Medium;
 
           width: 32px;
           min-width: 32px;
           height: 32px;
           min-height: 32px;
+          border-radius: 5px;
+        }
+
+        &-xs {
+          @include fontInter18Medium;
+
+          width: 28px;
+          min-width: 28px;
+          height: 28px;
+          min-height: 28px;
           border-radius: 5px;
         }
       }
@@ -41,6 +51,16 @@ $root-name: "ui-button";
 
           &:hover {
             color: #763aeb;
+          }
+        }
+
+        &-purple {
+          color: #9fa1ad;
+          background-color: transparent;
+
+          &:hover {
+            color: #763aeb;
+            background-color: rgba(163, 57, 209, 0.1);
           }
         }
 

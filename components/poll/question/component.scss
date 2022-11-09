@@ -1,0 +1,84 @@
+@import "assets/scss/helper.scss";
+
+.poll-question {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  background-clip: border-box;
+  border: solid 1px #ececec;
+  border-radius: 4px;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.05);
+
+  &__header {
+    position: relative;
+    display: flex;
+    padding: 20px 16px 10px;
+  }
+
+  &__actions {
+    position: absolute;
+    top: 1px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+    margin-right: 4px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 30px 20px 58px;
+    transition: all 0.42s ease-out;
+    row-gap: 4px;
+
+    &--empty {
+      padding: 10px 16px 20px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__help {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+  }
+
+  &__help-button-text {
+    @include fontInter12Regular;
+
+    font-style: italic;
+  }
+
+  &__help-text {
+    @include fontInter12Regular;
+
+    color: #b5b3b3;
+    font-style: italic;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 25px 8px 25px;
+    background-color: #f7f7f7;
+    border-radius: 0 0 4px 4px;
+  }
+
+  &__block {
+    display: flex;
+    align-items: center;
+    column-gap: 3px;
+  }
+}

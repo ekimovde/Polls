@@ -1,0 +1,127 @@
+@import "assets/scss/helper.scss";
+
+$root-name: "poll-question-type";
+
+.#{$root-name} {
+  display: flex;
+  clear: both;
+  padding: 0;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+
+  &--view {
+    &-default {
+      align-items: center;
+      padding: 10px 20px;
+      column-gap: 10px;
+      background-color: transparent;
+      border: none;
+
+      &:hover {
+        background-color: #f0f3f5;
+      }
+
+      &.#{$root-name}--active {
+        &:hover {
+          background-color: transparent;
+        }
+      }
+
+      &.#{$root-name}--default {
+        justify-content: center;
+        width: 30px;
+        height: 24px;
+        padding: 0;
+
+        &:hover {
+          color: #23282c;
+          background-color: #e6e6e6;
+          border-color: #dfdfdf;
+        }
+
+        &:active {
+          background-color: #ddd;
+        }
+      }
+    }
+
+    &-card {
+      flex-direction: column;
+      width: 100%;
+      background-color: #f7f7f7;
+      border: 1px solid #eaedf3;
+
+      &:hover {
+        background-color: #f2f2f2;
+      }
+    }
+  }
+
+  &__icon-wrapper {
+    &--view {
+      &-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        width: 100%;
+        height: 80px;
+      }
+    }
+  }
+
+  &__icon {
+    vertical-align: middle;
+
+    &--view {
+      &-default {
+        width: 27px;
+        max-height: 21px;
+
+        &.#{$root-name}__icon--default {
+          width: 20px;
+        }
+      }
+
+      &-card {
+        width: 100%;
+        max-width: 70%;
+        height: 100%;
+        max-height: 45%;
+      }
+    }
+  }
+
+  &__title-wrapper {
+    &--view {
+      &-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        width: 100%;
+        height: 40px;
+        padding: 0 10px;
+        text-align: center;
+        background-color: $white;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+    }
+  }
+
+  &__title {
+    @include fontInter14Regular;
+
+    color: #69748c;
+
+    &--active {
+      color: #6e41e2;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import "assets/scss/helper.scss";
+
+.poll-question-counter {
+  @include fontInter12Regular;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: $white;
+  text-align: center;
+  background-color: #c4c4c4;
+  border-radius: 50%;
+}

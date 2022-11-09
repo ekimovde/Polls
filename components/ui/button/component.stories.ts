@@ -203,8 +203,8 @@ export const View = (): Component => ({
             <ui-button view="default" theme="grey" size="xl">x</ui-button>
           </td>
 
-          <td>
-            NULL
+          <td class="center">
+            <ui-button view="default" theme="grey" size="xs">x</ui-button>
           </td>
         </tr>
       </table>
