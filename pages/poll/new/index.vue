@@ -71,6 +71,59 @@
             />
           </div>
 
+          <div :class="b('input-wrapper')">
+            <label :class="b('label')">
+              {{ textAttributes.dateLabel }}
+            </label>
+
+            <div :class="b('split-fields')">
+              <ui-select
+                v-model="$v.form.date.year.$model"
+                :options="optionsWithDateYears"
+                :view="uiSelectView.default"
+                :is-expanded="true"
+              />
+
+              <ui-select
+                v-model="$v.form.date.month.$model"
+                :options="optionsWithDateMonths"
+                :view="uiSelectView.default"
+                :is-expanded="true"
+              />
+
+              <ui-select
+                v-model="$v.form.date.day.$model"
+                :options="optionsWithDateDays"
+                :view="uiSelectView.default"
+                :is-expanded="true"
+              />
+            </div>
+          </div>
+
+          <div :class="b('input-wrapper')">
+            <label :class="b('label')">
+              {{ textAttributes.timeLabel }}
+            </label>
+
+            <div :class="b('split-fields')">
+              <ui-select
+                v-model="$v.form.time.hour.$model"
+                :options="optionsWithTimeHours"
+                :view="uiSelectView.default"
+                :is-expanded="true"
+              />
+
+              <ui-select
+                v-model="$v.form.time.minute.$model"
+                :options="optionsWithTimeMinutes"
+                :view="uiSelectView.default"
+                :is-expanded="true"
+              />
+            </div>
+          </div>
+
+          <poll-question />
+
           <ui-button
             :view="uiButtonView.action"
             :size="uiButtonSize.xl"

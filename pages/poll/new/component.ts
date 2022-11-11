@@ -13,11 +13,12 @@ import { UiButtonView, UiButtonSize, UiButtonTheme } from '~/components/ui/butto
 import { routes } from '~/shared/repository/routes';
 import { RoutesName } from '~/shared/repository/routes/routes-name';
 import { UiSelectView } from '~/components/ui/select/component';
-import { selectOptionsWithColors } from '~/static-data/select/factory';
+import { selectOptionsWithColors, selectOptionsWithTimeHours, selectOptionsWithTimeMinutes, selectOptionsWithDateMonths, selectOptionsWithDateDays, selectOptionsWithDateYears } from '~/static-data/select/factory';
 import { SetPollRequest } from '~/shared/repository/repo';
 import { SharedColorTheme } from '~/components/shared/color/component';
 import { PollCategory } from '~/shared/repository/constants';
 import { getPollNewShareIdRoute } from '~/shared/repository/routes/poll';
+import { PollQuestion } from '~/components/poll/question';
 
 @Component({
   name: COMPONENT_NAME,
@@ -26,11 +27,12 @@ import { getPollNewShareIdRoute } from '~/shared/repository/routes/poll';
     BrandBlock,
     uiInput,
     uiButton,
-    uiSelect
+    uiSelect,
+    PollQuestion
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(PollNewPagePageTextAttribute);
+  readonly textAttributes = PollNewPagePageTextAttribute;
 
   readonly projectRepository = this.$projectServices.projectRepository;
   readonly notifier = this.$projectServices.notification;
@@ -46,6 +48,11 @@ export default class extends mixins(TestId, Translatable) {
   readonly uiSelectView = UiSelectView;
 
   readonly options = selectOptionsWithColors();
+  readonly optionsWithDateYears = selectOptionsWithDateYears();
+  readonly optionsWithDateMonths = selectOptionsWithDateMonths();
+  readonly optionsWithDateDays = selectOptionsWithDateDays();
+  readonly optionsWithTimeHours = selectOptionsWithTimeHours();
+  readonly optionsWithTimeMinutes = selectOptionsWithTimeMinutes();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   $v: any = {};
@@ -54,6 +61,15 @@ export default class extends mixins(TestId, Translatable) {
     name: '',
     color: SharedColorTheme.blue,
     category: PollCategory.animals,
+    date: {
+      year: null,
+      month: null,
+      day: null
+    },
+    time: {
+      hour: null,
+      minute: null
+    },
     isPublic: true
   }
 
@@ -80,7 +96,16 @@ export default class extends mixins(TestId, Translatable) {
       form: {
         name: { required },
         category: { required },
-        color: { required }
+        color: { required },
+        date: {
+          year: { required },
+          month: { required },
+          day: { required }
+        },
+        time: {
+          hour: { required },
+          minute: { required }
+        }
       }
     };
   }

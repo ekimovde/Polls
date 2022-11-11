@@ -1,0 +1,19 @@
+@import "assets/scss/helper.scss";
+
+.poll-question-menu {
+  display: grid;
+  grid-gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &--view {
+    &-list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

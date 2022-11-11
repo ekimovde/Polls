@@ -5,12 +5,15 @@ import { Translatable } from '~/components/shared/translatable';
 
 export enum UiInputView {
   default = 'default',
-  regular = 'regular'
+  regular = 'regular',
+  extra = 'extra'
 }
 
 export enum UiInputSize {
   xl = 'xl',
-  xs = 'xs'
+  xs = 'xs',
+  small = 'small',
+  byContent = 'by-content'
 }
 
 export enum UiInputType {
@@ -53,6 +56,11 @@ export default class extends mixins(TestId, Translatable) {
     type: Boolean,
     default: false
   }) readonly isError: boolean;
+
+  @Prop({
+    type: [String, Number],
+    default: 'auto'
+  }) readonly maxLenght: string | number;
 
   @Prop({
     type: String,

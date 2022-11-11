@@ -53,6 +53,7 @@ module.exports = {
     '~plugins/project-services',
     '~plugins/vuelidate',
     '~plugins/inline-svg',
+    '~plugins/vuedraggable',
     { src: '~plugins/persisted-state', mode: 'client' }
   ],
   messages: {

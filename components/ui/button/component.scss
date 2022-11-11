@@ -62,6 +62,11 @@ $root-name: "ui-button";
             color: #763aeb;
             background-color: rgba(163, 57, 209, 0.1);
           }
+
+          &.#{$root-name}--active {
+            color: #763aeb;
+            background-color: rgba(163, 57, 209, 0.1);
+          }
         }
 
         &-grey {
@@ -128,7 +133,7 @@ $root-name: "ui-button";
         &-purple {
           color: $white;
           background-color: #6e41e2;
-          box-shadow: 0 2px 4px rgba(110, 65, 226, 0.22);
+          box-shadow: 0 2px 4px rgba(140, 57, 209, 0.1);
 
           &:hover {
             background-color: #4926a1;

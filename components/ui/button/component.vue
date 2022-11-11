@@ -6,7 +6,15 @@
     :is="currentTag"
     v-bind="attributes"
     :data-test="tid()"
-    :class="b('', { size, view, theme, loading: isLoading, disabled: isDisabled, expanded: isExpanded })"
+    :class="b('', {
+      size,
+      view,
+      theme,
+      loading: isLoading,
+      disabled: isDisabled,
+      expanded: isExpanded,
+      active: isActive
+    })"
     v-on="$listeners"
   >
     <slot />

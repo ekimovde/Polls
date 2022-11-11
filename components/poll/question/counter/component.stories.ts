@@ -29,7 +29,7 @@ function create(): Component {
     template: `
       <div style="
         display: flex;
-        jusitfy-content: center;
+        justify-content: center;
         align-items: center;
         padding: 20px;
       ">

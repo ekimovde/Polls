@@ -16,6 +16,11 @@ export default {
 
 export const DefaultView = (): Component => create();
 export const RegularView = (): Component => create({ view: UiInputView.regular });
+export const ExtraView = (): Component => create({
+  view: UiInputView.extra,
+  size: UiInputSize.byContent,
+  placeholder: 'Введите текст'
+});
 export const Placeholder = (): Component => create({ placeholder: 'Введите текст' });
 export const IsExpanded = (): Component => create({ isExpanded: true });
 export const IsDisabled = (): Component => create({ isDisabled: true });

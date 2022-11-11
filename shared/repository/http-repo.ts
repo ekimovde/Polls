@@ -4,6 +4,7 @@ import { createFormDataFromObject } from '../utils/create-form-data-from-object'
 import { ProjectRepository, SigninRequest, AccessTokens, ApiWrapper, RefreshTokenRequest, TranslationRequest, UserProgressResponse, PollResponse, ReactionResponse, PollMembersResponse, SelfInfoResponse, SignupRequest, SetUserInfoRequest, SetUserPasswordRequest, SetPollRequest, SendPollInviteRequest } from './repo';
 import { UrlGenerator } from './url-generator';
 import { Translation } from '../services/translator';
+import { PollQuestionAnswer } from '~/components/poll/model';
 
 export class HttpRepo implements ProjectRepository {
   constructor(
@@ -104,6 +105,12 @@ export class HttpRepo implements ProjectRepository {
 
   async updatePoll(id: string, params: SetPollRequest): Promise<void> {
     await this.axios.patch<ApiWrapper<void>>(this.urlGenerator.updatePoll(id), params);
+  }
+
+  async getPollAnswers(id: string): Promise<PollQuestionAnswer[]> {
+    const { data } = await this.axios.get<ApiWrapper<PollQuestionAnswer[]>>(this.urlGenerator.getPollAnswers(id));
+
+    return data.response;
   }
 
   async getUserProgress(): Promise<UserProgressResponse[]> {

@@ -55,3 +55,71 @@ export const selectOptionsWithColors = (): SelectOptionBase[] => {
     })
   ];
 };
+
+export const selectOptionsWithDateYears = (): SelectOptionBase[] => {
+  return (new Array(4).fill(null) as SelectOptionBase[]).map((_, index) => {
+    const date = new Date();
+    const currentYear = date.getFullYear();
+    const currentMonth = date.getMonth();
+    const currentValue = new Date(currentYear + index, currentMonth).getFullYear();
+
+    return selectOption({
+      label: String(currentValue),
+      value: currentValue
+    });
+  });
+};
+
+export const selectOptionsWithDateMonths = (): SelectOptionBase[] => {
+  return (new Array(12).fill(null) as SelectOptionBase[]).map((_, index) => {
+    const currentValue = index + 1;
+
+    return selectOption({
+      label: String(currentValue),
+      value: currentValue
+    });
+  });
+};
+
+export const selectOptionsWithDateDays = (): SelectOptionBase[] => {
+  return (new Array(28).fill(null) as SelectOptionBase[]).map((_, index) => {
+    const currentValue = index + 1;
+
+    return selectOption({
+      label: String(currentValue),
+      value: currentValue
+    });
+  });
+};
+
+export const selectOptionsWithTimeHours = (): SelectOptionBase[] => {
+  return (new Array(12).fill(null) as SelectOptionBase[]).map((_, index) => {
+    const currentValue = index + 1;
+
+    return selectOption({
+      label: String(currentValue),
+      value: currentValue
+    });
+  });
+};
+
+export const selectOptionsWithTimeMinutes = (): SelectOptionBase[] => {
+  return [
+    selectOption({
+      label: '00',
+      value: 0
+    }),
+    selectOption({
+      label: '15',
+      value: 15
+    }),
+    selectOption({
+      label: '30',
+      value: 30
+    }),
+    selectOption({
+      label: '45',
+      value: 45
+    })
+  ];
+};

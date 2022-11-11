@@ -16,6 +16,8 @@ export enum UiSelectEvent {
   input = 'input'
 }
 
+const DEFAULT_INITIAL_VALUE = 0;
+
 @Component({
   name: COMPONENT_NAME,
   directives: {
@@ -86,7 +88,7 @@ export default class extends mixins(TestId, Translatable) {
   }
 
   get hasValue(): boolean {
-    return Boolean(this.value);
+    return Boolean(this.value) || this.value === DEFAULT_INITIAL_VALUE;
   }
 
   get contentClasses(): string {

@@ -9,6 +9,7 @@ import { SharedColorTheme } from '~/components/shared/color/component';
 import { UiProgressTheme } from '~/components/ui/progress/component';
 import HeaderModuleStore from '~/store/modules/header';
 import FooterModuleStore from '~/store/modules/footer';
+import { PollQuestionAnswer, PollQuestionTime, PollQuestionDate } from '~/components/poll/model';
 
 export interface ProjectRepository {
   getTranslation(params: TranslationRequest): Promise<string>
@@ -27,6 +28,7 @@ export interface ProjectRepository {
   sendPollInvite(params: SendPollInviteRequest): Promise<void>
   removePoll(id: string): Promise<void>
   updatePoll(id: string, params: SetPollRequest): Promise<void>
+  getPollAnswers(id: string): Promise<PollQuestionAnswer[]>
   getUserProgress(): Promise<UserProgressResponse[]>
   getUserPopularPolls(): Promise<PollResponse[]>
   getReactions(): Promise<ReactionResponse[]>
@@ -123,6 +125,8 @@ export interface SetPollRequest {
   color: SharedColorTheme
   category: PollCategory
   isPublic: boolean
+  date?: PollQuestionDate
+  time?: PollQuestionTime
 }
 
 export interface PollResponse {

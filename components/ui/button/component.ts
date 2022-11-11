@@ -91,6 +91,11 @@ export default class extends mixins(TestId, Translatable) {
     default: false
   }) readonly isExpanded: boolean;
 
+  @Prop({
+    type: Boolean,
+    default: false
+  }) readonly isActive: boolean;
+
   readonly textAttributes = this.transAll(UiButtonTextAttribute)
   readonly testLocators = UiButtonTestLocator;
 

@@ -2,7 +2,7 @@ import { Component, mixins, Prop } from 'nuxt-property-decorator';
 import { COMPONENT_NAME, PollQuestionTypeTextAttribute, PollQuestionTypeTestLocator } from './attributes';
 import TestId from '~/shared/utils/unit-test/test-id';
 import { Translatable } from '~/components/shared/translatable';
-import { PollQuestionType } from '../../model';
+import { PollQuestionTypes } from '../../model';
 
 export enum PollQuestionTypeView {
   default = 'default',
@@ -34,6 +34,11 @@ export default class extends mixins(TestId, Translatable) {
     default: false
   }) readonly hasIcon: boolean;
 
+  @Prop({
+    type: Boolean,
+    default: false
+  }) readonly isDisabled: boolean;
+
   readonly textAttributes = this.transAll(PollQuestionTypeTextAttribute);
   readonly testLocators = PollQuestionTypeTestLocator;
 
@@ -45,5 +50,5 @@ export default class extends mixins(TestId, Translatable) {
 export interface PollQuestionTypeOption {
   icon: string;
   title: string;
-  type: PollQuestionType;
+  type: PollQuestionTypes;
 }

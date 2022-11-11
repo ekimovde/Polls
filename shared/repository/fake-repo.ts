@@ -26,6 +26,8 @@ import { fakeReactions } from './fixtures/fake-reactions';
 import { fakePollMembers } from './fixtures/fake-poll-members';
 import { fakeSelfInfo } from './fixtures/fake-self-info';
 import { fakeTokens } from './fixtures/fake-tokens';
+import { PollQuestionAnswer } from '~/components/poll/model';
+import { fakePollAnswers } from './fixtures/fake-poll-answers';
 
 export class FakeRepo implements ProjectRepository {
   static create(): ProjectRepository {
@@ -94,6 +96,10 @@ export class FakeRepo implements ProjectRepository {
 
   async updatePoll(id: string, params: SetPollRequest): Promise<void> {
     void respondMockResult(null);
+  }
+
+  async getPollAnswers(id: string): Promise<PollQuestionAnswer[]> {
+    return respondMockResult(fakePollAnswers());
   }
 
   async getUserProgress(): Promise<UserProgressResponse[]> {

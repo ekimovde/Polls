@@ -7,6 +7,8 @@ export enum PollNewPagePageTextAttribute {
   nameLabel = 'Give your team a name',
   nameErrorMessage = 'Please enter the name of your team',
   colorLabel = 'Choose a team color',
+  dateLabel = 'Choose a date to be reminded to attend your stand-up',
+  timeLabel = 'Choose a time to be reminded to attend your stand-up',
   createPoll = 'Create Poll',
   backTo = 'Back to',
   polls = 'Polls'

@@ -13,6 +13,7 @@
       :placeholder="placeholder"
       :value="value"
       :disabled="isDisabled"
+      :maxlength="maxLenght"
       @input="input"
     >
 

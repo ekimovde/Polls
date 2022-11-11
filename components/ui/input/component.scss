@@ -64,6 +64,14 @@
           line-height: 17px;
         }
       }
+
+      &-by-content {
+        @include fontInter18Regular;
+      }
+
+      &-small {
+        @include fontInter14Regular;
+      }
     }
 
     &--view {
@@ -87,6 +95,19 @@
           color: #19385d;
           background-color: #f6f6fa;
           transition: border 0.5s ease, color 0.5s ease;
+        }
+      }
+
+      &-extra {
+        display: inline-block;
+        white-space: normal;
+        word-break: break-word;
+        background: none;
+        border: none;
+        outline: none;
+
+        &::placeholder {
+          color: #b1b5be;
         }
       }
     }

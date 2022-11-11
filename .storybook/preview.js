@@ -3,6 +3,7 @@ import Vue from 'vue';
 import vueBemCn from 'vue-bem-cn';
 import VueRouter from 'vue-router'
 import InlineSvg from 'vue-inline-svg';
+import Draggable from 'vuedraggable';
 
 // eslint-disable-next-line import/extensions
 import 'normalize.css';
@@ -15,6 +16,7 @@ import Vuex from 'vuex';
 
 Vue.use(vueBemCn);
 Vue.use(Vuex);
+Vue.use(Draggable);
 
 Vue.component('inline-svg', InlineSvg);
 

@@ -1,0 +1,18 @@
+@import "assets/scss/helper.scss";
+
+.poll-question-help {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  column-gap: 5px;
+
+  &__text {
+    @include fontInter12Regular;
+
+    font-style: italic;
+
+    &--grey {
+      color: #b5b3b3;
+    }
+  }
+}

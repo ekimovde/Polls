@@ -1,0 +1,54 @@
+@import "assets/scss/helper.scss";
+
+.poll-question-footer {
+  background-color: #f6f6fa;
+  border-radius: 0 0 7px 7px;
+
+  &--view {
+    &-default {
+      padding: 13px 25px 8px 25px;
+    }
+
+    &-list {
+      width: fit-content;
+      padding: 0;
+      background-color: transparent;
+    }
+  }
+
+  &__inner-wrapper {
+    display: flex;
+    align-items: center;
+
+    &--view {
+      &-default {
+        justify-content: space-between;
+      }
+
+      &-list {
+        column-gap: 3px;
+      }
+    }
+  }
+
+  &__block {
+    display: flex;
+    align-items: center;
+    column-gap: 3px;
+  }
+
+  &__settings {
+    margin-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  &__title {
+    @include fontInter12Regular;
+
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    color: #69748c;
+    text-transform: uppercase;
+  }
+}
