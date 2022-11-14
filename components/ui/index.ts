@@ -5,6 +5,6 @@ export { default as uiProgress } from './progress/component.vue';
 export { default as uiSelect } from './select/component.vue';
 export { default as uiDropdown } from './dropdown/component.vue';
 export { default as uiModal } from './modal/component.vue';
-export { default as uiCheckbox } from './checkbox/component.vue';
+export { default as uiSwitch } from './switch/component.vue';
 export { default as uiTextarea } from './textarea/component.vue';
 export { default as uiTooltip } from './tooltip/component.vue';
