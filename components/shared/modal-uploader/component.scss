@@ -1,0 +1,60 @@
+@import "assets/scss/helper.scss";
+
+.shared-modal-uploader {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  &__title {
+    @include fontInter20Medium;
+
+    margin: 0;
+    padding: 0;
+    color: $black;
+    line-height: 20px;
+
+    @media screen and (max-width: 450px) {
+      @include fontInter18Medium;
+
+      line-height: 18px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  &__label {
+    @include fontInter11Regular;
+
+    color: #9a9dab;
+    line-height: 11px;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    height: calc(90vh - 200px);
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    list-style: none;
+  }
+
+  &__figure {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+}

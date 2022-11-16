@@ -8,6 +8,11 @@ enum UiModalEvent {
   close = 'update:is-visible'
 }
 
+export enum UiModalView {
+  default = 'default',
+  regular = 'regular'
+}
+
 @Component({
   name: COMPONENT_NAME,
   components: {
@@ -19,6 +24,12 @@ export default class extends mixins(TestId) {
     type: Boolean,
     default: false
   }) readonly isVisible: boolean;
+
+  @Prop({
+    type: String,
+    validator: val => Object.values(UiModalView).includes(val),
+    default: UiModalView.default
+  }) readonly view: UiModalView;
 
   readonly testLocators = UiModalTestLocator;
 

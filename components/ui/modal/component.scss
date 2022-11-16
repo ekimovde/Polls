@@ -20,7 +20,6 @@ $root-name: "ui-modal";
     z-index: 501;
     width: 100%;
     max-width: 560px;
-    padding: 20px 18px;
     padding: 40px;
     overflow: hidden;
     background-color: $white;
@@ -32,6 +31,20 @@ $root-name: "ui-modal";
 
     @media screen and (max-width: 600px) {
       width: 90%;
+    }
+
+    &--view {
+      &-default {
+        padding: 20px 18px;
+
+        @media screen and (max-width: 450px) {
+          padding: 30px;
+        }
+      }
+
+      &-regular {
+        padding: 16px;
+      }
     }
   }
 

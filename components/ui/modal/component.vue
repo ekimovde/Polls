@@ -10,7 +10,7 @@
       @click="close"
     >
       <div
-        :class="b('wrapper')"
+        :class="b('wrapper', { view })"
         @click.stop=""
       >
         <ui-button
