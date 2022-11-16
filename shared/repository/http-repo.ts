@@ -1,7 +1,7 @@
-import { AxiosInstance } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 import { StoreGetters } from '~/store/model';
 import { createFormDataFromObject } from '../utils/create-form-data-from-object';
-import { ProjectRepository, SigninRequest, AccessTokens, ApiWrapper, RefreshTokenRequest, TranslationRequest, UserProgressResponse, PollResponse, ReactionResponse, PollMembersResponse, SelfInfoResponse, SignupRequest, SetUserInfoRequest, SetUserPasswordRequest, SetPollRequest, SendPollInviteRequest } from './repo';
+import { ProjectRepository, SigninRequest, AccessTokens, ApiWrapper, RefreshTokenRequest, TranslationRequest, UserProgressResponse, PollResponse, ReactionResponse, PollMembersResponse, SelfInfoResponse, SignupRequest, SetUserInfoRequest, SetUserPasswordRequest, SetPollRequest, SendPollInviteRequest, UnsplashPhotoResponse } from './repo';
 import { UrlGenerator } from './url-generator';
 import { Translation } from '../services/translator';
 import { PollQuestionAnswer } from '~/components/poll/model';
@@ -136,5 +136,11 @@ export class HttpRepo implements ProjectRepository {
     const { data } = await this.axios.get<ApiWrapper<PollMembersResponse[]>>(this.urlGenerator.getPollMembers(id));
 
     return data.response;
+  }
+
+  async getUnsplashPhotos(): Promise<UnsplashPhotoResponse[]> {
+    const { data } = await axios.get(`${this.urlGenerator.getUnsplashPhotos()}?client_id=${UNSPLASH_ACCESS_KEY}`);
+
+    return <UnsplashPhotoResponse[]>data;
   }
 }

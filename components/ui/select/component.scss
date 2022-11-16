@@ -26,6 +26,13 @@
     transition: all 0.2s ease-in-out;
     user-select: none;
 
+    @media screen and (max-width: 450px) {
+      @include fontInter14Medium;
+
+      padding: 12px 14px 12px 14px;
+      line-height: 15px;
+    }
+
     &--open {
       color: #19385d;
       background-color: $white;

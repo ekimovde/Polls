@@ -16,6 +16,7 @@ declare global {
   const USE_PHOTO_STUB: boolean;
   const SHOP_DATA_REQUEST_INTERVAL_IN_MINUTES: number;
   const FILE_UPLOAD_LIMIT_IN_BYTES: number;
+  const UNSPLASH_ACCESS_KEY: string;
 }
 
 declare module 'vue/types/vue' {

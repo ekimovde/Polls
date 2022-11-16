@@ -6,19 +6,21 @@ import { COMPONENT_NAME, PollNewPagePageTextAttribute } from './attributes';
 import TestId from '~/shared/utils/unit-test/test-id';
 import { Translatable } from '~/components/shared/translatable';
 import { BrandBlock } from '~/components/brand';
-import { uiInput, uiButton, uiSelect } from '~/components/ui';
+import { uiInput, uiButton, uiSelect, uiSwitch } from '~/components/ui';
 import { BrandBlockSize } from '~/components/brand/component';
 import { UiInputSize } from '~/components/ui/input/component';
 import { UiButtonView, UiButtonSize, UiButtonTheme } from '~/components/ui/button/component';
 import { routes } from '~/shared/repository/routes';
 import { RoutesName } from '~/shared/repository/routes/routes-name';
 import { UiSelectView } from '~/components/ui/select/component';
-import { selectOptionsWithColors, selectOptionsWithTimeHours, selectOptionsWithTimeMinutes, selectOptionsWithDateMonths, selectOptionsWithDateDays, selectOptionsWithDateYears } from '~/static-data/select/factory';
+import { selectOptionsWithColors, selectOptionsWithTimeHours, selectOptionsWithTimeMinutes, selectOptionsWithDateMonths, selectOptionsWithDateDays } from '~/static-data/select/factory';
 import { SetPollRequest } from '~/shared/repository/repo';
 import { SharedColorTheme } from '~/components/shared/color/component';
 import { PollCategory } from '~/shared/repository/constants';
 import { getPollNewShareIdRoute } from '~/shared/repository/routes/poll';
 import { PollQuestion } from '~/components/poll/question';
+import { fakePollQuestion } from '~/shared/repository/fixtures/fake-poll-question';
+import { UiSwitchSize, UiSwitchView } from '~/components/ui/switch/component';
 
 @Component({
   name: COMPONENT_NAME,
@@ -28,6 +30,7 @@ import { PollQuestion } from '~/components/poll/question';
     uiInput,
     uiButton,
     uiSelect,
+    uiSwitch,
     PollQuestion
   }
 })
@@ -47,8 +50,10 @@ export default class extends mixins(TestId, Translatable) {
 
   readonly uiSelectView = UiSelectView;
 
+  readonly uiSwitchSize = UiSwitchSize;
+  readonly uiSwitchView = UiSwitchView;
+
   readonly options = selectOptionsWithColors();
-  readonly optionsWithDateYears = selectOptionsWithDateYears();
   readonly optionsWithDateMonths = selectOptionsWithDateMonths();
   readonly optionsWithDateDays = selectOptionsWithDateDays();
   readonly optionsWithTimeHours = selectOptionsWithTimeHours();
@@ -62,7 +67,6 @@ export default class extends mixins(TestId, Translatable) {
     color: SharedColorTheme.blue,
     category: PollCategory.animals,
     date: {
-      year: null,
       month: null,
       day: null
     },
@@ -70,6 +74,7 @@ export default class extends mixins(TestId, Translatable) {
       hour: null,
       minute: null
     },
+    question: { ...fakePollQuestion() },
     isPublic: true
   }
 
@@ -87,6 +92,11 @@ export default class extends mixins(TestId, Translatable) {
     return routes[RoutesName.polls];
   }
 
+  get displayedSwitchContent(): string {
+    const { publicText, privateText } = this.textAttributes;
+    return this.form.isPublic ? publicText : privateText;
+  }
+
   get displayedCopyright(): string {
     return `© ${new Date().getFullYear()}`;
   }
@@ -98,13 +108,17 @@ export default class extends mixins(TestId, Translatable) {
         category: { required },
         color: { required },
         date: {
-          year: { required },
           month: { required },
           day: { required }
         },
         time: {
           hour: { required },
           minute: { required }
+        },
+        question: {
+          name: { required },
+          type: { required },
+          answers: { required }
         }
       }
     };

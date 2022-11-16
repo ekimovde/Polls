@@ -78,13 +78,6 @@
 
             <div :class="b('split-fields')">
               <ui-select
-                v-model="$v.form.date.year.$model"
-                :options="optionsWithDateYears"
-                :view="uiSelectView.default"
-                :is-expanded="true"
-              />
-
-              <ui-select
                 v-model="$v.form.date.month.$model"
                 :options="optionsWithDateMonths"
                 :view="uiSelectView.default"
@@ -122,7 +115,20 @@
             </div>
           </div>
 
-          <poll-question />
+          <div :class="b('block')">
+            <p :class="b('label', { default: true })">
+              {{ textAttributes.switchLabel }}
+            </p>
+
+            <ui-switch
+              v-model="form.isPublic"
+              :size="uiSwitchSize.default"
+              :view="uiSwitchView.regular"
+              :active-text="displayedSwitchContent"
+            />
+          </div>
+
+          <poll-question :question.sync="form.question" />
 
           <ui-button
             :view="uiButtonView.action"

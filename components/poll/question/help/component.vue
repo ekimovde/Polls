@@ -16,9 +16,5 @@
         {{ textAttributes.addAnswer }}
       </span>
     </ui-button>
-
-    <span :class="b('text', { grey: true })">
-      {{ textAttributes.pressEnter }}
-    </span>
   </div>
 </template>

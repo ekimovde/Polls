@@ -1,5 +1,6 @@
 import { SelectOptionBase } from '~/shared/repository/constants';
 import { SharedColorTheme } from '~/components/shared/color/component';
+import { getArrayWithSelectOption } from '~/shared/utils/get-array-with-select-options';
 
 export const selectOption = (params: Partial<SelectOptionBase> = {}): SelectOptionBase => {
   return {
@@ -56,51 +57,16 @@ export const selectOptionsWithColors = (): SelectOptionBase[] => {
   ];
 };
 
-export const selectOptionsWithDateYears = (): SelectOptionBase[] => {
-  return (new Array(4).fill(null) as SelectOptionBase[]).map((_, index) => {
-    const date = new Date();
-    const currentYear = date.getFullYear();
-    const currentMonth = date.getMonth();
-    const currentValue = new Date(currentYear + index, currentMonth).getFullYear();
-
-    return selectOption({
-      label: String(currentValue),
-      value: currentValue
-    });
-  });
-};
-
 export const selectOptionsWithDateMonths = (): SelectOptionBase[] => {
-  return (new Array(12).fill(null) as SelectOptionBase[]).map((_, index) => {
-    const currentValue = index + 1;
-
-    return selectOption({
-      label: String(currentValue),
-      value: currentValue
-    });
-  });
+  return getArrayWithSelectOption(12);
 };
 
 export const selectOptionsWithDateDays = (): SelectOptionBase[] => {
-  return (new Array(28).fill(null) as SelectOptionBase[]).map((_, index) => {
-    const currentValue = index + 1;
-
-    return selectOption({
-      label: String(currentValue),
-      value: currentValue
-    });
-  });
+  return getArrayWithSelectOption(28);
 };
 
 export const selectOptionsWithTimeHours = (): SelectOptionBase[] => {
-  return (new Array(12).fill(null) as SelectOptionBase[]).map((_, index) => {
-    const currentValue = index + 1;
-
-    return selectOption({
-      label: String(currentValue),
-      value: currentValue
-    });
-  });
+  return getArrayWithSelectOption(12);
 };
 
 export const selectOptionsWithTimeMinutes = (): SelectOptionBase[] => {

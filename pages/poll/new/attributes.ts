@@ -9,7 +9,10 @@ export enum PollNewPagePageTextAttribute {
   colorLabel = 'Choose a team color',
   dateLabel = 'Choose a date to be reminded to attend your stand-up',
   timeLabel = 'Choose a time to be reminded to attend your stand-up',
+  switchLabel = 'Выберите тип публикации',
   createPoll = 'Create Poll',
   backTo = 'Back to',
-  polls = 'Polls'
+  polls = 'Polls',
+  publicText = 'Публично',
+  privateText = 'Приватно'
 }

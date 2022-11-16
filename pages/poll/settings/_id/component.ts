@@ -12,7 +12,7 @@ import { UiButtonView, UiButtonSize, UiButtonTheme } from '~/components/ui/butto
 import { getPollIdRoute } from '~/shared/repository/routes/poll';
 import { UiSelectView } from '~/components/ui/select/component';
 import { selectOptionsWithColors } from '~/static-data/select/factory';
-import { SetPollRequest, PollResponse } from '~/shared/repository/repo';
+import { PollResponse } from '~/shared/repository/repo';
 
 @Component({
   name: COMPONENT_NAME,
@@ -42,7 +42,7 @@ export default class extends mixins(TestId, Translatable) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   $v: any = {};
 
-  form: SetPollRequest = {
+  form: any = {
     name: '',
     color: null,
     category: null,

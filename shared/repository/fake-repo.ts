@@ -15,7 +15,8 @@ import {
   SetUserInfoRequest,
   SetUserPasswordRequest,
   SetPollRequest,
-  SendPollInviteRequest
+  SendPollInviteRequest,
+  UnsplashPhotoResponse
 } from './repo';
 import { translationResponse } from './fixtures/translation';
 import { translationsResponse } from './fixtures/translations';
@@ -108,6 +109,10 @@ export class FakeRepo implements ProjectRepository {
 
   async getUserPopularPolls(): Promise<PollResponse[]> {
     return respondMockResult(fakePolls());
+  }
+
+  async getUnsplashPhotos(): Promise<UnsplashPhotoResponse[]> {
+    return respondMockResult([]);
   }
 
   async getReactions(): Promise<ReactionResponse[]> {

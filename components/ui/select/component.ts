@@ -58,7 +58,7 @@ export default class extends mixins(TestId, Translatable) {
     default: UiSelectView.default
   }) readonly view: UiSelectView;
 
-  readonly textAttributes = this.transAll(UiSelectTextAttribute);
+  readonly textAttributes = UiSelectTextAttribute;
   readonly testLocators = UiSelectTestLocator;
 
   readonly sharedColorSize = SharedColorSize;

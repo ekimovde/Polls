@@ -83,6 +83,7 @@
 
       <ui-switch
         :size="uiSwitchSize.xs"
+        :view="uiSwitchView.default"
         :value="isMultipleAnswers"
         :active-text="textAttributes.haveMultiple"
         @change="sendEvent(pollQuestionFooterEvent.setMultipleAnswers)"

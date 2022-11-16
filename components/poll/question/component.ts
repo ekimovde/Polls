@@ -1,6 +1,7 @@
-import { Component, mixins } from 'nuxt-property-decorator';
+import { Component, mixins, Prop, Watch } from 'nuxt-property-decorator';
 import { Tooltip } from 'element-ui';
 import Draggable from 'vuedraggable';
+import { isEmpty } from 'lodash';
 import { COMPONENT_NAME, PollQuestionTextAttribute, PollQuestionTestLocator } from './attributes';
 import TestId from '~/shared/utils/unit-test/test-id';
 import { Translatable } from '~/components/shared/translatable';
@@ -19,6 +20,11 @@ import { PollQuestionHelp } from '~/components/poll/question/help';
 import { fakePollAnswer, fakePollAnswerByImage, fakePollAnswerByImageText, fakePollAnswerByEmoji } from '~/shared/repository/fixtures/fake-poll-answers';
 import { generateUnixTimestamp } from '~/shared/utils/generate-timestamp';
 import { PollQuestionFooterView } from './footer/component';
+import { fakePollQuestion } from '~/shared/repository/fixtures/fake-poll-question';
+
+enum PollQuestionEvent {
+  updateQuestion = 'update:question'
+}
 
 @Component({
   name: COMPONENT_NAME,
@@ -37,6 +43,11 @@ import { PollQuestionFooterView } from './footer/component';
   }
 })
 export default class extends mixins(TestId, Translatable) {
+  @Prop({
+    type: Object,
+    required: true
+  }) readonly question: PollQuestionResponse;
+
   readonly textAttributes = PollQuestionTextAttribute;
   readonly testLocators = PollQuestionTestLocator;
 
@@ -54,25 +65,25 @@ export default class extends mixins(TestId, Translatable) {
   readonly pollQuestionTypeOption = pollQuestionTypeOption();
   readonly pollQuestionTypeOptions = pollQuestionTypeOptions();
 
-  question: PollQuestionResponse = {
-    name: '',
-    type: PollQuestionTypes.text,
-    answers: [],
-    settings: {
-      isMultipleAnswers: false
-    }
-  }
+  tempQuestion: PollQuestionResponse = { ...fakePollQuestion() };
 
   isVisible = false;
-
   isQuestionHidden = false;
 
   get quantityOfAnswers(): number {
-    return this.question.answers.length;
+    return this.tempQuestion.answers.length;
+  }
+
+  get hasQuestion(): boolean {
+    return !isEmpty(this.question);
   }
 
   get hasAnswers(): boolean {
     return Boolean(this.quantityOfAnswers);
+  }
+
+  created(): void {
+    void this.updateTempQuestion();
   }
 
   openModal(): void {
@@ -86,23 +97,31 @@ export default class extends mixins(TestId, Translatable) {
   addAnswer(): void {
     const timestamp = generateUnixTimestamp();
 
-    switch (this.question.type) {
+    switch (this.tempQuestion.type) {
       case PollQuestionTypes.image:
-        this.question.answers.push({ ...fakePollAnswerByImage({ timestamp }) });
+        this.tempQuestion.answers.push({ ...fakePollAnswerByImage({ timestamp }) });
         break;
       case PollQuestionTypes.imageText:
-        this.question.answers.push({ ...fakePollAnswerByImageText({ timestamp }) });
+        this.tempQuestion.answers.push({ ...fakePollAnswerByImageText({ timestamp }) });
         break;
       case PollQuestionTypes.emoji:
-        this.question.answers.push({ ...fakePollAnswerByEmoji({ timestamp }) });
+        this.tempQuestion.answers.push({ ...fakePollAnswerByEmoji({ timestamp }) });
         break;
       default:
-        this.question.answers.push({ ...fakePollAnswer({ timestamp }) });
+        this.tempQuestion.answers.push({ ...fakePollAnswer({ timestamp }) });
     }
   }
 
+  updateTempQuestion(): void {
+    if (!this.hasQuestion) {
+      return;
+    }
+
+    this.tempQuestion = { ...this.question };
+  }
+
   updateQuestionType(type: PollQuestionTypes): void {
-    this.question.type = type;
+    this.tempQuestion.type = type;
   }
 
   updateQuestion(type: PollQuestionTypes): void {
@@ -115,7 +134,7 @@ export default class extends mixins(TestId, Translatable) {
       return;
     }
 
-    if (type === this.question.type) {
+    if (type === this.tempQuestion.type) {
       return;
     }
 
@@ -124,7 +143,7 @@ export default class extends mixins(TestId, Translatable) {
     const isImageType = imageTypes.includes(type);
     const isEmojiType = type === PollQuestionTypes.emoji;
 
-    let answers = [...this.question.answers];
+    let answers = [...this.tempQuestion.answers];
 
     answers = answers.map(item => ({
       type,
@@ -135,20 +154,23 @@ export default class extends mixins(TestId, Translatable) {
     }));
 
     this.updateQuestionType(type);
-    this.question.answers = [...answers];
+    this.tempQuestion.answers = [...answers];
   }
 
   updateAnswer(index: number, answer: PollQuestionAnswer): void {
-    this.question.answers[index] = { ...answer };
+    const answers = [...this.tempQuestion.answers];
+
+    answers[index] = { ...answer };
+    this.tempQuestion.answers = [...answers];
   }
 
   removePoll(index: number): void {
-    this.question.answers.splice(index, 1);
+    this.tempQuestion.answers.splice(index, 1);
   }
 
   clearQuestion(): void {
     this.isQuestionHidden = false;
-    this.question = {
+    this.tempQuestion = {
       name: '',
       type: PollQuestionTypes.text,
       answers: [],
@@ -156,5 +178,10 @@ export default class extends mixins(TestId, Translatable) {
         isMultipleAnswers: false
       }
     };
+  }
+
+  @Watch('tempQuestion', { deep: true })
+  changeTempQuestion(question: PollQuestionResponse): void {
+    this.$emit(PollQuestionEvent.updateQuestion, { ...question });
   }
 }

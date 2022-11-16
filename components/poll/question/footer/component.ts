@@ -6,7 +6,7 @@ import { Translatable } from '~/components/shared/translatable';
 import { uiButton, uiTooltip, uiSwitch } from '~/components/ui';
 import { UiButtonView, UiButtonSize, UiButtonTheme } from '~/components/ui/button/component';
 import { UiTooltipPlacement } from '~/components/ui/tooltip/component';
-import { UiSwitchSize } from '~/components/ui/switch/component';
+import { UiSwitchSize, UiSwitchView } from '~/components/ui/switch/component';
 
 enum PollQuestionFooterEvent {
   ownImage = 'own-image',
@@ -56,6 +56,7 @@ export default class extends mixins(TestId, Translatable) {
   readonly uiTooltipPlacement = UiTooltipPlacement;
 
   readonly uiSwitchSize = UiSwitchSize;
+  readonly uiSwitchView = UiSwitchView;
 
   readonly pollQuestionFooterEvent = PollQuestionFooterEvent;
 

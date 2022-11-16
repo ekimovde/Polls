@@ -118,6 +118,13 @@ $font-family-inter-bold: "Inter-Bold", sans-serif;
   @include font-base;
 }
 
+@mixin fontInter11Regular {
+  font-size: 11px;
+  font-family: $font-family-inter-regular;
+
+  @include font-base;
+}
+
 @mixin fontInter10Regular {
   font-size: 10px;
   font-family: $font-family-inter-regular;

@@ -13,6 +13,16 @@ $root-name: "ui-switch";
   cursor: pointer;
 
   &.#{$root-name} {
+    &--view {
+      &-default {
+        flex-direction: row;
+      }
+
+      &-regular {
+        flex-direction: row-reverse;
+      }
+    }
+
     &--size {
       &-default {
         @include e(core) {
@@ -45,10 +55,6 @@ $root-name: "ui-switch";
       background-color: #6e41e2;
     }
 
-    @include e(label) {
-      color: #6e41e2;
-    }
-
     &.#{$root-name} {
       &--size {
         &-default {
@@ -78,16 +84,25 @@ $root-name: "ui-switch";
   }
 
   @include e(label) {
-    @include fontInter14Regular;
-
     display: flex;
     align-items: center;
     margin: 0;
     padding: 0;
-    color: #69748c;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.5;
-    letter-spacing: -0.2145px;
+
+    span {
+      @include fontInter15Medium;
+
+      color: #69748c;
+      font-size: 15px !important;
+      line-height: 16px !important;
+      line-height: 1.5;
+      letter-spacing: -0.2145px;
+    }
+
+    &.is-active {
+      span {
+        color: #6e41e2;
+      }
+    }
   }
 }

@@ -9,7 +9,7 @@ import { SharedColorTheme } from '~/components/shared/color/component';
 import { UiProgressTheme } from '~/components/ui/progress/component';
 import HeaderModuleStore from '~/store/modules/header';
 import FooterModuleStore from '~/store/modules/footer';
-import { PollQuestionAnswer, PollQuestionTime, PollQuestionDate } from '~/components/poll/model';
+import { PollQuestionAnswer, PollQuestionTime, PollQuestionDate, PollQuestionResponse } from '~/components/poll/model';
 
 export interface ProjectRepository {
   getTranslation(params: TranslationRequest): Promise<string>
@@ -29,6 +29,7 @@ export interface ProjectRepository {
   removePoll(id: string): Promise<void>
   updatePoll(id: string, params: SetPollRequest): Promise<void>
   getPollAnswers(id: string): Promise<PollQuestionAnswer[]>
+  getUnsplashPhotos(): Promise<UnsplashPhotoResponse[]>
   getUserProgress(): Promise<UserProgressResponse[]>
   getUserPopularPolls(): Promise<PollResponse[]>
   getReactions(): Promise<ReactionResponse[]>
@@ -50,6 +51,7 @@ export interface ProjectUrlGenerator {
   getPoll(id: string): string
   removePoll(id: string): string
   updatePoll(id: string): string
+  getUnsplashPhotos(): string
 }
 
 export interface ProjectServices {
@@ -124,6 +126,7 @@ export interface SetPollRequest {
   name: string
   color: SharedColorTheme
   category: PollCategory
+  question: PollQuestionResponse
   isPublic: boolean
   date?: PollQuestionDate
   time?: PollQuestionTime
@@ -145,6 +148,23 @@ export interface SendPollInviteRequest {
   description: string
   emailTo: string
 }
+
+export interface UnsplashPhotoResponse {
+  id: number;
+  width: number;
+  height: number;
+  urls: {
+    large: string;
+    regular: string;
+    raw: string;
+    small: string
+  };
+  color: string | null;
+  user: {
+    username: string;
+    name: string;
+  };
+};
 
 export interface UserProgressResponse {
   title: string

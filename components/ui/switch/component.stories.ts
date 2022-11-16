@@ -1,7 +1,7 @@
 import { withDesign } from 'storybook-addon-designs';
 import { Component } from 'vue';
 import { uiSwitch } from '~/components/ui';
-import { UiSwitchSize } from './component';
+import { UiSwitchSize, UiSwitchView } from './component';
 
 export default {
   title: 'Components / Ui / Switch',
@@ -15,9 +15,11 @@ export default {
 };
 
 export const DefaultSize = (): Component => create();
-export const XsSize = (): Component => create(UiSwitchSize.xs);
+export const XsSize = (): Component => create({ size: UiSwitchSize.xs });
+export const DefaultView = (): Component => create();
+export const RegularView = (): Component => create({ view: UiSwitchView.regular });
 
-function create(size = UiSwitchSize.default): Component {
+function create(props = {}): Component {
   return {
     components: {
       uiSwitch
@@ -25,7 +27,9 @@ function create(size = UiSwitchSize.default): Component {
     data() {
       return {
         isChecked: false,
-        size
+        size: UiSwitchSize.default,
+        view: UiSwitchView.default,
+        ...props
       };
     },
     template: `
@@ -38,6 +42,7 @@ function create(size = UiSwitchSize.default): Component {
         <ui-switch
           v-model="isChecked"
           :size="size"
+          :view="view"
           active-text="Yes"
         />
       </div>

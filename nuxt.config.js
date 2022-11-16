@@ -12,6 +12,7 @@ const USE_HTTPS = process.env.USE_HTTPS === 'true';
 const USE_FAKE_BACKEND = process.env.USE_FAKE_BACKEND === 'true';
 const USE_LOCAL_CERTIFICATE = process.env.USE_LOCAL_CERTIFICATE === 'true';
 const USE_PHOTO_STUB = process.env.USE_PHOTO_STUB === 'true';
+const UNSPLASH_ACCESS_KEY = JSON.stringify(process.env.UNSPLASH_ACCESS_KEY);
 
 const config = {};
 
@@ -162,6 +163,7 @@ module.exports = {
         USE_LOCAL_CERTIFICATE: USE_LOCAL_CERTIFICATE,
         RESPOND_MOCK_RESULT_DELAY: process.env.RESPOND_MOCK_RESULT_DELAY || 1000,
         USE_PHOTO_STUB: USE_PHOTO_STUB,
+        UNSPLASH_ACCESS_KEY: UNSPLASH_ACCESS_KEY
       })
     ]
   },

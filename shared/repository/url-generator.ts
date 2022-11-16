@@ -8,7 +8,8 @@ export enum ApiRoutes {
   users = 'users/',
   poll = 'poll/',
   polls = 'polls/',
-  reactions = 'reactions/'
+  reactions = 'reactions/',
+  unsplash = 'https://api.unsplash.com/'
 }
 
 export class UrlGenerator implements ProjectUrlGenerator {
@@ -90,6 +91,10 @@ export class UrlGenerator implements ProjectUrlGenerator {
 
   getPollMembers(id: string): string {
     return `${ApiRoutes.poll}/${id}/members`;
+  }
+
+  getUnsplashPhotos(): string {
+    return `${ApiRoutes.unsplash}photos/`;
   }
 
   getReactions(): string {

@@ -25,7 +25,6 @@ export interface PollQuestionSettings {
 }
 
 export interface PollQuestionDate {
-  year: number;
   month: number;
   day: number
 }

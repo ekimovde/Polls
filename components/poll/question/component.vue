@@ -17,7 +17,7 @@
         />
 
         <ui-input
-          v-model="question.name"
+          v-model="tempQuestion.name"
           :view="uiInputView.extra"
           :size="uiInputSize.byContent"
           :placeholder="textAttributes.placeholder"
@@ -51,7 +51,7 @@
     >
       <draggable
         v-if="hasAnswers"
-        v-model="question.answers"
+        v-model="tempQuestion.answers"
         tag="ul"
         handle=".move"
         ghost-class="ghost"
@@ -60,7 +60,7 @@
       >
         <TransitionGroup name="answers">
           <li
-            v-for="(item, index) in question.answers"
+            v-for="(item, index) in tempQuestion.answers"
             :key="item.timestamp"
             :class="b('answer')"
           >
@@ -106,7 +106,7 @@
       v-if="!isQuestionHidden"
       :view="pollQuestionFooterView.default"
       :is-question-hidden.sync="isQuestionHidden"
-      :is-multiple-answers.sync="question.settings.isMultipleAnswers"
+      :is-multiple-answers.sync="tempQuestion.settings.isMultipleAnswers"
       @ownImage="''"
       @remove="clearQuestion"
     />

@@ -4,7 +4,7 @@
 <template>
   <el-switch
     v-bind="$attrs"
-    :class="b({ size })"
+    :class="b({ size, view })"
     :data-test="tid()"
     v-on="$listeners"
   >

@@ -67,6 +67,10 @@
 
       &-by-content {
         @include fontInter18Regular;
+
+        @media screen and (max-width: 450px) {
+          @include fontInter15Regular;
+        }
       }
 
       &-small {

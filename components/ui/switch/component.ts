@@ -8,6 +8,11 @@ export enum UiSwitchSize {
   xs = 'xs'
 }
 
+export enum UiSwitchView {
+  default = 'default',
+  regular = 'regular'
+}
+
 @Component({
   name: COMPONENT_NAME,
   components: {
@@ -20,6 +25,12 @@ export default class extends mixins(TestId) {
     validator: val => Object.values(UiSwitchSize).includes(val),
     default: UiSwitchSize.default
   }) readonly size: UiSwitchSize;
+
+  @Prop({
+    type: String,
+    validator: val => Object.values(UiSwitchView).includes(val),
+    default: UiSwitchView.default
+  }) readonly view: UiSwitchView;
 
   readonly testLocators = UiSwitchTestLocator;
 }

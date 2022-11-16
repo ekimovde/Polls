@@ -1,6 +1,7 @@
 import { withDesign } from 'storybook-addon-designs';
 import { Component } from 'vue';
 import { PollQuestion } from './index';
+import { fakePollQuestion } from '~/shared/repository/fixtures/fake-poll-question';
 
 export default {
   title: 'Components / Poll / Question',
@@ -20,9 +21,14 @@ function create(): Component {
     components: {
       PollQuestion
     },
+    data() {
+      return {
+        question: fakePollQuestion()
+      };
+    },
     template: `
       <div style="padding: 20px;">
-        <poll-question />
+        <poll-question :question="question" />
       </div>
     `
   };

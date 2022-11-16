@@ -22,6 +22,10 @@
       align-items: center;
       justify-content: space-between;
       padding: 20px 16px;
+
+      @media screen and (max-width: 450px) {
+        padding: 20px 10px;
+      }
     }
   }
 
@@ -142,6 +146,12 @@
     padding: 0;
     color: $black;
     line-height: 20px;
+
+    @media screen and (max-width: 450px) {
+      @include fontInter18Medium;
+
+      line-height: 18px;
+    }
   }
 
   .ghost {
