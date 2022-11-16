@@ -16,7 +16,8 @@ import {
   SetUserPasswordRequest,
   SetPollRequest,
   SendPollInviteRequest,
-  UnsplashPhotoResponse
+  UnsplashPhotoResponse,
+  UnsplashPhotoRequest
 } from './repo';
 import { translationResponse } from './fixtures/translation';
 import { translationsResponse } from './fixtures/translations';
@@ -29,6 +30,7 @@ import { fakeSelfInfo } from './fixtures/fake-self-info';
 import { fakeTokens } from './fixtures/fake-tokens';
 import { PollQuestionAnswer } from '~/components/poll/model';
 import { fakePollAnswers } from './fixtures/fake-poll-answers';
+import { fakeUnsplashPhotos } from './fixtures/fake-unsplash-photos';
 
 export class FakeRepo implements ProjectRepository {
   static create(): ProjectRepository {
@@ -87,6 +89,10 @@ export class FakeRepo implements ProjectRepository {
     return respondMockResult(fakePoll());
   }
 
+  async getPollMembers(id: string): Promise<PollMembersResponse[]> {
+    return respondMockResult(fakePollMembers());
+  }
+
   async sendPollInvite(params: SendPollInviteRequest): Promise<void> {
     void respondMockResult(null);
   }
@@ -111,15 +117,15 @@ export class FakeRepo implements ProjectRepository {
     return respondMockResult(fakePolls());
   }
 
-  async getUnsplashPhotos(): Promise<UnsplashPhotoResponse[]> {
-    return respondMockResult([]);
+  async getUnsplashPhotos(params: UnsplashPhotoRequest): Promise<UnsplashPhotoResponse[]> {
+    return respondMockResult(fakeUnsplashPhotos());
+  }
+
+  async searchUnsplashPhotos(params: UnsplashPhotoRequest): Promise<UnsplashPhotoResponse[]> {
+    return respondMockResult(fakeUnsplashPhotos());
   }
 
   async getReactions(): Promise<ReactionResponse[]> {
     return respondMockResult(fakeReactions());
-  }
-
-  async getPollMembers(id: string): Promise<PollMembersResponse[]> {
-    return respondMockResult(fakePollMembers());
   }
 };

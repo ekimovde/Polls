@@ -6,7 +6,8 @@ export enum PollBlockTextAttribute {
   yesterday = 'вчера',
   ago = 'назад',
   now = 'сейчас',
-  invalidDate = 'Невалидная дата'
+  invalidDate = 'Невалидная дата',
+  join = 'Вступить'
 }
 
 export enum PollBlockTestLocator {

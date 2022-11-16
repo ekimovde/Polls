@@ -9,7 +9,7 @@
       </h1>
 
       <div :class="b('wrapper')">
-        <upload-picture />
+        <upload-picture :avatar.sync="form.avatar" />
 
         <div :class="b('split-fields')">
           <div :class="b('input-wrapper')">

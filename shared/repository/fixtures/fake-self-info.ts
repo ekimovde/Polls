@@ -3,6 +3,7 @@ import { SelfInfoResponse } from '../repo';
 export const fakeSelfInfo = (params: Partial<SelfInfoResponse> = {}): SelfInfoResponse => {
   return {
     id: 1,
+    avatar: '',
     firstName: 'Denis',
     lastName: 'Ekimov',
     fullName: 'Denis Ekimov',

@@ -3,6 +3,8 @@
 @import "assets/scss/helper";
 
 .ui-tooltip {
+  height: 100%;
+
   @include b(tooltip) {
     @include e(popper) {
       @include fontInter12Regular;

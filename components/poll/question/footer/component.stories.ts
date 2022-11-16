@@ -2,6 +2,7 @@ import { withDesign } from 'storybook-addon-designs';
 import { Component } from 'vue';
 import { PollQuestionFooter } from './index';
 import { PollQuestionFooterView } from './component';
+import { PollQuestionTypes } from '../../model';
 
 export default {
   title: 'Components / Poll / Question / Footer',
@@ -24,12 +25,22 @@ function create(view = PollQuestionFooterView.default): Component {
     },
     data() {
       return {
-        view
+        view,
+        questionType: PollQuestionTypes.text,
+        isQuestionHidden: false,
+        isMultipleAnswers: false,
+        ownImage: null
       };
     },
     template: `
       <div style="padding: 20px;">
-        <poll-question-footer :view="view" />
+        <poll-question-footer
+          :view="view"
+          :question-type="questionType"
+          :is-question-hidden="isQuestionHidden"
+          :is-multiple-answers="isMultipleAnswers"
+          :own-image="ownImage"
+        />
       </div>
     `
   };

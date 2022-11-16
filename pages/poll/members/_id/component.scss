@@ -140,15 +140,6 @@
     }
   }
 
-  &__role {
-    @include fontInter13SemiBold;
-
-    margin: 0;
-    padding: 0;
-    color: #abb9c1;
-    line-height: 16px;
-  }
-
   &__button-text {
     @include fontInter14SemiBold;
 

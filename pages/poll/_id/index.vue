@@ -71,11 +71,16 @@
           <div :class="b('bottom')">
             <tab-links />
 
-            <avatar-block
-              src=""
-              :size="avatarBlockSize.xs"
-              :class="b('avatar')"
-            />
+            <ui-tooltip
+              :placement="uiTooltipPlacement.top"
+              :content="fullNameByAuthor"
+            >
+              <avatar-block
+                :src="avatarByAuthor"
+                :size="avatarBlockSize.xs"
+                :class="b('avatar')"
+              />
+            </ui-tooltip>
           </div>
         </div>
       </div>

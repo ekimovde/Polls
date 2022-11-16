@@ -3,9 +3,8 @@ import { PollMembersResponse } from '../repo';
 export const fakePollMember = (params: Partial<PollMembersResponse> = {}): PollMembersResponse => {
   return {
     id: 1,
+    fullName: 'Denis Ekimov',
     avatar: '',
-    name: 'Denis Ekimov',
-    role: 'JavaScript',
     ...params
   };
 };
@@ -15,8 +14,7 @@ export const fakePollMembers = (): PollMembersResponse[] => {
     fakePollMember(),
     fakePollMember({
       id: 2,
-      name: 'Vadim Ekimov',
-      role: 'Vue'
+      fullName: 'Vadim Ekimov'
     })
   ];
 };

@@ -61,6 +61,10 @@ export class UrlGenerator implements ProjectUrlGenerator {
     return `${ApiRoutes.polls}my/`;
   }
 
+  getPollMembers(id: string): string {
+    return `${ApiRoutes.polls}members/${id}`;
+  }
+
   getPoll(id: string): string {
     return `${ApiRoutes.polls}${id}`;
   }
@@ -89,12 +93,12 @@ export class UrlGenerator implements ProjectUrlGenerator {
     return `${ApiRoutes.user}/popular-polls`;
   }
 
-  getPollMembers(id: string): string {
-    return `${ApiRoutes.poll}/${id}/members`;
-  }
-
   getUnsplashPhotos(): string {
     return `${ApiRoutes.unsplash}photos/`;
+  }
+
+  searchUnsplashPhotos(): string {
+    return `${ApiRoutes.unsplash}search/photos/`;
   }
 
   getReactions(): string {

@@ -15,7 +15,7 @@
           @click="toggleVisible"
         >
           <avatar-block
-            src=""
+            :src="avatar"
             :size="avatarBlockSize.default"
           />
 

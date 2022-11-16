@@ -6,6 +6,7 @@ import { uiInput, uiTooltip } from '~/components/ui';
 import { UiInputView, UiInputSize } from '~/components/ui/input/component';
 import { PollQuestionAnswer, PollQuestionTypes } from '../model';
 import { UiTooltipPlacement } from '~/components/ui/tooltip/component';
+import { SharedModalUploader } from '~/components/shared';
 
 enum PollAnswerIcon {
   default = 'bx bxs-image',
@@ -26,21 +27,23 @@ enum PollAnswerViewEvent {
 enum PollAnswerViewTooltipContent {
   image = '360x480 px',
   imageText = '1012x818 px',
-  emoji = 'Добавить эмоджи'
+  emoji = 'Добавить эмоджи',
+  removeImage = 'Удалить изображение'
 }
 
 @Component({
   name: COMPONENT_NAME,
   components: {
     uiInput,
-    uiTooltip
+    uiTooltip,
+    SharedModalUploader
   }
 })
 export default class extends mixins(TestId, Translatable) {
   @Prop({
     type: Object,
     default: () => ({})
-  }) readonly answer: PollQuestionAnswer
+  }) readonly answer: PollQuestionAnswer;
 
   readonly textAttributes = PollAnswerTextAttribute;
   readonly testLocators = PollAnswerTestLocator;
@@ -50,12 +53,18 @@ export default class extends mixins(TestId, Translatable) {
 
   readonly uiTooltipPlacement = UiTooltipPlacement;
 
+  isVisible = false;
+
   get isTextType(): boolean {
     return this.answer.type === PollQuestionTypes.text;
   }
 
   get isEmojiType(): boolean {
     return this.answer.type === PollQuestionTypes.emoji;
+  }
+
+  get isRemoveIconShown(): boolean {
+    return this.hasImage || this.hasEmoji;
   }
 
   get hasImage(): boolean {
@@ -67,7 +76,7 @@ export default class extends mixins(TestId, Translatable) {
   }
 
   get view(): PollAnswerView {
-    return this.hasImage || this.hasEmoji
+    return this.isRemoveIconShown
       ? PollAnswerView.default
       : PollAnswerView.regular;
   }
@@ -77,13 +86,17 @@ export default class extends mixins(TestId, Translatable) {
   }
 
   get classForActionIcon(): PollAnswerIcon {
-    return this.hasImage || this.hasEmoji
+    return this.isRemoveIconShown
       ? PollAnswerIcon.remove
       : PollAnswerIcon.plus;
   }
 
   get contentForTooltip(): PollAnswerViewTooltipContent {
     let content = PollAnswerViewTooltipContent.image;
+
+    if (this.hasImage) {
+      return PollAnswerViewTooltipContent.removeImage;
+    }
 
     switch (this.answer.type) {
       case PollQuestionTypes.imageText:
@@ -97,7 +110,46 @@ export default class extends mixins(TestId, Translatable) {
     return content;
   }
 
+  action(): void {
+    switch (this.answer.type) {
+      case PollQuestionTypes.image:
+        void this.openModal();
+        break;
+      case PollQuestionTypes.imageText:
+        void this.openModal();
+        break;
+    }
+  }
+
+  openModal(): void {
+    this.isVisible = true;
+  }
+
+  updateAnswer(params: Partial<PollQuestionAnswer> = {}): void {
+    void this.$emit(PollAnswerViewEvent.update, { ...this.answer, ...params });
+  }
+
   updateText(text: string): void {
-    this.$emit(PollAnswerViewEvent.update, { ...this.answer, text });
+    void this.updateAnswer({ text });
+  }
+
+  updateImage(image: string): void {
+    const otherQuestionTypes = [PollQuestionTypes.text, PollQuestionTypes.emoji];
+    const isOtherQuestionType = otherQuestionTypes.includes(this.answer.type);
+
+    if (isOtherQuestionType) {
+      return;
+    }
+
+    void this.updateAnswer({ image });
+  }
+
+  changeImage(): void {
+    if (this.isRemoveIconShown) {
+      void this.updateAnswer({ image: null });
+      return;
+    }
+
+    void this.openModal();
   }
 }

@@ -105,6 +105,7 @@
     "@vuelidate/validators": "^2.0.0",
     "postcss-inline-svg": "4.1.0",
     "vue-inline-svg": "2.1.0",
+    "vue-masonry-css": "^1.0.3",
     "vuedraggable": "2.24.3",
     "vuelidate": "0.7.7"
   }

@@ -22,6 +22,7 @@ export interface PollQuestionAnswer {
 
 export interface PollQuestionSettings {
   isMultipleAnswers: boolean;
+  ownImage: string;
 }
 
 export interface PollQuestionDate {
@@ -32,4 +33,10 @@ export interface PollQuestionDate {
 export interface PollQuestionTime {
   hour: number;
   minute: number;
+}
+
+export interface PollAuthor {
+  id: number
+  fullName: string
+  avatar: string
 }

@@ -58,7 +58,7 @@
         :disabled="false"
         :class="b('answers')"
       >
-        <TransitionGroup name="answers">
+        <transition-group name="answers">
           <li
             v-for="(item, index) in tempQuestion.answers"
             :key="item.timestamp"
@@ -87,7 +87,7 @@
               <i class="bx bx-trash" />
             </ui-button>
           </li>
-        </TransitionGroup>
+        </transition-group>
       </draggable>
 
       <poll-question-menu
@@ -105,9 +105,10 @@
     <poll-question-footer
       v-if="!isQuestionHidden"
       :view="pollQuestionFooterView.default"
+      :question-type="question.type"
       :is-question-hidden.sync="isQuestionHidden"
       :is-multiple-answers.sync="tempQuestion.settings.isMultipleAnswers"
-      @ownImage="''"
+      :own-image.sync="tempQuestion.settings.ownImage"
       @remove="clearQuestion"
     />
 

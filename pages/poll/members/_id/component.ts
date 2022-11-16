@@ -22,6 +22,7 @@ export default class extends mixins(TestId, Translatable) {
 
   readonly projectRepository = this.$projectServices.projectRepository;
   readonly notifier = this.$projectServices.notification;
+  readonly userRepo = this.$projectServices.userRepo;
 
   readonly uiButtonView = UiButtonView;
   readonly uiButtonSize = UiButtonSize;
@@ -35,6 +36,10 @@ export default class extends mixins(TestId, Translatable) {
 
   get id(): string {
     return this.$route.params.id;
+  }
+
+  get userId(): number {
+    return this.userRepo.user?.id;
   }
 
   get pollIdRoute(): Partial<Route> {
@@ -55,5 +60,9 @@ export default class extends mixins(TestId, Translatable) {
 
   async getPollMembers(): Promise<void> {
     this.pollMembers = await this.projectRepository.getPollMembers(this.id);
+  }
+
+  isMe(id: number): boolean {
+    return id === this.userId;
   }
 }

@@ -1,6 +1,33 @@
 import { PollResponse } from '../repo';
 import { PollCategory } from '../constants';
 import { SharedColorTheme } from '~/components/shared/color/component';
+import { PollQuestionDate, PollQuestionTime, PollAuthor } from '~/components/poll/model';
+import { fakePollQuestion } from './fake-poll-question';
+
+export const fakePollDate = (params: Partial<PollQuestionDate> = {}): PollQuestionDate => {
+  return {
+    month: 1,
+    day: 12,
+    ...params
+  };
+};
+
+export const fakePollTime = (params: Partial<PollQuestionTime> = {}): PollQuestionTime => {
+  return {
+    hour: 1,
+    minute: 30,
+    ...params
+  };
+};
+
+export const fakePollAuthor = (params: Partial<PollAuthor> = {}): PollAuthor => {
+  return {
+    id: 1,
+    fullName: 'Ekimov Denis',
+    avatar: '',
+    ...params
+  };
+};
 
 export const fakePoll = (params: Partial<PollResponse> = {}): PollResponse => {
   return {
@@ -8,6 +35,10 @@ export const fakePoll = (params: Partial<PollResponse> = {}): PollResponse => {
     name: 'Test',
     color: SharedColorTheme.green,
     category: PollCategory.animals,
+    question: fakePollQuestion(),
+    date: fakePollDate(),
+    time: fakePollTime(),
+    author: fakePollAuthor(),
     isPublic: true,
     userId: 2,
     created: '2022.10.21 01:35',

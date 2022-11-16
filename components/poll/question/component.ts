@@ -139,7 +139,9 @@ export default class extends mixins(TestId, Translatable) {
     }
 
     const imageTypes = [PollQuestionTypes.image, PollQuestionTypes.imageText];
+    const { ownImage } = this.tempQuestion.settings;
 
+    const isTextType = type === PollQuestionTypes.text;
     const isImageType = imageTypes.includes(type);
     const isEmojiType = type === PollQuestionTypes.emoji;
 
@@ -155,6 +157,7 @@ export default class extends mixins(TestId, Translatable) {
 
     this.updateQuestionType(type);
     this.tempQuestion.answers = [...answers];
+    this.tempQuestion.settings.ownImage = isTextType ? null : ownImage;
   }
 
   updateAnswer(index: number, answer: PollQuestionAnswer): void {
@@ -175,7 +178,8 @@ export default class extends mixins(TestId, Translatable) {
       type: PollQuestionTypes.text,
       answers: [],
       settings: {
-        isMultipleAnswers: false
+        isMultipleAnswers: false,
+        ownImage: null
       }
     };
   }

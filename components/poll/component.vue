@@ -32,6 +32,15 @@
           >
             <i class="bx bx-chevron-right" />
           </ui-button>
+
+          <ui-button
+            :view="uiButtonView.action"
+            :size="uiButtonSize.xs"
+            :theme="uiButtonTheme.purple"
+            @click="join"
+          >
+            {{ textAttributes.join }}
+          </ui-button>
         </div>
       </div>
 

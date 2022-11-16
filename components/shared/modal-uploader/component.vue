@@ -3,8 +3,9 @@
 
 <template>
   <ui-modal
-    :is-visible.sync="isVisible"
+    :is-visible="isVisible"
     :view="uiModalView.regular"
+    @close="close"
   >
     <div
       :class="b()"
@@ -22,35 +23,40 @@
           {{ textAttributes.labelSearch }}
         </label>
 
-        <uiInput
-          v-model="search"
+        <ui-input
+          :value="search"
           :view="uiInputView.default"
           :size="uiInputSize.xs"
           :is-expanded="true"
           :placeholder="textAttributes.placeholder"
+          @input="input"
         />
       </div>
 
-      <ul :class="b('list')">
-        <li
+      <masonry
+        v-infinite-scroll="getPhotos"
+        :gutter="10"
+        :class="b('masonry')"
+        :infinite-scroll-disabled="isLoading"
+      >
+        <ui-button
           v-for="(item, index) in photos"
           :key="index"
+          :view="uiButtonView.simple"
+          :size="uiButtonSize.byContent"
+          :theme="uiButtonTheme.default"
+          :class="b('button')"
+          @click="choose(item.urls.full)"
         >
-          <ui-button
-            :view="uiButtonView.simple"
-            :size="uiButtonSize.byContent"
-            :theme="uiButtonTheme.default"
-          >
-            <figure :class="b('figure')">
-              <img
-                :src="item"
-                :class="b('image')"
-                alt=""
-              >
-            </figure>
-          </ui-button>
-        </li>
-      </ul>
+          <figure :class="b('figure')">
+            <img
+              :src="item.urls.full"
+              :class="b('image')"
+              alt=""
+            >
+          </figure>
+        </ui-button>
+      </masonry>
     </div>
   </ui-modal>
 </template>

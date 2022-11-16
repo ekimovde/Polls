@@ -1,10 +1,11 @@
 import axios, { AxiosInstance } from 'axios';
 import { StoreGetters } from '~/store/model';
 import { createFormDataFromObject } from '../utils/create-form-data-from-object';
-import { ProjectRepository, SigninRequest, AccessTokens, ApiWrapper, RefreshTokenRequest, TranslationRequest, UserProgressResponse, PollResponse, ReactionResponse, PollMembersResponse, SelfInfoResponse, SignupRequest, SetUserInfoRequest, SetUserPasswordRequest, SetPollRequest, SendPollInviteRequest, UnsplashPhotoResponse } from './repo';
+import { ProjectRepository, SigninRequest, AccessTokens, ApiWrapper, RefreshTokenRequest, TranslationRequest, UserProgressResponse, PollResponse, ReactionResponse, PollMembersResponse, SelfInfoResponse, SignupRequest, SetUserInfoRequest, SetUserPasswordRequest, SetPollRequest, SendPollInviteRequest, UnsplashPhotoResponse, UnsplashPhotoRequest } from './repo';
 import { UrlGenerator } from './url-generator';
 import { Translation } from '../services/translator';
 import { PollQuestionAnswer } from '~/components/poll/model';
+import { getQueryForUnsplashResponse } from '../utils/get-query-for-unsplash-response';
 
 export class HttpRepo implements ProjectRepository {
   constructor(
@@ -95,6 +96,12 @@ export class HttpRepo implements ProjectRepository {
     return data.response;
   }
 
+  async getPollMembers(id: string): Promise<PollMembersResponse[]> {
+    const { data } = await this.axios.get<ApiWrapper<PollMembersResponse[]>>(this.urlGenerator.getPollMembers(id));
+
+    return data.response;
+  }
+
   async sendPollInvite(params: SendPollInviteRequest): Promise<void> {
     await this.axios.post<ApiWrapper<void>>(this.urlGenerator.sendPollInvite(), params);
   }
@@ -132,15 +139,16 @@ export class HttpRepo implements ProjectRepository {
     return data.response;
   }
 
-  async getPollMembers(id: string): Promise<PollMembersResponse[]> {
-    const { data } = await this.axios.get<ApiWrapper<PollMembersResponse[]>>(this.urlGenerator.getPollMembers(id));
-
-    return data.response;
-  }
-
-  async getUnsplashPhotos(): Promise<UnsplashPhotoResponse[]> {
-    const { data } = await axios.get(`${this.urlGenerator.getUnsplashPhotos()}?client_id=${UNSPLASH_ACCESS_KEY}`);
+  async getUnsplashPhotos(params: UnsplashPhotoRequest): Promise<UnsplashPhotoResponse[]> {
+    const { data } = await axios.get(`${this.urlGenerator.getUnsplashPhotos()}?${getQueryForUnsplashResponse(params)}`);
 
     return <UnsplashPhotoResponse[]>data;
+  }
+
+  async searchUnsplashPhotos(params: UnsplashPhotoRequest): Promise<UnsplashPhotoResponse[]> {
+    const { data } = await axios
+      .get(`${this.urlGenerator.searchUnsplashPhotos()}?${getQueryForUnsplashResponse(params)}`);
+
+    return <UnsplashPhotoResponse[]>data.results;
   }
 }

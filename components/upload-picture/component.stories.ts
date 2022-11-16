@@ -20,9 +20,14 @@ function create(): Component {
     components: {
       UploadPicture
     },
+    data() {
+      return {
+        avatar: ''
+      };
+    },
     template: `
       <div style="padding: 20px;">
-        <upload-picture />
+        <upload-picture :avatar="avatar" />
       </div>
     `
   };

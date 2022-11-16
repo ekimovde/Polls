@@ -33,6 +33,7 @@ export default class extends mixins(TestId, Translatable) {
   readonly uiInputSize = UiInputSize;
 
   form: AccountProfileInfo = {
+    avatar: '',
     firstName: '',
     lastName: '',
     nickName: ''
@@ -53,9 +54,8 @@ export default class extends mixins(TestId, Translatable) {
       return null;
     }
 
-    const { firstName, lastName, nickName } = this.userRepo.user;
-
-    return { firstName, lastName, nickName };
+    const { avatar, firstName, lastName, nickName } = this.userRepo.user;
+    return { avatar, firstName, lastName, nickName };
   }
 
   created(): void {
@@ -67,9 +67,8 @@ export default class extends mixins(TestId, Translatable) {
       return null;
     }
 
-    const { firstName, lastName, nickName } = this.userRepo.user;
-
-    this.form = { firstName, lastName, nickName };
+    const { avatar, firstName, lastName, nickName } = this.userRepo.user;
+    this.form = { avatar, firstName, lastName, nickName };
   }
 
   async setUserInfo(): Promise<void> {
@@ -87,4 +86,4 @@ export default class extends mixins(TestId, Translatable) {
   }
 }
 
-type AccountProfileInfo = Pick<SelfInfoResponse, 'firstName' | 'lastName' | 'nickName'>
+type AccountProfileInfo = Pick<SelfInfoResponse, 'avatar' | 'firstName' | 'lastName' | 'nickName'>

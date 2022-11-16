@@ -107,4 +107,8 @@ export default class extends mixins(TestId, Translatable) {
   open(): void {
     void this.$router.push(getPollIdRoute(String(this.poll.id)));
   }
+
+  join(): void {
+    //
+  }
 }

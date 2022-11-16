@@ -9,6 +9,7 @@ export enum PollQuestionFooterTextAttribute {
   show = 'Показать',
   remove = 'Удалить',
   answersSettings = 'Настройки ответов',
+  ownImageSettings = 'Загрузить изображение',
   haveMultiple = 'Можно несколько'
 }
 

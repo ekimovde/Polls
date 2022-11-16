@@ -55,6 +55,8 @@ module.exports = {
     '~plugins/vuelidate',
     '~plugins/inline-svg',
     '~plugins/vuedraggable',
+    '~plugins/infinite-scroll',
+    '~plugins/vue-masonry-css',
     { src: '~plugins/persisted-state', mode: 'client' }
   ],
   messages: {

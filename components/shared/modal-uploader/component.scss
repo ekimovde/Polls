@@ -34,15 +34,19 @@
     text-transform: uppercase;
   }
 
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+  &__masonry {
+    width: 100%;
     height: calc(90vh - 200px);
-    margin: 0;
-    padding: 0;
+    margin-left: -5px !important;
     overflow: auto;
-    list-style: none;
+  }
+
+  &__button {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__figure {

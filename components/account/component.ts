@@ -34,6 +34,10 @@ export default class extends mixins(TestId, Translatable) {
 
   isVisible = false;
 
+  get avatar(): string {
+    return this.userRepo.user?.avatar;
+  }
+
   toggleVisible(): void {
     this.isVisible = !this.isVisible;
   }

@@ -1,0 +1,73 @@
+@import "assets/scss/helper.scss";
+
+.poll-question-image-uploader {
+  &__banner {
+    @include fontInter18Regular;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 48px;
+    line-height: 16px;
+    text-align: center;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    background-size: 100%;
+    border: 1px dashed #a7a9b4;
+    border-radius: 4px;
+    transition: all 0.05s ease-in;
+
+    i {
+      color: #69748c;
+      cursor: pointer;
+    }
+
+    &:hover {
+      i {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__label {
+    @include fontInter10Medium;
+
+    position: absolute;
+    right: 5px;
+    bottom: -1px;
+    color: #d34085;
+    cursor: pointer;
+  }
+
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    width: 150px;
+    height: 100%;
+    height: 48px;
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    z-index: 1;
+  }
+}

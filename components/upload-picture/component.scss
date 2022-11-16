@@ -1,12 +1,9 @@
 @import "assets/scss/helper.scss";
 
 .upload-picture {
-  display: flex;
-  align-items: center;
-  column-gap: 20px;
-
   &__avatar-wrapper {
     position: relative;
+    margin-right: 20px;
   }
 
   &__image {
@@ -49,6 +46,7 @@
     font-size: 16px;
     line-height: 24px;
     letter-spacing: -0.264px;
+    text-align: start;
   }
 
   &__description {

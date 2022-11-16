@@ -1,9 +1,9 @@
 import { withDesign } from 'storybook-addon-designs';
 import { Component } from 'vue';
-import { SharedModalUploader } from '~/components/shared';
+import { PollQuestionImageUploader } from './index';
 
 export default {
-  title: 'Components / Shared / ModalUploader',
+  title: 'Components / Poll / Question / ImageUploader',
   decorators: [withDesign],
   parameters: {
     design: {
@@ -18,11 +18,11 @@ export const Default = (): Component => create();
 function create(): Component {
   return {
     components: {
-      SharedModalUploader
+      PollQuestionImageUploader
     },
     data() {
       return {
-        isVisible: true
+        ownImage: ''
       };
     },
     template: `
@@ -32,18 +32,8 @@ function create(): Component {
         align-items: center;
         padding: 20px;
       ">
-        <button @click="isVisible = !isVisible">
-          Click
-        </button>
-
-        <shared-modal-uploader :is-visible.sync="isVisible" />
+        <poll-question-image-uploader :own-image.sync="ownImage" />
       </div>
     `
   };
-};
-
-Default.parameters = {
-  viewport: {
-    defaultViewport: 'ipad'
-  }
-};
+}

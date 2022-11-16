@@ -7,12 +7,22 @@
   width: 100%;
   column-gap: 4px;
 
-  &__button {
+  &__wrapper {
     position: relative;
     display: flex;
+    align-items: center;
     width: 60px;
     min-width: 60px;
     height: 30px;
+    background-color: rgba(102, 192, 218, 0.2);
+    border-radius: 4px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     padding: 0;
     background: none;
     border: none;
@@ -26,7 +36,7 @@
       }
 
       &-regular {
-        background-color: rgba(102, 192, 218, 0.2);
+        background-color: transparent;
       }
     }
   }
@@ -62,6 +72,13 @@
     }
   }
 
+  &__image {
+    width: 30px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
   &__action {
     display: flex;
     align-items: center;
@@ -74,6 +91,12 @@
       @include fontInter18Regular;
 
       color: #66c0da;
+    }
+
+    &--grey {
+      i {
+        color: #b1b5be;
+      }
     }
   }
 }

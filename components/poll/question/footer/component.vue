@@ -19,14 +19,15 @@
             :view="uiButtonView.default"
             :size="uiButtonSize.xs"
             :theme="uiButtonTheme.purple"
-            :is-active="isSettingsVisible"
-            @click="toggleSettingsVisible"
+            :is-active="isSettingsActionType"
+            @click="setActionType(pollQuestionFooterActionType.settings)"
           >
             <i class="bx bx-cog" />
           </ui-button>
         </ui-tooltip>
 
         <ui-tooltip
+          v-if="isUploadingImageButtonShown"
           :placement="uiTooltipPlacement.top"
           :content="textAttributes.ownImage"
         >
@@ -34,7 +35,8 @@
             :view="uiButtonView.default"
             :size="uiButtonSize.xs"
             :theme="uiButtonTheme.purple"
-            @click="sendEvent(pollQuestionFooterEvent.ownImage)"
+            :is-active="isUploadingImageActionType"
+            @click="setActionType(pollQuestionFooterActionType.ownImage)"
           >
             <i class="bx bxs-image" />
           </ui-button>
@@ -74,7 +76,7 @@
     </div>
 
     <div
-      v-if="isSettingsVisible"
+      v-if="isSettingsActionType"
       :class="b('settings')"
     >
       <p :class="b('title')">
@@ -87,6 +89,20 @@
         :value="isMultipleAnswers"
         :active-text="textAttributes.haveMultiple"
         @change="sendEvent(pollQuestionFooterEvent.setMultipleAnswers)"
+      />
+    </div>
+
+    <div
+      v-if="isUploadingImageActionType"
+      :class="b('settings')"
+    >
+      <p :class="b('title')">
+        {{ textAttributes.ownImageSettings }}
+      </p>
+
+      <poll-question-image-uploader
+        :own-image="ownImage"
+        @choose="chooseOwnImage"
       />
     </div>
   </div>

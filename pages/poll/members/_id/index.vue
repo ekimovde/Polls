@@ -39,15 +39,11 @@
 
               <div :class="b('inner-block')">
                 <p :class="b('name')">
-                  {{ item.name }}
+                  {{ item.fullName }}
 
-                  <span>
+                  <span v-if="isMe(item.id)">
                     {{ textAttributes.you }}
                   </span>
-                </p>
-
-                <p :class="b('role')">
-                  {{ item.role }}
                 </p>
               </div>
             </div>

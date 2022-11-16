@@ -5,7 +5,8 @@ import { uiButton } from '~/components/ui';
 import { UiButtonView, UiButtonSize, UiButtonTheme } from '../button/component';
 
 enum UiModalEvent {
-  close = 'update:is-visible'
+  update = 'update:is-visible',
+  close = 'close'
 }
 
 export enum UiModalView {
@@ -38,6 +39,7 @@ export default class extends mixins(TestId) {
   readonly uiButtonTheme = UiButtonTheme;
 
   close(): void {
-    this.$emit(UiModalEvent.close, false);
+    this.$emit(UiModalEvent.update, false);
+    this.$emit(UiModalEvent.close);
   }
 }

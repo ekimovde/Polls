@@ -6,23 +6,43 @@
     :class="b()"
     :data-test="tid()"
   >
-    <button
+    <div
       v-if="!isTextType"
-      :class="b('button', { view })"
+      :class="b('wrapper')"
     >
-      <span :class="b('preview', { view })">
-        <i :class="classForIcon" />
-      </span>
-
-      <ui-tooltip
-        :placement="uiTooltipPlacement.rightStart"
-        :content="contentForTooltip"
+      <button
+        :class="b('button', { view })"
+        @click="action"
       >
-        <span :class="b('action')">
-          <i :class="classForActionIcon" />
+        <span
+          v-if="!isRemoveIconShown"
+          :class="b('preview', { view })"
+        >
+          <i :class="classForIcon" />
         </span>
-      </ui-tooltip>
-    </button>
+
+        <img
+          v-if="hasImage"
+          :class="b('image')"
+          :src="answer.image"
+          alt=""
+        >
+      </button>
+
+      <button
+        :class="b('button', { view })"
+        @click="changeImage"
+      >
+        <ui-tooltip
+          :placement="uiTooltipPlacement.rightStart"
+          :content="contentForTooltip"
+        >
+          <span :class="b('action', { grey: isRemoveIconShown })">
+            <i :class="classForActionIcon" />
+          </span>
+        </ui-tooltip>
+      </button>
+    </div>
 
     <ui-input
       :value="answer.text"
@@ -31,6 +51,11 @@
       :placeholder="textAttributes.addAnswer"
       :is-expanded="true"
       @input="updateText"
+    />
+
+    <shared-modal-uploader
+      :is-visible.sync="isVisible"
+      @choose="updateImage"
     />
   </div>
 </template>
