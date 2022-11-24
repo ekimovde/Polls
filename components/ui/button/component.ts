@@ -24,6 +24,7 @@ export enum UiButtonTheme {
 export enum UiButtonSize {
   xl = 'xl',
   xs = 'xs',
+  small = 'small',
   byContent = 'by-content'
 }
 

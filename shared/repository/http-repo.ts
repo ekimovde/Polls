@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 import { StoreGetters } from '~/store/model';
 import { createFormDataFromObject } from '../utils/create-form-data-from-object';
-import { ProjectRepository, SigninRequest, AccessTokens, ApiWrapper, RefreshTokenRequest, TranslationRequest, UserProgressResponse, PollResponse, ReactionResponse, PollMembersResponse, SelfInfoResponse, SignupRequest, SetUserInfoRequest, SetUserPasswordRequest, SetPollRequest, SendPollInviteRequest, UnsplashPhotoResponse, UnsplashPhotoRequest } from './repo';
+import { ProjectRepository, SigninRequest, AccessTokens, ApiWrapper, RefreshTokenRequest, TranslationRequest, UserProgressResponse, PollResponse, ReactionResponse, PollMembersResponse, SelfInfoResponse, SignupRequest, SetUserInfoRequest, SetUserPasswordRequest, SetPollRequest, SendPollInviteRequest, UnsplashPhotoResponse, UnsplashPhotoRequest, JoinPollRequest } from './repo';
 import { UrlGenerator } from './url-generator';
 import { Translation } from '../services/translator';
 import { PollQuestionAnswer } from '~/components/poll/model';
@@ -78,14 +78,14 @@ export class HttpRepo implements ProjectRepository {
     return data.response;
   }
 
-  async getPolls(): Promise<PollResponse[]> {
-    const { data } = await this.axios.get<ApiWrapper<PollResponse[]>>(this.urlGenerator.getPolls());
+  async getPolls(scope?: string): Promise<PollResponse[]> {
+    const { data } = await this.axios.post<ApiWrapper<PollResponse[]>>(this.urlGenerator.getPolls(), { scope });
 
     return data.response;
   }
 
-  async getMyPolls(): Promise<PollResponse[]> {
-    const { data } = await this.axios.get<ApiWrapper<PollResponse[]>>(this.urlGenerator.getMyPolls());
+  async getMyPolls(scope?: string): Promise<PollResponse[]> {
+    const { data } = await this.axios.post<ApiWrapper<PollResponse[]>>(this.urlGenerator.getMyPolls(), { scope });
 
     return data.response;
   }
@@ -120,8 +120,12 @@ export class HttpRepo implements ProjectRepository {
     return data.response;
   }
 
-  async getUserProgress(): Promise<UserProgressResponse[]> {
-    const { data } = await this.axios.get<ApiWrapper<UserProgressResponse[]>>(this.urlGenerator.getUserProgress());
+  async joinPoll(params: JoinPollRequest): Promise<void> {
+    await this.axios.post<ApiWrapper<void>>(this.urlGenerator.joinPoll(), params);
+  }
+
+  async getUserProgress(): Promise<UserProgressResponse> {
+    const { data } = await this.axios.get<ApiWrapper<UserProgressResponse>>(this.urlGenerator.getUserProgress());
 
     return data.response;
   }

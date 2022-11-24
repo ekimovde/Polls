@@ -54,7 +54,7 @@ export class UrlGenerator implements ProjectUrlGenerator {
   }
 
   getPolls(): string {
-    return ApiRoutes.polls;
+    return `${ApiRoutes.polls}all/`;
   }
 
   getMyPolls(): string {
@@ -71,6 +71,10 @@ export class UrlGenerator implements ProjectUrlGenerator {
 
   sendPollInvite(): string {
     return `${ApiRoutes.polls}invite/`;
+  }
+
+  joinPoll(): string {
+    return `${ApiRoutes.polls}join/`;
   }
 
   removePoll(id: string): string {

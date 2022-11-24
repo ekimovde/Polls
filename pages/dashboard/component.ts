@@ -38,7 +38,7 @@ export default class extends mixins(TestId, Translatable) {
 
   readonly reactionsBlockView = ReactionsBlockView;
 
-  userProgress: UserProgressResponse[] = [];
+  userProgressResponse: UserProgressResponse = null;
   userPopularPolls: PollResponse[] = [];
   reactions: ReactionResponse[] = [];
 
@@ -72,7 +72,7 @@ export default class extends mixins(TestId, Translatable) {
   }
 
   async getUserProgress(): Promise<void> {
-    this.userProgress = await this.projectRepository.getUserProgress();
+    this.userProgressResponse = await this.projectRepository.getUserProgress();
   }
 
   async getUserPopularPolls(): Promise<void> {

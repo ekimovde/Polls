@@ -7,7 +7,7 @@
     :data-test="tid()"
   >
     <li
-      v-for="(item, index) in progress"
+      v-for="(item, index) in displayedUserProgress"
       :key="index"
       :class="b('item')"
     >
@@ -18,12 +18,12 @@
           </div>
 
           <div :class="b('text')">
-            {{ displayedProgress(item.value) }}
+            {{ item.formattedProgress }}
           </div>
         </div>
 
         <ui-progress
-          :progress="item.value"
+          :progress="item.progress"
           :theme="item.theme"
         />
 

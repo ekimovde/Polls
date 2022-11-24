@@ -10,6 +10,20 @@ export const DEFAULT_COUNTRY_ID = 1;
 export const DEFAULT_COUNTRY_CODE = 'RU';
 export const DEFAULT_COUNTRY_TITLE = 'Русский';
 
+enum GetPollsParamsScope {
+  date = 'date',
+  time = 'time',
+  question = 'question',
+}
+
+const scopeForPolls = `
+  ${GetPollsParamsScope.date},
+  ${GetPollsParamsScope.time},
+  ${GetPollsParamsScope.question}
+`;
+
+export const getPollsScope = scopeForPolls.replace(/\s/g, '');
+
 export interface RouteItemBase {
   title: string
   routeName: RoutesName

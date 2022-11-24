@@ -6,10 +6,10 @@ import { TranslationsUpdater } from '../services/translations-updater';
 import { NotificationMethods } from '~/components/shared/notification/component';
 import { PollCategory } from './constants';
 import { SharedColorTheme } from '~/components/shared/color/component';
-import { UiProgressTheme } from '~/components/ui/progress/component';
 import HeaderModuleStore from '~/store/modules/header';
 import FooterModuleStore from '~/store/modules/footer';
 import { PollQuestionAnswer, PollQuestionTime, PollQuestionDate, PollQuestionResponse, PollAuthor } from '~/components/poll/model';
+import { UserProgressValue } from '~/components/progress/model';
 
 export interface ProjectRepository {
   getTranslation(params: TranslationRequest): Promise<string>
@@ -22,17 +22,18 @@ export interface ProjectRepository {
   setUserInfo(params: SetUserInfoRequest): Promise<SelfInfoResponse>
   setUserPassword(params: SetUserPasswordRequest): Promise<SelfInfoResponse>
   setPoll(params: SetPollRequest): Promise<PollResponse>
-  getPolls(): Promise<PollResponse[]>
-  getMyPolls(): Promise<PollResponse[]>
+  getPolls(scope?: string): Promise<PollResponse[]>
+  getMyPolls(scope?: string): Promise<PollResponse[]>
   getPollMembers(id: string): Promise<PollMembersResponse[]>
   getPoll(id: string): Promise<PollResponse>
   sendPollInvite(params: SendPollInviteRequest): Promise<void>
   removePoll(id: string): Promise<void>
   updatePoll(id: string, params: SetPollRequest): Promise<void>
   getPollAnswers(id: string): Promise<PollQuestionAnswer[]>
+  joinPoll(params: JoinPollRequest): Promise<void>
   getUnsplashPhotos(params: UnsplashPhotoRequest): Promise<UnsplashPhotoResponse[]>
   searchUnsplashPhotos(params: UnsplashPhotoRequest): Promise<UnsplashPhotoResponse[]>
-  getUserProgress(): Promise<UserProgressResponse[]>
+  getUserProgress(): Promise<UserProgressResponse>
   getUserPopularPolls(): Promise<PollResponse[]>
   getReactions(): Promise<ReactionResponse[]>
 }
@@ -53,6 +54,7 @@ export interface ProjectUrlGenerator {
   getPoll(id: string): string
   removePoll(id: string): string
   updatePoll(id: string): string
+  joinPoll(): string
   getUnsplashPhotos(): string
 }
 
@@ -145,6 +147,7 @@ export interface PollResponse {
   date: PollQuestionDate
   time: PollQuestionTime
   author: PollAuthor
+  members?: PollMembersResponse[]
   userId: number
   isPublic: boolean
   created: string
@@ -161,6 +164,11 @@ export interface SendPollInviteRequest {
   pollId: number
   description: string
   emailTo: string
+}
+
+export interface JoinPollRequest {
+  pollId: number
+  userId: number
 }
 
 export interface UnsplashPhotoRequest {
@@ -195,10 +203,9 @@ export interface UnsplashPhotoResponse {
 };
 
 export interface UserProgressResponse {
-  title: string
-  value: number
-  description: string
-  theme: UiProgressTheme
+  created: UserProgressValue
+  consists: UserProgressValue
+  participation: UserProgressValue
 }
 
 export interface ReactionResponse {

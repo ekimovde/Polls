@@ -25,21 +25,20 @@
           </shared-badge>
 
           <ui-button
-            :view="uiButtonView.default"
-            :size="uiButtonSize.xl"
-            :theme="uiButtonTheme.grey"
-            @click="open"
+            :view="displayedButtonView"
+            :size="displayedButtonSize"
+            :theme="displayedButtonTheme"
+            :is-loading="isLoading"
+            @click="action"
           >
-            <i class="bx bx-chevron-right" />
-          </ui-button>
+            <i
+              v-if="isMemberOfPoll"
+              class="bx bx-chevron-right"
+            />
 
-          <ui-button
-            :view="uiButtonView.action"
-            :size="uiButtonSize.xs"
-            :theme="uiButtonTheme.purple"
-            @click="join"
-          >
-            {{ textAttributes.join }}
+            <span v-else>
+              {{ textAttributes.join }}
+            </span>
           </ui-button>
         </div>
       </div>
@@ -48,10 +47,15 @@
         v-if="isRegularView"
         :class="b('outer-wrapper', { view })"
       >
-        <avatar-block
-          src=""
-          :size="avatarBlockSize.default"
-        />
+        <ui-tooltip
+          :placement="uiTooltipPlacement.top"
+          :content="authorFullNameOfPoll"
+        >
+          <avatar-block
+            :src="authorAvatarOfPoll"
+            :size="avatarBlockSize.default"
+          />
+        </ui-tooltip>
 
         <p :class="b('text')">
           {{ displayedDate }}

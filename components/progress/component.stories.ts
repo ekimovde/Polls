@@ -1,7 +1,7 @@
 import { withDesign } from 'storybook-addon-designs';
 import { Component } from 'vue';
 import { ProgressBlock } from './index';
-import { fakeUserProgress } from '~/shared/repository/fixtures/fake-user-progress';
+import { fakeUserProgressResponse } from '~/shared/repository/fixtures/fake-user-progress';
 
 export default {
   title: 'Components / Progress',
@@ -23,12 +23,12 @@ function create(): Component {
     },
     data() {
       return {
-        progress: fakeUserProgress()
+        userProgressResponse: fakeUserProgressResponse()
       };
     },
     template: `
       <div style="padding: 20px;">
-        <progress-block :progress="progress" />
+        <progress-block :user-progress-response="userProgressResponse" />
       </div>
     `
   };

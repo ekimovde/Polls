@@ -17,12 +17,13 @@ import {
   SetPollRequest,
   SendPollInviteRequest,
   UnsplashPhotoResponse,
-  UnsplashPhotoRequest
+  UnsplashPhotoRequest,
+  JoinPollRequest
 } from './repo';
 import { translationResponse } from './fixtures/translation';
 import { translationsResponse } from './fixtures/translations';
 import { Translation } from '../services/translator';
-import { fakeUserProgress } from './fixtures/fake-user-progress';
+import { fakeUserProgressResponse } from './fixtures/fake-user-progress';
 import { fakePolls, fakePoll } from './fixtures/fake-polls';
 import { fakeReactions } from './fixtures/fake-reactions';
 import { fakePollMembers } from './fixtures/fake-poll-members';
@@ -77,11 +78,11 @@ export class FakeRepo implements ProjectRepository {
     return respondMockResult(fakePoll());
   }
 
-  async getPolls(): Promise<PollResponse[]> {
+  async getPolls(scope?: string): Promise<PollResponse[]> {
     return respondMockResult(fakePolls());
   }
 
-  async getMyPolls(): Promise<PollResponse[]> {
+  async getMyPolls(scope?: string): Promise<PollResponse[]> {
     return respondMockResult(fakePolls());
   }
 
@@ -109,8 +110,12 @@ export class FakeRepo implements ProjectRepository {
     return respondMockResult(fakePollAnswers());
   }
 
-  async getUserProgress(): Promise<UserProgressResponse[]> {
-    return respondMockResult(fakeUserProgress());
+  async joinPoll(params: JoinPollRequest): Promise<void> {
+    void respondMockResult(null);
+  }
+
+  async getUserProgress(): Promise<UserProgressResponse> {
+    return respondMockResult(fakeUserProgressResponse());
   }
 
   async getUserPopularPolls(): Promise<PollResponse[]> {

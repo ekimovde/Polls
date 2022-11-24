@@ -8,7 +8,7 @@
         {{ textAttributes.title }}
       </h1>
 
-      <progress-block :progress="userProgress" />
+      <progress-block :progress="userProgressResponse" />
 
       <div :class="b('wrapper')">
         <div>

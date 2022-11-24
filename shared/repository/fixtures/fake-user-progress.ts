@@ -1,30 +1,22 @@
 import { UserProgressResponse } from '../repo';
-import { UiProgressTheme } from '~/components/ui/progress/component';
+import { UserProgressValue } from '~/components/progress/model';
 
-export const fakeUserProgressItem = (params: Partial<UserProgressResponse> = {}): UserProgressResponse => {
+export const fakeUserProgress = (params: Partial<UserProgressValue> = {}): UserProgressValue => {
   return {
-    title: 'Participation',
-    value: 12,
-    description: '0 of 1 team members attended a standup',
-    theme: UiProgressTheme.green,
+    count: 12,
+    total: 100,
     ...params
   };
 };
 
-export const fakeUserProgress = (): UserProgressResponse[] => {
-  return [
-    fakeUserProgressItem(),
-    fakeUserProgressItem({
-      title: 'Goals',
-      value: 0,
-      description: '0 of 1 team members met their goals',
-      theme: UiProgressTheme.purple
+export const fakeUserProgressResponse = (): UserProgressResponse => {
+  return {
+    created: fakeUserProgress(),
+    consists: fakeUserProgress({
+      count: 5
     }),
-    fakeUserProgressItem({
-      title: 'Blocked',
-      value: 15,
-      description: '0 of 1 team members are blocked',
-      theme: UiProgressTheme.red
+    participation: fakeUserProgress({
+      count: 2
     })
-  ];
+  };
 };
