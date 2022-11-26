@@ -78,3 +78,6 @@ export enum PollCategory {
   webDevelopment = 'Web Development',
   week = 'Week',
 }
+
+export const DEFAULT_COUNT_OF_USER_PROGRESS = 0;
+export const DEFAULT_TOTAL_OF_USER_PROGRESS = 100;

@@ -90,7 +90,7 @@ export class UrlGenerator implements ProjectUrlGenerator {
   }
 
   getUserProgress(): string {
-    return `${ApiRoutes.user}/progress/`;
+    return `${ApiRoutes.users}progress/`;
   }
 
   getUserPopularPolls(): string {
