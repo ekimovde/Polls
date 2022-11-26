@@ -14,12 +14,12 @@
     width: 100%;
     height: auto;
     padding: 14px 17px 13px 17px;
-    color: #19385d;
+    color: $blue;
     line-height: 20px;
     white-space: nowrap;
     text-align: left;
-    background-color: #f6f6fa;
-    border: solid 2px #f6f6fa;
+    background-color: $white-basic50;
+    border: solid 2px $white-basic50;
     border-radius: 7px;
     outline: none;
     cursor: pointer;
@@ -34,9 +34,9 @@
     }
 
     &--open {
-      color: #19385d;
+      color: $blue;
       background-color: $white;
-      border: 2px solid #6e41e2;
+      border: 2px solid $violet-basic90;
       box-shadow: 0 2px 4px rgb(110 65 226 / 30%);
       transition: border 0.5s ease, color 0.5s ease;
     }
@@ -59,14 +59,14 @@
 
     width: 94%;
     overflow: hidden;
-    color: #19385d;
+    color: $blue;
     line-height: 20px;
     white-space: nowrap;
     text-align: left;
     text-overflow: ellipsis;
 
     &--default {
-      color: #19385d;
+      color: $blue;
       opacity: 0.6;
     }
   }
@@ -74,7 +74,7 @@
   &__icon {
     @include fontInter20Medium;
 
-    color: #19385d;
+    color: $blue;
   }
 
   &__list {
@@ -88,8 +88,8 @@
     margin-top: 0;
     padding: 0;
     overflow: scroll;
-    background-color: #fff;
-    border: solid 1px #e4e4e4;
+    background-color: $white;
+    border: solid 1px $white-basic10;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgb(0 0 0 / 8%);
     transform: none;
@@ -113,7 +113,7 @@
     display: flex;
     align-items: center;
     padding: 12px 17px 12px 17px;
-    color: #19385d;
+    color: $blue;
     font-size: 15.5px;
     font-style: normal;
     line-height: inherit;
@@ -125,7 +125,7 @@
     transition: all 0.2s;
 
     &:hover {
-      background-color: #f6f6f6;
+      background-color: $white-basic90;
     }
   }
 }

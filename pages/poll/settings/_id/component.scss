@@ -3,7 +3,7 @@
 .poll-settings-id-page {
   width: 100%;
   padding: 60px 0 80px 0;
-  background-color: #f9f9f9;
+  background-color: $white-basic100;
 
   @media screen and (max-width: 800px) {
     padding: 100px 0 50px 0;
@@ -53,7 +53,7 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    color: #999;
+    color: $grey-basic70;
     line-height: 24px;
 
     @media screen and (max-width: 600px) {
@@ -106,8 +106,8 @@
     flex-direction: column;
     width: 100%;
     padding: 40px 0;
-    border-top: solid 2px #f6f6fa;
-    border-bottom: solid 2px #f6f6fa;
+    border-top: solid 2px $white-basic50;
+    border-bottom: solid 2px $white-basic50;
     row-gap: 8px;
   }
 

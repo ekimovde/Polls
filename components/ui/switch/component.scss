@@ -52,7 +52,7 @@ $root-name: "ui-switch";
 
   &.is-checked {
     @include e(core) {
-      background-color: #6e41e2;
+      background-color: $violet-basic90;
     }
 
     &.#{$root-name} {
@@ -79,7 +79,7 @@ $root-name: "ui-switch";
   }
 
   @include e(core) {
-    background-color: #ececf3;
+    background-color: $violet-basic60;
     border: none;
   }
 
@@ -92,7 +92,7 @@ $root-name: "ui-switch";
     span {
       @include fontInter15Medium;
 
-      color: #69748c;
+      color: $other-basic290;
       font-size: 15px !important;
       line-height: 16px !important;
       line-height: 1.5;
@@ -101,7 +101,7 @@ $root-name: "ui-switch";
 
     &.is-active {
       span {
-        color: #6e41e2;
+        color: $violet-basic90;
       }
     }
   }

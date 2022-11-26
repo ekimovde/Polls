@@ -8,10 +8,10 @@
   max-width: 320px;
   height: 110px;
   padding: 14px 17px 13px 17px;
-  color: #19385d;
+  color: $blue;
   line-height: 20px;
-  background-color: #f6f6fa;
-  border: solid 2px #f6f6fa;
+  background-color: $white-basic50;
+  border: solid 2px $white-basic50;
   border-radius: 7px;
   outline: none;
   -webkit-appearance: none;
@@ -25,9 +25,9 @@
   }
 
   &:focus {
-    color: #6e41e2;
+    color: $violet-basic90;
     background-color: $white;
-    border: 2px solid #6e41e2;
+    border: 2px solid $violet-basic90;
     box-shadow: 0 2px 4px rgba(110, 65, 226, 0.3);
     transition: border 0.5s ease, color 0.5s ease;
   }

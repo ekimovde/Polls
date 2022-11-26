@@ -7,9 +7,9 @@ export enum ProgressBlockTextAttribute {
   consists = 'Состоит',
   participation = 'Участвовал',
   from = 'из',
-  createdInfo = 'Вами создано опросов за все время',
+  createdInfo = 'Вы создали опросов за все время',
   consistsInfo = 'Вы вступили в опросы за все время',
-  participationInfo = 'Вы участвовали в голосовании за все время'
+  participationInfo = 'Вы участвовали в опросах за все время'
 }
 
 export enum ProgressBlockTestLocator {

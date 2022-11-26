@@ -15,7 +15,7 @@
     display: inline-block;
     margin: 0;
     padding: 12px 22px;
-    color: #8285a5;
+    color: $other-basic270;
     letter-spacing: -0.264px;
     text-decoration: none;
     background-color: $white;
@@ -26,8 +26,8 @@
 
     &:hover,
     &.nuxt-link-exact-active {
-      color: #6e41e2;
-      background-color: #f9f6ff;
+      color: $violet-basic90;
+      background-color: $violet-basic40;
     }
   }
 }

@@ -19,7 +19,7 @@ $message-width: 320px;
 
   &--type {
     &-success {
-      background-color: $green-light;
+      background-color: $green-basic100;
     }
   }
 
@@ -32,11 +32,11 @@ $message-width: 320px;
 
     &--type {
       &-success {
-        background-color: $green-light;
+        background-color: $green-basic100;
       }
 
       &-error {
-        background-color: $red-light;
+        background-color: $red-basic90;
       }
     }
   }

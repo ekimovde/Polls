@@ -32,7 +32,7 @@
 
     &--view {
       &-default {
-        background-color: #f7f7f7;
+        background-color: $white-basic90;
       }
 
       &-regular {
@@ -55,10 +55,10 @@
 
     &--view {
       &-default {
-        background-color: #e6e6e6;
+        background-color: $white-basic10;
 
         i {
-          color: #b1b5be;
+          color: $other-basic220;
         }
       }
 
@@ -90,12 +90,12 @@
     i {
       @include fontInter18Regular;
 
-      color: #66c0da;
+      color: $turquoise-basic100;
     }
 
     &--grey {
       i {
-        color: #b1b5be;
+        color: $other-basic220;
       }
     }
   }

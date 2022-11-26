@@ -28,11 +28,11 @@
         @include fontInter17Medium;
 
         padding: 16px 17px 15px 17px;
-        border: solid 2px #f6f6fa;
+        border: solid 2px $white-basic50;
         border-radius: 7px;
 
         &:focus {
-          border: 2px solid #6e41e2;
+          border: 2px solid $violet-basic90;
           box-shadow: 0 2px 4px rgba(110, 65, 226, 0.3);
         }
 
@@ -49,11 +49,11 @@
 
         padding: 14px 17px 13px 17px;
         line-height: 20px;
-        border: solid 2px #f6f6fa;
+        border: solid 2px $white-basic50;
         border-radius: 7px;
 
         &:focus {
-          border: 2px solid #6e41e2;
+          border: 2px solid $violet-basic90;
           box-shadow: 0 2px 4px rgba(110, 65, 226, 0.3);
         }
 
@@ -80,24 +80,24 @@
 
     &--view {
       &-default {
-        color: #19385d;
-        background-color: #f6f6fa;
+        color: $blue;
+        background-color: $white-basic50;
 
         &:focus {
-          color: #6e41e2;
+          color: $violet-basic90;
           background-color: $white;
           transition: border 0.5s ease, color 0.5s ease;
         }
       }
 
       &-regular {
-        color: #19385d;
+        color: $blue;
         background-color: $white;
         border-color: $white;
 
         &:focus {
-          color: #19385d;
-          background-color: #f6f6fa;
+          color: $blue;
+          background-color: $white-basic50;
           transition: border 0.5s ease, color 0.5s ease;
         }
       }
@@ -111,7 +111,7 @@
         outline: none;
 
         &::placeholder {
-          color: #b1b5be;
+          color: $other-basic220;
         }
       }
     }
@@ -120,7 +120,7 @@
   &__error {
     @include fontInter16Medium;
 
-    color: #ff5252;
+    color: $orange-basic100;
     line-height: 17px;
     letter-spacing: -0.264px;
     text-align: start;

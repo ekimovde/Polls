@@ -3,7 +3,7 @@
 .poll-id-page {
   width: 100%;
   padding: 0 0 80px 0;
-  background-color: #f9f9f9;
+  background-color: $white-basic100;
 
   &__poll-header {
     position: relative;
@@ -11,7 +11,7 @@
     margin-bottom: 50px;
     padding: 50px 0 0 0;
     background: $white;
-    border-bottom: 1px solid #ebebeb;
+    border-bottom: 1px solid $white-basic20;
 
     @media screen and (max-width: 800px) {
       padding: 100px 0 0 0;
@@ -81,7 +81,7 @@
 
     margin: 0;
     padding: 0;
-    color: #a3a3a3;
+    color: $grey-basic50;
     line-height: 18px;
 
     @media screen and (max-width: 600px) {
@@ -96,7 +96,7 @@
   }
 
   &__inner-item {
-    border-bottom: solid 1px #ebebeb;
+    border-bottom: solid 1px $white-basic20;
 
     &:last-child {
       border-bottom: none;
@@ -115,7 +115,7 @@
 
     clear: both;
     width: 100%;
-    color: #1a1919;
+    color: $black-basic90;
     line-height: 24px;
     text-align: left;
     text-decoration: none;
@@ -123,15 +123,15 @@
     transition: background 0.5s ease, color 0.5s ease;
 
     &:hover {
-      color: #6e41e2;
+      color: $violet-basic90;
     }
 
     &--type {
       &-regular {
-        color: #ed464e;
+        color: $red-basic90;
 
         &:hover {
-          color: #ff787e;
+          color: $red-basic80;
         }
       }
     }
@@ -180,7 +180,7 @@
     margin: 0;
     margin: 10px 0 20px 0;
     padding: 0;
-    color: #999;
+    color: $grey-basic70;
     line-height: 24px;
 
     @media screen and (max-width: 600px) {

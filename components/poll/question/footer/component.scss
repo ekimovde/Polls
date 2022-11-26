@@ -1,7 +1,7 @@
 @import "assets/scss/helper.scss";
 
 .poll-question-footer {
-  background-color: #f6f6fa;
+  background-color: $white-basic50;
   border-radius: 0 0 7px 7px;
 
   &--view {
@@ -48,7 +48,7 @@
     margin: 0;
     margin-bottom: 10px;
     padding: 0;
-    color: #69748c;
+    color: $other-basic290;
     text-transform: uppercase;
   }
 }

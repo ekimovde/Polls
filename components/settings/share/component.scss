@@ -4,7 +4,7 @@
   box-sizing: border-box;
   width: 100%;
   padding: 30px;
-  background-color: #f2f2f9;
+  background-color: $violet-basic50;
   border-radius: 10px;
 
   &__header {
@@ -18,7 +18,7 @@
 
     margin: 0;
     padding: 0;
-    color: #19385d;
+    color: $blue;
   }
 
   &__block {
@@ -33,7 +33,7 @@
 
     margin: 0;
     padding: 0;
-    color: #8989a3;
+    color: $other-basic250;
     line-height: 20px;
   }
 }

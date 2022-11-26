@@ -56,7 +56,7 @@
 
   &__body {
     width: 100%;
-    background-color: #fff;
+    background-color: $white;
   }
 }
 

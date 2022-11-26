@@ -8,24 +8,24 @@
   padding: 0;
   list-style: none;
   background: $white;
-  border: 1px solid #ebebeb;
+  border: 1px solid $white-basic20;
   border-radius: 8px;
   box-shadow: 0 0 14px rgb(0 0 0 / 5%);
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 650px) {
     grid-template-columns: 1fr;
   }
 
   &__item {
-    border-right: solid 1px #ececec;
+    border-right: solid 1px $white-basic30;
 
     &:last-child {
       border-right: none;
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 650px) {
       border-right: none;
-      border-bottom: solid 1px #ececec;
+      border-bottom: solid 1px $white-basic30;
 
       &:last-child {
         border-bottom: none;
@@ -58,7 +58,7 @@
   &__text {
     @include fontInter12SemiBold;
 
-    color: #999;
+    color: $grey-basic70;
     line-height: 18px;
 
     &--small {

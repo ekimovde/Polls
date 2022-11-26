@@ -58,27 +58,27 @@
 
     &--theme {
       &-pink {
-        color: #ff357e;
+        color: $pink-basic90;
       }
 
       &-orange {
-        color: #ff9263;
+        color: $orange;
       }
 
       &-purple {
-        color: #6e41e2;
+        color: $violet-basic90;
       }
 
       &-blue {
-        color: #4199ff;
+        color: $blue-basic90;
       }
 
       &-green {
-        color: #2ecb71;
+        color: $green-basic90;
       }
 
       &-teal {
-        color: #00d5c8;
+        color: $turquoise;
       }
     }
   }
@@ -105,7 +105,7 @@
 
     margin: 0;
     padding: 0;
-    color: #777;
+    color: $grey-basic90;
     font-size: 17px;
     line-height: 28px;
 

@@ -5,7 +5,7 @@
   flex-direction: column;
   background-color: $white;
   background-clip: border-box;
-  border: solid 1px #ececec;
+  border: solid 1px $white-basic30;
   border-radius: 7px;
   box-shadow: 0 0 14px rgba(0, 0, 0, 0.05);
 
@@ -53,7 +53,7 @@
   &__divider {
     width: 1px;
     height: 20px;
-    border-right: 1px solid #b1b5be;
+    border-right: 1px solid $other-basic220;
   }
 
   &__body {
@@ -96,7 +96,7 @@
 
     &:hover,
     &:focus {
-      border: 1px solid #f7f7f7;
+      border: 1px solid $white-basic90;
 
       span,
       button {
@@ -115,14 +115,14 @@
     min-width: 30px;
     height: 30px;
     margin-right: 7px;
-    color: #b1b5be;
+    color: $other-basic220;
     border-radius: 4px;
     cursor: grab;
     opacity: 0;
     transition: background-color 0.15s ease-in-out;
 
     &:hover {
-      background-color: #ececec;
+      background-color: $white-basic30;
     }
   }
 
@@ -155,7 +155,7 @@
   }
 
   .ghost {
-    border: 1px solid #f7f7f7;
+    border: 1px solid $white-basic90;
   }
 
   .answers-move,

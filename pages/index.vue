@@ -156,7 +156,7 @@
       padding: 0;
       margin: 0;
       line-height: 26px;
-      color: #777777;
+      color: #757575;
       margin: 20px 0px;
 
       @media screen and (max-width: 600px) {

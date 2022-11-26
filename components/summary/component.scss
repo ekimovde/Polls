@@ -17,7 +17,7 @@
   &__icon {
     @include fontInter42Bold;
 
-    color: #6e41e2;
+    color: $violet-basic90;
     line-height: 42px;
 
     @media screen and (max-width: 500px) {

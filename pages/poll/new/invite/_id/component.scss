@@ -17,7 +17,7 @@
 
     display: flex;
     align-items: center;
-    color: #939fad;
+    color: $other-basic200;
     line-height: 18px;
     letter-spacing: -0.2145px;
     column-gap: 5px;
@@ -79,7 +79,7 @@
     letter-spacing: -0.264px;
 
     span {
-      color: #6e41e2;
+      color: $violet-basic90;
     }
 
     @media screen and (max-width: 600px) {
@@ -127,7 +127,7 @@
   &__copyright {
     @include fontInter12Medium;
 
-    color: #c9c9c9;
+    color: $grey-basic20;
     line-height: 13px;
   }
 }

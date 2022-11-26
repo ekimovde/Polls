@@ -17,16 +17,16 @@
     box-sizing: border-box;
     width: 100%;
     padding: 20px 25px;
-    color: #2e2e2e;
+    color: $black-basic70;
     text-decoration: none;
     column-gap: 10px;
-    background-color: #f2f2f8;
+    background-color: $violet-basic50;
     border-radius: 8px;
     outline: none;
     transition: all 0.5s ease;
 
     &:hover {
-      background-color: #f8f8fd;
+      background-color: $violet-basic40;
     }
   }
 
@@ -41,7 +41,7 @@
 
     margin: 0;
     padding: 0;
-    color: #19385d;
+    color: $blue;
     line-height: 19px;
   }
 
@@ -50,7 +50,7 @@
 
     margin: 0;
     padding: 0;
-    color: #8989a3;
+    color: $other-basic250;
     line-height: 20px;
   }
 }

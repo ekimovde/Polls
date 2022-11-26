@@ -23,7 +23,7 @@ $root-name: "ui-modal";
     padding: 40px;
     overflow: hidden;
     background-color: $white;
-    border: 1px solid #dcdfe6;
+    border: 1px solid $other-basic180;
     border-radius: 8px;
     visibility: visible;
     opacity: 1;
@@ -62,7 +62,7 @@ $root-name: "ui-modal";
   &__icon {
     @include fontInter24Regular;
 
-    color: #666;
+    color: $grey-basic100;
     opacity: 0.6;
   }
 }

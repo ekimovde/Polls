@@ -14,7 +14,7 @@
   &__navigation {
     @include fontInter15Medium;
 
-    color: #939fad;
+    color: $other-basic200;
     line-height: 18px;
     letter-spacing: -0.2145px;
   }
@@ -22,7 +22,7 @@
   &__button-text {
     @include fontInter15Bold;
 
-    color: #6e41e2;
+    color: $violet-basic90;
     line-height: 18px;
     letter-spacing: -0.2145px;
   }
@@ -76,7 +76,7 @@
     letter-spacing: -0.264px;
 
     span {
-      color: #6e41e2;
+      color: $violet-basic90;
     }
 
     @media screen and (max-width: 600px) {
@@ -107,7 +107,7 @@
 
     margin: 0;
     padding: 0;
-    color: #c9c9c9;
+    color: $grey-basic20;
     line-height: 13px;
   }
 }

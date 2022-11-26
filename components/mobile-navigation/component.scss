@@ -36,7 +36,7 @@
   &__link {
     @include fontInter18Medium;
 
-    color: #777;
+    color: $grey-basic90;
     line-height: 22px;
     letter-spacing: -0.264px;
     text-decoration: none;
@@ -44,15 +44,15 @@
     transition: background 0.5s ease, color 0.5s ease;
 
     &:hover {
-      color: #6e41e2;
+      color: $violet-basic90;
     }
 
     &--type {
       &-regular {
-        color: #ed464e;
+        color: $red-basic90;
 
         &:hover {
-          color: #ff787e;
+          color: $red-basic80;
         }
       }
     }

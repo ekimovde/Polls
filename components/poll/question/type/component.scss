@@ -23,7 +23,7 @@ $root-name: "poll-question-type";
       border: none;
 
       &:hover {
-        background-color: #f0f3f5;
+        background-color: $blue-basic40;
       }
 
       &.#{$root-name}--active {
@@ -39,13 +39,13 @@ $root-name: "poll-question-type";
         padding: 0;
 
         &:hover {
-          color: #23282c;
-          background-color: #e6e6e6;
-          border-color: #dfdfdf;
+          color: $black-basic80;
+          background-color: $white-basic10;
+          border-color: $grey-basic10;
         }
 
         &:active {
-          background-color: #ddd;
+          background-color: $grey-basic10;
         }
       }
     }
@@ -53,11 +53,11 @@ $root-name: "poll-question-type";
     &-card {
       flex-direction: column;
       width: 100%;
-      background-color: #f7f7f7;
-      border: 1px solid #eaedf3;
+      background-color: $white-basic90;
+      border: 1px solid $blue-basic50;
 
       &:hover {
-        background-color: #f2f2f2;
+        background-color: $white-basic80;
       }
     }
   }
@@ -118,10 +118,10 @@ $root-name: "poll-question-type";
   &__title {
     @include fontInter14Regular;
 
-    color: #69748c;
+    color: $other-basic290;
 
     &--active {
-      color: #6e41e2;
+      color: $violet-basic90;
     }
   }
 }

@@ -11,7 +11,7 @@
   box-shadow: 0 10px 30px rgb(0 0 0 / 5%);
 
   &__item {
-    border-bottom: 1px solid #f1f1f1;
+    border-bottom: 1px solid $white-basic40;
 
     &:last-child {
       border-bottom: none;
@@ -27,7 +27,7 @@
     box-sizing: border-box;
     width: 100%;
     padding: 20px 27px;
-    color: #555;
+    color: $grey;
     line-height: 20px;
     text-decoration: none;
     background-position: center right 17px;

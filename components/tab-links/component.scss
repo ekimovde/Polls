@@ -13,7 +13,7 @@
 
     display: block;
     padding: 12px 0 12px 0;
-    color: #9d9d9d;
+    color: $grey-basic60;
     line-height: 24px;
     text-decoration: none;
     background-color: transparent;
@@ -24,8 +24,8 @@
     &:hover,
     &.nuxt-link-exact-active,
     &.router-link-exact-active {
-      color: #6e41e2;
-      border-color: #6e41e2;
+      color: $violet-basic90;
+      border-color: $violet-basic90;
       transition: border 0.5s ease, color 0.5s ease;
     }
   }

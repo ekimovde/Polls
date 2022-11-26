@@ -43,7 +43,7 @@
 //noinspection ALL
 @mixin scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: $grey-basic05 transparent;
+  scrollbar-color: $grey-basic10 transparent;
 
   &::-webkit-scrollbar {
     width: 7px;
@@ -55,7 +55,7 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: $grey-basic50;
+    background-color: $grey-basic100;
     border-radius: 3.5px;
   }
 }

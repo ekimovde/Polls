@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: flex-end;
     padding: 40px;
-    color: #939fad;
+    color: $other-basic200;
     line-height: 18px;
     letter-spacing: -0.2145px;
     text-align: right;
@@ -106,7 +106,7 @@
     &--small {
       @include fontInter12Medium;
 
-      color: #c9c9c9;
+      color: $grey-basic20;
       line-height: 13px;
     }
   }
@@ -121,7 +121,7 @@
     @include fontInter14Medium;
 
     margin: 40px 0;
-    color: #939fad;
+    color: $other-basic200;
     letter-spacing: -0.2145px;
     text-align: center;
   }

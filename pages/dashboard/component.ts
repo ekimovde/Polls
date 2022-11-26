@@ -24,7 +24,7 @@ import { ReactionsBlockView } from '~/components/reactions/component';
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(DashboardPageTextAttribute);
+  readonly textAttributes = DashboardPageTextAttribute;
 
   readonly projectRepository = this.$projectServices.projectRepository;
   readonly notifier = this.$projectServices.notification;
@@ -44,6 +44,10 @@ export default class extends mixins(TestId, Translatable) {
 
   isLoading = false;
 
+  get hasUserProgressResponse(): boolean {
+    return Boolean(this.userProgressResponse);
+  }
+
   get pollsRoute(): Partial<Route> {
     return routes[RoutesName.polls];
   }
@@ -53,8 +57,8 @@ export default class extends mixins(TestId, Translatable) {
       this.isLoading = true;
 
       await Promise.allSettled([
-        await this.getSelfInfo()
-        // await this.getUserProgress(),
+        await this.getSelfInfo(),
+        await this.getUserProgress()
         // await this.getUserPopularPolls(),
         // await this.getReactions()
       ]);

@@ -17,7 +17,7 @@
 
     margin: 0;
     padding: 0;
-    color: #acacac;
+    color: $grey-basic40;
     line-height: 24px;
 
     @media screen and (max-width: 600px) {
@@ -83,33 +83,33 @@
 
     &--theme {
       &-pink {
-        color: #ff357e;
-        background-color: #ffecf3;
+        color: $pink-basic90;
+        background-color: $red-basic70;
       }
 
       &-orange {
-        color: #ff9263;
-        background-color: #fff6f3;
+        color: $orange;
+        background-color: $orange-basic80;
       }
 
       &-purple {
-        color: #6e41e2;
-        background-color: #f2eeff;
+        color: $violet-basic90;
+        background-color: $violet-basic70;
       }
 
       &-blue {
-        color: #4199ff;
-        background-color: #edf6ff;
+        color: $blue-basic90;
+        background-color: $blue-basic60;
       }
 
       &-green {
-        color: #2ecb71;
-        background-color: #e6f9f0;
+        color: $green-basic90;
+        background-color: $green-basic80;
       }
 
       &-teal {
-        color: #00d5c8;
-        background-color: #e9fffe;
+        color: $turquoise;
+        background-color: $turquoise-basic90;
       }
     }
 
@@ -137,27 +137,27 @@
 
     &--theme {
       &-pink {
-        color: #ff357e;
+        color: $pink-basic90;
       }
 
       &-orange {
-        color: #ff9263;
+        color: $orange;
       }
 
       &-purple {
-        color: #6e41e2;
+        color: $violet-basic90;
       }
 
       &-blue {
-        color: #4199ff;
+        color: $blue-basic90;
       }
 
       &-green {
-        color: #2ecb71;
+        color: $green-basic90;
       }
 
       &-teal {
-        color: #00d5c8;
+        color: $turquoise;
       }
     }
   }
@@ -177,7 +177,7 @@
 
     display: flex;
     align-items: center;
-    color: #5e6b7b;
+    color: $other-basic300;
     line-height: 20px;
   }
 

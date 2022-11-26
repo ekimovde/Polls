@@ -5,10 +5,10 @@
     @include fontInter26Medium;
 
     margin-left: 8px;
-    color: #777;
+    color: $grey-basic90;
 
     &--active {
-      color: #6e41e2;
+      color: $violet-basic90;
     }
   }
 
@@ -19,7 +19,7 @@
   }
 
   &__inner-item {
-    border-bottom: solid 1px #ebebeb;
+    border-bottom: solid 1px $white-basic20;
 
     &:last-child {
       border-bottom: none;
@@ -38,7 +38,7 @@
 
     clear: both;
     width: 100%;
-    color: #1a1919;
+    color: $black-basic90;
     line-height: 24px;
     text-align: left;
     text-decoration: none;
@@ -46,15 +46,15 @@
     transition: background 0.5s ease, color 0.5s ease;
 
     &:hover {
-      color: #6e41e2;
+      color: $violet-basic90;
     }
 
     &--type {
       &-regular {
-        color: #ed464e;
+        color: $red-basic90;
 
         &:hover {
-          color: #ff787e;
+          color: $red-basic80;
         }
       }
     }

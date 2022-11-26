@@ -36,21 +36,21 @@ $root-name: 'ui-progress';
 
     &.#{$root-name}--theme {
       &-green {
-        background-color: #e6fbf0;
+        background-color: $green-basic80;
 
         @include progress-bar-common(#00cf66);
       }
 
       &-purple {
-        background-color: #f2ecfd;
+        background-color: $violet-basic80;
 
         @include progress-bar-common(#763aeb);
       }
 
       &-red {
-        background-color: #ffeaf2;
+        background-color: $red-basic60;
 
-        @include progress-bar-common(#ff3c49);
+        @include progress-bar-common($red-basic100);
       }
     }
 

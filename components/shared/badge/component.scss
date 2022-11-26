@@ -34,43 +34,43 @@
 
   &--theme {
     &-purple {
-      color: #763aeb;
-      background-color: #f0e8ff;
+      color: $violet-basic90;
+      background-color: $violet-basic70;
     }
 
     &-orange {
-      color: #ff7204;
-      background-color: #fff0e8;
+      color: $orange;
+      background-color: $orange-basic80;
     }
 
     &-green {
-      color: #1d9f00;
-      background-color: #e7fbe0;
+      color: $green-basic90;
+      background-color: $green-basic80;
     }
 
     &-red {
-      color: #ff3642;
-      background-color: #ffeded;
+      color: $red-basic90;
+      background-color: $orange-basic90;
     }
 
     &-pink {
-      color: #ff007d;
-      background-color: #ffebf5;
+      color: $pink-basic90;
+      background-color: $red-basic70;
     }
 
     &-pink-light {
       color: $white;
-      background-color: #ff357e;
+      background-color: $pink-basic90;
     }
 
     &-blue {
-      color: #0068ff;
-      background-color: #edf3ff;
+      color: $blue-basic100;
+      background-color: $blue-basic70;
     }
 
     &-grey {
-      color: #787890;
-      background-color: #f4f4f8;
+      color: $other-basic260;
+      background-color: $white-basic60;
     }
   }
 }

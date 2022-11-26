@@ -50,7 +50,7 @@ $root-name: "ui-button";
           background-color: $white;
 
           &:hover {
-            color: #763aeb;
+            color: $violet-basic90;
           }
         }
 
@@ -59,23 +59,23 @@ $root-name: "ui-button";
           background-color: transparent;
 
           &:hover {
-            color: #763aeb;
+            color: $violet-basic90;
             background-color: rgba(163, 57, 209, 0.1);
           }
 
           &.#{$root-name}--active {
-            color: #763aeb;
+            color: $violet-basic90;
             background-color: rgba(163, 57, 209, 0.1);
           }
         }
 
         &-grey {
           color: #9fa1ad;
-          background-color: #f5f5f5;
+          background-color: $white-basic70;
 
           &:hover {
-            color: #763aeb;
-            background-color: #f2ebff;
+            color: $violet-basic90;
+            background-color: $violet-basic80;
           }
         }
       }
@@ -140,27 +140,27 @@ $root-name: "ui-button";
       &.#{$root-name}--theme {
         &-purple {
           color: $white;
-          background-color: #6e41e2;
+          background-color: $violet-basic90;
           box-shadow: 0 2px 4px rgba(140, 57, 209, 0.1);
 
           &:hover {
-            background-color: #4926a1;
+            background-color: $violet-basic100;
           }
 
           &:focus {
-            background-color: #321e66;
+            background-color: $violet;
           }
 
           &.#{$root-name}--disabled {
-            color: #4f586d;
-            background: #f6f6fa;
+            color: $other;
+            background: $white-basic50;
             box-shadow: none;
             cursor: initial;
           }
 
           &.#{$root-name}--loading {
             color: transparent;
-            background: lighten(#4926a1, 5) svg-load("loading.svg") no-repeat center/auto 50%;
+            background: lighten($violet-basic100, 5) svg-load("loading.svg") no-repeat center/auto 50%;
             border: none;
             cursor: initial;
             transition: none;
@@ -168,34 +168,34 @@ $root-name: "ui-button";
         }
 
         &-dark-grey {
-          color: #4f586d;
-          background: #f6f6fa;
+          color: $other;
+          background: $white-basic50;
 
           &:hover {
-            color: #6e7b9b;
+            color: $other-basic280;
           }
 
           &:focus {
-            color: #000;
+            color: $black;
           }
         }
 
         &-green {
           color: $white;
-          background: #2ecb71;
+          background: $green-basic90;
 
           &:hover {
-            background-color: #209852;
+            background-color: $green-basic100;
           }
 
           &:focus {
-            background-color: #1d7a44;
+            background-color: $green;
           }
         }
 
         &-red {
           color: $white;
-          background: #ff5252;
+          background: $orange-basic100;
           box-shadow: 0 2px 4px rgba(255, 82, 82, 0.15);
 
           &:hover {
@@ -203,12 +203,12 @@ $root-name: "ui-button";
           }
 
           &:focus {
-            background-color: #7b1616;
+            background-color: $red;
           }
 
           &.#{$root-name}--loading {
             color: transparent;
-            background: lighten(#7b1616, 5) svg-load("loading.svg") no-repeat center/auto 50%;
+            background: lighten($red, 5) svg-load("loading.svg") no-repeat center/auto 50%;
             border: none;
             cursor: initial;
             transition: none;
@@ -230,11 +230,11 @@ $root-name: "ui-button";
 
       &.#{$root-name}--theme {
         &-grey {
-          color: #4f586d;
-          background-color: #f6f6fa;
+          color: $other;
+          background-color: $white-basic50;
 
           &:hover {
-            color: #6e7b9b;
+            color: $other-basic280;
           }
 
           &:focus {
@@ -262,35 +262,35 @@ $root-name: "ui-button";
         }
 
         &-purple {
-          color: #6e41e2;
+          color: $violet-basic90;
           text-decoration: none;
           background-color: transparent;
           transition: background 0.5s ease, color 0.5s ease;
 
           &:hover {
-            color: #4926a1;
+            color: $violet-basic100;
           }
         }
 
         &-grey {
-          color: #4f586d;
+          color: $other;
           text-decoration: none;
           background-color: transparent;
           transition: background 0.5s ease, color 0.5s ease;
 
           &:hover {
-            color: #6e41e2;
+            color: $violet-basic90;
           }
         }
 
         &-pink {
-          color: #ff357e;
+          color: $pink-basic90;
           text-decoration: none;
           background-color: transparent;
           transition: background 0.5s ease, color 0.5s ease;
 
           &:hover {
-            color: #c81d5b;
+            color: $pink;
           }
         }
       }

@@ -13,16 +13,16 @@
     height: 48px;
     line-height: 16px;
     text-align: center;
-    background-color: #fff;
+    background-color: $white;
     background-repeat: no-repeat;
     background-position: 0 50%;
     background-size: 100%;
-    border: 1px dashed #a7a9b4;
+    border: 1px dashed $other-basic230;
     border-radius: 4px;
     transition: all 0.05s ease-in;
 
     i {
-      color: #69748c;
+      color: $other-basic290;
       cursor: pointer;
     }
 
@@ -39,7 +39,7 @@
     position: absolute;
     right: 5px;
     bottom: -1px;
-    color: #d34085;
+    color: $pink-basic100;
     cursor: pointer;
   }
 
