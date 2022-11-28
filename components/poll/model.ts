@@ -40,3 +40,19 @@ export interface PollAuthor {
   fullName: string
   avatar: string
 }
+
+export interface PollVoteParams {
+  total: number
+  answers: PollVoteAnswer[]
+  progress: PollVoteProgress
+}
+
+export interface PollVoteAnswer {
+  text: string
+  authors: PollAuthor[]
+  timestamp: number
+}
+
+export interface PollVoteProgress {
+  [t: number]: number
+}

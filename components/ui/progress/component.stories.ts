@@ -1,7 +1,7 @@
 import { withDesign } from 'storybook-addon-designs';
 import { Component } from 'vue';
 import { uiProgress } from '~/components/ui';
-import { UiProgressTheme } from './component';
+import { UiProgressTheme, UiProgressView } from './component';
 
 export default {
   title: 'Components / Ui / Progress',
@@ -15,10 +15,13 @@ export default {
 };
 
 export const GreenTheme = (): Component => create();
-export const PurpleTheme = (): Component => create(UiProgressTheme.purple);
-export const RedTheme = (): Component => create(UiProgressTheme.red);
+export const PurpleTheme = (): Component => create({ theme: UiProgressTheme.purple });
+export const RedTheme = (): Component => create({ theme: UiProgressTheme.red });
+export const BlueTheme = (): Component => create({ theme: UiProgressTheme.blue });
+export const DefaultView = (): Component => create({ view: UiProgressView.default });
+export const RegularView = (): Component => create({ view: UiProgressView.regular });
 
-function create(theme = UiProgressTheme.green): Component {
+function create(props = {}): Component {
   return {
     components: {
       uiProgress
@@ -26,7 +29,9 @@ function create(theme = UiProgressTheme.green): Component {
     data() {
       return {
         progress: 22,
-        theme
+        theme: UiProgressTheme.green,
+        view: UiProgressView.default,
+        ...props
       };
     },
     template: `
@@ -39,6 +44,7 @@ function create(theme = UiProgressTheme.green): Component {
         <ui-progress
           :progress="progress"
           :theme="theme"
+          :view="view"
         />
       </div>
     `

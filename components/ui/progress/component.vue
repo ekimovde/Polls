@@ -7,7 +7,7 @@
     :data-test="tid()"
   >
     <el-progress
-      :class="b({ theme, completed: isCompleted })"
+      :class="b({ theme, view, completed: isCompleted })"
       :percentage="percentage"
       :show-text="false"
     />

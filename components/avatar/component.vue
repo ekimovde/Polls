@@ -8,5 +8,5 @@
     :src="src"
     alt=""
     @error="replaceByDefault"
-  />
+  >
 </template>

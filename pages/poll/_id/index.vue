@@ -87,7 +87,10 @@
     </div>
 
     <div :class="b('inner-wrapper')">
-      fassaf
+      <poll-vote
+        v-if="hasPoll"
+        :question="question"
+      />
     </div>
 
     <ui-modal :is-visible.sync="isModalVisible">

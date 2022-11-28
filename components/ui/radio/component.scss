@@ -1,0 +1,92 @@
+@import "assets/scss/helper.scss";
+
+$root: "ui-radio";
+$outer-diameter: 16px;
+$inner-diameter: 8px;
+
+.#{$root} {
+  @include fontInter14Regular;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+
+  &--view {
+    &-default {
+      &::before {
+        position: relative;
+        display: flex;
+        flex-shrink: 0;
+        box-sizing: initial;
+        width: $outer-diameter;
+        height: $outer-diameter;
+        background-color: $white;
+        border: 2px solid $grey-basic10;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.15s ease-out;
+        content: "";
+      }
+
+      &::after {
+        position: absolute;
+        top: -50%;
+        bottom: -50%;
+        left: calc((#{$outer-diameter} - #{$inner-diameter}) / 2 + 2px);
+        display: flex;
+        box-sizing: initial;
+        width: $inner-diameter;
+        height: $inner-diameter;
+        margin: auto;
+        background-color: $violet-basic90;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: transform 0.15s ease-out;
+        content: "";
+      }
+
+      &.#{$root}--disabled {
+        border: none;
+        cursor: not-allowed;
+
+        &::before {
+          border: none;
+          cursor: not-allowed;
+        }
+
+        &::after {
+          left: 0;
+          width: $outer-diameter;
+          height: $outer-diameter;
+          background-color: $grey-basic10;
+          transform: scale(1);
+        }
+      }
+
+      &.#{$root}--checked {
+        &::before {
+          border: 2px solid $violet-basic90;
+        }
+
+        &::after {
+          transform: scale(1);
+        }
+      }
+
+      .#{$root}__label {
+        padding-left: 0.5em;
+      }
+    }
+  }
+
+  .#{$root}__control {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    outline: none;
+    opacity: 0;
+  }
+}

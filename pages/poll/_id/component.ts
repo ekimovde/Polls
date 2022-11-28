@@ -14,12 +14,15 @@ import { DropdownItemTypeBase } from '~/shared/repository/constants';
 import { RoutesName } from '~/shared/repository/routes/routes-name';
 import { PollResponse } from '~/shared/repository/repo';
 import { UiTooltipPlacement } from '~/components/ui/tooltip/component';
+import { PollVote } from '~/components/poll/vote';
+import { PollQuestionResponse } from '~/components/poll/model';
 
 @Component({
   name: COMPONENT_NAME,
   components: {
     AvatarBlock,
     TabLinks,
+    PollVote,
     uiButton,
     uiDropdown,
     uiModal,
@@ -71,8 +74,20 @@ export default class extends mixins(TestId, Translatable) {
     return getPollSettingsIdRoute(this.id);
   }
 
+  get question(): PollQuestionResponse {
+    if (!this.hasPoll) {
+      return null;
+    }
+
+    return this.poll.question;
+  }
+
   get isSettingsButtonShown(): boolean {
     return this.userId === this.poll?.userId;
+  }
+
+  get hasPoll(): boolean {
+    return Boolean(this.poll);
   }
 
   async created(): Promise<void> {

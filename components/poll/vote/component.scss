@@ -1,0 +1,137 @@
+@import "assets/scss/helper.scss";
+
+.poll-vote {
+  padding: 20px;
+  background-color: $white;
+  border: 1px solid $white-basic30;
+  border-radius: 7px;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.05);
+
+  &__title {
+    @include fontInter16Medium;
+
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    line-height: 20px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    row-gap: 5px;
+    padding: 0 8px;
+  }
+
+  &__question-title {
+    @include fontInter16Medium;
+
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+  }
+
+  &__wrapper {
+    box-sizing: border-box;
+    width: 100%;
+
+    &--grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+
+      @media screen and (max-width: 900px) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    align-content: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &--default {
+      grid-template-columns: 1fr;
+    }
+
+    &--type {
+      &-text {
+        @media screen and (max-width: 600px) {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      &-image {
+        grid-template-columns: repeat(3, 1fr);
+
+        @media screen and (max-width: 800px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media screen and (max-width: 600px) {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      &-image-text {
+        @media screen and (max-width: 600px) {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+  }
+
+  &__item {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  &__image-wrapper {
+    @include fontInter15Regular;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 200px;
+    overflow: hidden;
+    color: #4a4a4a;
+    text-align: center;
+    background-color: #f6f5f6;
+    border-radius: 4px;
+
+    &--empty {
+      padding: 10px;
+    }
+  }
+
+  &__image {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 4px;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 20px;
+  }
+}

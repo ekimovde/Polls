@@ -4,6 +4,7 @@ import { SharedColorTheme } from '~/components/shared/color/component';
 import { PollQuestionDate, PollQuestionTime, PollAuthor } from '~/components/poll/model';
 import { fakePollQuestion } from './fake-poll-question';
 import { fakePollMembers } from './fake-poll-members';
+import { fakePollVote } from './fake-poll-vote';
 
 export const fakePollDate = (params: Partial<PollQuestionDate> = {}): PollQuestionDate => {
   return {
@@ -41,6 +42,7 @@ export const fakePoll = (params: Partial<PollResponse> = {}): PollResponse => {
     time: fakePollTime(),
     author: fakePollAuthor(),
     members: fakePollMembers(),
+    vote: fakePollVote(),
     isPublic: true,
     userId: 2,
     created: '2022.10.21 01:35',

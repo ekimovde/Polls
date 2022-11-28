@@ -34,23 +34,53 @@ $root-name: 'ui-progress';
       }
     }
 
-    &.#{$root-name}--theme {
-      &-green {
-        background-color: $green-basic80;
+    &.#{$root-name}--view {
+      &-default {
+        &.#{$root-name}--theme {
+          &-green {
+            background-color: $green-basic80;
 
-        @include progress-bar-common(#00cf66);
+            @include progress-bar-common($green-basic90);
+          }
+
+          &-purple {
+            background-color: $violet-basic80;
+
+            @include progress-bar-common($violet-basic90);
+          }
+
+          &-red {
+            background-color: $red-basic60;
+
+            @include progress-bar-common($red-basic100);
+          }
+
+          &-blue {
+            background-color: $blue-basic70;
+
+            @include progress-bar-common($blue-basic100);
+          }
+        }
       }
 
-      &-purple {
-        background-color: $violet-basic80;
+      &-regular {
+        &.#{$root-name}--theme {
+          &-green {
+            @include progress-bar-common($green-basic90);
+          }
 
-        @include progress-bar-common(#763aeb);
-      }
+          &-purple {
+            @include progress-bar-common($violet-basic90);
+          }
 
-      &-red {
-        background-color: $red-basic60;
+          &-red {
+            @include progress-bar-common($red-basic100);
+          }
 
-        @include progress-bar-common($red-basic100);
+          &-blue {
+            @include progress-bar-common($blue-basic100);
+          }
+        }
       }
     }
 

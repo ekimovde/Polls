@@ -4,7 +4,7 @@ import { COMPONENT_NAME, DashboardPageTextAttribute } from './attributes';
 import TestId from '~/shared/utils/unit-test/test-id';
 import { Translatable } from '~/components/shared/translatable';
 import { ProgressBlock } from '~/components/progress';
-import { UserProgressResponse, PollResponse, ReactionResponse } from '~/shared/repository/repo';
+import { UserProgressResponse, PollResponse } from '~/shared/repository/repo';
 import { PollBlock } from '~/components/poll';
 import { PollBlockView } from '~/components/poll/component';
 import { uiButton } from '~/components/ui';
@@ -39,8 +39,8 @@ export default class extends mixins(TestId, Translatable) {
   readonly reactionsBlockView = ReactionsBlockView;
 
   userProgressResponse: UserProgressResponse = null;
-  userPopularPolls: PollResponse[] = [];
-  reactions: ReactionResponse[] = [];
+  popularPolls: PollResponse[] = [];
+  // reactions: ReactionResponse[] = [];
 
   isLoading = false;
 
@@ -58,8 +58,8 @@ export default class extends mixins(TestId, Translatable) {
 
       await Promise.allSettled([
         await this.getSelfInfo(),
-        await this.getUserProgress()
-        // await this.getUserPopularPolls(),
+        await this.getUserProgress(),
+        await this.getPopularPolls()
         // await this.getReactions()
       ]);
     } catch (error) {
@@ -79,11 +79,11 @@ export default class extends mixins(TestId, Translatable) {
     this.userProgressResponse = await this.projectRepository.getUserProgress();
   }
 
-  async getUserPopularPolls(): Promise<void> {
-    this.userPopularPolls = await this.projectRepository.getUserPopularPolls();
+  async getPopularPolls(): Promise<void> {
+    this.popularPolls = await this.projectRepository.getPopularPolls();
   }
 
-  async getReactions(): Promise<void> {
-    this.reactions = await this.projectRepository.getReactions();
-  }
+  // async getReactions(): Promise<void> {
+  //   this.reactions = await this.projectRepository.getReactions();
+  // }
 }

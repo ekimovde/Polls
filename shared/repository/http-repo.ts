@@ -124,15 +124,14 @@ export class HttpRepo implements ProjectRepository {
     await this.axios.post<ApiWrapper<void>>(this.urlGenerator.joinPoll(), params);
   }
 
-  async getUserProgress(): Promise<UserProgressResponse> {
-    const { data } = await this.axios.get<ApiWrapper<UserProgressResponse>>(this.urlGenerator.getUserProgress());
+  async getPopularPolls(): Promise<PollResponse[]> {
+    const { data } = await this.axios.get<ApiWrapper<PollResponse[]>>(this.urlGenerator.getPopularPolls());
 
     return data.response;
   }
 
-  async getUserPopularPolls(): Promise<PollResponse[]> {
-    const { data } = await this.axios
-      .get<ApiWrapper<PollResponse[]>>(this.urlGenerator.getUserPopularPolls());
+  async getUserProgress(): Promise<UserProgressResponse> {
+    const { data } = await this.axios.get<ApiWrapper<UserProgressResponse>>(this.urlGenerator.getUserProgress());
 
     return data.response;
   }

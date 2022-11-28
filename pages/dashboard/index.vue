@@ -14,7 +14,7 @@
       />
 
       <div :class="b('wrapper')">
-        <div>
+        <!-- <div>
           <h2 :class="b('sub-title')">
             {{ textAttributes.yourReactions }}
           </h2>
@@ -23,7 +23,7 @@
             :reactions="reactions"
             :view="reactionsBlockView.default"
           />
-        </div>
+        </div> -->
 
         <div>
           <h2 :class="b('sub-title')">
@@ -32,7 +32,7 @@
 
           <ul :class="b('list')">
             <li
-              v-for="(item, index) in userPopularPolls"
+              v-for="(item, index) in popularPolls"
               :key="index"
             >
               <poll-block

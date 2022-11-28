@@ -8,3 +8,5 @@ export { default as uiModal } from './modal/component.vue';
 export { default as uiSwitch } from './switch/component.vue';
 export { default as uiTextarea } from './textarea/component.vue';
 export { default as uiTooltip } from './tooltip/component.vue';
+export { default as uiCheckbox } from './checkbox/component.vue';
+export { default as uiRadio } from './radio/component.vue';

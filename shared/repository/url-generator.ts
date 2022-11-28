@@ -77,6 +77,10 @@ export class UrlGenerator implements ProjectUrlGenerator {
     return `${ApiRoutes.polls}join/`;
   }
 
+  getPopularPolls(): string {
+    return ApiRoutes.polls;
+  }
+
   removePoll(id: string): string {
     return `${ApiRoutes.polls}${id}`;
   }
@@ -91,10 +95,6 @@ export class UrlGenerator implements ProjectUrlGenerator {
 
   getUserProgress(): string {
     return `${ApiRoutes.users}progress/`;
-  }
-
-  getUserPopularPolls(): string {
-    return `${ApiRoutes.user}/popular-polls`;
   }
 
   getUnsplashPhotos(): string {

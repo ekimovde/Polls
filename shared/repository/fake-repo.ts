@@ -114,12 +114,12 @@ export class FakeRepo implements ProjectRepository {
     void respondMockResult(null);
   }
 
-  async getUserProgress(): Promise<UserProgressResponse> {
-    return respondMockResult(fakeUserProgressResponse());
+  async getPopularPolls(): Promise<PollResponse[]> {
+    return respondMockResult(fakePolls());
   }
 
-  async getUserPopularPolls(): Promise<PollResponse[]> {
-    return respondMockResult(fakePolls());
+  async getUserProgress(): Promise<UserProgressResponse> {
+    return respondMockResult(fakeUserProgressResponse());
   }
 
   async getUnsplashPhotos(params: UnsplashPhotoRequest): Promise<UnsplashPhotoResponse[]> {

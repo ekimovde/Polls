@@ -7,7 +7,13 @@ import { getPercentage } from '~/shared/utils/get-percentage';
 export enum UiProgressTheme {
   green = 'green',
   purple = 'purple',
-  red = 'red'
+  red = 'red',
+  blue = 'blue'
+}
+
+export enum UiProgressView {
+  default = 'default',
+  regular = 'regular'
 }
 
 const DEFAULT_PERCENT_OF_COMPLETED = 100;
@@ -29,6 +35,12 @@ export default class extends mixins(TestId) {
     default: UiProgressTheme.green,
     validator: val => Object.values(UiProgressTheme).includes(val)
   }) readonly theme: UiProgressTheme;
+
+  @Prop({
+    type: String,
+    default: UiProgressView.default,
+    validator: val => Object.values(UiProgressView).includes(val)
+  }) readonly view: UiProgressView;
 
   readonly testLocators = UiProgressTestLocator;
 

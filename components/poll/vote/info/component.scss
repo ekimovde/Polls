@@ -1,0 +1,54 @@
+@import "assets/scss/helper.scss";
+
+.poll-vote-info {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid $white;
+    border-radius: 50px;
+
+    &:first-child {
+      z-index: 1;
+    }
+
+    &:nth-child(2) {
+      z-index: 2;
+      margin-left: -15px;
+    }
+
+    &:last-child {
+      z-index: 3;
+      margin-left: -15px;
+    }
+  }
+
+  &__text {
+    @include fontInter13Regular;
+
+    margin: 0;
+    padding: 0;
+    color: #666;
+    line-height: 14px;
+  }
+
+  &__circle {
+    width: 3px;
+    height: 3px;
+    background-color: #999;
+    border-radius: 50px;
+  }
+}

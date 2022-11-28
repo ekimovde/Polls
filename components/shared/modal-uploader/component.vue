@@ -46,11 +46,11 @@
           :size="uiButtonSize.byContent"
           :theme="uiButtonTheme.default"
           :class="b('button')"
-          @click="choose(item.urls.full)"
+          @click="choose(item.urls.raw)"
         >
           <figure :class="b('figure')">
             <img
-              :src="item.urls.full"
+              :src="item.urls.raw"
               :class="b('image')"
               alt=""
             >

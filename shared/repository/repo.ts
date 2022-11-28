@@ -8,7 +8,7 @@ import { PollCategory } from './constants';
 import { SharedColorTheme } from '~/components/shared/color/component';
 import HeaderModuleStore from '~/store/modules/header';
 import FooterModuleStore from '~/store/modules/footer';
-import { PollQuestionAnswer, PollQuestionTime, PollQuestionDate, PollQuestionResponse, PollAuthor } from '~/components/poll/model';
+import { PollQuestionAnswer, PollQuestionTime, PollQuestionDate, PollQuestionResponse, PollAuthor, PollVoteParams } from '~/components/poll/model';
 import { UserProgressValue } from '~/components/progress/model';
 
 export interface ProjectRepository {
@@ -31,10 +31,10 @@ export interface ProjectRepository {
   updatePoll(id: string, params: SetPollRequest): Promise<void>
   getPollAnswers(id: string): Promise<PollQuestionAnswer[]>
   joinPoll(params: JoinPollRequest): Promise<void>
+  getPopularPolls(): Promise<PollResponse[]>
   getUnsplashPhotos(params: UnsplashPhotoRequest): Promise<UnsplashPhotoResponse[]>
   searchUnsplashPhotos(params: UnsplashPhotoRequest): Promise<UnsplashPhotoResponse[]>
   getUserProgress(): Promise<UserProgressResponse>
-  getUserPopularPolls(): Promise<PollResponse[]>
   getReactions(): Promise<ReactionResponse[]>
 }
 
@@ -148,6 +148,7 @@ export interface PollResponse {
   time: PollQuestionTime
   author: PollAuthor
   members?: PollMembersResponse[]
+  vote: PollVoteParams
   userId: number
   isPublic: boolean
   created: string

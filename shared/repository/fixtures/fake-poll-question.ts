@@ -1,4 +1,5 @@
 import { PollQuestionResponse } from '~/components/poll/model';
+import { fakePollAnswerWithText } from './fake-poll-answers';
 
 export const fakePollQuestion = (params: Partial<PollQuestionResponse> = {}): PollQuestionResponse => {
   return {
@@ -11,4 +12,14 @@ export const fakePollQuestion = (params: Partial<PollQuestionResponse> = {}): Po
     },
     ...params
   };
+};
+
+export const fakePollQuestionWithAnswers = (params: Partial<PollQuestionResponse> = {}): PollQuestionResponse => {
+  return fakePollQuestion({
+    name: 'Text',
+    answers: [
+      fakePollAnswerWithText()
+    ],
+    ...params
+  });
 };
