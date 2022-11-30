@@ -18,7 +18,7 @@ export default class extends mixins(TestId, Translatable) {
     default: () => ({})
   }) readonly question: PollQuestion;
 
-  readonly textAttributes = this.transAll(PollVoteInfoTextAttribute);
+  readonly textAttributes = PollVoteInfoTextAttribute;
   readonly testLocators = PollVoteInfoTestLocator;
 
   readonly avatarBlockSize = AvatarBlockSize;

@@ -3,8 +3,8 @@ import { RoutesName } from '~/shared/repository/routes/routes-name';
 
 export const dropdownItem = (params: Partial<DropdownItemBase> = {}): DropdownItemBase => {
   return {
-    title: 'Invite team admins',
-    routeName: RoutesName.index,
+    title: 'Мои опросы',
+    routeName: RoutesName.pollsMy,
     type: DropdownItemTypeBase.default,
     ...params
   };
@@ -13,28 +13,19 @@ export const dropdownItem = (params: Partial<DropdownItemBase> = {}): DropdownIt
 export const accountDropdownList = (): DropdownItemBase[][] => {
   return [
     [
-      dropdownItem()
-    ],
-    [
+      dropdownItem(),
       dropdownItem({
-        title: 'Manage team'
-      }),
-      dropdownItem({
-        title: 'My Polls',
-        routeName: RoutesName.pollsMy
-      }),
-      dropdownItem({
-        title: 'My Votes',
+        title: 'Мои голоса',
         routeName: RoutesName.votesMy
       })
     ],
     [
       dropdownItem({
-        title: 'Edit Profile',
+        title: 'Редактировать профиль',
         routeName: RoutesName.accountProfile
       }),
       dropdownItem({
-        title: 'Logout',
+        title: 'Выйти',
         type: DropdownItemTypeBase.regular
       })
     ]
@@ -45,29 +36,29 @@ export const accountDropdownListForIndexPage = (): DropdownItemBase[][] => {
   return [
     [
       dropdownItem({
-        title: 'Home',
+        title: 'Главная',
         routeName: RoutesName.index
       }),
       dropdownItem({
-        title: 'Features',
+        title: 'Особенности',
         routeName: RoutesName.index
       }),
       dropdownItem({
-        title: 'Pricing',
+        title: 'Цены',
         routeName: RoutesName.index
       })
     ],
     [
       dropdownItem({
-        title: 'About us',
+        title: 'О нас',
         routeName: RoutesName.index
       }),
       dropdownItem({
-        title: 'Contact',
+        title: 'Контакты',
         routeName: RoutesName.index
       }),
       dropdownItem({
-        title: 'Brand',
+        title: 'Брэнд',
         routeName: RoutesName.index
       })
     ]
@@ -78,26 +69,26 @@ export const pollSettingsDropdownList = (): DropdownItemBase[][] => {
   return [
     [
       dropdownItem({
-        title: 'Invite to poll',
+        title: 'Пригласить к опросу',
         routeName: RoutesName.pollInviteId,
         type: DropdownItemTypeBase.default
       })
     ],
     [
       dropdownItem({
-        title: 'Poll settings',
+        title: 'Настройки опроса',
         routeName: RoutesName.pollSettingsId,
         type: DropdownItemTypeBase.default
       }),
       dropdownItem({
-        title: 'Manage poll members',
+        title: 'Управление участниками опроса',
         routeName: RoutesName.pollMembersId,
         type: DropdownItemTypeBase.default
       })
     ],
     [
       dropdownItem({
-        title: 'Delete poll',
+        title: 'Удалить опрос',
         routeName: RoutesName.index,
         type: DropdownItemTypeBase.regular
       })

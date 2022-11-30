@@ -3,9 +3,9 @@ import { getTestSelectors } from '~/shared/utils/unit-test/test-id';
 export const COMPONENT_NAME = 'poll-empty-banner';
 
 export enum PollEmptyBannerTextAttribute {
-  title = 'Let’s create your first poll',
-  description = 'A team, for example “Design Team” will have team members you’ll invite and they will be prompted to attend asynchronous daily stand-ups.',
-  createPoll = 'Create Poll'
+  title = 'Давайте создадим ваш первый опрос',
+  description = 'Опрос, например “Лучший язык программирования”, будет состоять из языков, которые являются наиболее популярными.',
+  createPoll = 'Создать опрос'
 }
 
 export enum PollEmptyBannerTestLocator {

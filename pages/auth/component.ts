@@ -24,7 +24,7 @@ import { SigninRequest } from '~/shared/repository/repo';
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(AuthPageTextAttribute);
+  readonly textAttributes = AuthPageTextAttribute;
 
   readonly userRepo = this.$projectServices.userRepo;
   readonly notifier = this.$projectServices.notification;

@@ -1,12 +1,12 @@
 export const COMPONENT_NAME = 'poll-id-page';
 
 export enum PollIdPagePageTextAttribute {
-  description = '1 team member attend this stand-up',
-  settings = 'Settings',
-  modalTitle = 'Are you sure?',
+  description = '1 член команды принимает участие в этом стендапе',
+  settings = 'Настройки',
+  modalTitle = 'Ты уверен?',
   modalDescription = `
-    If you delete this team all stand-ups will stop and users will be removed
-    from this team, this action cannot be undone.
+    Если вы удалите этот опрос, все голосования прекратятся, а пользователи будут удалены
+    от этого опроса это действие не может быть отменено.
   `,
-  deletePoll = 'Delete Poll'
+  deletePoll = 'Удалить опрос'
 }

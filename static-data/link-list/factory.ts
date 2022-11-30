@@ -3,18 +3,14 @@ import { RoutesName } from '~/shared/repository/routes/routes-name';
 
 export const linkListItem = (params: Partial<RouteItemBase> = {}): RouteItemBase => {
   return {
-    title: 'Timezone',
-    routeName: RoutesName.accountProfile,
+    title: 'Изменить пароль',
+    routeName: RoutesName.accountProfilePassword,
     ...params
   };
 };
 
 export const linkList = (): RouteItemBase[] => {
   return [
-    linkListItem(),
-    linkListItem({
-      title: 'Change Password',
-      routeName: RoutesName.accountProfilePassword
-    })
+    linkListItem()
   ];
 };

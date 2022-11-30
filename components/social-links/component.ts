@@ -8,7 +8,7 @@ import { footerSocialLinks } from '~/static-data/footer/factory';
   name: COMPONENT_NAME
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(SocialLinksTextAttribute);
+  readonly textAttributes = SocialLinksTextAttribute;
   readonly testLocators = SocialLinksTestLocator;
 
   readonly socialLinks = footerSocialLinks();

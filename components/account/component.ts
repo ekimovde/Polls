@@ -19,7 +19,7 @@ import { accountDropdownList } from '~/static-data/dropdown/factory';
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(AccountBlockTextAttribute);
+  readonly textAttributes = AccountBlockTextAttribute;
   readonly testLocators = AccountBlockTestLocator;
 
   readonly userRepo = this.$projectServices.userRepo;

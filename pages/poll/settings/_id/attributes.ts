@@ -1,13 +1,13 @@
 export const COMPONENT_NAME = 'poll-settings-id-page';
 
 export enum PollSettingsIdPagePageTextAttribute {
-  title = 'Poll Settings',
-  description = 'The below settings are for the',
-  pollName = 'Poll Name',
-  chooseColor = 'Choose a poll color',
-  placeholder = 'Eg. Design Poll',
-  notifications = 'Notifications',
-  notificationsDescription = 'Receive an email when a team member completes a stand-up',
-  saveChanges = 'Save Changes',
-  yes = 'Yes'
+  title = 'Настройки опроса',
+  description = 'Приведенные ниже настройки предназначены для',
+  pollName = 'Название опроса',
+  chooseColor = 'Выберите цвет опроса',
+  placeholder = 'Например, Опрос по дизайну',
+  notifications = 'Уведомления',
+  notificationsDescription = 'Получите электронное письмо, когда член опроса завершит голосование',
+  saveChanges = 'Сохранить изменения',
+  yes = 'Да'
 }

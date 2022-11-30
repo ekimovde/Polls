@@ -1,12 +1,12 @@
 export const COMPONENT_NAME = 'poll-new-join-link-id-page';
 
 export enum PollNewJoinLinkIdPagePageTextAttribute {
-  backTo = 'Back to',
-  polls = 'Polls',
-  title = 'Invite team members to your',
-  joinLink = 'with a Join link',
-  placeholder = 'Copy link',
-  description = 'This will allow anyone with the link to join your team, we will email the company owner when a team member joins. You can promote team members to a team admin at anytime once they join.',
-  continue = 'Continue',
-  skip = 'Skip'
+  backTo = 'Вернуться к',
+  polls = 'Опросы',
+  title = 'Пригласите членов опроса на ваш',
+  joinLink = 'со ссылкой для присоединения',
+  placeholder = 'Скопировать ссылку',
+  description = 'Это позволит любому, у кого есть ссылка, присоединиться к вашему опросу, мы отправим электронное письмо владельцу компании, когда член опроса присоединится. Вы можете повысить членов опроса до администратора опроса в любое время, как только они присоединятся.',
+  continue = 'Продолжить',
+  skip = 'Пропустить'
 }

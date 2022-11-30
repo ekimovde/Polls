@@ -3,8 +3,8 @@ import { HomeFeature, HomeBlockTheme } from '~/components/home/model';
 export const homeFeature = (params: Partial<HomeFeature> = {}): HomeFeature => {
   return {
     icon: 'bx bx-time',
-    title: 'Async daily stand-ups',
-    description: 'Have your team attend daily stand-ups online and have complete visibility over your teams progress and blockers',
+    title: 'Асинхронные ежедневные опросы',
+    description: 'Пусть ваша команда посещает ежедневные опросы онлайн и имеет полную видимость прогресса вашей команды и блокировок',
     theme: HomeBlockTheme.pink,
     ...params
   };
@@ -15,32 +15,32 @@ export const fakeFeatures = (): HomeFeature[] => {
     homeFeature(),
     homeFeature({
       icon: 'bx bxs-chat',
-      title: 'Discussions',
-      description: 'Every stand-up has comments enabled. Check in, acknowledge progress or discuss blockers, all on the stand-up',
+      title: 'Обсуждения',
+      description: 'В каждом опросе включены комментарии. Регистрируйтесь, подтверждайте прогресс или обсуждайте блокировщики, и все это в режиме ожидания',
       theme: HomeBlockTheme.orange
     }),
     homeFeature({
       icon: 'bx bx-compass',
-      title: 'Dashboard insights',
-      description: 'See at a glance how your team is feeling, if team members are blocked, and who hit the previous day`s goals',
+      title: 'Аналитическая информация на панели мониторинга',
+      description: 'Посмотрите с первого взгляда, как чувствует себя ваша команда, заблокированы ли члены команды и кто достиг целей предыдущего дня',
       theme: HomeBlockTheme.purple
     }),
     homeFeature({
       icon: 'bx bx-check',
-      title: 'Task Management',
-      description: 'Inside Stand to allow daily stand-ups and tasks to live in one place.',
+      title: 'Управление задачами',
+      description: 'Внутренняя подставка, позволяющая выполнять ежедневные задания в одном месте.',
       theme: HomeBlockTheme.blue
     }),
     homeFeature({
       icon: 'bx bx-world',
-      title: 'Remote team friendly',
-      description: 'Truly asynchronous stand-ups. With remote teams, not everyone`s day starts at the same time and we allow for that',
+      title: 'Удаленная дружелюбная команда',
+      description: 'Поистине асинхронные опросы. В удаленных командах не у всех день начинается в одно и то же время, и мы допускаем это',
       theme: HomeBlockTheme.green
     }),
     homeFeature({
       icon: 'bx bx-smile',
-      title: 'Team mood',
-      description: 'At a glance see how the team are feeling, understand if a team member is unhappy or under pressure so that you can act',
+      title: 'Командный настрой',
+      description: 'С первого взгляда посмотрите, как чувствует себя команда, поймите, недоволен ли кто-то из членов команды или находится под давлением, чтобы вы могли действовать',
       theme: HomeBlockTheme.teal
     })
   ];

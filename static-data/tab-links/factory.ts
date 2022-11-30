@@ -3,7 +3,7 @@ import { RoutesName } from '~/shared/repository/routes/routes-name';
 
 export const tabLink = (params: Partial<RouteItemBase> = {}): RouteItemBase => {
   return {
-    title: 'Content',
+    title: 'Главная',
     routeName: RoutesName.pollId,
     ...params
   };

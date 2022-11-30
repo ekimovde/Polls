@@ -8,7 +8,7 @@ import { linkList } from '~/static-data/link-list/factory';
   name: COMPONENT_NAME
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(LinkListTextAttribute);
+  readonly textAttributes = LinkListTextAttribute;
   readonly testLocators = LinkListTestLocator;
 
   readonly linkList = linkList()

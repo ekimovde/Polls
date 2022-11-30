@@ -1,8 +1,8 @@
 export const COMPONENT_NAME = 'dashboard-page';
 
 export enum DashboardPageTextAttribute {
-  title = 'Dashboard',
-  yourPolls = 'Your Popular Polls',
-  yourReactions = 'Your reactions',
-  allPolls = 'See all polls'
+  title = 'Панель',
+  yourPolls = 'Ваши популярные опросы',
+  yourReactions = 'Ваши реакции',
+  allPolls = 'Посмотреть все опросы'
 }

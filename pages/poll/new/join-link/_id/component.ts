@@ -22,7 +22,7 @@ import { PollResponse } from '~/shared/repository/repo';
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(PollNewJoinLinkIdPagePageTextAttribute)
+  readonly textAttributes = PollNewJoinLinkIdPagePageTextAttribute;
 
   readonly projectRepository = this.$projectServices.projectRepository;
   readonly notifier = this.$projectServices.notification;

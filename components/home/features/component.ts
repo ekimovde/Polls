@@ -14,7 +14,7 @@ import { fakeFeatures } from '~/static-data/home/features/factory';
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(HomeFeaturesTextAttribute);
+  readonly textAttributes = HomeFeaturesTextAttribute;
   readonly testLocators = HomeFeaturesTestLocator;
 
   readonly uiButtonView = UiButtonView;

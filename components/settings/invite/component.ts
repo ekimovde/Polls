@@ -15,7 +15,7 @@ import { UiButtonView, UiButtonSize, UiButtonTheme } from '~/components/ui/butto
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(SettingsInviteTextAttribute);
+  readonly textAttributes = SettingsInviteTextAttribute;
   readonly testLocators = SettingsInviteTestLocator;
 
   readonly uiInputView = UiInputView;

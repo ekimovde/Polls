@@ -29,7 +29,7 @@ export default class extends mixins(TestId, Translatable) {
     default: PollQuestionMenuView.list
   }) readonly view: PollQuestionMenuView;
 
-  readonly textAttributes = this.transAll(PollQuestionMenuTextAttribute);
+  readonly textAttributes = PollQuestionMenuTextAttribute;
   readonly testLocators = PollQuestionMenuTestLocator;
 
   readonly pollQuestionTypeView = PollQuestionTypeView;

@@ -15,7 +15,7 @@ import { PollVoteResult } from '~/components/poll/vote/result';
 const DEFAULT_QUANTITY_OF_ANSWERS = 1;
 
 enum PollVoteEvent {
-  submit = 'submit'
+  vote = 'vote'
 }
 
 @Component({
@@ -97,7 +97,7 @@ export default class extends mixins(TestId, Translatable) {
     return this.selectedAnswer.text;
   }
 
-  submit(): void {
-    void this.$emit(PollVoteEvent.submit, this.selectedAnswer);
+  vote(): void {
+    void this.$emit(PollVoteEvent.vote, this.selectedAnswer);
   }
 }

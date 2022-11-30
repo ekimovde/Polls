@@ -21,7 +21,7 @@ export default class extends mixins(TestId, Translatable) {
     default: BrandBlockSize.default
   }) readonly size: BrandBlockSize;
 
-  readonly textAttributes = this.transAll(BrandBlockTextAttribute);
+  readonly textAttributes = BrandBlockTextAttribute;
   readonly testLocators = BrandBlockTestLocator;
 
   readonly userRepo = this.$projectServices.userRepo;

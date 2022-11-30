@@ -42,7 +42,7 @@ export default class extends mixins(TestId, Translatable) {
 
   @Ref('input') readonly input: HTMLInputElement;
 
-  readonly textAttributes = this.transAll(UiRadioTextAttrubute);
+  readonly textAttributes = UiRadioTextAttrubute;
   readonly testLocators = UiRadioTestLocator;
 
   get isChecked(): boolean {
@@ -62,7 +62,7 @@ export default class extends mixins(TestId, Translatable) {
       return;
     }
 
-    this.$emit('change', this.value);
+    this.$emit(UiRadioEvent.change, this.value);
   }
 
   focus(): void {

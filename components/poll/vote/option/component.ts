@@ -35,7 +35,7 @@ export default class extends mixins(TestId, Translatable) {
     default: null
   }) readonly ownImage: string;
 
-  readonly textAttributes = this.transAll(PollVoteOptionTextAttribute);
+  readonly textAttributes = PollVoteOptionTextAttribute;
   readonly testLocators = PollVoteOptionTestLocator;
 
   readonly uiButtonView = UiButtonView;

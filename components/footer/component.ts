@@ -14,7 +14,7 @@ import { SocialLinks } from '~/components/social-links';
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(FooterBlockTextAttribute);
+  readonly textAttributes = FooterBlockTextAttribute;
   readonly testLocators = FooterBlockTestLocator;
 
   readonly footerLinks = footerLinks();

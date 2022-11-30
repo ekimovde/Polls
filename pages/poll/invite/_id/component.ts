@@ -18,7 +18,7 @@ import { getPollIdRoute } from '~/shared/repository/routes/poll';
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(PollInviteIdPagePageTextAttribute)
+  readonly textAttributes = PollInviteIdPagePageTextAttribute;
 
   readonly uiButtonView = UiButtonView;
   readonly uiButtonSize = UiButtonSize;

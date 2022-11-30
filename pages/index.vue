@@ -75,7 +75,7 @@
     }
   })
   export default class HomePage extends mixins(Vue, Translatable) {
-    readonly textAttributes = this.transAll(IndexPageTextAttribute);
+    readonly textAttributes = IndexPageTextAttribute;
 
     readonly userRepo = this.$projectServices.userRepo;
 

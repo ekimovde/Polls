@@ -80,7 +80,7 @@ export default class extends mixins(TestId, Translatable) {
     validator: val => Object.values(UiInputType).includes(val)
   }) readonly type: UiInputType;
 
-  readonly textAttributes = this.transAll(UiInputTextAttribute)
+  readonly textAttributes = UiInputTextAttribute;
   readonly testLocators = UiInputTestLocator;
 
   input(event: Event): void {

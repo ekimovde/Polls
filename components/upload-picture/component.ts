@@ -23,7 +23,7 @@ export default class extends mixins(TestId, Translatable) {
     default: ''
   }) readonly avatar: string;
 
-  readonly textAttributes = this.transAll(UploadPictureTextAttribute);
+  readonly textAttributes = UploadPictureTextAttribute;
   readonly testLocators = UploadPictureTestLocator;
 
   readonly uiButtonView = UiButtonView;

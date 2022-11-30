@@ -3,8 +3,8 @@ import { getTestSelectors } from '~/shared/utils/unit-test/test-id';
 export const COMPONENT_NAME = 'reactions-block';
 
 export enum ReactionsBlockTextAttribute {
-  title = 'Reactions to your changelog poll',
-  pollInfo = 'in current poll'
+  title = 'Реакции на ваш опрос в журнале изменений',
+  pollInfo = 'в текущем опросе'
 }
 
 export enum ReactionsBlockTestLocator {

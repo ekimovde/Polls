@@ -3,9 +3,9 @@ import { getTestSelectors } from '~/shared/utils/unit-test/test-id';
 export const COMPONENT_NAME = 'home-task-management';
 
 export enum HomeTaskManagementTextAttribute {
-  category = 'Task Management',
-  title = 'Complete task management for your team',
-  description = 'We give your team the option to attend a stand-up inside stand and also manage all of thier tasks. Our tasks come with tagging, due dates, comments and the ability to assign tasks between team members.'
+  category = 'Управление задачами',
+  title = 'Полное управление задачами для вашей команды',
+  description = 'Мы предоставляем вашей команде возможность посетить голосование внутри опроса, а также управлять всеми их задачами. Наши задачи сопровождаются пометками, сроками выполнения, комментариями и возможностью распределять задачи между членами команды.'
 }
 
 export enum HomeTaskManagementTestLocator {

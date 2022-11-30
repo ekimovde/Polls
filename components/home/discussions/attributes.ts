@@ -3,9 +3,9 @@ import { getTestSelectors } from '~/shared/utils/unit-test/test-id';
 export const COMPONENT_NAME = 'home-discussions';
 
 export enum HomeDiscussionsTextAttribute {
-  category = 'Discussions',
-  title = 'Clear discussions on the stand-up',
-  description = 'All stand-ups have comments. Drop a comment on a stand-up to say well done for completing a difficult task, ask questions or @mention other team members to start a conversation.'
+  category = 'Обсуждения',
+  title = 'Четкие обсуждения в режиме ожидания',
+  description = 'У всех опросов есть комментарии. Оставьте комментарий к опросу, чтобы сказать "молодец" за выполнение трудной задачи, задайте вопросы или @ упомяните других членов команды, чтобы начать разговор.'
 }
 
 export enum HomeDiscussionsTestLocator {

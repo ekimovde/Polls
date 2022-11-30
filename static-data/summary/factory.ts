@@ -3,7 +3,7 @@ import { SummaryBase } from '~/components/summary/model';
 export const summaryItem = (params: Partial<SummaryBase> = {}): SummaryBase => {
   return {
     icon: 'bx bx-street-view bx-tada',
-    description: 'All your team members will be receiving invites via email now, they will show as pending until they create an account or use the share link to join.',
+    description: 'Все члены вашего опроса теперь будут получать приглашения по электронной почте, они будут отображаться как ожидающие, пока они не создадут учетную запись или не воспользуются ссылкой "Поделиться", чтобы присоединиться.',
     ...params
   };
 };
@@ -13,15 +13,15 @@ export const summaryList = (): SummaryBase[] => {
     summaryItem(),
     summaryItem({
       icon: 'bx bx-male bx-tada',
-      description: 'Team memebers will be asked what time they want to attend daily standups, this is to allow for fully asynchronous daily stand-ups even for remote distrubuted teams.'
+      description: 'Членов опроса спросят, в какое время они хотят посещать ежедневные опросы, это позволит проводить полностью асинхронные ежедневные опросы даже для удаленных распределенных опросов.'
     }),
     summaryItem({
       icon: 'bx bxl-mailchimp bx-tada',
-      description: 'We’ll email you whenever a team member completes a standup however you can change this via the team settings.'
+      description: 'Мы отправим вам электронное письмо всякий раз, когда член опроса завершит опрос, однако вы можете изменить это через настройки опроса.'
     }),
     summaryItem({
       icon: 'bx bx-bolt-circle bx-tada',
-      description: 'Team members will now be prompted daily to attend standups. Sit back and wait for them to roll in.'
+      description: 'Членам опроса теперь будет ежедневно предлагаться посещать опросы. Сядьте поудобнее и ждите, когда они появятся.'
     })
   ];
 };

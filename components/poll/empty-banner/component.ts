@@ -15,7 +15,7 @@ import { RoutesName } from '~/shared/repository/routes/routes-name';
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(PollEmptyBannerTextAttribute);
+  readonly textAttributes = PollEmptyBannerTextAttribute;
   readonly testLocators = PollEmptyBannerTestLocator;
 
   readonly uiButtonView = UiButtonView;

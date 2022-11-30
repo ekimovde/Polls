@@ -20,7 +20,7 @@ import { UploadPicture } from '~/components/upload-picture';
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(AccountProfilePageTextAttribute)
+  readonly textAttributes = AccountProfilePageTextAttribute;
 
   readonly projectRepository = this.$projectServices.projectRepository;
   readonly userRepo = this.$projectServices.userRepo;

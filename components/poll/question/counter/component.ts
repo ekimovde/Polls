@@ -14,6 +14,6 @@ export default class extends mixins(TestId, Translatable) {
     default: DEFAULT_COUNT
   }) readonly count: number;
 
-  readonly textAttributes = this.transAll(PollQuestionCounterTextAttribute);
+  readonly textAttributes = PollQuestionCounterTextAttribute;
   readonly testLocators = PollQuestionCounterTestLocator;
 }

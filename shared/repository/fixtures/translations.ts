@@ -2952,7 +2952,7 @@ export const translationsResponse = (): Translation[] => {
     },
     {
       hash: '656f76b37aa0759f96043dce6d50693f',
-      text: 'Edit profile'
+      text: 'Редактировать профиль'
     },
     {
       hash: '1706282c5244c8e988f76c5eb939b754',
@@ -3588,7 +3588,7 @@ export const translationsResponse = (): Translation[] => {
     },
     {
       hash: '753445752e545a25ecd0cdef6da4c081',
-      text: 'Edit profile'
+      text: 'Редактировать профиль'
     },
     {
       hash: 'db54549c8e93920e8d254a3653aa4cd1',
@@ -5308,7 +5308,7 @@ export const translationsResponse = (): Translation[] => {
     },
     {
       hash: '56ad2c701a3e239c74f7f29ee1ef7180',
-      text: 'Edit profile'
+      text: 'Редактировать профиль'
     },
     {
       hash: '0b2fc0eb43f5d0603551cce9c17209f3',

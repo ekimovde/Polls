@@ -1,10 +1,10 @@
 export const COMPONENT_NAME = 'account-profile-password-page';
 
 export enum AccountProfilePasswordPageTextAttribute {
-  title = 'Change your password',
-  currentPassword = 'Current Password',
-  newPassword = 'New Password',
-  placeholder = 'Minimum 4 characters',
-  saveChanges = 'Save Changes',
-  errorMessage = 'Please enter a correct value'
+  title = 'Измените свой пароль',
+  currentPassword = 'Текущий пароль',
+  newPassword = 'Новый пароль',
+  placeholder = 'Минимум 4 символа',
+  saveChanges = 'Сохранить изменения',
+  errorMessage = 'Пожалуйста, введите верное значение'
 }

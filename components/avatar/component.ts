@@ -23,7 +23,7 @@ export default class extends mixins(TestId, Translatable) {
     default: AvatarBlockSize.default
   }) readonly size: AvatarBlockSize;
 
-  readonly textAttributes = this.transAll(AvatarBlockTextAttribute);
+  readonly textAttributes = AvatarBlockTextAttribute;
   readonly testLocators = AvatarBlockTestLocator;
 
   readonly placeholder = require('@assets/images/avatar-placeholder.jpg');

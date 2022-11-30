@@ -58,9 +58,9 @@
         :size="uiButtonSize.small"
         :theme="uiButtonTheme.purple"
         :is-disabled="!hasSelectedAnswer"
-        @click="submit"
+        @click="vote"
       >
-        {{ textAttributes.submit }}
+        {{ textAttributes.vote }}
       </ui-button>
     </div>
   </div>

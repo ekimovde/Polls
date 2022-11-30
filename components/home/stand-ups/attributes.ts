@@ -3,9 +3,9 @@ import { getTestSelectors } from '~/shared/utils/unit-test/test-id';
 export const COMPONENT_NAME = 'home-stand-ups';
 
 export enum HomeStandUpsTextAttribute {
-  category = 'Daily stand-ups',
-  title = 'A clear view of who’s working on what',
-  description = 'You will be informed of current progress, intentions, blockers and questions all without joining a call. Team admins will be notified when a team member has attended a stand-up.'
+  category = 'Ежедневные опросы',
+  title = 'Четкое представление о том, кто над чем работает',
+  description = 'Вы будете проинформированы о текущем прогрессе, намерениях, блокировках и вопросах - и все это без участия в разговоре. Администраторы команды будут уведомлены, когда член команды посетит стендап.'
 }
 
 export enum HomeStandUpsTestLocator {

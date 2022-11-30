@@ -22,7 +22,7 @@ import { getPollIdRoute } from '~/shared/repository/routes/poll';
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(PollNewSummaryIdPagePageTextAttribute)
+  readonly textAttributes = PollNewSummaryIdPagePageTextAttribute;
 
   readonly projectRepository = this.$projectServices.projectRepository;
   readonly notifier = this.$projectServices.notification;

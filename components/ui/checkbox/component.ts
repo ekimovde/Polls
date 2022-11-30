@@ -17,7 +17,7 @@ export default class extends mixins(TestId, Translatable) {
     default: false
   }) readonly isChecked: boolean;
 
-  readonly textAttributes = this.transAll(UiCheckboxTextAttrubute);
+  readonly textAttributes = UiCheckboxTextAttrubute;
   readonly testLocators = UiCheckboxTestLocator;
 
   change(event: Event): void {

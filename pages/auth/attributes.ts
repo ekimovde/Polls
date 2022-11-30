@@ -1,14 +1,14 @@
 export const COMPONENT_NAME = 'auth-page';
 
 export enum AuthPageTextAttribute {
-  title = 'Log in',
-  description = 'Log in to your Stand account',
-  email = 'Email Address',
-  emailErrorMessage = 'Please enter your valid Email!',
-  password = 'Password',
-  passwordErrorMessage = 'Please enter your valid password!',
-  reset = 'reset it here',
-  forgotPassword = 'Forgot your password? You can',
-  signUp = 'Sign Up',
-  accountQuestion = 'Don’t have an account?'
+  title = 'Авторизоваться',
+  description = 'Войдите в свою учетную запись Polls',
+  email = 'Адрес электронной почты',
+  emailErrorMessage = 'Пожалуйста, введите свой действительный адрес электронной почты!',
+  password = 'Пароль',
+  passwordErrorMessage = 'Пожалуйста, введите свой действительный пароль!',
+  reset = 'сбросить его здесь',
+  forgotPassword = 'Забыли свой пароль? Ты можешь',
+  signUp = 'Зарегистрироваться',
+  accountQuestion = 'У вас нет учетной записи?'
 }

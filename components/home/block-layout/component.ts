@@ -25,6 +25,6 @@ export default class extends mixins(TestId, Translatable) {
     default: HomeBlockTheme.pink
   }) readonly theme: HomeBlockTheme;
 
-  readonly textAttributes = this.transAll(HomeBlockLayoutTextAttribute);
+  readonly textAttributes = HomeBlockLayoutTextAttribute;
   readonly testLocators = HomeBlockLayoutTestLocator;
 }

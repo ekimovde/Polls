@@ -30,7 +30,7 @@ export default class extends mixins(TestId, Translatable) {
     default: ReactionsBlockView.default
   }) readonly view: ReactionsBlockView;
 
-  readonly textAttributes = this.transAll(ReactionsBlockTextAttribute);
+  readonly textAttributes = ReactionsBlockTextAttribute;
   readonly testLocators = ReactionsBlockTestLocator;
 
   readonly uiButtonView = UiButtonView;

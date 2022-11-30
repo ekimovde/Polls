@@ -16,7 +16,7 @@ import { SetUserPasswordRequest } from '~/shared/repository/repo';
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(AccountProfilePasswordPageTextAttribute)
+  readonly textAttributes = AccountProfilePasswordPageTextAttribute;
 
   readonly projectRepository = this.$projectServices.projectRepository;
   readonly notifier = this.$projectServices.notification;

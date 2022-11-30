@@ -32,7 +32,7 @@ export enum HeaderBlockBreackpoints {
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(HeaderBlockTextAttribute);
+  readonly textAttributes = HeaderBlockTextAttribute;
   readonly testLocators = HeaderBlockTestLocator;
 
   readonly headerRepo = this.$projectServices.headerRepo;

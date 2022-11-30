@@ -23,7 +23,7 @@ import { SelfInfoResponse } from '~/shared/repository/repo';
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(MobileNavigationTextAttribute);
+  readonly textAttributes = MobileNavigationTextAttribute;
   readonly testLocators = MobileNavigationTestLocator;
 
   readonly userRepo = this.$projectServices.userRepo;

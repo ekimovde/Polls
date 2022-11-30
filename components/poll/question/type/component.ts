@@ -39,7 +39,7 @@ export default class extends mixins(TestId, Translatable) {
     default: false
   }) readonly isDisabled: boolean;
 
-  readonly textAttributes = this.transAll(PollQuestionTypeTextAttribute);
+  readonly textAttributes = PollQuestionTypeTextAttribute;
   readonly testLocators = PollQuestionTypeTestLocator;
 
   get isDefaultView(): boolean {

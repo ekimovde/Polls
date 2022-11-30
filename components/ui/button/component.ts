@@ -97,7 +97,7 @@ export default class extends mixins(TestId, Translatable) {
     default: false
   }) readonly isActive: boolean;
 
-  readonly textAttributes = this.transAll(UiButtonTextAttribute)
+  readonly textAttributes = UiButtonTextAttribute;
   readonly testLocators = UiButtonTestLocator;
 
   get isLink(): boolean {

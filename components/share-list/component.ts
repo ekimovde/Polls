@@ -19,7 +19,7 @@ import { SharedBadgeSize } from '~/components/shared/badge/component';
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(ShareListTextAttribute);
+  readonly textAttributes = ShareListTextAttribute;
   readonly testLocators = ShareListTestLocator;
 
   readonly uiButtonView = UiButtonView;

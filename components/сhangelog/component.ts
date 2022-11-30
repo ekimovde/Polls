@@ -7,7 +7,7 @@ import { Translatable } from '~/components/shared/translatable';
   name: COMPONENT_NAME
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(ChangelogBlockTextAttribute);
+  readonly textAttributes = ChangelogBlockTextAttribute;
   readonly testLocators = ChangelogBlockTestLocator;
 
   //

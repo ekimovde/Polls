@@ -1,16 +1,16 @@
 export const COMPONENT_NAME = 'poll-new-invite-id-page';
 
 export enum PollNewInviteIdPagePageTextAttribute {
-  backTo = 'Back to',
-  polls = 'Polls',
-  title = 'Invite team members to your',
-  viaEmail = 'via Email',
-  description = 'Add team members via email and we will send them an invite to join your team. You can also add a note to that invite, we’ve added a common note to get you started.',
+  backTo = 'Вернуться к',
+  polls = 'Опросы',
+  title = 'Пригласите членов опроса на ваш',
+  viaEmail = 'по электронной почте',
+  description = 'Добавьте участников опроса по электронной почте, и мы отправим им приглашение присоединиться к вашему опросу. Вы также можете добавить примечание к этому приглашению, мы добавили общую заметку, чтобы вы начали.',
   emailPlaceholder = 'email@example.com',
-  emailLabel = 'Email Address',
-  emailErrorMessage = 'Please enter your valid Email!',
-  sendInvites = 'Send Invites',
-  skip = 'Skip',
-  notePlaceholder = 'Add a message to your invites',
-  noteLabel = 'Add a note to the inivte'
+  emailLabel = 'Адрес электронной почты',
+  emailErrorMessage = 'Пожалуйста, введите свой действительный адрес электронной почты!',
+  sendInvites = 'Отправить приглашения',
+  skip = 'Пропустить',
+  notePlaceholder = 'Добавьте сообщение к своему приглашению',
+  noteLabel = 'Добавьте примечание к приглашению'
 }

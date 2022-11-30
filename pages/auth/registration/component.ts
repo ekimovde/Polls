@@ -26,7 +26,7 @@ const regexForNickName = helpers.regex('alpha', /^[A-Za-z\d_]{5,32}$/);
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(AuthRegistrationPageTextAttribute)
+  readonly textAttributes = AuthRegistrationPageTextAttribute;
 
   readonly userRepo = this.$projectServices.userRepo;
   readonly notifier = this.$projectServices.notification;

@@ -3,7 +3,7 @@ import { RoutesName } from '~/shared/repository/routes/routes-name';
 
 export const footerLinkItem = (params: Partial<RouteItemBase> = {}): RouteItemBase => {
   return {
-    title: 'About us',
+    title: 'О нас',
     routeName: RoutesName.index,
     ...params
   };
@@ -22,15 +22,15 @@ export const footerLinks = (): RouteItemBase[] => {
   return [
     footerLinkItem(),
     footerLinkItem({
-      title: 'Contact',
+      title: 'Контакты',
       routeName: RoutesName.index
     }),
     footerLinkItem({
-      title: 'Brand',
+      title: 'Бренд',
       routeName: RoutesName.index
     }),
     footerLinkItem({
-      title: 'Support',
+      title: 'Помощь',
       routeName: RoutesName.index
     })
   ];
@@ -39,15 +39,15 @@ export const footerLinks = (): RouteItemBase[] => {
 export const footerOtherLinks = (): RouteItemBase[] => {
   return [
     footerLinkItem({
-      title: 'Terms of use',
+      title: 'Условия использования',
       routeName: RoutesName.index
     }),
     footerLinkItem({
-      title: 'Privacy policy',
+      title: 'Политика конфиденциальности',
       routeName: RoutesName.index
     }),
     footerLinkItem({
-      title: 'Cookie policy',
+      title: 'Политика cookie',
       routeName: RoutesName.index
     })
   ];

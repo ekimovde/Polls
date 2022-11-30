@@ -9,7 +9,7 @@ import { summaryList } from '~/static-data/summary/factory';
   name: COMPONENT_NAME
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(SummaryBlockTextAttribute);
+  readonly textAttributes = SummaryBlockTextAttribute;
   readonly testLocators = SummaryBlockTestLocator;
 
   readonly summaryList: SummaryBase[] = summaryList();

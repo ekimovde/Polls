@@ -1,9 +1,9 @@
 export const COMPONENT_NAME = 'poll-new-summary-id-page';
 
 export enum PollNewSummaryIdPagePageTextAttribute {
-  title = 'Great work, you’ve created the',
-  soWhatNext = 'So what next?',
-  continueToPoll = 'Continue to poll',
-  backTo = 'Back to',
-  polls = 'Polls'
+  title = 'Отличная работа, вы создали',
+  soWhatNext = 'Так что же дальше?',
+  continueToPoll = 'Вперед к опросу',
+  backTo = 'Вернуться к',
+  polls = 'Опросы'
 }

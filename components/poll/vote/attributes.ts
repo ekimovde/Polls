@@ -4,7 +4,7 @@ export const COMPONENT_NAME = 'poll-vote';
 
 export enum PollVoteTextAttribute {
   billuten = 'Биллютень',
-  submit = 'Отправить',
+  vote = 'Голосовать',
   poll = 'Опрос',
   selectAnswer = 'Выберите вариант ответа 🖼️'
 }

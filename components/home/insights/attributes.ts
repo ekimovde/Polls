@@ -3,9 +3,9 @@ import { getTestSelectors } from '~/shared/utils/unit-test/test-id';
 export const COMPONENT_NAME = 'home-insights';
 
 export enum HomeInsightsTextAttribute {
-  category = 'Dashboard insights',
-  title = 'Gain insights of any blockers & team progress',
-  description = 'With our dashboard and team views you will have complete visibility over your teams and an individual team member`s performance at a glance.'
+  category = 'Аналитическая информация на панели мониторинга',
+  title = 'Получите представление о любых блокировках и прогрессе команды',
+  description = 'С помощью нашей панели мониторинга и представлений команд вы будете иметь полную информацию о своих командах и результатах работы каждого отдельного члена команды с первого взгляда.'
 }
 
 export enum HomeInsightsTestLocator {

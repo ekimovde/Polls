@@ -13,7 +13,7 @@ import { HomeBlockLayoutView } from '../block-layout/component';
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(HomeDiscussionsTextAttribute);
+  readonly textAttributes = HomeDiscussionsTextAttribute;
   readonly testLocators = HomeDiscussionsTestLocator;
 
   readonly homeBlockLayoutView = HomeBlockLayoutView;

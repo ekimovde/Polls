@@ -21,7 +21,7 @@ import { PollEmptyBanner } from '~/components/poll/empty-banner';
   }
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(PollsMyPagePageTextAttribute)
+  readonly textAttributes = PollsMyPagePageTextAttribute;
 
   readonly projectRepository = this.$projectServices.projectRepository;
   readonly notifier = this.$projectServices.notification;

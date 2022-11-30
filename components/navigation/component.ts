@@ -10,7 +10,7 @@ import { RoutesName } from '~/shared/repository/routes/routes-name';
   name: COMPONENT_NAME
 })
 export default class extends mixins(TestId, Translatable) {
-  readonly textAttributes = this.transAll(NavigationBlockTextAttribute);
+  readonly textAttributes = NavigationBlockTextAttribute;
   readonly testLocators = NavigationBlockTestLocator;
 
   get isIndexPage(): boolean {
