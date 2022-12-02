@@ -8,9 +8,10 @@ import { UiButtonView, UiButtonSize, UiButtonTheme } from '~/components/ui/butto
 import { PollVoteOption } from '~/components/poll/vote/option';
 import { fakePollAnswers } from '~/shared/repository/fixtures/fake-poll-answers';
 import { fakePollQuestion } from '~/shared/repository/fixtures/fake-poll-question';
-import { PollQuestionResponse, PollQuestionTypes, PollQuestionAnswer } from '../model';
+import { PollQuestionResponse, PollQuestionTypes, PollQuestionAnswer, PollVoteResults } from '../model';
 import { PollVoteInfo } from '~/components/poll/vote/info';
 import { PollVoteResult } from '~/components/poll/vote/result';
+import { SharedColorTheme } from '~/components/shared/color/component';
 
 const DEFAULT_QUANTITY_OF_ANSWERS = 1;
 
@@ -33,8 +34,31 @@ export default class extends mixins(TestId, Translatable) {
     default: () => ({})
   }) readonly question: PollQuestionResponse;
 
+  @Prop({
+    type: Object,
+    default: () => ({})
+  }) readonly pollVoteResults: PollVoteResults;
+
+  @Prop({
+    type: String,
+    validator: val => Object.values(SharedColorTheme).includes(val),
+    default: SharedColorTheme.blue
+  }) readonly color: SharedColorTheme;
+
+  @Prop({
+    type: Boolean,
+    default: false
+  }) readonly isLoading: boolean;
+
+  @Prop({
+    type: Boolean,
+    default: false
+  }) readonly isPollEnded: boolean;
+
   readonly textAttributes = PollVoteTextAttribute;
   readonly testLocators = PollVoteTestLocator;
+
+  readonly userRepo = this.$projectServices.userRepo;
 
   readonly uiButtonView = UiButtonView;
   readonly uiButtonSize = UiButtonSize;
@@ -47,6 +71,10 @@ export default class extends mixins(TestId, Translatable) {
 
   get hasQuestion(): boolean {
     return !isEmpty(this.question);
+  }
+
+  get hasPollVoteResults(): boolean {
+    return !isEmpty(this.pollVoteResults);
   }
 
   get hasSelectedAnswer(): boolean {
@@ -75,6 +103,20 @@ export default class extends mixins(TestId, Translatable) {
 
   get isImageShown(): boolean {
     return this.hasSelectedAnswer && this.isImageTextType && (this.hasImage || this.hasOwnImage);
+  }
+
+  get isVoted(): boolean {
+    return this.hasPollVoteResults
+      ? this.pollVoteResults.users.map(item => item.id).includes(this.userId)
+      : false;
+  }
+
+  get isPollVoteResultShown(): boolean {
+    return this.isVoted || this.isPollEnded;
+  }
+
+  get userId(): number {
+    return this.userRepo.user?.id;
   }
 
   get ownImage(): string {

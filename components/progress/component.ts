@@ -5,9 +5,9 @@ import { Translatable } from '~/components/shared/translatable';
 import { UserProgressResponse } from '~/shared/repository/repo';
 import { uiProgress } from '~/components/ui';
 import { UserProgressValue } from './model';
-import { UiProgressTheme } from '../ui/progress/component';
 import { formatNumber } from '~/shared/utils/format-number';
 import { getPercentage } from '~/shared/utils/get-percentage';
+import { SharedColorTheme } from '../shared/color/component';
 
 enum ProgressBlockType {
   created = 'created',
@@ -84,15 +84,15 @@ export default class extends mixins(TestId, Translatable) {
     return description;
   }
 
-  getThemeByType(type: ProgressBlockType): UiProgressTheme {
-    let theme = UiProgressTheme.green;
+  getThemeByType(type: ProgressBlockType): SharedColorTheme {
+    let theme = SharedColorTheme.green;
 
     switch (type) {
       case ProgressBlockType.consists:
-        theme = UiProgressTheme.purple;
+        theme = SharedColorTheme.purple;
         break;
       case ProgressBlockType.participation:
-        theme = UiProgressTheme.red;
+        theme = SharedColorTheme.red;
         break;
     }
 
@@ -103,7 +103,7 @@ export default class extends mixins(TestId, Translatable) {
 interface ProgressBlockParams extends UserProgressValue {
   title: string
   description: string
-  theme: UiProgressTheme
+  theme: SharedColorTheme
   progress: number
   formattedProgress: string
 }

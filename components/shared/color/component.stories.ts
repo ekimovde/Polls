@@ -19,6 +19,7 @@ export const OrangeTheme = (): Component => create({ theme: SharedColorTheme.ora
 export const GreenTheme = (): Component => create({ theme: SharedColorTheme.green });
 export const RedTheme = (): Component => create({ theme: SharedColorTheme.red });
 export const PinkTheme = (): Component => create({ theme: SharedColorTheme.pink });
+export const PinkLightTheme = (): Component => create({ theme: SharedColorTheme.pinkLight });
 export const BlueTheme = (): Component => create({ theme: SharedColorTheme.blue });
 export const GreyTheme = (): Component => create({ theme: SharedColorTheme.grey });
 export const isXlSize = (): Component => create();

@@ -127,7 +127,8 @@
     }
 
     &--type {
-      &-regular {
+      &-regular,
+      &-extra {
         color: $red-basic90;
 
         &:hover {

@@ -85,12 +85,20 @@ export class UrlGenerator implements ProjectUrlGenerator {
     return `${ApiRoutes.polls}${id}`;
   }
 
+  endPoll(id: string): string {
+    return `${ApiRoutes.polls}end/${id}`;
+  }
+
   updatePoll(id: string): string {
     return `${ApiRoutes.polls}${id}`;
   }
 
-  getPollAnswers(id: string): string {
-    return `${ApiRoutes.polls}answers/${id}/`;
+  getPollVoteResults(id: string): string {
+    return `${ApiRoutes.polls}vote/results/${id}/`;
+  }
+
+  setVoteInPoll(): string {
+    return `${ApiRoutes.polls}set-vote/`;
   }
 
   getUserProgress(): string {

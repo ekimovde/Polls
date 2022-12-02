@@ -41,16 +41,12 @@ export interface PollAuthor {
   avatar: string
 }
 
-export interface PollVoteParams {
+export interface PollVoteResults {
   total: number
-  answers: PollVoteAnswer[]
+  answers: PollQuestionAnswer[]
   progress: PollVoteProgress
-}
-
-export interface PollVoteAnswer {
-  text: string
-  authors: PollAuthor[]
-  timestamp: number
+  users: PollAuthor[]
+  selectedAnswer: number
 }
 
 export interface PollVoteProgress {

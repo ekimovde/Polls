@@ -25,14 +25,16 @@
       z-index: 1;
     }
 
+    &:not(:only-of-type) {
+      margin-right: -15px;
+    }
+
     &:nth-child(2) {
       z-index: 2;
-      margin-left: -15px;
     }
 
     &:last-child {
       z-index: 3;
-      margin-left: -15px;
     }
   }
 
@@ -40,12 +42,18 @@
     @include fontInter13Regular;
 
     margin: 0;
+    margin-left: 15px;
     padding: 0;
     color: #666;
     line-height: 14px;
+
+    &--default {
+      margin: 0;
+    }
   }
 
   &__circle {
+    display: none;
     width: 3px;
     height: 3px;
     background-color: #999;

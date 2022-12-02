@@ -47,6 +47,10 @@ export const selectOptionsWithColors = (): SelectOptionBase[] => {
       value: SharedColorTheme.pink
     }),
     selectOption({
+      label: 'PinkLight',
+      value: SharedColorTheme.pinkLight
+    }),
+    selectOption({
       label: 'Blue',
       value: SharedColorTheme.blue
     }),

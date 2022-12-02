@@ -22,6 +22,14 @@
       border-radius: 6px;
     }
 
+    &-xs {
+      @include fontInter12Medium;
+
+      padding: 3px 5px;
+      line-height: 12px;
+      border-radius: 6px;
+    }
+
     &-small {
       @include fontInter8Bold;
 
@@ -54,7 +62,7 @@
     }
 
     &-pink {
-      color: $pink-basic90;
+      color: $pink;
       background-color: $red-basic70;
     }
 

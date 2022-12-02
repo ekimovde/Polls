@@ -13,7 +13,7 @@
               </h1>
 
               <p :class="b('text')">
-                {{ textAttributes.description }}
+                {{ displayedDescription }}
               </p>
             </div>
 
@@ -90,6 +90,11 @@
       <poll-vote
         v-if="hasPoll"
         :question="question"
+        :poll-vote-results="pollVoteResults"
+        :is-loading="isVoteLoading"
+        :is-poll-ended="poll.isPollEnded"
+        :color="poll.color"
+        @vote="vote"
       />
     </div>
 
@@ -111,6 +116,28 @@
           @click="remove"
         >
           {{ textAttributes.deletePoll }}
+        </ui-button>
+      </div>
+    </ui-modal>
+
+    <ui-modal :is-visible.sync="isModalVoteVisible">
+      <div>
+        <h4 :class="b('modal-title')">
+          {{ textAttributes.modalTitle }}
+        </h4>
+
+        <p :class="b('modal-description')">
+          {{ textAttributes.modalVoteDescription }}
+        </p>
+
+        <ui-button
+          :view="uiButtonView.action"
+          :size="uiButtonSize.xs"
+          :theme="uiButtonTheme.red"
+          :is-loading="isEndPollLoading"
+          @click="endPoll"
+        >
+          {{ textAttributes.endVote }}
         </ui-button>
       </div>
     </ui-modal>

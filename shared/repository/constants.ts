@@ -48,7 +48,8 @@ export interface DropdownItemBase {
 
 export enum DropdownItemTypeBase {
   default = 'default',
-  regular = 'regular'
+  regular = 'regular',
+  extra = 'extra'
 }
 
 export enum PollCategory {

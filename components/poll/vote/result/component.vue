@@ -8,8 +8,8 @@
   >
     <ul :class="b('list')">
       <li
-        v-for="item in answers"
-        :key="item.timestamp"
+        v-for="(item, index) in answers"
+        :key="index"
         :class="b('item')"
       >
         <p :class="b('text')">
@@ -23,18 +23,18 @@
             </h5>
 
             <shared-badge
-              v-if="isMyAnswer(item.authors)"
-              :theme="sharedColorTheme.purple"
-              :size="sharedBadgeSize.small"
+              v-if="isMyAnswer(item.timestamp)"
+              :theme="sharedColorTheme.green"
+              :size="sharedBadgeSize.xs"
             >
-              {{ textAttributes.yourChoice }}
+              {{ textAttributes.yourAnswer }}
             </shared-badge>
           </div>
 
           <ui-progress
-            :progress="vote.progress[item.timestamp]"
-            :theme="uiProgressTheme.blue"
-            :view="uiProgressView.regular"
+            :progress="getProgress(item.timestamp)"
+            :theme="color"
+            :view="uiProgressView.default"
           />
         </div>
       </li>

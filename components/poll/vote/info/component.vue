@@ -8,25 +8,21 @@
   >
     <ul :class="b('list')">
       <li
-        v-for="(item, index) in 3"
+        v-for="(item, index) in avatars"
         :key="index"
         :class="b('item')"
       >
         <avatar-block
           :size="avatarBlockSize.xs"
-          :src="''"
+          :src="item"
         />
       </li>
     </ul>
 
-    <p :class="b('text')">
+    <p :class="b('text', { default: !hasAvatars })">
       {{ displayedTotalVotes }}
     </p>
 
     <div :class="b('circle')" />
-
-    <p :class="b('text')">
-      {{ displayedTimeLeft }}
-    </p>
   </div>
 </template>

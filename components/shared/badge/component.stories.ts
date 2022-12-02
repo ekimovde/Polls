@@ -24,6 +24,7 @@ export const PinkLightTheme = (): Component => create({ theme: SharedColorTheme.
 export const BlueTheme = (): Component => create({ theme: SharedColorTheme.blue });
 export const GreyTheme = (): Component => create({ theme: SharedColorTheme.grey });
 export const IsXlSize = (): Component => create();
+export const IsXsSize = (): Component => create({ size: SharedBadgeSize.xs });
 export const IsSmallSize = (): Component => create({ size: SharedBadgeSize.small });
 export const IsUppercase = (): Component => create({
   theme: SharedColorTheme.pinkLight,

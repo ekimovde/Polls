@@ -60,25 +60,29 @@ $root-name: 'ui-progress';
 
             @include progress-bar-common($blue-basic100);
           }
-        }
-      }
 
-      &-regular {
-        &.#{$root-name}--theme {
-          &-green {
-            @include progress-bar-common($green-basic90);
+          &-orange {
+            background-color: $orange-basic80;
+
+            @include progress-bar-common($orange);
           }
 
-          &-purple {
-            @include progress-bar-common($violet-basic90);
+          &-pink {
+            background-color: $pink-basic80;
+
+            @include progress-bar-common($pink-basic100);
           }
 
-          &-red {
-            @include progress-bar-common($red-basic100);
+          &-pink-light {
+            background-color: $pink-basic80;
+
+            @include progress-bar-common($pink-basic90);
           }
 
-          &-blue {
-            @include progress-bar-common($blue-basic100);
+          &-grey {
+            background-color: $white-basic50;
+
+            @include progress-bar-common($other-basic260);
           }
         }
       }

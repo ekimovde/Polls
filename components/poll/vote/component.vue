@@ -7,15 +7,20 @@
     :data-test="tid()"
   >
     <h4 :class="b('title')">
-      {{ textAttributes.poll }}
+      {{ question.name }}
     </h4>
 
     <div :class="b('body')">
-      <h5 :class="b('question-title')">
-        {{ question.name }}
-      </h5>
+      <poll-vote-result
+        v-if="isPollVoteResultShown"
+        :poll-vote-results="pollVoteResults"
+        :color="color"
+      />
 
-      <div :class="b('wrapper', { grid: isImageTextType })">
+      <div
+        v-else
+        :class="b('wrapper', { grid: isImageTextType })"
+      >
         <ul :class="b('list', { type: question.type, default: isOnlyAnswer })">
           <li
             v-for="(item, index) in question.answers"
@@ -46,18 +51,18 @@
           </span>
         </div>
       </div>
-
-      <poll-vote-result />
     </div>
 
     <div :class="b('footer')">
-      <poll-vote-info />
+      <poll-vote-info :poll-vote-results="pollVoteResults" />
 
       <ui-button
+        v-if="!isPollVoteResultShown"
         :view="uiButtonView.action"
         :size="uiButtonSize.small"
         :theme="uiButtonTheme.purple"
         :is-disabled="!hasSelectedAnswer"
+        :is-loading="isLoading"
         @click="vote"
       >
         {{ textAttributes.vote }}

@@ -4,6 +4,7 @@ import { PollVote } from './index';
 import { fakePollQuestionWithAnswers } from '~/shared/repository/fixtures/fake-poll-question';
 import { fakePollAnswerByImage, fakePollAnswerByImageText } from '~/shared/repository/fixtures/fake-poll-answers';
 import { PollQuestionTypes } from '../model';
+import { SharedColorTheme } from '~/components/shared/color/component';
 
 export default {
   title: 'Components / Poll / Vote',
@@ -42,12 +43,22 @@ function create(props = {}): Component {
     data() {
       return {
         question: fakePollQuestionWithAnswers(),
+        pollVoteResults: null,
+        color: SharedColorTheme.blue,
+        isLoading: false,
+        isPollEnded: false,
         ...props
       };
     },
     template: `
       <div style="padding: 20px;">
-        <poll-vote :question="question" />
+        <poll-vote
+          :question="question"
+          :poll-vote-results="pollVoteResults"
+          :color="color"
+          :is-loading="isLoading"
+          :is-poll-ended="isPollEnded"
+        />
       </div>
     `
   };

@@ -3,17 +3,10 @@ import { Progress } from 'element-ui';
 import { COMPONENT_NAME, UiProgressTestLocator } from './attributes';
 import TestId from '~/shared/utils/unit-test/test-id';
 import { getPercentage } from '~/shared/utils/get-percentage';
-
-export enum UiProgressTheme {
-  green = 'green',
-  purple = 'purple',
-  red = 'red',
-  blue = 'blue'
-}
+import { SharedColorTheme } from '~/components/shared/color/component';
 
 export enum UiProgressView {
-  default = 'default',
-  regular = 'regular'
+  default = 'default'
 }
 
 const DEFAULT_PERCENT_OF_COMPLETED = 100;
@@ -32,9 +25,9 @@ export default class extends mixins(TestId) {
 
   @Prop({
     type: String,
-    default: UiProgressTheme.green,
-    validator: val => Object.values(UiProgressTheme).includes(val)
-  }) readonly theme: UiProgressTheme;
+    default: SharedColorTheme.green,
+    validator: val => Object.values(SharedColorTheme).includes(val)
+  }) readonly theme: SharedColorTheme;
 
   @Prop({
     type: String,

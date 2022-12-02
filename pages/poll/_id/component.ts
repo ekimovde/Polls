@@ -12,10 +12,10 @@ import { getPollSettingsIdRoute } from '~/shared/repository/routes/poll';
 import { pollSettingsDropdownList } from '~/static-data/dropdown/factory';
 import { DropdownItemTypeBase } from '~/shared/repository/constants';
 import { RoutesName } from '~/shared/repository/routes/routes-name';
-import { PollResponse } from '~/shared/repository/repo';
+import { PollResponse, PollMembersResponse } from '~/shared/repository/repo';
 import { UiTooltipPlacement } from '~/components/ui/tooltip/component';
 import { PollVote } from '~/components/poll/vote';
-import { PollQuestionResponse } from '~/components/poll/model';
+import { PollQuestionResponse, PollQuestionAnswer, PollVoteResults } from '~/components/poll/model';
 
 @Component({
   name: COMPONENT_NAME,
@@ -47,12 +47,17 @@ export default class extends mixins(TestId, Translatable) {
   readonly dropdownList = pollSettingsDropdownList();
 
   poll: PollResponse = null;
+  pollVoteResults: PollVoteResults = null;
+  pollMembers: PollMembersResponse[] = [];
 
   isLoading = false;
+  isVoteLoading = false;
   isRemoveLoading = false;
+  isEndPollLoading = false;
 
   isVisible = false;
   isModalVisible = false;
+  isModalVoteVisible = false;
 
   get id(): string {
     return this.$route.params.id;
@@ -60,6 +65,14 @@ export default class extends mixins(TestId, Translatable) {
 
   get userId(): number {
     return this.userRepo.user?.id;
+  }
+
+  get isSettingsButtonShown(): boolean {
+    return this.userId === this.poll?.userId;
+  }
+
+  get hasPoll(): boolean {
+    return Boolean(this.poll);
   }
 
   get fullNameByAuthor(): string {
@@ -82,12 +95,17 @@ export default class extends mixins(TestId, Translatable) {
     return this.poll.question;
   }
 
-  get isSettingsButtonShown(): boolean {
-    return this.userId === this.poll?.userId;
+  get formattedPluralByPeoples(): string {
+    const wordVariants = ['человек', 'человека', 'человеков'];
+    const variableName = 'MEMBERS_NUMBER_VAR';
+    const quantityOfPollMembers = this.pollMembers.length;
+    const wordPlural = this.pluralizeChoice(quantityOfPollMembers, wordVariants, variableName);
+
+    return wordPlural.replace(variableName, String(quantityOfPollMembers));
   }
 
-  get hasPoll(): boolean {
-    return Boolean(this.poll);
+  get displayedDescription(): string {
+    return `${this.textAttributes.description} ${this.formattedPluralByPeoples}`;
   }
 
   async created(): Promise<void> {
@@ -95,6 +113,8 @@ export default class extends mixins(TestId, Translatable) {
       this.isLoading = true;
 
       await this.getPoll();
+      await this.getPollVoteResults();
+      await this.getPollMembers();
     } catch (error) {
       this.notifier.showError();
     } finally {
@@ -104,6 +124,14 @@ export default class extends mixins(TestId, Translatable) {
 
   async getPoll(): Promise<void> {
     this.poll = await this.projectRepository.getPoll(this.id);
+  }
+
+  async getPollVoteResults(): Promise<void> {
+    this.pollVoteResults = await this.projectRepository.getPollVoteResults(String(this.poll.id));
+  }
+
+  async getPollMembers(): Promise<void> {
+    this.pollMembers = await this.projectRepository.getPollMembers(this.id);
   }
 
   async remove(): Promise<void> {
@@ -120,6 +148,39 @@ export default class extends mixins(TestId, Translatable) {
     }
   }
 
+  async endPoll(): Promise<void> {
+    try {
+      this.isEndPollLoading = true;
+
+      await this.projectRepository.endPoll(this.id);
+      await this.getPoll();
+    } catch (error) {
+      this.notifier.showError();
+    } finally {
+      this.isEndPollLoading = false;
+      this.isModalVoteVisible = false;
+    }
+  }
+
+  async vote(selectAnswer: PollQuestionAnswer): Promise<void> {
+    try {
+      const { text, timestamp } = selectAnswer;
+
+      this.isVoteLoading = true;
+
+      await this.projectRepository.setVoteInPoll({
+        pollId: this.poll?.id,
+        text,
+        timestamp
+      });
+      await this.getPollVoteResults();
+    } catch (error) {
+      this.notifier.showError();
+    } finally {
+      this.isVoteLoading = false;
+    }
+  }
+
   toggleVisible(): void {
     this.isVisible = !this.isVisible;
   }
@@ -127,9 +188,13 @@ export default class extends mixins(TestId, Translatable) {
   open(route: Route, type: DropdownItemTypeBase): void {
     this.isVisible = false;
 
-    if (type === DropdownItemTypeBase.regular) {
-      this.isModalVisible = true;
-      return;
+    switch (type) {
+      case DropdownItemTypeBase.regular:
+        this.isModalVisible = true;
+        return;
+      case DropdownItemTypeBase.extra:
+        this.isModalVoteVisible = true;
+        return;
     }
 
     void this.$router.push({ name: route.name, params: { id: this.id } });

@@ -1,7 +1,7 @@
 import { withDesign } from 'storybook-addon-designs';
 import { Component } from 'vue';
 import { PollVoteResult } from './index';
-import { fakePollVote } from '~/shared/repository/fixtures/fake-poll-vote';
+import { fakePollVoteResults } from '~/shared/repository/fixtures/fake-poll-vote';
 import { userRepo } from '~/shared/repository/fake-services-factory';
 import { fakeSelfInfo } from '~/shared/repository/fixtures/fake-self-info';
 
@@ -27,12 +27,12 @@ function create(): Component {
     },
     data() {
       return {
-        vote: fakePollVote()
+        pollVoteResults: fakePollVoteResults()
       };
     },
     template: `
       <div style="padding: 20px;">
-        <poll-vote-result :vote="vote" />
+        <poll-vote-result :poll-vote-results="pollVoteResults" />
       </div>
     `
   };

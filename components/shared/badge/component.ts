@@ -5,6 +5,7 @@ import { SharedColorTheme } from '../color/component';
 
 export enum SharedBadgeSize {
   xl = 'xl',
+  xs = 'xs',
   small = 'small'
 }
 

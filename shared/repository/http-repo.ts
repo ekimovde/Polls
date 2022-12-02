@@ -1,10 +1,10 @@
 import axios, { AxiosInstance } from 'axios';
 import { StoreGetters } from '~/store/model';
 import { createFormDataFromObject } from '../utils/create-form-data-from-object';
-import { ProjectRepository, SigninRequest, AccessTokens, ApiWrapper, RefreshTokenRequest, TranslationRequest, UserProgressResponse, PollResponse, ReactionResponse, PollMembersResponse, SelfInfoResponse, SignupRequest, SetUserInfoRequest, SetUserPasswordRequest, SetPollRequest, SendPollInviteRequest, UnsplashPhotoResponse, UnsplashPhotoRequest, JoinPollRequest } from './repo';
+import { ProjectRepository, SigninRequest, AccessTokens, ApiWrapper, RefreshTokenRequest, TranslationRequest, UserProgressResponse, PollResponse, ReactionResponse, PollMembersResponse, SelfInfoResponse, SignupRequest, SetUserInfoRequest, SetUserPasswordRequest, SetPollRequest, SendPollInviteRequest, UnsplashPhotoResponse, UnsplashPhotoRequest, JoinPollRequest, SetVoteInPollRequest } from './repo';
 import { UrlGenerator } from './url-generator';
 import { Translation } from '../services/translator';
-import { PollQuestionAnswer } from '~/components/poll/model';
+import { PollVoteResults } from '~/components/poll/model';
 import { getQueryForUnsplashResponse } from '../utils/get-query-for-unsplash-response';
 
 export class HttpRepo implements ProjectRepository {
@@ -110,24 +110,32 @@ export class HttpRepo implements ProjectRepository {
     await this.axios.delete<ApiWrapper<void>>(this.urlGenerator.removePoll(id));
   }
 
-  async updatePoll(id: string, params: SetPollRequest): Promise<void> {
-    await this.axios.patch<ApiWrapper<void>>(this.urlGenerator.updatePoll(id), params);
+  async endPoll(id: string): Promise<void> {
+    await this.axios.get<ApiWrapper<void>>(this.urlGenerator.endPoll(id));
   }
 
-  async getPollAnswers(id: string): Promise<PollQuestionAnswer[]> {
-    const { data } = await this.axios.get<ApiWrapper<PollQuestionAnswer[]>>(this.urlGenerator.getPollAnswers(id));
-
-    return data.response;
+  async updatePoll(id: string, params: SetPollRequest): Promise<void> {
+    await this.axios.patch<ApiWrapper<void>>(this.urlGenerator.updatePoll(id), params);
   }
 
   async joinPoll(params: JoinPollRequest): Promise<void> {
     await this.axios.post<ApiWrapper<void>>(this.urlGenerator.joinPoll(), params);
   }
 
+  async getPollVoteResults(id: string): Promise<PollVoteResults> {
+    const { data } = await this.axios.get<ApiWrapper<PollVoteResults>>(this.urlGenerator.getPollVoteResults(id));
+
+    return data.response;
+  }
+
   async getPopularPolls(): Promise<PollResponse[]> {
     const { data } = await this.axios.get<ApiWrapper<PollResponse[]>>(this.urlGenerator.getPopularPolls());
 
     return data.response;
+  }
+
+  async setVoteInPoll(params: SetVoteInPollRequest): Promise<void> {
+    await this.axios.post<ApiWrapper<void>>(this.urlGenerator.setVoteInPoll(), params);
   }
 
   async getUserProgress(): Promise<UserProgressResponse> {

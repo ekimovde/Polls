@@ -88,6 +88,11 @@ export const pollSettingsDropdownList = (): DropdownItemBase[][] => {
     ],
     [
       dropdownItem({
+        title: 'Завершить голосование',
+        routeName: RoutesName.index,
+        type: DropdownItemTypeBase.extra
+      }),
+      dropdownItem({
         title: 'Удалить опрос',
         routeName: RoutesName.index,
         type: DropdownItemTypeBase.regular

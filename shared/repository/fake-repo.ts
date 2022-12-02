@@ -18,7 +18,8 @@ import {
   SendPollInviteRequest,
   UnsplashPhotoResponse,
   UnsplashPhotoRequest,
-  JoinPollRequest
+  JoinPollRequest,
+  SetVoteInPollRequest
 } from './repo';
 import { translationResponse } from './fixtures/translation';
 import { translationsResponse } from './fixtures/translations';
@@ -29,9 +30,9 @@ import { fakeReactions } from './fixtures/fake-reactions';
 import { fakePollMembers } from './fixtures/fake-poll-members';
 import { fakeSelfInfo } from './fixtures/fake-self-info';
 import { fakeTokens } from './fixtures/fake-tokens';
-import { PollQuestionAnswer } from '~/components/poll/model';
-import { fakePollAnswers } from './fixtures/fake-poll-answers';
+import { PollVoteResults } from '~/components/poll/model';
 import { fakeUnsplashPhotos } from './fixtures/fake-unsplash-photos';
+import { fakePollVoteResults } from './fixtures/fake-poll-vote';
 
 export class FakeRepo implements ProjectRepository {
   static create(): ProjectRepository {
@@ -102,20 +103,28 @@ export class FakeRepo implements ProjectRepository {
     void respondMockResult(null);
   }
 
-  async updatePoll(id: string, params: SetPollRequest): Promise<void> {
+  async endPoll(id: string): Promise<void> {
     void respondMockResult(null);
   }
 
-  async getPollAnswers(id: string): Promise<PollQuestionAnswer[]> {
-    return respondMockResult(fakePollAnswers());
+  async updatePoll(id: string, params: SetPollRequest): Promise<void> {
+    void respondMockResult(null);
   }
 
   async joinPoll(params: JoinPollRequest): Promise<void> {
     void respondMockResult(null);
   }
 
+  async getPollVoteResults(id: string): Promise<PollVoteResults> {
+    return respondMockResult(fakePollVoteResults());
+  }
+
   async getPopularPolls(): Promise<PollResponse[]> {
     return respondMockResult(fakePolls());
+  }
+
+  async setVoteInPoll(params: SetVoteInPollRequest): Promise<void> {
+    void respondMockResult(null);
   }
 
   async getUserProgress(): Promise<UserProgressResponse> {
